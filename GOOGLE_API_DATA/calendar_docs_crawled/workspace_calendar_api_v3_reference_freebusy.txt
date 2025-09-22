@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/freebusy
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/freebusy
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 Freebusy
 bookmark_border
@@ -19,5 +18,4 @@ bookmark_border
 방법
 query [https://developers.google.com/workspace/calendar/api/v3/reference/freebusy/query?hl=ko]
 캘린더 모음의 한가함/바쁨 정보를 반환합니다.
-도움이 되었나요?
 의견 보내기

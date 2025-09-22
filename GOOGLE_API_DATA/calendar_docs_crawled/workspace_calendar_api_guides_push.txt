@@ -1,0 +1,166 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/guides/push
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+의견 보내기
+푸시 알림
+bookmark_border
+이 페이지의 내용
+개요 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#overview]
+알림 채널 만들기 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#create-notification-channels]
+감시 요청 만들기 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#make-watch-requests]
+알림 채널 갱신 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#renew-notification-channels]
+알림 수신 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#receive-notifications]
+알림 메시지 형식 해석 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#interpret-the-notification-message-format]
+알림에 대한 응답 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#respond-to-notifications]
+Google Calendar API 알림 이벤트 이해하기 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#understand-google-calendar-api-notification-events]
+이 문서에서는 모바일 앱의 상태를 알리는 푸시 알림을 사용하여 애플리케이션 상태를 변경할 수 없습니다
+개요
+Google Calendar API에서는 리소스 변경 등이 있습니다 이 기능을 사용하면 실행할 수 있습니다 추가 네트워크 및 컴퓨팅 리소스를 제거하여 리소스 변경 여부를 확인하기 위한 폴링 리소스 관련 비용이 많이 들 수 있습니다. 감시한 리소스가 변경될 때마다 Google Calendar API는 애플리케이션입니다.
+푸시 알림을 사용하려면 다음 두 가지를 실행해야 합니다.
+수신 URL 또는 '웹훅' 설정 콜백 수신자입니다.
+이 HTTP(S) 요청을 전송하는 트리거될 수 있습니다
+원하는 각 리소스 엔드포인트마다 (알림 채널 [https://cloud.google.com/monitoring/support/notification-options?hl=ko])을 설정합니다. 있습니다.
+채널은 알림의 라우팅 정보를 지정합니다. 메시지를 보낼 수 있습니다 채널 설정 과정에서 알림을 받을 수 있습니다. 채널의 리소스가 변경될 때마다 Google Calendar API가 알림 메시지를 POST로 보냅니다. 해당 URL에 요청을 보냅니다.
+현재 Google Calendar API는 Acl [https://developers.google.com/workspace/calendar/v3/reference/acl/watch?hl=ko], CalendarList [https://developers.google.com/workspace/calendar/v3/reference/calendarList/watch?hl=ko], Events [https://developers.google.com/workspace/calendar/v3/reference/events/watch?hl=ko] 및 Settings [https://developers.google.com/workspace/calendar/v3/reference/settings/watch?hl=ko] 리소스를 사용합니다.
+알림 채널 만들기
+푸시 알림을 요청하려면 알림 채널을 설정해야 합니다. 모니터링하려는 각 리소스에 대한 유지보수를 설정합니다 알림 채널을 설정한 후 Google Calendar API는 감시한 리소스가 감지되었을 때 애플리케이션에 이를 알립니다. 있습니다.
+감시 요청 만들기
+각 시청 가능한 Google Calendar API 리소스에는 watch 메서드를 다음 형식의 URI에 추가합니다.
+https://www.googleapis.com/API_NAME/API_VERSION/RESOURCE_PATH/watch
+알림 채널을 설정할 때 POST 요청을 리소스의 watch 메서드
+각 알림 채널은 특정 사용자 및 특정 리소스 또는 리소스 집합일 수 있습니다. watch 요청 현재 사용자가 이 리소스를 소유하거나 액세스할 권한이 있습니다.
+예
+특정 캘린더의 일정 모음에 대한 변경사항 감시를 시작합니다.
+POST https://www.googleapis.com/calendar/v3/calendars/my_calendar@gmail.com/events/watch
+Authorization: Bearer auth_token_for_current_user
+Content-Type: application/json
+
+{
+  "id": "01234567-89ab-cdef-0123456789ab", // Your channel ID.
+  "type": "web_hook",
+  "address": "https://mydomain.com/notifications", // Your receiving URL.
+  ...
+  "token": "target=myApp-myCalendarChannelDest", // (Optional) Your channel token.
+  "expiration": 1426325213000 // (Optional) Your requested channel expiration time.
+}
+필수 속성
+각 watch 요청에서 다음 필드를 제공해야 합니다.
+이 속성을 고유하게 식별하는 id 속성 문자열입니다. 새 알림 채널을 생성합니다. 이때 범용 고유 식별자 (UUID [http://en.wikipedia.org/wiki/UUID]) 또는 이와 유사한 고유 문자열입니다. 최대 길이: 64자(영문 기준)
+설정한 ID 값은 모든 알림의 X-Goog-Channel-Id HTTP 헤더 모든 메시지를 받게 됩니다.
+값으로 설정된 type 속성 문자열 web_hook입니다.
+수신 대기하는 URL로 설정된 address 속성 문자열 이 알림 채널의 알림에 응답합니다. 이것은 웹훅을 설정하고, HTTPS를 사용해야 합니다.
+Google Calendar API는 유효한 SSL 인증서가 설치된 경우에만 이 HTTPS 주소를 웹 서버에서 실행되는 것입니다 다음 인증서는 유효하지 않습니다.
+자체 서명된 인증서
+신뢰할 수 없는 출처에서 서명한 인증서
+취소된 인증서
+대상과 일치하지 않는 주체가 있는 인증서 있습니다.
+선택 속성
+이러한 선택 입력란을 watch 요청:
+임의의 문자열을 지정하는 token 속성 채널 토큰으로 사용할 값입니다. 알림 채널을 사용하면 사용할 수 있습니다 예를 들어 토큰을 사용하여 각 수신 메시지가 애플리케이션 만들기가 실행되는 동안 알림이 스푸핑되어 메일을 올바른 목적지로 라우팅하거나 이 채널의 목적에 따라 신청서를 제출해야 합니다. 최대 길이: 256자(영문 기준)
+토큰은 모든 알림에 HTTP 헤더 X-Goog-Channel-Token개 메시지를 받게 됩니다.
+알림 채널 토큰을 사용하는 경우 다음을 수행하는 것이 좋습니다.
+URL 쿼리와 같은 확장 가능한 인코딩 형식 사용 매개변수입니다. 예: forwardTo=hr&createdBy=mobile
+OAuth 토큰과 같은 민감한 정보는 포함하지 마세요.
+를 통해 개인정보처리방침을 정의할 수 있습니다.
+참고: 매우 민감한 정보를 전송해야 하는 경우 데이터가 암호화되었는지 확인한 후에 토큰입니다.
+expiration 속성 문자열이 Unix 타임스탬프 [http://en.wikipedia.org/wiki/Unix_time] Google Calendar API를 실행할 날짜와 시간의 (밀리초) 이 알림 채널에 대한 메시지 전송을 중지합니다.
+채널에 만료 시간이 있는 경우 만료 시간이 값으로 포함됩니다. X-Goog-Channel-Expiration HTTP 헤더의 호출 (사람이 읽을 수 있음) 모든 알림 메시지에서 찾을 수 있습니다. 애플리케이션이 이 채널에 대해 수신합니다.
+요청에 관한 자세한 내용은 watch 메서드를 참조하세요. (API 참조의 Acl [https://developers.google.com/workspace/calendar/v3/reference/acl/watch?hl=ko], CalendarList [https://developers.google.com/workspace/calendar/v3/reference/calendarList/watch?hl=ko], Events [https://developers.google.com/workspace/calendar/v3/reference/events/watch?hl=ko] 및 Settings [https://developers.google.com/workspace/calendar/v3/reference/settings/watch?hl=ko] 리소스)
+대답 보기
+watch 요청이 알림을 성공적으로 생성하는 경우 채널의 경우 HTTP 200 OK 상태 코드를 반환합니다.
+시계 응답의 메시지 본문은 알림 채널을 만듭니다.
+{
+  "kind": "api#channel",
+  "id": "01234567-89ab-cdef-0123456789ab"", // ID you specified for this channel.
+  "resourceId": "o3hgv1538sdjfh", // ID of the watched resource.
+  "resourceUri": "https://www.googleapis.com/calendar/v3/calendars/my_calendar@gmail.com/events", // Version-specific ID of the watched resource.
+  "token": "target=myApp-myCalendarChannelDest", // Present only if one was provided.
+  "expiration": 1426325213000, // Actual expiration time as Unix timestamp (in ms), if applicable.
+}
+요청의 일부로 보낸 속성 외에도 반환된 정보에는 resourceId 및 resourceUri: 이 리소스에서 감시 중인 리소스를 식별합니다. 알림 채널.
+참고: resourceId 속성은 버전 독립성이 있는 안정적인 리소스 식별자를 제공합니다. 이 resourceUri 속성은 감시된 동영상의 표준 URI입니다. 현재 API 버전의 컨텍스트에 배치되므로 버전별로 다릅니다
+반환된 정보를 다른 알림 채널에 전달할 수 있습니다. 예를 들어 수신을 중단하고 알림 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#stopping]을 받을 수 있습니다.
+응답에 관한 자세한 내용은 watch를 참고하세요. API 참조의 Acl [https://developers.google.com/workspace/calendar/v3/reference/acl/watch?hl=ko], CalendarList [https://developers.google.com/workspace/calendar/v3/reference/calendarList/watch?hl=ko], Events [https://developers.google.com/workspace/calendar/v3/reference/events/watch?hl=ko] 및 Settings [https://developers.google.com/workspace/calendar/v3/reference/settings/watch?hl=ko] 리소스에 대한 메서드를 호출합니다.
+동기화 메시지
+리소스를 감시하기 위한 알림 채널을 생성한 후에는 Google Calendar API는 sync 메시지를 보내서 알림이 시작됩니다. X-Goog-Resource-State HTTP 헤더 값은 sync입니다. 네트워크로 인한 문제 타이밍 문제가 있으면 sync 메시지가 수신될 수 있습니다. 이 작업은 watch 메서드 응답을 받기 전에도 계속 발생합니다.
+sync 알림은 무시해도 괜찮지만 그렇게 할 수도 있습니다. 사용할 수도 있습니다 예를 들어 X-Goog-Channel-ID 및 호출의 값 X-Goog-Resource-ID개 알림 수신을 중지 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#stopping]합니다. 또한 준비를 위해 초기화를 실행하는 sync 알림 확인할 수 있습니다.
+Google Calendar API가 전송하는 sync 메시지의 형식 수신 URL은 아래와 같습니다.
+POST https://mydomain.com/notifications // Your receiving URL.
+X-Goog-Channel-ID: channel-ID-value
+X-Goog-Channel-Token: channel-token-value
+X-Goog-Channel-Expiration: expiration-date-and-time // In human-readable format. Present only if the channel expires.
+X-Goog-Resource-ID: identifier-for-the-watched-resource
+X-Goog-Resource-URI: version-specific-URI-of-the-watched-resource
+X-Goog-Resource-State: sync
+X-Goog-Message-Number: 1
+동기화 메시지에 항상 X-Goog-Message-Number HTTP가 있음 헤더 값 1 이 채널에 대한 이후의 각 알림에는 메시지 번호가 더 크고 숫자는 순차적이지 않습니다.
+알림 채널 갱신
+알림 채널에는 값이 있는 만료 시간이 있을 수 있습니다. 사용자의 요청 또는 Google Calendar API 내부 한도에 의해 결정됨 또는 기본값 (더 제한적인 값이 사용됨)입니다. 채널 만료 시간(있는 경우)은 Unix 타임스탬프 [http://en.wikipedia.org/wiki/Unix_time]로 포함됩니다. (밀리초 단위)를 watch 메서드에서 반환한 정보에서 확인할 수 있습니다. 또한 만료일 및 시간이 (사람이 읽을 수 있는 형식으로) 포함된 이 채널에 대해 애플리케이션이 수신하는 알림 메시지를 X-Goog-Channel-Expiration HTTP 헤더.
+현재는 알림 채널을 자동으로 갱신할 수 있는 방법이 없습니다. 날짜 만료가 임박한 경우 다음을 호출하여 채널을 새 채널로 대체해야 합니다. watch 메서드를 사용하여 지도 가장자리에 패딩을 추가할 수 있습니다. 항상 그렇듯이 새 채널의 id 속성입니다. 주목할 만한 점은 '겹치는' 두 개의 알림 채널이 확인할 수 있습니다
+알림 수신
+감시된 리소스가 변경될 때마다 애플리케이션은 알림 메시지가 표시됩니다. Google Calendar API는 메시지를 HTTPS POST 요청으로 지정된 URL에 이 알림에 대한 속성 address개 [https://developers.google.com/workspace/calendar/api/guides/push?hl=ko#address_prop] 채널을 구독합니다.
+참고: 알림 전달 HTTPS 요청 사용자 에이전트를 APIs-Google로 지정하고 robots.txt를 준수 지시어를 사용할 수 있습니다. API Google 사용자 에이전트 [https://developers.google.com/search/docs/crawling-indexing/apis-user-agent?hl=ko]
+알림 메시지 형식 해석
+모든 알림 메시지에는 X-Goog- 프리픽스. 일부 알림 유형에는 메일 본문입니다.
+헤더
+Google Calendar API에서 수신한 URL에는 다음 HTTP 헤더가 포함됩니다.
+헤더 설명
+항상 표시
+X-Goog-Channel-ID 이 식별을 위해 제공한 UUID 또는 기타 고유한 문자열입니다. 알림 채널.
+X-Goog-Message-Number 이 알림의 메시지를 식별하는 정수 채널을 구독합니다. sync 메시지의 값은 항상 1입니다. 메시지 이후 채널의 각 메시지에 대해 숫자가 증가하지만 순차적이지 않습니다.
+X-Goog-Resource-ID 감시된 리소스를 식별하는 불투명 값입니다. 이 ID는 안정성이 우수합니다
+X-Goog-Resource-State 알림을 트리거한 새 리소스 상태입니다. 가능한 값은 다음과 같습니다. sync, exists 또는 not_exists입니다.
+X-Goog-Resource-URI 감시된 리소스의 API 버전별 식별자입니다.
+때때로 등장
+X-Goog-Channel-Expiration 알림 채널 만료 날짜 및 시간( 인간이 읽을 수 있는 형식입니다. 정의된 경우에만 표시됩니다.
+X-Goog-Channel-Token 애플리케이션에서 설정한 알림 채널 토큰 알림 소스를 확인하는 데 사용할 수 있습니다. 다음 경우에만 표시됩니다. 정의할 수 있습니다
+Google Calendar API에서 수신 URL에 게시한 알림 메시지에는 메시지 본문이 포함되지 않습니다. 이 메시지에는 업데이트된 리소스에 대한 구체적인 정보가 포함되어 있지 않으므로 전체 변경사항 세부정보를 보려면 API를 다시 호출해야 합니다.
+예
+수정된 이벤트 모음에 대한 알림 메시지 변경:
+POST https://mydomain.com/notifications // Your receiving URL.
+Content-Type: application/json; utf-8
+Content-Length: 0
+X-Goog-Channel-ID: 4ba78bf0-6a47-11e2-bcfd-0800200c9a66
+X-Goog-Channel-Token: 398348u3tu83ut8uu38
+X-Goog-Channel-Expiration: Tue, 19 Nov 2013 01:13:52 GMT
+X-Goog-Resource-ID:  ret08u3rv24htgh289g
+X-Goog-Resource-URI: https://www.googleapis.com/calendar/v3/calendars/my_calendar@gmail.com/events
+X-Goog-Resource-State:  exists
+X-Goog-Message-Number: 10
+알림에 대한 응답
+성공을 나타내려면 다음과 같은 상태 코드를 반환하면 됩니다. 200, 201, 202, 204 또는 102입니다.
+서비스에서 Google의 API 클라이언트 라이브러리 [https://developers.google.com/admin-sdk/directory/v1/libraries?hl=ko]를 사용하는 경우 Google Calendar API인 500,502, 503 또는 504를 반환합니다. 지수 백오프 [https://www.google.com/search?q=define%3Aexponential+backoff&oq=define%3Aexponential+backoff&hl=ko]로 재시도합니다. 다른 모든 반환 상태 코드는 메시지 실패로 간주됩니다.
+Google Calendar API 알림 이벤트 이해하기
+이 섹션에서는 게시자가 확인할 수 있는 알림 메시지에 관해 자세히 설명합니다. (Google Calendar API로 푸시 알림을 사용할 때)
+X-Goog-Resource-State 적용 대상 배송 일시
+sync ACL, 캘린더 목록, 일정, 설정 등 다양한 관리 기능을 제공합니다. 새 채널이 생성되었습니다. 그러면 앞으로 관련 알림을 받을 수 있습니다.
+exists ACL, 캘린더 목록, 일정, 설정 등 다양한 관리 기능을 제공합니다. 리소스가 변경되었습니다. 가능한 변경사항에는 새 리소스 생성, 기존 리소스 수정 또는 삭제가 포함됩니다.
+알림 중지
+expiration 속성은 알림이 자동으로 중지되는 시점을 제어합니다. 다음과 같은 작업을 할 수 있습니다. 사전에 특정 채널의 알림 수신을 중지하도록 선택할 수 있습니다. 다음 위치에서 stop 메서드를 호출하면 만료됩니다. 다음 URI를 사용합니다.
+https://www.googleapis.com/calendar/v3/channels/stop
+이 방법을 사용하려면 최소한 채널의 id 및 resourceId 속성 참조하세요. Google Calendar API에 여러 유형의 watch 메서드가 있는 경우 이 메서드는 하나뿐입니다. stop 메서드를 사용하여 지도 가장자리에 패딩을 추가할 수 있습니다.
+적절한 권한이 있는 사용자만 채널을 중지할 수 있습니다. 특히 다음 항목이 중요합니다.
+일반 사용자 계정으로 채널을 만든 경우 동일한 동일한 클라이언트의 OAuth 2.0 클라이언트 ID로 식별되며 인증 토큰)이 있다면 채널을 만든 사람이 채널을 중지할 수 있습니다.
+채널이 서비스 계정으로 생성된 경우 동일한 클라이언트가 채널을 중지할 수 있습니다.
+다음 코드 샘플은 알림 수신을 중지하는 방법을 보여줍니다.
+POST https://www.googleapis.com/calendar/v3/channels/stop
+  
+Authorization: Bearer CURRENT_USER_AUTH_TOKEN
+Content-Type: application/json
+
+{
+  "id": "4ba78bf0-6a47-11e2-bcfd-0800200c9a66",
+  "resourceId": "ret08u3rv24htgh289g"
+}
+특별 고려사항
+푸시 알림을 사용할 때는 다음 사항에 유의하세요.
+일정 및 ACL은 캘린더별로 적용됩니다. 캘린더 A와 캘린더 B의 모든 일정 또는 ACL 변경에 대한 알림을 받으려면 A와 B의 일정/ACL 모음을 별도로 구독해야 합니다.
+설정 및 캘린더 목록은 사용자별입니다. 설정 및 캘린더 목록에는 사용자당 하나의 컬렉션만 제공되므로 한 번만 구독할 수 있습니다.
+또한 새 컬렉션(예: 새 캘린더)에 액세스할 수 있을 때 알림을 받지는 않지만, 캘린더 목록 컬렉션을 구독한 경우 해당 캘린더가 캘린더 목록에 추가되면 알림을 받게 됩니다.
+알림은 100% 신뢰할 수 없습니다. 정상적인 작업 조건에서 일부 메일이 삭제될 수 있습니다. 이러한 문제는 푸시 메시지가 수신되지 않더라도 애플리케이션이 계속 동기화됩니다.
+의견 보내기

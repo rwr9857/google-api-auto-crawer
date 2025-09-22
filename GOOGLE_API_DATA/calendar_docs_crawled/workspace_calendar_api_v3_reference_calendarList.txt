@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,70 +6,49 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 CalendarList
 bookmark_border
 이 페이지의 내용
-리소스 표현
-메서드
+리소스 표현 [https://developers.google.com/workspace/calendar/api/v3/reference/calendarList?hl=ko#resource-representations]
+메서드 [https://developers.google.com/workspace/calendar/api/v3/reference/calendarList?hl=ko#methods]
 사용자의 캘린더 목록에 있는 캘린더 컬렉션입니다. 캘린더 및 CalendarList [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko#calendar_and_calendar_list]도 참고하세요.
 이 리소스에 대한 메소드 [https://developers.google.com/workspace/calendar/api/v3/reference/calendarList?hl=ko#methods] 목록은 이 페이지의 하단에 나와 있습니다.
 리소스 표현
 {
   "kind": "calendar#calendarListEntry",
-  "etag": 
-etag,
-  "id": 
-string,
-  "summary": 
-string,
-  "description": 
-string,
-  "location": 
-string,
-  "timeZone": 
-string,
-  "summaryOverride": 
-string,
-  "colorId": 
-string,
-  "backgroundColor": 
-string,
-  "foregroundColor": 
-string,
-  "hidden": 
-boolean,
-  "selected": 
-boolean,
-  "accessRole": 
-string,
+  "etag": etag,
+  "id": string,
+  "summary": string,
+  "description": string,
+  "location": string,
+  "timeZone": string,
+  "summaryOverride": string,
+  "colorId": string,
+  "backgroundColor": string,
+  "foregroundColor": string,
+  "hidden": boolean,
+  "selected": boolean,
+  "accessRole": string,
   "defaultReminders": [
     {
-      "method": 
-string,
-      "minutes": 
-integer
+      "method": string,
+      "minutes": integer
     }
   ],
   "notificationSettings": {
     "notifications": [
       {
-        "type": 
-string,
-        "method": 
-string
+        "type": string,
+        "method": string
       }
     ]
   },
-  "primary": 
-boolean,
-  "deleted": 
-boolean,
+  "primary": boolean,
+  "deleted": boolean,
   "conferenceProperties": {
     "allowedConferenceSolutionTypes": [
-      
-string
+      string
     ]
   }
 }
@@ -139,5 +118,4 @@ patch [https://developers.google.com/workspace/calendar/api/v3/reference/calenda
 사용자의 캘린더 목록에 있는 기존 캘린더를 업데이트합니다.
 시계 [https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/watch?hl=ko]
 CalendarList 리소스의 변경사항을 확인합니다.
-도움이 되었나요?
 의견 보내기

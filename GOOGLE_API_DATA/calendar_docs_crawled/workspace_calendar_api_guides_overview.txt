@@ -1,0 +1,32 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+의견 보내기
+Google Calendar API 개요
+bookmark_border
+이 페이지의 내용
+관련 주제 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko#related_topics]
+Google Calendar API는 명시적 HTTP 호출을 통해 액세스하거나 Google 클라이언트 라이브러리를 사용하여 액세스할 수 있는 RESTful API입니다. API는 Google Calendar 웹 인터페이스에서 사용할 수 있는 대부분의 기능을 노출합니다.
+다음은 Google Calendar API에서 사용되는 일반적인 용어 목록입니다.
+이벤트 [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko]
+제목, 시작 및 종료 시간, 참석자와 같은 정보가 포함된 캘린더의 일정입니다. 일정은 단일 일정 또는 반복 일정 [https://developers.google.com/workspace/calendar/concepts/events-calendars?hl=ko#recurring_events]일 수 있습니다. 이벤트는 이벤트 리소스 [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko#resource-representations]로 표시됩니다.
+Calendar [https://developers.google.com/workspace/calendar/v3/reference/calendars?hl=ko]
+이벤트의 모음입니다. 각 캘린더에는 캘린더 설명이나 기본 캘린더 시간대와 같은 메타데이터가 연결되어 있습니다. 단일 캘린더의 메타데이터는 캘린더 리소스 [https://developers.google.com/workspace/calendar/v3/reference/calendars?hl=ko]로 표시됩니다.
+Calendar List [https://developers.google.com/workspace/calendar/v3/reference/calendarList?hl=ko](캘린더 목록)
+캘린더 UI의 사용자 캘린더 목록에 있는 모든 캘린더의 목록입니다. 캘린더 목록에 표시되는 단일 캘린더의 메타데이터는 CalendarListEntry 리소스 [https://developers.google.com/workspace/calendar/v3/reference/calendarList?hl=ko]로 표시됩니다. 이 메타데이터에는 캘린더의 사용자별 속성(예: 색상 또는 새 일정 알림)이 포함됩니다.
+설정 [https://developers.google.com/workspace/calendar/v3/reference/settings?hl=ko]
+캘린더 UI의 사용자 환경설정(예: 사용자의 시간대)입니다. 단일 사용자 환경설정은 설정 리소스 [https://developers.google.com/workspace/calendar/v3/reference/settings?hl=ko]로 표시됩니다.
+ACL [https://developers.google.com/workspace/calendar/v3/reference/acl?hl=ko]
+사용자 (또는 사용자 그룹)에게 캘린더에 대한 특정 수준의 액세스 권한을 부여하는 액세스 제어 규칙입니다. 단일 액세스 제어 규칙은 ACL 리소스 [https://developers.google.com/workspace/calendar/v3/reference/acl?hl=ko]로 표현됩니다.
+관련 주제
+인증 및 승인 처리를 비롯한 Google Workspace API를 사용한 개발에 대해 알아보려면 Google Workspace 개발자 시작하기 [https://developers.google.com/workspace/guides/getstarted-overview?hl=ko]를 참고하세요.
+간단한 Google Calendar API 앱을 구성하고 실행하는 방법을 알아보려면 빠른 시작 개요 [https://developers.google.com/workspace/calendar/quickstarts-overview?hl=ko]를 참고하세요.
+Google Calendar API가 실제로 작동하는 모습을 보고 싶으신가요?
+Google Workspace 개발자 채널에서는 팁, 유용한 정보, 최신 기능에 관한 동영상을 제공합니다.
+지금 구독하기 [https://www.youtube.com/channel/UCUcg6az6etU_gRtZVAhBXaw?hl=ko]
+의견 보내기

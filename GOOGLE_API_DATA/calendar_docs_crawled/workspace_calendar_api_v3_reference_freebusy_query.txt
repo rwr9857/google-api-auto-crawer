@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/freebusy/query
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/freebusy/query
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 Freebusy: query
 bookmark_border
@@ -32,20 +31,14 @@ https://www.googleapis.com/auth/calendar.freebusy
 요청 본문
 요청 본문에 다음과 같은 구조의 데이터를 제공합니다.
 {
-  "timeMin": 
-datetime,
-  "timeMax": 
-datetime,
-  "timeZone": 
-string,
-  "groupExpansionMax": 
-integer,
-  "calendarExpansionMax": 
-integer,
+  "timeMin": datetime,
+  "timeMax": datetime,
+  "timeZone": string,
+  "groupExpansionMax": integer,
+  "calendarExpansionMax": integer,
   "items": [
     {
-      "id": 
-string
+      "id": string
     }
   ]
 }
@@ -61,44 +54,33 @@ items[].id string 캘린더 또는 그룹의 식별자입니다.
 요청에 성공할 경우 이 메소드는 다음과 같은 구조의 응답 본문을 반환합니다.
 {
   "kind": "calendar#freeBusy",
-  "timeMin": 
-datetime,
-  "timeMax": 
-datetime,
+  "timeMin": datetime,
+  "timeMax": datetime,
   "groups": {
-    
-(key): {
+    (key): {
       "errors": [
         {
-          "domain": 
-string,
-          "reason": 
-string
+          "domain": string,
+          "reason": string
         }
       ],
       "calendars": [
-        
-string
+        string
       ]
     }
   },
   "calendars": {
-    
-(key): {
+    (key): {
       "errors": [
         {
-          "domain": 
-string,
-          "reason": 
-string
+          "domain": string,
+          "reason": string
         }
       ],
       "busy": [
         {
-          "start": 
-datetime,
-          "end": 
-datetime
+          "start": datetime,
+          "end": datetime
         }
       ]
     }
@@ -132,5 +114,4 @@ calendars.(key).errors[].reason string 오류의 구체적인 이유입니다. �
 calendars.(key).busy[] list 이 캘린더가 바쁜 것으로 간주되어야 하는 시간 범위 목록입니다.
 calendars.(key).busy[].start datetime 기간의 시작 (해당 값 포함)입니다.
 calendars.(key).busy[].end datetime 기간의 종료 (해당 값 제외)입니다.
-도움이 되었나요?
 의견 보내기

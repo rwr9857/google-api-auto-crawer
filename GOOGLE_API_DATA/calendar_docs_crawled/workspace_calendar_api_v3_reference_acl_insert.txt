@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/acl/insert
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/acl/insert
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 Acl: insert
 bookmark_border
@@ -56,5 +55,4 @@ scope.type string 범위 유형입니다. 가능한 값은 다음과 같습니�
 scope.value string 범위 유형에 따라 사용자 또는 그룹의 이메일 주소 또는 도메인 이름입니다. 'default' 유형의 경우 생략됩니다. 쓰기 가능
 응답
 이 메서드는 성공하면 응답 본문에 Acl 리소스 [https://developers.google.com/workspace/calendar/api/v3/reference/acl?hl=ko#resource]를 반환합니다.
-도움이 되었나요?
 의견 보내기

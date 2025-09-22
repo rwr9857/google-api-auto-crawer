@@ -1,0 +1,276 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/guides/errors
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+의견 보내기
+API 오류 처리
+bookmark_border
+이 페이지의 내용
+지수 백오프 구현 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#exponential-backoff]
+오류 및 추천 작업 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#errors_suggested_actions]
+400: 잘못된 요청 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#400_bad_request]
+401: 잘못된 사용자 인증 정보 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#401_invalid_credentials]
+403: 사용자 비율 한도 초과 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#403_user_rate_limit_exceeded]
+403: 비율 제한 초과 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#403_rate_limit_exceeded]
+403: 캘린더 사용 한도를 초과했습니다. [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#403_usage_limits_exceeded]
+403: 주최자가 아닌 사용자에게 금지됨 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#403_forbidden_for_non-organizer]
+Calendar API는 두 가지 수준의 오류 정보를 반환합니다.
+헤더의 HTTP 오류 코드 및 메시지
+오류 처리 방법을 결정하는 데 도움이 되는 추가 세부정보가 포함된 응답 본문의 JSON 객체입니다.
+이 페이지의 나머지 부분에서는 Calendar 오류를 참조하고 앱에서 오류를 처리하는 방법에 관한 안내를 제공합니다.
+실제 환경에서 애플리케이션의 오류 처리를 테스트 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#test_quota_limit_handling]하는 것이 좋습니다.
+지수 백오프 구현
+Cloud API 문서 [https://cloud.google.com/storage/docs/retry-strategy?hl=ko]에는 지수 백오프와 Google API에서 지수 백오프를 사용하는 방법에 관한 설명이 잘 나와 있습니다.
+오류 및 추천 작업
+이 섹션에서는 나열된 각 오류의 전체 JSON 표현과 오류를 처리하기 위해 취할 수 있는 제안된 작업을 제공합니다.
+400: 잘못된 요청
+사용자 오류입니다. 이는 필수 필드 또는 매개변수가 제공되지 않았거나, 제공된 값이 유효하지 않거나, 제공된 필드의 조합이 유효하지 않음을 의미할 수 있습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "calendar",
+    "reason": "timeRangeEmpty",
+    "message": "The specified time range is empty.",
+    "locationType": "parameter",
+    "location": "timeMax",
+   }
+  ],
+  "code": 400,
+  "message": "The specified time range is empty."
+ }
+}
+권장 조치: 영구적인 오류이므로 다시 시도하지 마세요. 대신 오류 메시지를 읽고 그에 따라 요청을 변경하세요.
+401: 잘못된 사용자 인증 정보
+잘못된 승인 헤더입니다. 사용 중인 액세스 토큰이 만료되었거나 잘못되었습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "authError",
+    "message": "Invalid Credentials",
+    "locationType": "header",
+    "location": "Authorization",
+   }
+  ],
+  "code": 401,
+  "message": "Invalid Credentials"
+ }
+}
+권장 조치:
+장기 갱신 토큰을 사용하여 새 액세스 토큰을 가져옵니다.
+이 작업이 실패하면 OAuth 2.0으로 요청 승인 [https://developers.google.com/workspace/calendar/auth?hl=ko]에 설명된 대로 OAuth 흐름을 통해 사용자를 안내합니다.
+서비스 계정에 이 오류가 표시되는 경우 서비스 계정 페이지 [https://developers.google.com/identity/protocols/OAuth2ServiceAccount?hl=ko]의 모든 단계를 완료했는지 확인하세요.
+403: 사용자 비율 한도 초과
+Developer Console의 한도 중 하나에 도달했습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceeded",
+    "message": "User Rate Limit Exceeded"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded"
+ }
+}
+권장 조치:
+앱이 할당량 관리 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko]의 권장사항을 따르는지 확인합니다.
+개발자 콘솔 프로젝트에서 사용자별 할당량을 늘립니다.
+한 사용자가 Google Workspace 계정의 여러 사용자를 대신하여 많은 요청을 하는 경우 도메인 전체 위임이 있는 서비스 계정을 사용 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#proper_accounting_with_service_accounts]하고 quotaUser 매개변수를 설정하는 것이 좋습니다.
+지수 백오프 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#exponential-backoff]를 사용합니다.
+403: 비율 제한 초과
+사용자가 캘린더별 또는 인증된 사용자별 Google Calendar API의 최대 요청률에 도달했습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "rateLimitExceeded",
+    "message": "Rate Limit Exceeded"
+   }
+  ],
+  "code": 403,
+  "message": "Rate Limit Exceeded"
+ }
+}
+권장 조치: rateLimitExceeded 오류는 403 또는 429 오류 코드를 반환할 수 있습니다. 현재 기능적으로 유사하며 지수 백오프 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#exponential-backoff]를 사용하여 동일한 방식으로 응답해야 합니다. 또한 앱이 할당량 관리 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko]의 권장사항을 따르는지 확인하세요.
+403: 캘린더 사용 한도를 초과했습니다.
+사용자가 Google 사용자 및 인프라를 악의적인 행동으로부터 보호하기 위해 설정된 Google Calendar 한도 중 하나에 도달했습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "message": "Calendar usage limits exceeded.",
+    "reason": "quotaExceeded"
+   }
+  ],
+  "code": 403,
+  "message": "Calendar usage limits exceeded."
+ }
+}
+권장 조치:
+Google Workspace 관리자 도움말 [https://support.google.com/a/answer/2905486?hl=ko]에서 Calendar 사용량 한도에 대해 자세히 알아보세요.
+403: 주최자가 아닌 사용자에게 금지됨
+일정 업데이트 요청이 주최자의 복사본이 아닌 복사본에서 공유 일정 속성 중 하나를 설정하려고 합니다. 공유 속성 (예: guestsCanInviteOthers, guestsCanModify, guestsCanSeeOtherGuests)은 주최자만 설정할 수 있습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "calendar",
+    "reason": "forbiddenForNonOrganizer",
+    "message": "Shared properties can only be changed by the organizer of the event."
+   }
+  ],
+  "code": 403,
+  "message": "Shared properties can only be changed by the organizer of the event."
+ }
+}
+권장 조치:
+Events: insert [https://developers.google.com/workspace/calendar/api/guides/reference/events/insert?hl=ko], Events: import [https://developers.google.com/workspace/calendar/api/guides/reference/events/import?hl=ko] 또는 Events: update [https://developers.google.com/workspace/calendar/api/guides/reference/events/update?hl=ko]를 사용하고 요청에 공유 속성이 포함되지 않은 경우 이는 공유 속성을 기본값으로 설정하려고 시도하는 것과 같습니다. 대신 Events: patch [https://developers.google.com/workspace/calendar/api/guides/reference/events/patch?hl=ko]를 사용하는 것이 좋습니다.
+요청에 공유 속성이 있는 경우, 주최자의 사본을 업데이트할 때만 이러한 속성을 변경해야 합니다.
+404: 찾을 수 없음
+지정된 리소스를 찾을 수 없습니다. 이 문제는 여러 경우에 발생할 수 있습니다. 예를 들면 다음과 같습니다.
+요청된 리소스 (제공된 ID 사용)가 존재한 적이 없는 경우
+사용자가 액세스할 수 없는 캘린더에 액세스하는 경우
+{ "error": { "errors": [ { "domain": "global", "reason": "notFound", "message": "Not Found" } ], "code": 404, "message": "Not Found" } }
+권장 조치: 지수 백오프 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#exponential-backoff]를 사용합니다.
+409: 요청된 식별자가 이미 존재함
+스토리지에 이미 지정된 ID를 사용하는 인스턴스가 있습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "duplicate",
+    "message": "The requested identifier already exists."
+   }
+  ],
+  "code": 409,
+  "message": "The requested identifier already exists."
+ }
+}
+권장 조치: 새 인스턴스를 만들려면 새 ID를 생성하고, 그렇지 않으면 update [https://developers.google.com/workspace/calendar/v3/reference/events/update?hl=ko] 메서드 호출을 사용하세요.
+409: 충돌
+events.batch [https://developers.google.com/workspace/calendar/api/guides/batch?hl=ko] 작업 내의 일괄 처리된 항목이 요청된 다른 일괄 처리된 항목과의 작업 충돌로 인해 실행될 수 없습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "conflict",
+    "message": "Conflict"
+   }
+  ],
+  "code": 409,
+  "message": "Conflict"
+ }
+}
+권장 조치: 성공적으로 완료된 일괄 항목과 확실히 실패한 일괄 항목을 모두 제외하고 나머지 항목을 다른 events.batch 또는 해당 단일 이벤트 작업에서 다시 시도하세요.
+410: Gone(사라짐)
+syncToken 또는 updatedMin 매개변수가 더 이상 유효하지 않습니다. 이 오류는 이미 삭제된 이벤트를 삭제하려고 요청하는 경우에도 발생할 수 있습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "calendar",
+    "reason": "fullSyncRequired",
+    "message": "Sync token is no longer valid, a full sync is required.",
+    "locationType": "parameter",
+    "location": "syncToken",
+    }
+  ],
+  "code": 410,
+  "message": "Sync token is no longer valid, a full sync is required."
+ }
+}
+또는
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "calendar",
+    "reason": "updatedMinTooLongAgo",
+    "message": "The requested minimum modification time lies too far in the past.",
+    "locationType": "parameter",
+    "location": "updatedMin",
+   }
+  ],
+  "code": 410,
+  "message": "The requested minimum modification time lies too far in the past."
+ }
+}
+또는
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "deleted",
+    "message": "Resource has been deleted"
+   }
+  ],
+  "code": 410,
+  "message": "Resource has been deleted"
+ }
+}
+권장 조치: syncToken 또는 updatedMin 매개변수의 경우 저장소를 삭제하고 다시 동기화합니다. 자세한 내용은 효율적으로 리소스 동기화하기 [https://developers.google.com/workspace/calendar/v3/sync?hl=ko]를 참고하세요. 이미 삭제된 이벤트의 경우 추가 조치가 필요하지 않습니다.
+412: 전제 조건 실패
+If-match 헤더에 제공된 etag가 더 이상 리소스의 현재 etag와 일치하지 않습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "conditionNotMet",
+    "message": "Precondition Failed",
+    "locationType": "header",
+    "location": "If-Match",
+    }
+  ],
+  "code": 412,
+  "message": "Precondition Failed"
+ }
+}
+권장 조치: 항목을 다시 가져오고 변경사항을 다시 적용하세요. 자세한 내용은 리소스의 특정 버전 가져오기 [https://developers.google.com/workspace/calendar/api/guides/version-resources?hl=ko]를 참고하세요.
+429: 요청이 너무 많음
+rateLimitExceeded 오류는 사용자가 일정 시간 동안 너무 많은 요청을 보낸 경우에 발생합니다.
+{
+  "error": {
+    "errors": [
+      {
+        "domain": "usageLimits",
+        "reason": "rateLimitExceeded",
+        "message": "Rate Limit Exceeded"
+      }
+    ],
+    "code": 429,
+    "message": "Rate Limit Exceeded"
+  }
+}
+권장 조치: rateLimitExceeded 오류는 403 또는 429 오류 코드를 반환할 수 있습니다. 현재 기능적으로 유사하며 지수 백오프 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#exponential-backoff]를 사용하여 동일한 방식으로 응답해야 합니다. 또한 앱이 할당량 관리 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko]의 권장사항을 따르는지 확인하세요.
+500: 백엔드 오류
+요청을 처리하는 중에 예기치 못한 오류가 발생했습니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "backendError",
+    "message": "Backend Error",
+   }
+  ],
+  "code": 500,
+  "message": "Backend Error"
+ }
+}
+권장 조치: 지수 백오프 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#exponential-backoff]를 사용합니다.
+의견 보내기

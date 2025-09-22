@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/delete
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/delete
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 CalendarList: delete
 bookmark_border
@@ -37,5 +36,4 @@ https://www.googleapis.com/auth/calendar.calendarlist
 이 메소드를 사용할 때는 요청 본문을 제공하지 마세요.
 응답
 요청에 성공한 경우 이 메소드는 빈 응답 본문을 반환합니다.
-도움이 되었나요?
 의견 보내기

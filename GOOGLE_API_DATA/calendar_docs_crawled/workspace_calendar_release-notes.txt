@@ -1,0 +1,101 @@
+[2025-08-28] Source URL: https://developers.google.com/workspace/calendar/release-notes
+
+Home [https://developers.google.com/]
+Google Workspace [https://developers.google.com/workspace]
+Google Calendar [https://developers.google.com/workspace/calendar]
+Support [https://developers.google.com/workspace/calendar/api/support]
+Send feedback
+Google Calendar API release notes
+bookmark_border
+이 페이지의 내용
+November 19, 2024 [https://developers.google.com/workspace/calendar/release-notes#November_19_2024]
+August 05, 2024 [https://developers.google.com/workspace/calendar/release-notes#August_05_2024]
+May 22, 2024 [https://developers.google.com/workspace/calendar/release-notes#May_22_2024]
+May 17, 2024 [https://developers.google.com/workspace/calendar/release-notes#May_17_2024]
+February 07, 2024 [https://developers.google.com/workspace/calendar/release-notes#February_07_2024]
+To get the latest product updates delivered to you, add the URL of this page to your feed reader [https://wikipedia.org/wiki/Comparison_of_feed_aggregators], or add the feed URL directly: https://developers.google.com/feeds/calendar-release-notes.xml.
+This page contains release notes for features and updates to the Calendar API. We recommend that Calendar API developers periodically check this list for any new announcements.
+November 19, 2024
+You can now access birthday and other special events that are automatically created from Google Contacts using the Calendar API.
+Birthday events now have birthdayProperties [https://developers.google.com/calendar/api/v3/reference/events#birthdayProperties] that show birthday-specific event data, such as the type of the special event, whether it's a birthday, an anniversary, or another significant date, and the contact that the event is linked to. You can use the contact [https://developers.google.com/calendar/api/v3/reference/events#birthdayProperties.contact] as a resource name in the People API [https://developers.google.com/people] to fetch contact details.
+To learn more, see the developer guide for the birthday event type [https://developers.google.com/calendar/api/guides/event-types#birthday].
+August 05, 2024
+Generally available starting September 17, 2024: Create and manage birthdays directly within Google Calendar. Birthdays are exposed in the Calendar API as a new eventType [https://developers.google.com/calendar/api/v3/reference/events#eventType] called "birthday" which distinguishes special all-day events with an annual recurrence. Birthday events support a limited set of event properties.
+You can filter by the birthday event type using the events.list() [https://developers.google.com/calendar/api/v3/reference/events/list] and events.watch() [https://developers.google.com/calendar/api/v3/reference/events/watch] methods. If no type filters are specified, all event types including birthdays are returned.
+To learn more, see our developer guide about working with the birthday event type [https://developers.google.com/calendar/api/guides/event-types#birthday].
+May 22, 2024
+The following changes to events from Gmail [https://support.google.com/calendar/answer/6084018] take effect on May 30, 2024:
+Events from Gmail use fromGmail instead default as the value for the eventType [https://developers.google.com/calendar/api/v3/reference/events/watch#eventTypes] field. You can filter by this new event type using the events.list() [https://developers.google.com/calendar/api/v3/reference/events/list] and events.watch() [https://developers.google.com/calendar/api/v3/reference/events/watch] methods.
+Events from Gmail use the email address of the email recipient as the event organizer instead of unknownorganizer@calendar.google.com.
+You can only update the event properties [https://developers.google.com/calendar/api/v3/reference/events/update#request-body], such as reminders, color ID, visibility, status, and extended properties of Event resources with the event type fromGmail.
+For details, see the Calendar API Events reference documentation [https://developers.google.com/calendar/api/v3/reference/events].
+May 17, 2024
+The following change takes effect on June 3, 2024:
+For batch operations [https://developers.google.com/calendar/api/guides/batch] on Event [https://developers.google.com/calendar/api/v3/reference/events] resources, a batched item returns an HTTP 409 Conflict status code if the batch operation can't successfully execute this item due to conflicts with other requested batched items.
+Suggested action: Exclude all successfully finished and failed batched items and retry remaining items in a different batch operation or by using single event operations.
+For more information, see Handle API errors [https://developers.google.com/calendar/api/guides/errors#409_conflict].
+February 07, 2024
+The following changes will take effect on March 11, 2024:
+The use of event type [https://developers.google.com/calendar/api/v3/reference/events/watch#eventTypes] filters will be considered when reviewing quota increase requests. Before you request a quota increase, make sure you specify the event types you need as a parameter for your application.
+Both events.list [https://developers.google.com/calendar/api/v3/reference/events/list] and events.watch [https://developers.google.com/calendar/api/v3/reference/events/watch] will use the same default event type filter.
+To help with error handling, improved error messages will be returned when unsupported operations are attempted on special event types, such as working location, out-of-office, and focus time events.
+For more information, refer to the following:
+Manage focus time, out of office, and working location events [https://developers.google.com/calendar/api/guides/calendar-status#watch-calendar-status]
+Manage quotas [https://developers.google.com/calendar/api/guides/quota#use_push_notifications]
+February 06, 2024
+Generally available: The events.watch() method now supports the eventTypes field as a query parameter so that you can subscribe to changes about specific Calendar events, such as working location, out-of-office, or focus time events. For details, see the reference documentation [https://developers.google.com/calendar/api/v3/reference/events/watch].
+December 07, 2023
+To fix a bug that prevented events of eventType != 'default' from importing, we updated the code sample in Populate a team vacation calendar [https://developers.google.com/apps-script/samples/automations/vacation-calendar], the popular Apps Script + Calendar API solution. Review the code change in GitHub [https://github.com/googleworkspace/apps-script-samples/pull/434/files].
+August 17, 2023
+Generally available: Reading and updating working locations using the Google Calendar API is now generally available. For details, see Manage working locations for Google Calendar users [https://developers.google.com/calendar/api/guides/working-hours-and-location].
+August 22, 2022
+Developer Preview [https://developers.google.com/workspace/preview]: The Google Calendar API now supports reading and updating working locations. For details, see Manage working locations for Google Calendar users [https://developers.google.com/calendar/api/guides/working-hours-and-location].
+March 23, 2022
+The Calendar API now supports custom attachments. See Calendar add-ons [https://developers.google.com/apps-script/add-ons/calendar] for more information.
+October 20, 2021
+The Calendar API now exposes a new eventType. The new type is called focusTime and allows users of the API to distinguish the special focus time events. For more information, see the API reference [https://developers.google.com/calendar/v3/reference/events].
+May 18, 2021
+Two new quotas now exist for the Calendar API in addition to the general Calendar usage limits [https://support.google.com/a/answer/2905486]:
+Per minute per project.
+Per minute per project per user.
+See Manage quotas [https://developers.google.com/calendar/api/guides/quota] for more information.
+February 08, 2021
+Starting today, all existing and new out of office events will be updated to set the organizer to unknownorganizer@calendar.google.com instead of the Calendar owner. It may take 2-3 weeks for this change to fully roll out.
+You can use the calendarId from the API endpoint https://www.googleapis.com/calendar/v3/calendars/calendarId to identify the owner of the out of office event.
+February 01, 2021
+The Calendar API now exposes a new field for events. The new field is called eventType and allows users of the API to distinguish special event types, such as outOfOffice. For more information, see the API reference [https://developers.google.com/calendar/v3/reference/events].
+January 11, 2021
+From now, we require conferenceData to be consistent with conferenceData.conferenceSolution.key.type; meaning only Google Meet calls can have conferenceData.conferenceSolution.key.type set to hangoutsMeet. All 3P video conference providers are expected to set conferenceData.conferenceSolution.key.type to addOn.
+September 07, 2020
+Meet video conferences should be added explicitly using the following existing parameters:
+Set conferenceDataVersion query parameter to 1.
+Set conferenceData.createRequest event property as follows:
+conferenceData.createRequest.conferenceSolutionKey.type to hangoutsMeet.
+conferenceData.createRequest.requestId to unique request id.
+We stopped auto-populating Meet for API calls (such as Events.insert) to prevent Meet conferences being added unintentionally via 3rd parties.
+March 16, 2020
+Service accounts created on or after March 2, 2020 are only able to invite guests using domain-wide delegation of authority [https://developers.google.com/calendar/auth#perform-g-suite-domain-wide-delegation-of-authority].
+September 27, 2019
+The Calendar API allows attaching a conference data of type addOn to a new or existing event using Events.insert or Events.update methods.
+November 19, 2018
+Starting on January 7, 2019, notifications and reminders using the sms method type will be ignored. The API calls setting such notifications and reminders will still succeed and modify all the other fields.
+Since Calendar offers in-app notifications, you can still get notified, regardless of your device or connection. For more information see Google Calendar SMS notifications to be removed [https://gsuiteupdates.googleblog.com/2018/11/google-calendar-sms-notifications-to-be-removed.html].
+October 31, 2018
+The Calendar API now supports four new OAuth scopes. The scopes allow your application to limit access to only the data you really need. See Authorizing Google Calendar API Requests [https://developers.google.com/calendar/auth] for more details.
+October 02, 2018
+A more flexible approach to sending event change notifications is now available through the sendUpdates parameter [https://developers.google.com/calendar/v3/reference/events/insert#sendUpdates]. The new parameter lets you set event change notifications to do one of the following:
+Notify all the event guests.
+Notify only the guests who are not using Google Calendar.
+Completely suppress the notifications, for example, during a migration.
+Now it is possible to always keep in sync guests who use other calendaring systems, without sending too many non-mandatory emails to Google Calendar users.
+March 22, 2018
+Support for the JSON-RPC protocol [http://www.jsonrpc.org/specification] and Global HTTP batch [https://developers.google.com/api-client-library/javascript/features/batch] endpoints has been deprecated, and will be fully discontinued on March 25, 2019. This change is being made to the Google API infrastructure and as such affects multiple Google APIs, including Calendar v3.
+For more information and migration instructions, see the Discontinuing support for JSON-RPC and Global HTTP Batch Endpoints blog post [https://developers.googleblog.com/2018/03/discontinuing-support-for-json-rpc-and.html].
+July 12, 2017
+Hangouts and Google Meet conferences are now supported in Calendar events via the conferenceData field [https://developers.google.com/calendar/v3/reference/events#conferenceData]. You can:
+Read conference data associated with events.
+Copy conference data from one event to another.
+Request new conference generation for an event.
+Clear conference data associated with events.
+To learn more, see Create Events [https://developers.google.com/calendar/create-events#conferencing].
+Send feedback

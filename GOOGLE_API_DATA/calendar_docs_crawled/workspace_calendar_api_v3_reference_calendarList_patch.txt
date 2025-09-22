@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/patch
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/patch
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 CalendarList: patch
 bookmark_border
@@ -39,5 +38,4 @@ https://www.googleapis.com/auth/calendar.calendarlist
 요청 본문에 패치 시맨틱스의 규칙에 따라 CalendarList 리소스 [https://developers.google.com/workspace/calendar/api/v3/reference/calendarList?hl=ko#resource]의 관련 부분을 제공합니다.
 응답
 이 메서드는 요청에 성공하면 응답 본문에서 CalendarList 리소스 [https://developers.google.com/workspace/calendar/api/v3/reference/calendarList?hl=ko#resource]를 반환합니다.
-도움이 되었나요?
 의견 보내기

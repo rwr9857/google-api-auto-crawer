@@ -1,0 +1,123 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/concepts/events-calendars
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+의견 보내기
+캘린더 및 일정
+bookmark_border
+이 페이지의 내용
+캘린더 [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko#calendars]
+이벤트 [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko#events]
+이벤트 유형 [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko#types_of_events]
+주최자 [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko#organizers]
+기본 캘린더 및 기타 캘린더 [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko#primary_calendars_other_calendars]
+캘린더 및 캘린더 목록 [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko#calendar_list]
+반복 일정 [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko#recurring_events]
+반복 규칙 [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko#recurrence_rule]
+이 가이드에서는 캘린더, 일정, 캘린더와 일정의 관계를 설명합니다.
+캘린더
+캘린더 [https://developers.google.com/workspace/calendar/v3/reference/calendars?hl=ko#resource-representations]는 관련 이벤트의 모음으로, 요약, 기본 시간대, 위치 등의 추가 메타데이터가 포함됩니다. 각 캘린더는 이메일 주소인 ID로 식별됩니다. 캘린더에는 소유자가 여러 명 있을 수 있습니다.
+이벤트
+이벤트 [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko#resource-representations]는 특정 날짜 또는 시간 범위와 연결된 객체입니다. 이벤트는 고유 ID로 식별됩니다. 시작 및 종료 날짜-시간 외에도 이벤트에는 요약, 설명, 위치, 상태, 리마인더, 첨부파일 등의 기타 데이터가 포함됩니다.
+이벤트 유형
+Google Calendar에서는 단일 및 반복 일정을 지원합니다.
+단일 이벤트는 고유한 발생을 나타냅니다.
+반복 일정은 여러 발생을 정의합니다.
+일정은 시간이 지정되거나 종일일 수도 있습니다.
+시간 제한 이벤트는 두 특정 시점 사이에 발생합니다. 시간이 지정된 이벤트는 start.dateTime 및 end.dateTime 필드를 사용하여 이벤트가 발생하는 시점을 지정합니다.
+종일 일정은 하루 전체 또는 연속된 여러 날에 걸쳐 진행됩니다. 종일 이벤트는 start.date 및 end.date 필드를 사용하여 발생하는 시점을 지정합니다. 시간대 필드는 하루 종일 이벤트에는 의미가 없습니다.
+이벤트의 시작과 종료는 모두 시간이 지정되어 있거나 모두 하루 종일이어야 합니다. 예를 들어 start.date 및 end.dateTime를 지정하는 것은 유효하지 않습니다.
+주최자
+일정에는 일정의 기본 복사본을 포함하는 캘린더인 단일 주최자가 있습니다. 일정에는 여러 참석자 [https://developers.google.com/workspace/calendar/concepts/sharing?hl=ko#inviting_attendees_to_events]가 있을 수도 있습니다. 참석자는 일반적으로 초대된 사용자의 기본 캘린더입니다.
+다음 다이어그램은 캘린더, 일정, 기타 관련 요소 간의 개념적 관계를 보여줍니다.
+기본 캘린더 및 기타 캘린더
+기본 캘린더는 단일 사용자 계정과 연결된 특별한 유형의 캘린더입니다. 이 캘린더는 각 신규 사용자 계정에 대해 자동으로 생성되며 ID는 일반적으로 사용자의 기본 이메일 주소와 일치합니다. 계정이 존재하는 한 기본 캘린더는 사용자가 삭제하거나 소유권을 해제할 수 없습니다. 하지만 다른 사용자와는 공유할 수 있습니다.
+기본 캘린더 외에도 다른 캘린더를 원하는 만큼 명시적으로 만들 수 있습니다. 이러한 캘린더는 여러 사용자 간에 수정, 삭제, 공유할 수 있습니다.
+캘린더 및 캘린더 목록
+Calendars [https://developers.google.com/workspace/calendar/v3/reference/calendars?hl=ko] 컬렉션은 기존의 모든 캘린더를 나타냅니다. 이 메서드를 사용하여 일정을 만들고 삭제할 수 있습니다. 캘린더에 액세스할 수 있는 모든 사용자 간에 공유되는 전역 속성을 가져오거나 설정할 수도 있습니다. 예를 들어 캘린더의 제목과 기본 시간대는 전역 속성입니다.
+CalendarList [https://developers.google.com/workspace/calendar/v3/reference/calendarList?hl=ko]는 사용자가 목록에 추가한 모든 캘린더 항목의 모음입니다 (웹 UI의 왼쪽 패널에 표시됨). 이를 사용하여 사용자의 목록에 기존 캘린더를 추가하거나 삭제할 수 있습니다. 또한 기본 리마인더와 같은 사용자별 캘린더 속성의 값을 가져오고 설정하는 데도 사용됩니다. 다른 예로는 전경색이 있습니다. 사용자에 따라 동일한 캘린더에 설정된 색상이 다를 수 있기 때문입니다.
+다음 표에서는 두 컬렉션의 작업 의미를 비교합니다.
+작업 캘린더 CalendarList
+insert 새 보조 캘린더를 만듭니다. 기본적으로 이 캘린더는 크리에이터의 캘린더 목록에도 추가됩니다. 기존 캘린더를 사용자의 목록에 삽입합니다.
+delete 보조 캘린더를 삭제합니다. 사용자의 목록에서 캘린더를 삭제합니다.
+get 캘린더 메타데이터(예: 제목, 시간대)를 가져옵니다. 메타데이터와 색상이나 재정의 알림과 같은 사용자별 맞춤설정을 가져옵니다.
+patch/update 캘린더 메타데이터를 수정합니다. 사용자별 캘린더 속성을 수정합니다.
+반복 일정
+주간 회의, 생일, 공휴일과 같이 정기적으로 여러 번 발생하는 일정이 있습니다. 시작 시간과 종료 시간이 다른 것 외에는 이러한 반복 이벤트가 동일한 경우가 많습니다.
+정의된 일정에 따라 반복되는 이벤트는 반복 이벤트라고 합니다. 단일 이벤트는 반복되지 않으며 한 번만 발생합니다.
+반복 규칙
+반복 일정의 일정은 두 부분으로 정의됩니다.
+시작 및 종료 필드 (마치 독립형 단일 이벤트인 것처럼 첫 번째 발생을 정의함)
+반복 필드 (시간이 지남에 따라 이벤트가 반복되는 방식을 정의함)
+반복 필드에는 RFC 5545 [http://tools.ietf.org/html/rfc5545]에 정의된 하나 이상의 RRULE, RDATE 또는 EXDATE 속성을 나타내는 문자열 배열이 포함됩니다.
+RRULE 속성은 이벤트를 반복하는 일반 규칙을 정의하므로 가장 중요합니다. 여러 구성요소로 구성되어 있습니다. 일부 예는 다음과 같습니다.
+FREQ - 이벤트가 반복되는 빈도입니다 (예: DAILY 또는 WEEKLY). 필수입니다.
+INTERVAL - FREQ와 함께 이벤트가 반복되는 빈도를 지정합니다. 예를 들어 FREQ=DAILY;INTERVAL=2는 이틀에 한 번을 의미합니다.
+COUNT - 이 이벤트가 반복되어야 하는 횟수입니다.
+COUNT 또는 UNTIL을 사용하여 이벤트 반복의 종료를 지정할 수 있습니다. 동일한 규칙에 두 가지를 모두 사용하지 마세요.
+UNTIL - 이벤트가 반복되어야 하는 날짜 또는 날짜-시간입니다 (해당 날짜 포함).
+BYDAY — 이벤트가 반복되어야 하는 요일입니다 (SU, MO, TU 등). 유사한 다른 구성요소로는 BYMONTH, BYYEARDAY, BYHOUR가 있습니다.
+RDATE 속성은 이벤트 발생이 이루어져야 하는 추가 날짜 또는 날짜-시간을 지정합니다. 예를 들면 다음과 같습니다. RDATE;VALUE=DATE:19970101,19970120 RRULE에 포함되지 않는 추가 어커런스를 추가하는 데 사용합니다.
+EXDATE 속성은 RDATE와 유사하지만 이벤트가 발생해서는 안 되는 날짜 또는 날짜-시간을 지정합니다. 즉, 이러한 발생은 제외해야 합니다. 이는 반복 규칙에 의해 생성된 유효한 인스턴스를 가리켜야 합니다.
+EXDATE 및 RDATE에는 시간대가 있을 수 있으며 종일 일정의 경우 날짜 (날짜-시간 아님)여야 합니다.
+각 속성은 반복 필드 내에서 여러 번 발생할 수 있습니다. 반복은 모든 RRULE 및 RDATE 규칙의 합집합에서 모든 EXDATE 규칙에 의해 제외된 규칙을 뺀 것으로 정의됩니다.
+다음은 반복 이벤트의 몇 가지 예입니다.
+2015년 9월 15일부터 매주 화요일과 금요일 오전 6시부터 오전 7시까지 발생하며 9월 29일 다섯 번째 발생 후 중지되는 이벤트:
+...
+"start": {
+ "dateTime": "2015-09-15T06:00:00+02:00",
+ "timeZone": "Europe/Zurich"
+},
+"end": {
+ "dateTime": "2015-09-15T07:00:00+02:00",
+ "timeZone": "Europe/Zurich"
+},
+"recurrence": [
+ "RRULE:FREQ=WEEKLY;COUNT=5;BYDAY=TU,FR"
+],
+…
+2015년 6월 1일에 시작하여 6월 10일을 제외하고 6월 9일과 11일을 포함하여 한 달 동안 3일마다 반복되는 하루 종일 일정:
+...
+"start": {
+ "date": "2015-06-01"
+},
+"end": {
+ "date": "2015-06-02"
+},
+"recurrence": [
+ "EXDATE;VALUE=DATE:20150610",
+ "RDATE;VALUE=DATE:20150609,20150611",
+ "RRULE:FREQ=DAILY;UNTIL=20150628;INTERVAL=3"
+],
+…
+인스턴스 및 예외
+반복 일정은 여러 인스턴스로 구성됩니다. 즉, 서로 다른 시간에 발생하는 특정 일정입니다. 이러한 인스턴스는 이벤트 자체로 작동합니다.
+반복 이벤트 수정사항은 전체 반복 이벤트 (및 모든 인스턴스)에 영향을 미치거나 개별 인스턴스에만 영향을 미칠 수 있습니다. 상위 반복 이벤트와 다른 인스턴스를 예외라고 합니다.
+예를 들어 예외의 요약이 다르거나, 시작 시간이 다르거나, 해당 인스턴스에만 초대된 참석자가 추가로 있을 수 있습니다. 반복 일정을 삭제하지 않고 인스턴스를 완전히 취소할 수도 있습니다(인스턴스 취소는 일정 status [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko#status]에 반영됨).
+Google Calendar API를 통해 반복 일정 및 인스턴스를 사용하는 방법의 예는 여기 [https://developers.google.com/workspace/calendar/recurringevents?hl=ko]에서 확인할 수 있습니다.
+시간대
+시간대는 균일한 표준 시간을 준수하는 지역을 지정합니다. Google Calendar API에서는 IANA 시간대 [http://www.iana.org/time-zones] 식별자를 사용하여 시간대를 지정합니다.
+캘린더와 일정의 시간대를 모두 설정할 수 있습니다. 다음 섹션에서는 이러한 설정의 효과를 설명합니다.
+캘린더 시간대
+캘린더의 시간대는 쿼리 결과에 미치는 영향으로 인해 기본 시간대라고도 합니다. 캘린더 시간대는 events.get() [https://developers.google.com/workspace/calendar/v3/reference/events/get?hl=ko], events.list() [https://developers.google.com/workspace/calendar/v3/reference/events/list?hl=ko], events.instances() [https://developers.google.com/workspace/calendar/v3/reference/events/instances?hl=ko] 메서드에서 시간 값을 해석하거나 표시하는 방식에 영향을 미칩니다.
+쿼리 결과 시간대 변환
+get() [https://developers.google.com/workspace/calendar/v3/reference/events/get?hl=ko], list() [https://developers.google.com/workspace/calendar/v3/reference/events/list?hl=ko], instances() [https://developers.google.com/workspace/calendar/v3/reference/events/instances?hl=ko] 메서드의
+결과는 timeZone 매개변수에 지정된 시간대로 반환됩니다. 이 매개변수를 생략하면 이러한 메서드는 모두 캘린더 시간대를 기본값으로 사용합니다.
+시간 범위가 지정된 쿼리와 종일 일정 일치
+list() [https://developers.google.com/workspace/calendar/v3/reference/events/list?hl=ko] 및 instances() [https://developers.google.com/workspace/calendar/v3/reference/events/instances?hl=ko] 메서드를 사용하면 시작 시간 및 종료 시간 필터를 지정할 수 있으며, 메서드는 지정된 범위에 속하는 인스턴스를 반환합니다. 캘린더 시간대는 하루 종일 진행되는 일정의 시작 시간과 종료 시간을 계산하여 필터 사양에 포함되는지 여부를 확인하는 데 사용됩니다.
+일정 시간대
+일정 인스턴스에는 시작 시간과 종료 시간이 있습니다. 이러한 시간의 사양에는 시간대가 포함될 수 있습니다. 시간대는 여러 가지 방법으로 지정할 수 있습니다. 다음은 모두 동일한 시간을 지정합니다.
+dateTime 필드에 시간대 오프셋을 포함합니다(예: 2017-01-25T09:00:00-0500).
+오프셋 없이 시간(예: 2017-01-25T09:00:00)을 지정하고 timeZone 필드를 비워 둡니다(기본 시간대가 암시적으로 사용됨).
+오프셋 없이 시간을 지정합니다(예: 2017-01-25T09:00:00). 시간대는 timeZone 필드를 사용하여 지정합니다.
+원하는 경우 UTC로 이벤트 시간을 지정할 수도 있습니다.
+UTC로 시간을 지정합니다(2017-01-25T14:00:00Z). 또는 오프셋 0(2017-01-25T14:00:00+0000)을 사용합니다.
+이러한 모든 경우에 이벤트 시간의 내부 표현은 동일하지만 timeZone 필드를 설정하면 Calendar UI를 사용하여 이벤트 시간대를 설정 [https://support.google.com/calendar/answer/37064?ref_topic=6272668&hl=ko]할 때와 마찬가지로 시간대가 이벤트에 연결됩니다.
+단일 이벤트의 경우 이벤트의 시작 시간과 종료 시간에 다른 시간대를 지정할 수 있습니다. (이는 실제로 다른 시간대에서 시작하고 종료되는 여행과 같은 이벤트에 도움이 될 수 있습니다.) 반복 이벤트의 경우 아래를 참고하세요.
+반복 일정 시간대
+반복 일정의 경우 항상 단일 시간대를 지정해야 합니다. 이 정보는 이벤트의 반복을 확장하는 데 필요합니다.
+의견 보내기

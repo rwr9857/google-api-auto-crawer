@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendars/update
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendars/update
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 Calendars: update
 bookmark_border
@@ -43,5 +42,4 @@ summary string 캘린더의 제목입니다. 쓰기 가능
 timeZone string 캘린더의 시간대입니다. IANA 시간대 데이터베이스 이름 형식(예: 'Europe/Zurich')입니다. 선택사항입니다. 쓰기 가능
 응답
 이 메서드는 요청에 성공하면 응답 본문에서 Calendars 리소스 [https://developers.google.com/workspace/calendar/api/v3/reference/calendars?hl=ko#resource]를 반환합니다.
-도움이 되었나요?
 의견 보내기

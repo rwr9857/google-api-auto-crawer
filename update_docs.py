@@ -37,7 +37,7 @@ CONFIGS = {
 
 # 사용할 config 선택
 # 여기만 TARGET 으로 바꾸면 됨
-TARGET = "gmail"
+TARGET = "calendar"
 cfg = CONFIGS[TARGET]
 
 

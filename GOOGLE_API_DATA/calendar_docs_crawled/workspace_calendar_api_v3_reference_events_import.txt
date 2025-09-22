@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/events/import
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/events/import
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 Events: import
 bookmark_border
@@ -143,5 +142,4 @@ visibility string 이벤트의 공개 상태입니다. 선택사항입니다. �
 쓰기 가능
 응답
 이 메서드는 성공하면 응답 본문에 Events 리소스 [https://developers.google.com/workspace/calendar/api/v3/reference/events?hl=ko#resource]를 반환합니다.
-도움이 되었나요?
 의견 보내기

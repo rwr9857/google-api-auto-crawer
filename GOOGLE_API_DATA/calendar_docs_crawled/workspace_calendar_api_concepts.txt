@@ -1,0 +1,25 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/concepts
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+의견 보내기
+개념 개요
+bookmark_border
+각 Calendar 사용자는 기본 캘린더와 액세스할 수 있는 여러 다른 캘린더와 연결됩니다. 사용자는 다음 다이어그램과 같이 이벤트를 만들고 다른 사용자를 초대할 수 있습니다.
+이 예시에는 두 명의 사용자(Susan A와 Wei X)가 표시됩니다. 각 사용자에게는 기본 캘린더와 여러 개의 연결된 캘린더가 있습니다. 이 예시에는 연말 발표와 팀 오프사이트라는 두 가지 이벤트도 표시되어 있습니다.
+다이어그램에 표시된 사실은 다음과 같습니다.
+수잔의 캘린더 목록에는 기본 캘린더와 팀 캘린더, 첼로 수업 캘린더가 포함되어 있습니다.
+Wei의 캘린더 목록에는 기본 캘린더, 팀 캘린더, 상태 추적 캘린더, Susan의 기본 캘린더가 포함됩니다.
+연말 발표회 이벤트에는 수잔이 주최자로, 웨이가 참석자로 표시됩니다.
+하와이 팀 오프사이트 일정에는 팀 캘린더가 주최자로 지정되어 있으며(즉, 해당 캘린더에서 생성됨) 참석자로 수잔과 웨이가 복사되었습니다.
+캘린더, 일정, 참석자 등의 개념은 이 가이드의 다른 섹션에서 자세히 설명합니다.
+캘린더 및 일정 [https://developers.google.com/workspace/calendar/api/concepts/events-calendars?hl=ko]
+Calendar 공유 [https://developers.google.com/workspace/calendar/api/concepts/sharing?hl=ko]
+일정에 사용자 초대하기 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko]
+알림 및 알림 [https://developers.google.com/workspace/calendar/api/concepts/reminders?hl=ko]
+Google Workspace 기능 [https://developers.google.com/workspace/calendar/api/concepts/domain?hl=ko]
+의견 보내기

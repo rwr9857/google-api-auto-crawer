@@ -1,0 +1,54 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/guides/quota
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+의견 보내기
+할당량 관리
+bookmark_border
+이 페이지의 내용
+Calendar API 사용 할당량 유형 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#types_of_api_usage_quotas]
+할당량 상향 요청 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#quota_increase]
+지수 백오프 사용 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#backoff]
+트래픽 패턴 무작위화 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#randomize_traffic_patterns]
+푸시 알림 사용 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#use_push_notifications]
+Google Calendar API에는 모든 사용자가 공정하게 사용할 수 있도록 할당량이 있습니다. Calendar API를 사용할 때는 다음 세 가지 중요한 제한사항을 고려해야 합니다.
+API 사용량 할당량은 프로젝트별 및 사용자별로 적용됩니다. 자세한 내용은 다음 섹션을 참고하세요.
+일반 Calendar 사용 한도: Calendar 사용 한도 [https://support.google.com/a/answer/2905486?hl=ko]를 초과하지 마세요.
+운영 한도: 언제든지 비율 제한이 적용될 수 있습니다. 예를 들어 하나의 캘린더에 연속으로 쓰려고 하면 발생합니다.
+Calendar API 사용 할당량 유형
+두 가지 유형의 할당량이 적용됩니다.
+프로젝트별 분당: Google Cloud 프로젝트에서 수행한 요청 수입니다.
+사용자별 프로젝트별 분당: Cloud 프로젝트의 특정 사용자가 만든 요청 수입니다. 이 한도는 사용자 간에 사용량을 공정하게 분배하는 데 도움이 됩니다.
+할당량은 슬라이딩 윈도우를 사용하여 분당 계산되므로 1분 동안 분당 할당량을 초과하는 트래픽이 급증하면 평균적으로 사용량이 할당량 내에 유지되도록 다음 기간 동안 비율 제한이 적용됩니다.
+두 할당량 중 하나를 초과하면 비율 제한이 적용되고 쿼리에 403 usageLimits 상태 코드 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#403_rate_limit_exceeded] 또는 429 usageLimits 상태 코드 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#429_too_many_requests]가 반환됩니다. 이 경우 다음 단계를 따르세요.
+지수 백오프 사용 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#backoff], 트래픽 패턴 무작위화 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#randomize_traffic_patterns], 푸시 알림 사용 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#use_push_notifications] 등 모든 권장사항을 따르세요.
+프로젝트가 성장하고 사용자가 늘어나는 경우 프로젝트별 할당량 증가 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#quota_increase]를 요청할 수 있습니다.
+사용자별 할당량 한도에 도달한 경우 다음을 수행할 수 있습니다.
+서비스 계정을 사용하는 경우 사용자에게 부하를 할당 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#proper_accounting_with_service_accounts]하거나 여러 서비스 계정 간에 부하를 분할합니다.
+사용자별 할당량 증가를 요청할 수 있지만, 일반적으로 애플리케이션이 일반 캘린더 사용 한도 [https://support.google.com/a/answer/2905486?hl=ko] 또는 운영 한도와 같은 다른 유형의 한도에 도달할 수 있으므로 기본값 이상으로 늘리는 것은 권장되지 않습니다.
+할당량 상향 요청
+프로젝트의 사용량 한도를 확인 또는 변경하거나 할당량 증가를 요청하려면 다음 단계를 따르세요.
+프로젝트의 결제 계정 [https://cloud.google.com/billing/docs/how-to/manage-billing-account?hl=ko]이 아직 없는 경우 계정을 만듭니다.
+API 콘솔에서 API 라이브러리의 사용 설정된 API 페이지를 방문 [https://console.cloud.google.com/apis/enabled?hl=ko]하여 목록에서 API를 선택합니다.
+할당량 관련 설정을 확인하고 변경하려면 할당량을 선택합니다. 사용 통계를 확인하려면 사용량을 선택합니다.
+지수 백오프 사용
+요청 속도를 늦춰야 하는 경우 403 'usageLimits' 응답 또는 429 응답이 반환됩니다 (전체 오류 문서 [https://developers.google.com/workspace/calendar/api/guides/errors?hl=ko#403_calendar_usage_limits_exceeded] 참고). 심각한 오류는 아니며 짧은 간격 후에 요청을 다시 시도해야 합니다. 요청이 너무 빨리 도착하는 경우 다시 요청이 표시됩니다. 이 기능이 올바르게 작동하려면 요청 간 지연 시간이 시간이 지남에 따라 증가해야 합니다.
+일반적으로 잘린 지수 백오프를 사용해야 합니다. Cloud Storage 문서 [https://cloud.google.com/storage/docs/retry-strategy?hl=ko]에 이 기능의 작동 방식과 선호하는 알고리즘이 잘 설명되어 있습니다. Google 클라이언트 라이브러리를 사용하는 경우 일반적으로 이 작업이 자동으로 처리됩니다. 라이브러리 문서를 참고하세요. 일반적으로 자체 코드를 작성하는 대신 라이브러리 구현을 사용하는 것이 좋습니다.
+트래픽 패턴 무작위화
+캘린더 클라이언트는 여러 클라이언트가 동시에 작업을 실행하여 트래픽 패턴이 급증하는 경향이 있습니다. 예를 들어 캘린더 클라이언트의 일반적인 잘못된 관행은 자정에 전체 동기화를 실행하는 것입니다. 이렇게 하면 분당 할당량이 초과되어 비율 제한 및 백오프가 발생할 가능성이 매우 높습니다.
+이를 방지하려면 가능한 한 하루 종일 트래픽이 분산되도록 하세요. 클라이언트가 매일 동기화해야 하는 경우 클라이언트가 무작위 시간을 결정하도록 합니다 (클라이언트마다 다름). 정기적으로 작업을 실행해야 하는 경우 간격을 +/- 25%로 변경합니다. 이렇게 하면 트래픽이 더 균등하게 분산되고 사용자 환경이 훨씬 개선됩니다.
+푸시 알림 사용
+일반적인 사용 사례는 사용자의 일정에서 무언가가 변경될 때마다 작업을 실행하는 것입니다. 여기서 안티 패턴은 관심 있는 모든 캘린더를 반복적으로 폴링하는 것입니다. 이렇게 하면 할당량이 매우 빠르게 소진됩니다. 예를 들어 애플리케이션에 5,000명의 사용자가 있고 각 사용자의 캘린더를 분당 한 번씩 폴링하는 경우 작업을 수행하기 전에도 분당 할당량이 최소 5,000개 필요합니다.
+서버 측 애플리케이션은 푸시 알림을 등록할 수 있으므로 관심 있는 일이 발생하면 알림을 받을 수 있습니다. 이러한 기능은 설정하는 데 더 많은 작업이 필요하지만 할당량을 훨씬 더 효율적으로 사용할 수 있으며 더 나은 사용자 환경을 제공합니다. 알림을 받을 eventType를 지정해야 합니다. 자세한 내용은 푸시 알림 [https://developers.google.com/workspace/calendar/v3/push?hl=ko]을 참고하세요.
+서비스 계정을 사용한 적절한 계정 관리
+애플리케이션이 도메인 전체 위임 [https://developers.google.com/identity/protocols/oauth2/service-account?hl=ko#delegatingauthority]을 사용하여 요청을 실행하는 경우 기본적으로 가장하는 사용자가 아닌 서비스 계정에 '사용자별 프로젝트별 분당' 할당량에 관한 요금이 청구됩니다. 즉, 여러 사용자의 캘린더에서 작동하더라도 서비스 계정의 할당량이 소진되고 비율 제한이 적용될 수 있습니다. quotaUser URL 매개변수 (또는 x-goog-quota-user HTTP 헤더)를 사용하여 요금이 청구될 사용자를 표시하면 이 문제를 방지할 수 있습니다. 이 값은 할당량 계산에만 사용됩니다. 자세한 내용은 Cloud 문서의 사용자별 요청 제한 [https://cloud.google.com/apis/docs/capping-api-usage?hl=ko#limiting_requests_per_user]을 참고하세요.
+할당량 한도 처리 테스트
+애플리케이션이 실제로 할당량 한도에 도달하는 상황을 원활하게 처리할 수 있도록 (예: 지수 백오프로 재시도 [https://developers.google.com/workspace/calendar/api/guides/quota?hl=ko#backoff]) 하고 사용자에게 발생할 수 있는 잠재적 방해 요소를 최소화하려면 실제 환경에서 이 시나리오를 테스트하는 것이 좋습니다.
+이러한 테스트가 실제 애플리케이션 사용을 방해하지 않도록 하려면 Google API 콘솔 [https://console.cloud.google.com/?hl=ko]에 테스트 전용 프로젝트를 별도로 등록하고 프로덕션 프로젝트와 유사한 방식으로 구성 [https://developers.google.com/workspace/calendar/api/guides/auth?hl=ko]하는 것이 좋습니다. 그런 다음 이 프로젝트의 할당량을 인위적으로 낮게 설정 [https://console.cloud.google.com/iam-admin/quotas?hl=ko]하고 애플리케이션의 동작을 관찰할 수 있습니다.
+가격 책정
+Google Calendar API는 모두 추가 비용 없이 사용할 수 있습니다. 할당량 요청 한도를 초과해도 추가 요금이 발생하지 않으며 계정에 비용이 청구되지 않습니다.
+의견 보내기

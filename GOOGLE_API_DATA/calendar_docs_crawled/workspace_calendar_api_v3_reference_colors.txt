@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/colors
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/colors
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 Colors
 bookmark_border
@@ -17,24 +16,17 @@ bookmark_border
 리소스 표현
 {
   "kind": "calendar#colors",
-  "updated": 
-datetime,
+  "updated": datetime,
   "calendar": {
-    
-(key): {
-      "background": 
-string,
-      "foreground": 
-string
+    (key): {
+      "background": string,
+      "foreground": string
     }
   },
   "event": {
-    
-(key): {
-      "background": 
-string,
-      "foreground": 
-string
+    (key): {
+      "background": string,
+      "foreground": string
     }
   }
 }
@@ -52,5 +44,4 @@ updated datetime 색상 팔레트의 마지막 수정 시간 (RFC3339 [https://t
 메서드
 get [https://developers.google.com/workspace/calendar/api/v3/reference/colors/get?hl=ko]
 캘린더 및 일정의 색상 정의를 반환합니다.
-도움이 되었나요?
 의견 보내기

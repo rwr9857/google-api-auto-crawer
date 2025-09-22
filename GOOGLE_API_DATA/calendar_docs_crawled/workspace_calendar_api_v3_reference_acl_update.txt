@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/acl/update
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/acl/update
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,17 +6,16 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 Acl: update
 bookmark_border
 이 페이지의 내용
-요청 [https://developers.google.com/workspace/calendar/api/v3/reference/acl/update?hl=ko#request]
-HTTP 요청 [https://developers.google.com/workspace/calendar/api/v3/reference/acl/update?hl=ko#http-request]
-매개변수 [https://developers.google.com/workspace/calendar/api/v3/reference/acl/update?hl=ko#parameters]
-승인 [https://developers.google.com/workspace/calendar/api/v3/reference/acl/update?hl=ko#auth]
-요청 본문 [https://developers.google.com/workspace/calendar/api/v3/reference/acl/update?hl=ko#request-body]
-응답 [https://developers.google.com/workspace/calendar/api/v3/reference/acl/update?hl=ko#response]
+요청
+HTTP 요청
+매개변수
+승인
+요청 본문
+응답
 참고: 승인 [https://developers.google.com/workspace/calendar/api/v3/reference/acl/update?hl=ko#auth]이 필요합니다.
 액세스 제어 규칙을 업데이트합니다. 지금 사용해 보기 [https://developers.google.com/workspace/calendar/api/v3/reference/acl/update?hl=ko#try-it]
 요청
@@ -57,5 +56,4 @@ role string 범위에 할당된 역할입니다. 가능한 값은 다음과 같�
 scope.value string 범위 유형에 따라 사용자 또는 그룹의 이메일 주소 또는 도메인 이름입니다. 'default' 유형의 경우 생략됩니다. 쓰기 가능
 응답
 이 메서드는 성공하면 응답 본문에 Acl 리소스 [https://developers.google.com/workspace/calendar/api/v3/reference/acl?hl=ko#resource]를 반환합니다.
-도움이 되었나요?
 의견 보내기

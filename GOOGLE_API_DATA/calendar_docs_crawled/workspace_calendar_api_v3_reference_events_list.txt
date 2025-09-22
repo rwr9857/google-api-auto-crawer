@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/events/list
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/events/list
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 Events: list
 bookmark_border
@@ -102,30 +101,20 @@ https://www.googleapis.com/auth/calendar.events.public.readonly
 요청에 성공할 경우 이 메소드는 다음과 같은 구조의 응답 본문을 반환합니다.
 {
   "kind": "calendar#events",
-  "etag": 
-etag,
-  "summary": 
-string,
-  "description": 
-string,
-  "updated": 
-datetime,
-  "timeZone": 
-string,
-  "accessRole": 
-string,
+  "etag": etag,
+  "summary": string,
+  "description": string,
+  "updated": datetime,
+  "timeZone": string,
+  "accessRole": string,
   "defaultReminders": [
     {
-      "method": 
-string,
-      "minutes": 
-integer
+      "method": string,
+      "minutes": integer
     }
   ],
-  "nextPageToken": 
-string,
-  "nextSyncToken": 
-string,
+  "nextPageToken": string,
+  "nextSyncToken": string,
   "items": [
     events Resource [https://developers.google.com/workspace/calendar/api/v3/reference/events?hl=ko#resource]
   ]
@@ -155,5 +144,4 @@ defaultReminders[].minutes integer 이벤트 시작 전 리마인더가 트리�
 nextPageToken string 이 결과의 다음 페이지에 액세스하는 데 사용되는 토큰입니다. 더 이상 결과를 사용할 수 없는 경우 생략되며 이 경우 nextSyncToken이 제공됩니다.
 items[] list 캘린더의 일정 목록입니다.
 nextSyncToken string 이 결과가 반환된 이후 변경된 항목만 검색하는 데 나중에 사용되는 토큰입니다. 추가 결과를 사용할 수 있는 경우 생략되며 이 경우 nextPageToken이 제공됩니다.
-도움이 되었나요?
 의견 보내기

@@ -1,0 +1,86 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+도움이 되었나요?
+의견 보내기
+일정에 사용자 초대하기
+bookmark_border
+이 페이지의 내용
+이벤트 만들기 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#create-event]
+참석자 추가 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#add-attendees]
+참석자의 캘린더에 직접 일정 표시 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#display-event]
+참석자의 참석 여부 설정 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#set-attendees-rsvp]
+참석자의 캘린더에 직접 일정 사본 가져오기 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#import-copy]
+참석자의 연락처에 주최자 추가 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#add-organizer]
+이메일 주소로 사용자 초대 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#invite-by-email]
+사용자가 일정을 추가할 수 있는 링크 제공 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#link-user]
+이벤트 만들기
+주최자의 Google 캘린더에 쓰기 액세스 권한이 있는 경우 Events: insert [https://developers.google.com/workspace/calendar/api/v3/reference/events/insert?hl=ko] 메서드를 사용하여 일정을 추가할 수 있습니다.
+이 메서드는 초대 추가 설정과 관계없이 주최자의 캘린더에 직접 일정을 추가합니다.
+참석자 추가
+이 방법을 사용하면 이벤트의 attendees [https://developers.google.com/workspace/calendar/api/v3/reference/events?hl=ko#attendees] 속성에 이메일 주소를 추가하여 동일한 이벤트에 참석자를 추가할 수도 있습니다. 주최자가 향후 일정에 적용하는 변경사항은 참석자에게 전파 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#event-propagation]됩니다.
+참석자는 주최자의 이메일 주소에서 초대를 받습니다. Google Calendar 사용자는 Google Calendar 설정 내의 일정 설정에 따라 이메일 또는 캘린더에서 초대를 받습니다.
+From everyone 설정이 있는 경우 일정이 캘린더에 바로 추가됩니다.
+Only if the sender is known 설정이 사용 설정된 경우, 이전에 주최자와 상호작용한 적이 있거나, 주최자가 동일한 조직에 속해 있거나, 주최자가 Google 연락처 [https://contacts.google.com/?hl=ko]에 있는 경우 일정이 캘린더에 바로 추가됩니다. 참석자는 주최자를 모르는 경우 캘린더에 추가를 클릭하거나 초대 이메일에서 예 또는 미정을 클릭하여 참석 여부를 알릴 수 있습니다. 그러면 일정이 캘린더에 추가됩니다.
+사용자에게 When I respond in email 설정이 있는 경우 사용자가 초대 이메일에서 예, 미정 또는 아니요를 클릭하여 참석 여부를 회신할 때까지 모든 초대가 캘린더에 추가되지 않습니다.
+초대가 Google Calendar에 추가되는 방식에 관한 자세한 내용은 Calendar에서 초대 관리하기 [https://support.google.com/calendar/answer/13159188?hl=ko]를 참고하세요.
+중요: attendees[].responseStatus [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko#attendees.responseStatus] 속성을 사용하여 참석자의 응답을 미리 입력해도 게스트의 캘린더에 일정이 자동으로 추가되지는 않습니다. 또한 일정에 200명이 넘는 참석자가 초대된 경우 응답 상태가 참석자에게 전파되지 않습니다.
+참석자의 캘린더에 직접 일정 표시
+참석자가 설정한 모든 설정에 대해 Google Calendar 참석자의 캘린더에 직접 일정을 표시하려면 참석자의 회신을 설정 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#set-attendees-rsvp]하거나 참석자의 캘린더에 직접 일정 사본을 가져오기 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#import-copy]하면 됩니다. 두 방법 모두 참석자의 일정에 대한 쓰기 액세스 권한 [https://developers.google.com/identity/protocols/oauth2/scopes?hl=ko#calendar]이 필요합니다. 쓰기 액세스 권한이 없는 경우 참석자의 연락처에 주최자를 추가 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#add-organizer]하는 것이 좋습니다. 이 경우 참석자의 연락처에 대한 쓰기 액세스 권한이 필요할 수 있습니다.
+참석자의 참석 여부 설정
+참석자의 이벤트 참석 여부를 설정하려면 다음 단계를 따르세요.
+Google Calendar 주최자의 캘린더에서 일정을 만들고 참석자를 추가합니다 (위 참고 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#add-attendees]).
+Events: update [https://developers.google.com/workspace/calendar/api/v3/reference/events/update?hl=ko] 메서드를 사용하여 참석자의 응답 [https://developers.google.com/workspace/calendar/api/v3/reference/events?hl=ko#attendees.responseStatus]을 accepted 또는 tentative로 설정합니다. 참석자의 캘린더에 대한 쓰기 액세스 권한이 있어야 합니다. 일정이 참석자의 캘린더에 표시되기까지 약간의 지연이 발생할 수 있습니다. Events: update 메서드 사용 방법 자세히 알아보기 [https://developers.google.com/workspace/calendar/api/v3/reference/events/update?hl=ko]
+이 메서드는 참석자의 캘린더에 일정을 추가하지만 참석자의 이메일에는 이전에 알지 못했던 주소에서 초대가 전송되었다는 배너가 계속 표시될 수 있습니다.
+참석자의 캘린더에 직접 일정 사본 가져오기
+일정 사본을 참석자의 캘린더로 가져오려면 다음 단계를 따르세요.
+주최자의 Google 캘린더에 대한 쓰기 액세스 권한이 있는 경우 Events: import [https://developers.google.com/workspace/calendar/api/v3/reference/events/import?hl=ko] 메서드를 사용하여 일정 사본을 가져옵니다.
+Events: import [https://developers.google.com/workspace/calendar/api/v3/reference/events/import?hl=ko]를 사용하여 참석자의 캘린더에 동일한 일정의 다른 사본을 가져옵니다. 참석자의 캘린더에 대한 쓰기 액세스 권한이 있어야 합니다. 주최자 및 참석자 사본에 동일한 이벤트 ID(iCalUID [https://developers.google.com/workspace/calendar/api/v3/reference/events/import?hl=ko#iCalUID])를 사용하고 참석자 사본에 주최자를 지정해야 합니다.
+이 방법을 사용하면 참석자가 캘린더에서 일정을 볼 수 있지만 Google Calendar에서 초대 이메일을 받지는 않습니다.
+중요: 동일한 이벤트 ID를 사용하지 않으면 주최자가 이벤트에 적용한 향후 변경사항이 참석자에게 자동으로 전파되지 않습니다.
+참석자의 연락처에 주최자 추가
+참석자의 사용자 인증 정보가 없는 경우 참석자 또는 참석자의 조직에 캘린더에 직접 일정을 표시하도록 주최자의 이메일 주소를 Google 연락처에 미리 추가하도록 안내할 수 있습니다. 새로 만든 연락처가 적용되기까지 약간의 지연이 있을 수 있습니다.
+Google Calendar 사용자에게 주최자를 Google 주소록에 추가 [https://support.google.com/contacts/answer/1069522?hl=ko]하도록 요청합니다.
+참석자가 조직에 속한 경우 조직의 관리자에게 사용자 연락처에 이메일 주소를 프로그래매틱 방식으로 추가하도록 요청할 수 있습니다. 관리자에게 도메인 전체 위임 [https://support.google.com/a/answer/162106?hl=ko]을 사용 설정하고, 사용자를 가장하고, People: createContact [https://developers.google.com/people/api/rest/v1/people/createContact?hl=ko] 메서드를 사용하여 각 사용자의 연락처를 만들어 이러한 이메일 주소에서 보낸 향후 초대가 사용자의 캘린더에 자동으로 표시되도록 요청하세요.
+참석자의 연락처에 액세스할 수 있는 경우 People: createContact [https://developers.google.com/people/api/rest/v1/people/createContact?hl=ko] 메서드를 사용하여 참석자의 연락처에 주최자의 이메일 주소를 추가할 수도 있습니다.
+이메일 주소로 사용자 초대
+주최자의 Google Calendar에 대한 쓰기 액세스 권한이 없거나 주최자의 이메일 주소를 공개하고 싶지 않은 경우 iCalendar 프로토콜(RFC-5545 [https://icalendar.org/RFC-Specifications/iCalendar-RFC-5545/])을 사용하여 .ICS 파일을 통해 이메일로 사용자를 초대합니다.
+참석자가 Only if the sender is known 설정이 사용 설정된 Google Calendar 사용자이고 이전에 주소와 상호작용하거나 주소를 알려진 주소로 기록하지 않은 경우 캘린더에 추가를 클릭하거나 일정에 회신요청을 할 때까지 초대가 캘린더에 추가되지 않습니다.
+도움말: 악용이 발생하면 이 주소에서 초대를 보낸 모든 사용자에게 영향을 미칠 수 있으므로 초대를 보낼 때 일반 이메일 주소 (예: invitation@example.com)를 사용하지 마세요. 주최자의 이메일 주소를 사용할 수 없는 경우 각 주최자에게 고유한 정적 이메일 주소를 사용하는 것이 좋습니다.
+사용자가 일정을 추가할 수 있는 링크 제공
+또는 Google Calendar 사용자가 업데이트하지 않고 일정을 일회성으로 쉽게 추가할 수 있도록 하려면 사용자가 직접 추가할 수 있도록 미리 입력된 일정이 포함된 링크를 제공하면 됩니다. 이 메서드는 사용자의 캘린더에 별도의 이벤트를 만듭니다. 사용자의 캘린더에 액세스할 수 없으면 이벤트를 업데이트할 수 없습니다.
+다음 링크 템플릿을 사용합니다.
+https://calendar.google.com/calendar/r/eventedit?action=TEMPLATE&dates=
+20230325T224500Z%2F
+20230326T001500Z&stz=
+Europe/Brussels&etz=
+Europe/Brussels&details=
+EVENT_DESCRIPTION_HERE&location=
+EVENT_LOCATION_HERE&text=
+EVENT_TITLE_HERE
+다음 정보를 업데이트합니다.
+시작 및 종료 날짜와 시간: ISO 8601 형식을 사용합니다. 위의 예에서 20230325T224500Z과 20230326T001500Z을 바꿉니다.
+시작 및 종료 시간대: IANA 시간대 데이터베이스 이름으로 형식을 지정합니다. 시간대를 stz 및 etz 필드에 배치합니다.
+이벤트 설명: URL로 인코딩되어야 합니다.
+이벤트 위치: URL로 인코딩되어야 합니다.
+이벤트 제목: URL로 인코딩되어야 합니다.
+예
+사용자가 비즈니스와 약속을 예약할 수 있도록 지원하는 약속 예약 서비스를 구축하는 예를 살펴보겠습니다. 사용자가 약속을 예약하면 서비스에서 예약자와 비즈니스의 Google 캘린더에 일정을 추가해야 합니다.
+최상의 사용자 환경을 위해 비즈니스에서 캘린더에 대한 쓰기 액세스 권한을 부여하여 비즈니스의 캘린더에 직접 일정을 추가 (일정 만들기 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#create-event])하고 예약자를 해당 일정에 초대(참석자 추가 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#add-attendees])할 수 있도록 하는 것이 좋습니다. 예약자가 캘린더에서 일정을 확인하고 알림을 받을 수 있도록 예약 후 즉시 이메일을 확인하고 일정에 예로 회신하도록 안내하세요. 참석 여부를 회신하면 알림 설정에 따라 Google Calendar에서 일정 알림 [https://support.google.com/calendar/answer/37242?hl=ko]이 전송됩니다.
+예약자의 캘린더에 직접 일정을 추가하려면 예약자에게 초대장을 받을 이메일 주소를 연락처에 추가 [https://support.google.com/contacts/answer/1069522?hl=ko]하도록 안내하세요. 또는 예약자에게 캘린더에 대한 쓰기 액세스 권한을 요청하여 예약자를 대신해 프로그래매틱 방식으로 참석 여부를 답하고 (참석자의 참석 여부 설정 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#set-attendees-rsvp]) 확인된 예약에 관한 이메일 알림을 보낼 수 있습니다.
+비즈니스에서 이메일 주소를 공개하고 싶지 않은 경우 사용자별 이메일 주소를 사용하여 이메일(이메일 주소에서 사용자 초대 [https://developers.google.com/workspace/calendar/api/concepts/inviting-attendees-to-events?hl=ko#invite-by-email])로 예약자에게 일정을 보냅니다.
+이벤트 전파
+다음 다이어그램은 역학 관계를 설명합니다. 먼저 Jack이 기본 캘린더에 일정을 만듭니다 (따라서 주최자 사본을 소유함). 그런 다음 첼로 수업 그룹 보조 캘린더와 일정 설정이 Only if the sender is known인 수잔을 초대합니다. 참석자의 사본은 Cello lesson 그룹 보조 캘린더에 생성되고, Susan이 Jack을 알고 있는 경우 Susan의 캘린더에 생성됩니다. 그렇지 않은 경우 Susan이 참석 여부를 응답하거나 Jack을 알고 있다고 표시할 때 생성됩니다. 수잔이 응답하면 RSVP 변경사항이 주최자에게 다시 전파되어 주최자의 사본이 수잔의 응답으로 업데이트됩니다. 주최자의 일정 사본에 적용된 변경사항은 다른 참석자에게 전파됩니다.
+공유 이벤트 속성
+일정이 생성된 캘린더가 주최자 캘린더입니다. 이 캘린더는 ID, 시작 및 종료 시간, 요약, 설명 등 공유된 일정 정보를 소유합니다. 이 정보가 주최자 일정에서 업데이트되면 변경사항이 참석자 사본에 전파됩니다.
+비공개 이벤트 속성
+모든 이벤트 사본 간에 정보가 공유되는 것은 아닙니다. 일부 속성은 알림, colorId, 투명도 또는 extendedProperties.private 속성과 같이 비공개입니다. 이러한 속성은 주최자 캘린더가 아닌 참석자의 설정에 의해 제어됩니다.
+참석자는 일정의 공유 속성을 변경할 수도 있습니다. 하지만 이러한 변경사항은 자신의 사본에만 반영되며 주최자가 변경하면 손실될 수 있습니다.
+참석자로부터 주최자에게 전파되는 유일한 일정 변경사항은 attendees[].responseStatus [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko#attendees.responseStatus] 속성에 저장된 참석자의 응답 상태입니다.
+도움이 되었나요?
+의견 보내기

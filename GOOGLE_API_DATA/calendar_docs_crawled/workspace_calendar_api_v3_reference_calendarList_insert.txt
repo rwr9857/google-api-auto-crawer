@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/insert
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/insert
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 CalendarList: insert
 bookmark_border
@@ -68,5 +67,4 @@ selected boolean 캘린더 콘텐츠가 캘린더 UI에 표시되는지 여부�
 summaryOverride string 인증된 사용자가 이 캘린더에 설정한 요약입니다. 선택사항입니다. 쓰기 가능
 응답
 이 메서드는 요청에 성공하면 응답 본문에서 CalendarList 리소스 [https://developers.google.com/workspace/calendar/api/v3/reference/calendarList?hl=ko#resource]를 반환합니다.
-도움이 되었나요?
 의견 보내기

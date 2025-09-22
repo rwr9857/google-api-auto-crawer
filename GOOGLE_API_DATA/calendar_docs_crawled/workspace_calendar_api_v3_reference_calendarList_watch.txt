@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/watch
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/watch
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 CalendarList: watch
 bookmark_border
@@ -35,17 +34,12 @@ https://www.googleapis.com/auth/calendar.calendarlist.readonly
 요청 본문
 요청 본문에 다음과 같은 구조의 데이터를 제공합니다.
 {
-  "id": 
-string,
-  "token": 
-string,
-  "type": 
-string,
-  "address": 
-string,
+  "id": string,
+  "token": string,
+  "type": string,
+  "address": string,
   "params": {
-    "ttl": 
-string
+    "ttl": string
   }
 }
 속성 이름 값 설명 참고
@@ -59,16 +53,11 @@ params.ttl string 알림 채널의 수명(초). 기본값은 604,800초입니다
 요청에 성공할 경우 이 메소드는 다음과 같은 구조의 응답 본문을 반환합니다.
 {
   "kind": "api#channel",
-  "id": 
-string,
-  "resourceId": 
-string,
-  "resourceUri": 
-string,
-  "token": 
-string,
-  "expiration": 
-long
+  "id": string,
+  "resourceId": string,
+  "resourceUri": string,
+  "token": string,
+  "expiration": long
 }
 속성 이름 값 설명 참고
 kind string 리소스 변경사항을 감시하는 데 사용되는 알림 채널('api#channel')로 식별합니다.
@@ -77,5 +66,4 @@ resourceId string 이 채널에서 감시 중인 리소스를 식별하는 불�
 resourceUri string 감시 중인 리소스의 버전별 식별자입니다.
 token string 이 채널을 통해 전송되는 각 알림과 함께 대상 주소로 전송되는 임의의 문자열입니다. 선택사항입니다.
 expiration long 알림 채널 만료 날짜 및 시간으로, Unix 타임스탬프로 밀리초 단위로 표시됩니다. 선택사항입니다.
-도움이 되었나요?
 의견 보내기

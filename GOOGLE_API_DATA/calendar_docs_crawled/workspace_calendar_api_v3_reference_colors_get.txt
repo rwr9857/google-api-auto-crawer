@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/colors/get
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/colors/get
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,11 +10,11 @@ Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 Colors: get
 bookmark_border
 이 페이지의 내용
-요청
-HTTP 요청
-승인
-요청 본문
-응답
+요청 [https://developers.google.com/workspace/calendar/api/v3/reference/colors/get?hl=ko#request]
+HTTP 요청 [https://developers.google.com/workspace/calendar/api/v3/reference/colors/get?hl=ko#http-request]
+승인 [https://developers.google.com/workspace/calendar/api/v3/reference/colors/get?hl=ko#auth]
+요청 본문 [https://developers.google.com/workspace/calendar/api/v3/reference/colors/get?hl=ko#request-body]
+응답 [https://developers.google.com/workspace/calendar/api/v3/reference/colors/get?hl=ko#response]
 참고: 승인 [https://developers.google.com/workspace/calendar/api/v3/reference/colors/get?hl=ko#auth](선택사항)
 캘린더 및 일정의 색상 정의를 반환합니다. 지금 사용해 보기 [https://developers.google.com/workspace/calendar/api/v3/reference/colors/get?hl=ko#try-it]
 요청

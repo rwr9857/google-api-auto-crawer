@@ -1,0 +1,421 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/guides/create-events
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+의견 보내기
+이벤트 만들기
+bookmark_border
+이 페이지의 내용
+일정 추가 [https://developers.google.com/workspace/calendar/api/guides/create-events?hl=ko#add_an_event]
+이벤트 메타데이터 추가 [https://developers.google.com/workspace/calendar/api/guides/create-events?hl=ko#metadata]
+일정에 Drive 첨부파일 추가하기 [https://developers.google.com/workspace/calendar/api/guides/create-events?hl=ko#attachments]
+일정에 화상 회의 및 전화 회의 추가 [https://developers.google.com/workspace/calendar/api/guides/create-events?hl=ko#conferencing]
+사용자가 최고의 하이킹 경로를 찾을 수 있도록 도와주는 앱을 상상해 보세요. 하이킹 계획을 캘린더 일정으로 추가하면 사용자가 자동으로 정리하는 데 많은 도움이 됩니다. Google Calendar를 사용하면 계획을 공유하고 계획을 상기시켜 주므로 스트레스 없이 준비할 수 있습니다. 또한 Google 제품의 원활한 통합 덕분에 Google Now는 출발 시간을 알려주고 Google 지도에서는 회의 장소로 제시간에 안내합니다.
+이 도움말에서는 캘린더 이벤트를 만들고 사용자의 캘린더에 추가하는 방법을 설명합니다.
+일정 추가
+이벤트를 만들려면 다음 매개변수를 하나 이상 제공하여 events.insert() [https://developers.google.com/workspace/calendar/v3/reference/events/insert?hl=ko] 메서드를 호출합니다.
+calendarId는 캘린더 식별자이며, 이벤트를 만들 캘린더의 이메일 주소이거나 로그인한 사용자의 기본 캘린더를 사용하는 특수 키워드 'primary'일 수 있습니다. 사용할 캘린더의 이메일 주소를 모르는 경우 Google Calendar 웹 UI의 캘린더 설정('캘린더 주소' 섹션)에서 확인하거나 calendarList.list() [https://developers.google.com/workspace/calendar/v3/reference/calendarList/list?hl=ko] 호출 결과에서 찾을 수 있습니다.
+event는 시작 및 종료와 같은 필요한 모든 세부정보를 사용하여 생성할 이벤트입니다. 필수 필드는 start 및 end 시간 두 개뿐입니다. 전체 이벤트 필드는 event 참조 [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko]를 확인하세요.
+start.dateTime 및 end.dateTime 필드를 사용하여 시간 제한 이벤트를 지정합니다. 종일 일정의 경우 start.date 및 end.date을 대신 사용하세요.
+이벤트를 성공적으로 만들려면 다음을 충족해야 합니다.
+사용자의 캘린더를 수정할 수 있도록 OAuth 범위를 https://www.googleapis.com/auth/calendar로 설정합니다.
+인증된 사용자에게 제공된 calendarId에 대한 쓰기 액세스 권한이 있는지 확인합니다 (예: calendarId에 대해 calendarList.get() [https://developers.google.com/workspace/calendar/v3/reference/calendarList/get?hl=ko]을 호출하고 accessRole을 확인).
+이벤트 메타데이터 추가
+캘린더 일정을 만들 때 선택적으로 일정 메타데이터를 추가할 수 있습니다. 생성 중에 메타데이터를 추가하지 않기로 선택한 경우 events.update() [https://developers.google.com/workspace/calendar/v3/reference/events/update?hl=ko]를 사용하여 여러 필드를 업데이트할 수 있습니다. 하지만 이벤트 ID와 같은 일부 필드는 events.insert() [https://developers.google.com/workspace/calendar/v3/reference/events/insert?hl=ko] 작업 중에만 설정할 수 있습니다.
+위치
+위치 필드에 주소를 추가하면 '출발 시간'과 같은 기능을 사용하거나 길찾기가 포함된 지도를 표시할 수 있습니다.
+이벤트 ID
+이벤트를 만들 때 Google의 형식 요구사항을 준수하는 자체 이벤트 ID를 생성할 수 있습니다. 이를 통해 로컬 데이터베이스의 항목을 Google Calendar의 일정과 동기화할 수 있습니다. 또한 Calendar 백엔드에서 작업이 성공적으로 실행된 후 특정 시점에서 작업이 실패하는 경우 중복 이벤트 생성을 방지합니다. 이벤트 ID가 제공되지 않으면 서버에서 이벤트 ID를 생성합니다. 자세한 내용은 이벤트 ID 참조 [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko#id]를 참고하세요.
+참석자
+내가 만든 일정은 동일한 이벤트 ID로 포함된 참석자의 모든 기본 Google Calendar에 표시됩니다. 삽입 요청에서 sendUpdates을 "all" 또는 "externalOnly"로 설정하면 해당 참석자에게 일정에 대한 이메일 알림이 전송됩니다. 자세한 내용은 참석자가 여러 명인 일정 [https://developers.google.com/workspace/calendar/concepts?hl=ko#events_with_attendees]을 참고하세요.
+다음 예는 이벤트를 만들고 메타데이터를 설정하는 방법을 보여줍니다.
+--- 탭: Go ---
+// Refer to the Go quickstart on how to setup the environment:
+// https://developers.google.com/workspace/calendar/quickstart/go
+// Change the scope to calendar.CalendarScope and delete any stored credentials.
+
+event := &calendar.Event{
+  Summary: "Google I/O 2015",
+  Location: "800 Howard St., San Francisco, CA 94103",
+  Description: "A chance to hear more about Google's developer products.",
+  Start: &calendar.EventDateTime{
+    DateTime: "2015-05-28T09:00:00-07:00",
+    TimeZone: "America/Los_Angeles",
+  },
+  End: &calendar.EventDateTime{
+    DateTime: "2015-05-28T17:00:00-07:00",
+    TimeZone: "America/Los_Angeles",
+  },
+  Recurrence: []string{"RRULE:FREQ=DAILY;COUNT=2"},
+  Attendees: []*calendar.EventAttendee{
+    &calendar.EventAttendee{Email:"lpage@example.com"},
+    &calendar.EventAttendee{Email:"sbrin@example.com"},
+  },
+}
+
+calendarId := "primary"
+event, err = srv.Events.Insert(calendarId, event).Do()
+if err != nil {
+  log.Fatalf("Unable to create event. %v\n", err)
+}
+fmt.Printf("Event created: %s\n", event.HtmlLink)
+
+--- 탭: 자바 ---
+// Refer to the Java quickstart on how to setup the environment:
+// https://developers.google.com/workspace/calendar/quickstart/java
+// Change the scope to CalendarScopes.CALENDAR and delete any stored
+// credentials.
+
+Event event = new Event()
+    .setSummary("Google I/O 2015")
+    .setLocation("800 Howard St., San Francisco, CA 94103")
+    .setDescription("A chance to hear more about Google's developer products.");
+
+DateTime startDateTime = new DateTime("2015-05-28T09:00:00-07:00");
+EventDateTime start = new EventDateTime()
+    .setDateTime(startDateTime)
+    .setTimeZone("America/Los_Angeles");
+event.setStart(start);
+
+DateTime endDateTime = new DateTime("2015-05-28T17:00:00-07:00");
+EventDateTime end = new EventDateTime()
+    .setDateTime(endDateTime)
+    .setTimeZone("America/Los_Angeles");
+event.setEnd(end);
+
+String[] recurrence = new String[] {"RRULE:FREQ=DAILY;COUNT=2"};
+event.setRecurrence(Arrays.asList(recurrence));
+
+EventAttendee[] attendees = new EventAttendee[] {
+    new EventAttendee().setEmail("lpage@example.com"),
+    new EventAttendee().setEmail("sbrin@example.com"),
+};
+event.setAttendees(Arrays.asList(attendees));
+
+EventReminder[] reminderOverrides = new EventReminder[] {
+    new EventReminder().setMethod("email").setMinutes(24 * 60),
+    new EventReminder().setMethod("popup").setMinutes(10),
+};
+Event.Reminders reminders = new Event.Reminders()
+    .setUseDefault(false)
+    .setOverrides(Arrays.asList(reminderOverrides));
+event.setReminders(reminders);
+
+String calendarId = "primary";
+event = service.events().insert(calendarId, event).execute();
+System.out.printf("Event created: %s\n", event.getHtmlLink());
+
+--- 탭: 자바스크립트 ---
+// Refer to the JavaScript quickstart on how to setup the environment:
+// https://developers.google.com/workspace/calendar/quickstart/js
+// Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
+// stored credentials.
+
+const event = {
+  'summary': 'Google I/O 2015',
+  'location': '800 Howard St., San Francisco, CA 94103',
+  'description': 'A chance to hear more about Google\'s developer products.',
+  'start': {
+    'dateTime': '2015-05-28T09:00:00-07:00',
+    'timeZone': 'America/Los_Angeles'
+  },
+  'end': {
+    'dateTime': '2015-05-28T17:00:00-07:00',
+    'timeZone': 'America/Los_Angeles'
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  'attendees': [
+    {'email': 'lpage@example.com'},
+    {'email': 'sbrin@example.com'}
+  ],
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10}
+    ]
+  }
+};
+
+const request = gapi.client.calendar.events.insert({
+  'calendarId': 'primary',
+  'resource': event
+});
+
+request.execute(function(event) {
+  appendPre('Event created: ' + event.htmlLink);
+});
+
+--- 탭: Node.js ---
+// Refer to the Node.js quickstart on how to setup the environment:
+// https://developers.google.com/workspace/calendar/quickstart/node
+// Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
+// stored credentials.
+
+const event = {
+  'summary': 'Google I/O 2015',
+  'location': '800 Howard St., San Francisco, CA 94103',
+  'description': 'A chance to hear more about Google\'s developer products.',
+  'start': {
+    'dateTime': '2015-05-28T09:00:00-07:00',
+    'timeZone': 'America/Los_Angeles',
+  },
+  'end': {
+    'dateTime': '2015-05-28T17:00:00-07:00',
+    'timeZone': 'America/Los_Angeles',
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  'attendees': [
+    {'email': 'lpage@example.com'},
+    {'email': 'sbrin@example.com'},
+  ],
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10},
+    ],
+  },
+};
+
+calendar.events.insert({
+  auth: auth,
+  calendarId: 'primary',
+  resource: event,
+}, function(err, event) {
+  if (err) {
+    console.log('There was an error contacting the Calendar service: ' + err);
+    return;
+  }
+  console.log('Event created: %s', event.htmlLink);
+});
+
+--- 탭: PHP ---
+$event = new Google_Service_Calendar_Event(array(
+  'summary' => 'Google I/O 2015',
+  'location' => '800 Howard St., San Francisco, CA 94103',
+  'description' => 'A chance to hear more about Google\'s developer products.',
+  'start' => array(
+    'dateTime' => '2015-05-28T09:00:00-07:00',
+    'timeZone' => 'America/Los_Angeles',
+  ),
+  'end' => array(
+    'dateTime' => '2015-05-28T17:00:00-07:00',
+    'timeZone' => 'America/Los_Angeles',
+  ),
+  'recurrence' => array(
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ),
+  'attendees' => array(
+    array('email' => 'lpage@example.com'),
+    array('email' => 'sbrin@example.com'),
+  ),
+  'reminders' => array(
+    'useDefault' => FALSE,
+    'overrides' => array(
+      array('method' => 'email', 'minutes' => 24 * 60),
+      array('method' => 'popup', 'minutes' => 10),
+    ),
+  ),
+));
+
+$calendarId = 'primary';
+$event = $service->events->insert($calendarId, $event);
+printf('Event created: %s\n', $event->htmlLink);
+
+--- 탭: Python ---
+# Refer to the Python quickstart on how to setup the environment:
+# https://developers.google.com/workspace/calendar/quickstart/python
+# Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
+# stored credentials.
+
+event = {
+  'summary': 'Google I/O 2015',
+  'location': '800 Howard St., San Francisco, CA 94103',
+  'description': 'A chance to hear more about Google\'s developer products.',
+  'start': {
+    'dateTime': '2015-05-28T09:00:00-07:00',
+    'timeZone': 'America/Los_Angeles',
+  },
+  'end': {
+    'dateTime': '2015-05-28T17:00:00-07:00',
+    'timeZone': 'America/Los_Angeles',
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  'attendees': [
+    {'email': 'lpage@example.com'},
+    {'email': 'sbrin@example.com'},
+  ],
+  'reminders': {
+    'useDefault': False,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10},
+    ],
+  },
+}
+
+event = service.events().insert(calendarId='primary', body=event).execute()
+print 'Event created: %s' % (event.get('htmlLink'))
+
+--- 탭: Ruby ---
+event = Google::Apis::CalendarV3::Event.new(
+  summary: 'Google I/O 2015',
+  location: '800 Howard St., San Francisco, CA 94103',
+  description: 'A chance to hear more about Google\'s developer products.',
+  start: Google::Apis::CalendarV3::EventDateTime.new(
+    date_time: '2015-05-28T09:00:00-07:00',
+    time_zone: 'America/Los_Angeles'
+  ),
+  end: Google::Apis::CalendarV3::EventDateTime.new(
+    date_time: '2015-05-28T17:00:00-07:00',
+    time_zone: 'America/Los_Angeles'
+  ),
+  recurrence: [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  attendees: [
+    Google::Apis::CalendarV3::EventAttendee.new(
+      email: 'lpage@example.com'
+    ),
+    Google::Apis::CalendarV3::EventAttendee.new(
+      email: 'sbrin@example.com'
+    )
+  ],
+  reminders: Google::Apis::CalendarV3::Event::Reminders.new(
+    use_default: false,
+    overrides: [
+      Google::Apis::CalendarV3::EventReminder.new(
+        reminder_method: 'email',
+        minutes: 24 * 60
+      ),
+      Google::Apis::CalendarV3::EventReminder.new(
+        reminder_method: 'popup',
+        minutes: 10
+      )
+    ]
+  )
+)
+
+result = client.insert_event('primary', event)
+puts "Event created: #{result.html_link}"
+일정에 Drive 첨부파일 추가하기
+회의록(Docs), 예산(Sheets), 프레젠테이션(Slides)과 같은 Google Drive [https://drive.google.com/?hl=ko] 파일을 캘린더 일정에 첨부할 수 있습니다. events.insert() [https://developers.google.com/workspace/calendar/v3/reference/events/insert?hl=ko] 이상으로 이벤트를 만들 때 업데이트의 일부로 첨부파일을 추가할 수 있습니다(예: events.patch() [https://developers.google.com/workspace/calendar/v3/reference/events/patch?hl=ko] 사용).
+Google Drive 파일을 일정에 첨부하는 두 가지 방법은 다음과 같습니다.
+일반적으로 files.get() [https://developers.google.com/workspace/drive/v3/reference/files/get?hl=ko] 메서드를 사용하여 Drive API 파일 리소스 [https://developers.google.com/workspace/drive/v3/reference/files?hl=ko]에서 파일 alternateLink URL, title, mimeType를 가져옵니다.
+요청 본문에 attachments 필드가 설정되고 supportsAttachments 매개변수가 true로 설정된 이벤트 만들기 또는 업데이트
+다음 코드 예는 기존 이벤트를 업데이트하여 첨부파일을 추가하는 방법을 보여줍니다.
+--- 탭: 자바 ---
+public static void addAttachment(Calendar calendarService, Drive driveService, String calendarId,
+    String eventId, String fileId) throws IOException {
+  File file = driveService.files().get(fileId).execute();
+  Event event = calendarService.events().get(calendarId, eventId).execute();
+
+  List<EventAttachment> attachments = event.getAttachments();
+  if (attachments == null) {
+    attachments = new ArrayList<EventAttachment>();
+  }
+  attachments.add(new EventAttachment()
+      .setFileUrl(file.getAlternateLink())
+      .setMimeType(file.getMimeType())
+      .setTitle(file.getTitle()));
+
+  Event changes = new Event()
+      .setAttachments(attachments);
+  calendarService.events().patch(calendarId, eventId, changes)
+      .setSupportsAttachments(true)
+      .execute();
+}
+
+--- 탭: PHP ---
+function addAttachment($calendarService, $driveService, $calendarId, $eventId, $fileId) {
+  $file = $driveService->files->get($fileId);
+  $event = $calendarService->events->get($calendarId, $eventId);
+  $attachments = $event->attachments;
+
+  $attachments[] = array(
+    'fileUrl' => $file->alternateLink,
+    'mimeType' => $file->mimeType,
+    'title' => $file->title
+  );
+  $changes = new Google_Service_Calendar_Event(array(
+    'attachments' => $attachments
+  ));
+
+  $calendarService->events->patch($calendarId, $eventId, $changes, array(
+    'supportsAttachments' => TRUE
+  ));
+}
+
+--- 탭: Python ---
+def add_attachment(calendarService, driveService, calendarId, eventId, fileId):
+    file = driveService.files().get(fileId=fileId).execute()
+    event = calendarService.events().get(calendarId=calendarId,
+                                         eventId=eventId).execute()
+
+    attachments = event.get('attachments', [])
+    attachments.append({
+        'fileUrl': file['alternateLink'],
+        'mimeType': file['mimeType'],
+        'title': file['title']
+    })
+
+    changes = {
+        'attachments': attachments
+    }
+    calendarService.events().patch(calendarId=calendarId, eventId=eventId,
+                                   body=changes,
+                                   supportsAttachments=True).execute()
+중요: 로컬에 이벤트를 저장하는 기존 앱에 첨부파일 지원을 추가할 때 이벤트 수정에 supportsAttachments 매개변수를 사용 설정하려면 먼저 모든 이벤트의 전체 동기화 [https://developers.google.com/workspace/calendar/v3/sync?hl=ko#initial_full_sync]를 실행해야 합니다. 먼저 동기화를 실행하지 않으면 사용자의 일정에서 기존 첨부파일이 실수로 삭제될 수 있습니다.
+일정에 화상 회의 및 전화 회의 추가
+이벤트를 행아웃 [https://hangouts.google.com/?hl=ko] 및 Google Meet [https://meet.google.com/?hl=ko] 회의와 연결하여 사용자가 전화 통화 또는 영상 통화를 통해 원격으로 회의에 참여할 수 있습니다.
+conferenceData [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko#conferenceData] 필드는 기존 회의 세부정보를 읽고, 복사하고, 지우는 데 사용할 수 있으며 새 회의 생성을 요청하는 데도 사용할 수 있습니다. 회의 세부정보를 만들고 수정할 수 있도록 하려면 conferenceDataVersion 요청 매개변수를 1로 설정합니다.
+현재 지원되는 conferenceData에는 세 가지 유형이 있으며 conferenceData.conferenceSolution.key.type로 표시됩니다.
+소비자용 행아웃 (eventHangout)
+Google Workspace 사용자를 위한 기본 행아웃(지원 중단됨, eventNamedHangout)
+Google Meet (hangoutsMeet)
+calendars [https://developers.google.com/workspace/calendar/v3/reference/calendars?hl=ko] 및 calendarList [https://developers.google.com/workspace/calendar/v3/reference/calendarList?hl=ko] 컬렉션의 conferenceProperties.allowedConferenceSolutionTypes를 확인하여 사용자의 특정 캘린더에 지원되는 회의 유형을 알 수 있습니다. settings [https://developers.google.com/workspace/calendar/v3/reference/settings?hl=ko] 컬렉션에서 autoAddHangouts 설정을 확인하여 사용자가 새로 만든 모든 일정에 대해 행아웃을 만들기를 선호하는지 알아볼 수도 있습니다.
+type 외에도 conferenceSolution는 아래와 같이 회의 솔루션을 나타내는 데 사용할 수 있는 name 및 iconUri 필드를 제공합니다.
+--- 탭: 자바스크립트 ---
+const solution = event.conferenceData.conferenceSolution;
+
+const content = document.getElementById("content");
+const text = document.createTextNode("Join " + solution.name);
+const icon = document.createElement("img");
+icon.src = solution.iconUri;
+
+content.appendChild(icon);
+content.appendChild(text);
+새로 생성된 requestId(임의의 string일 수 있음)이 있는 createRequest를 제공하여 이벤트의 새 회의를 만들 수 있습니다. 회의는 비동기식으로 생성되지만 언제든지 요청 상태를 확인하여 사용자에게 진행 상황을 알릴 수 있습니다.
+예를 들어 기존 이벤트에 대한 회의 생성을 요청하려면 다음을 실행하세요.
+--- 탭: 자바스크립트 ---
+const eventPatch = {
+  conferenceData: {
+    createRequest: {requestId: "7qxalsvy0e"}
+  }
+};
+
+gapi.client.calendar.events.patch({
+  calendarId: "primary",
+  eventId: "7cbh8rpc10lrc0ckih9tafss99",
+  resource: eventPatch,
+  sendUpdates: "all",
+  conferenceDataVersion: 1
+}).execute(function(event) {
+  console.log("Conference created for event: %s", event.htmlLink);
+});
+이 호출에 대한 즉각적인 응답에는 아직 완전히 채워진 conferenceData가 포함되지 않을 수 있습니다. 이는 status [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko#conferenceData.createRequest.status] 필드의 상태 코드 pending로 표시됩니다. 회의 정보가 채워지면 상태 코드가 success로 변경됩니다. entryPoints 필드에는 사용자가 다이얼할 수 있는 동영상 및 전화 URI에 관한 정보가 포함됩니다.
+동일한 회의 세부정보로 여러 캘린더 일정을 예약하려면 한 일정에서 다른 일정으로 전체 conferenceData를 복사하면 됩니다.
+복사는 특정 상황에서 유용합니다. 예를 들어 후보자와 인터뷰 담당자를 위한 별도의 이벤트를 설정하는 채용 애플리케이션을 개발하고 있다고 가정해 보겠습니다. 인터뷰 담당자의 신원을 보호하고 싶지만 모든 참가자가 동일한 컨퍼런스 통화에 참여하도록 하고 싶습니다.
+중요: 이벤트를 로컬에 저장하는 기존 앱에 회의 지원을 추가할 때 회의 데이터 지원을 사용 설정 (이벤트 수정 시 conferenceDataVersion 요청 매개변수를 1로 설정)하기 전에 모든 이벤트의 전체 동기화 [https://developers.google.com/workspace/calendar/v3/sync?hl=ko#initial_full_sync]를 실행해야 합니다. 먼저 동기화를 실행하지 않으면 사용자의 일정에서 기존 회의가 실수로 삭제될 수 있습니다.
+의견 보내기

@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/events/get
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/events/get
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,12 +10,12 @@ Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 Events: get
 bookmark_border
 이 페이지의 내용
-요청
-HTTP 요청
-매개변수
-승인
-요청 본문
-응답
+요청 [https://developers.google.com/workspace/calendar/api/v3/reference/events/get?hl=ko#request]
+HTTP 요청 [https://developers.google.com/workspace/calendar/api/v3/reference/events/get?hl=ko#http-request]
+매개변수 [https://developers.google.com/workspace/calendar/api/v3/reference/events/get?hl=ko#parameters]
+승인 [https://developers.google.com/workspace/calendar/api/v3/reference/events/get?hl=ko#auth]
+요청 본문 [https://developers.google.com/workspace/calendar/api/v3/reference/events/get?hl=ko#request-body]
+응답 [https://developers.google.com/workspace/calendar/api/v3/reference/events/get?hl=ko#response]
 참고: 승인 [https://developers.google.com/workspace/calendar/api/v3/reference/events/get?hl=ko#auth](선택사항)
 Google Calendar ID를 기반으로 일정을 반환합니다. iCalendar ID를 사용하여 일정을 검색하려면 iCalUID 매개변수를 사용하여 events.list 메서드 [https://developers.google.com/workspace/calendar/api/v3/reference/events/list?hl=ko#iCalUID]를 호출합니다. 지금 사용해 보기 [https://developers.google.com/workspace/calendar/api/v3/reference/events/get?hl=ko#try-it]
 요청

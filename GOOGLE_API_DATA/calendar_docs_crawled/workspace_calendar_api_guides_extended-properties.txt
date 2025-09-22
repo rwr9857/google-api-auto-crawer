@@ -1,0 +1,57 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/guides/extended-properties
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+의견 보내기
+확장 속성
+bookmark_border
+이 페이지의 내용
+공개 상태
+속성 추가 및 업데이트
+속성 삭제
+속성 검색
+한도
+이벤트 리소스 [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko]의 필드는 위치, 시작 시간 등 이벤트와 관련된 가장 일반적인 데이터를 다루지만 애플리케이션은 사용 사례에 특정한 추가 메타데이터를 저장할 수 있습니다. Calendar API는 확장 속성 [https://developers.google.com/workspace/calendar/v3/reference/events?hl=ko#extendedProperties]이라고 하는 이벤트로 숨겨진 키-값 쌍을 설정하는 기능을 제공합니다. 확장 속성을 사용하면 외부 데이터베이스를 활용하지 않고도 이벤트의 애플리케이션별 데이터를 쉽게 저장할 수 있습니다.
+공개 상태
+사용 가능한 확장 속성에는 비공개와 공유의 두 가지 유형이 있습니다. 공유 속성은 이벤트의 모든 참석자가 보고 수정할 수 있지만, 비공개 속성은 한 참석자의 로컬 이벤트 '복사본'에 설정됩니다. 구체적으로 말하면 비공개 속성은 요청에 사용된 calendarId 및 eventId에 따라 달라지며, 공유 속성은 요청에 사용된 calendarId와 관계없이 표시됩니다.
+속성 추가 및 업데이트
+확장 속성은 Events 리소스에 설정되며 다른 필드와 마찬가지로 insert [https://developers.google.com/workspace/calendar/v3/reference/events/insert?hl=ko], update [https://developers.google.com/workspace/calendar/v3/reference/events/update?hl=ko], patch [https://developers.google.com/workspace/calendar/v3/reference/events/patch?hl=ko] 요청에서 설정할 수 있습니다. 패치 요청을 사용하면 일부 속성을 조작하면서 다른 속성은 그대로 유지할 수 있으므로 이 방법을 사용하는 것이 좋습니다. 키가 동일한 새 속성을 추가하면 키가 동일한 기존 속성이 덮어쓰기됩니다. 다음 예에서는 비공개 속성을 설정하는 방법을 보여줍니다.
+PATCH https://www.googleapis.com/calendar/v3/calendars/calendarId/events/eventId
+{
+  "extendedProperties": {
+    "private": {
+      "petsAllowed": "yes"
+    }
+  }
+}
+속성 삭제
+업데이트 요청에 포함되지 않은 속성은 삭제되지만 패치 요청을 통해 값을 null로 설정하는 것이 더 나은 방법입니다. 다음 예에서는 비공개 속성을 삭제하는 방법을 보여줍니다.
+PATCH https://www.googleapis.com/calendar/v3/calendars/calendarId/events/eventId
+{
+  "extendedProperties": {
+    "private": {
+      "petsAllowed": null
+    }
+  }
+}
+속성 검색
+Events.list [https://developers.google.com/workspace/calendar/v3/reference/events/list?hl=ko] 요청을 사용하여 확장 속성의 값을 기반으로 이벤트를 검색할 수 있습니다. privateExtendedProperty [https://developers.google.com/workspace/calendar/v3/reference/events/list?hl=ko#privateExtendedProperty] 또는 sharedExtendedProperty [https://developers.google.com/workspace/calendar/v3/reference/events/list?hl=ko#sharedExtendedProperty] 필드를 propertyName=value 형식의 제약 조건으로 설정합니다. 그러면 각각 비공개 속성과 공유 속성을 검색합니다. 다음 예에서는 비공개 속성 petsAllowed=yes가 있는 이벤트를 반환합니다.
+GET https://www.googleapis.com/calendar/v3/calendars/calendarId/events
+    ?privateExtendedProperty=petsAllowed%3Dyes
+이러한 필드를 여러 번 반복할 수 있으며 제약 조건은 OR로 결합되므로 이벤트가 반환되려면 제약 조건 중 하나와 일치해야 합니다. 다음 예에서는 비공개 속성 petsAllowed=yes 또는 isOutside=yes가 있는 이벤트를 찾습니다.
+GET https://www.googleapis.com/calendar/v3/calendars/calendarId/events
+    ?privateExtendedProperty=petsAllowed%3Dyes
+    &privateExtendedProperty=isOutside%3Dyes
+비공개 및 공유 속성에 대한 제약 조건은 AND로 결합되므로 이벤트가 반환되려면 두 제약 조건 집합과 모두 일치해야 합니다. 다음 예에서는 비공개 속성 petsAllowed=yes과 공개 속성 createdBy=myApp이 있는 이벤트를 찾습니다.
+GET https://www.googleapis.com/calendar/v3/calendars/calendarId/events
+    ?privateExtendedProperty=petsAllowed%3Dyes
+    &sharedExtendedProperty=createdBy%3DmyApp
+한도
+속성 키의 최대 크기는 44자이며 키가 더 긴 속성은 자동으로 삭제됩니다.
+속성 값의 최대 크기는 1,024자(영문 기준)이며, 값이 더 긴 속성은 자동으로 잘립니다.
+이벤트는 최대 300개의 속성을 가질 수 있으며, 총 크기는 최대 32KB(키 크기 + 값 크기)입니다. 이러한 300개의 속성에는 이벤트의 모든 '사본'에 걸쳐 공유 및 비공개 속성이 포함됩니다.
+의견 보내기

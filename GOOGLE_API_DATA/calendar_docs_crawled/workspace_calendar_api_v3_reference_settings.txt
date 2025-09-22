@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/settings
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/settings
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,8 +10,8 @@ Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 Settings
 bookmark_border
 이 페이지의 내용
-리소스 표현
-메서드
+리소스 표현 [https://developers.google.com/workspace/calendar/api/v3/reference/settings?hl=ko#resource-representations]
+메서드 [https://developers.google.com/workspace/calendar/api/v3/reference/settings?hl=ko#methods]
 리소스 설정은 사용자의 시간대와 같이 사용자가 Calendar UI에서 변경할 수 있는 설정을 나타냅니다. list [https://developers.google.com/workspace/calendar/api/v3/reference/settings/list?hl=ko] 및 get [https://developers.google.com/workspace/calendar/api/v3/reference/settings/get?hl=ko] 메서드를 통해 가져올 수 있습니다.설정에 기본값이 있으면 반환되지 않을 수 있습니다.
 
 지원되는 설정 목록은 다음과 같습니다.

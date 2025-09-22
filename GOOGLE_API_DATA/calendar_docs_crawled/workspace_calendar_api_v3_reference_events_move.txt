@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/events/move
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference/events/move
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,17 +6,16 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 Events: move
 bookmark_border
 이 페이지의 내용
-요청 [https://developers.google.com/workspace/calendar/api/v3/reference/events/move?hl=ko#request]
-HTTP 요청 [https://developers.google.com/workspace/calendar/api/v3/reference/events/move?hl=ko#http-request]
-매개변수 [https://developers.google.com/workspace/calendar/api/v3/reference/events/move?hl=ko#parameters]
-승인 [https://developers.google.com/workspace/calendar/api/v3/reference/events/move?hl=ko#auth]
-요청 본문 [https://developers.google.com/workspace/calendar/api/v3/reference/events/move?hl=ko#request-body]
-응답 [https://developers.google.com/workspace/calendar/api/v3/reference/events/move?hl=ko#response]
+요청
+HTTP 요청
+매개변수
+승인
+요청 본문
+응답
 참고: 승인 [https://developers.google.com/workspace/calendar/api/v3/reference/events/move?hl=ko#auth]이 필요합니다.
 일정을 다른 캘린더로 이동합니다. 즉, 일정의 주최자를 변경합니다. default 이벤트만 이동할 수 있습니다. birthday, focusTime, fromGmail, outOfOffice, workingLocation 이벤트는 이동할 수 없습니다. 지금 사용해 보기 [https://developers.google.com/workspace/calendar/api/v3/reference/events/move?hl=ko#try-it]
 요청
@@ -50,5 +49,4 @@ https://www.googleapis.com/auth/calendar.events.owned
 이 메소드를 사용할 때는 요청 본문을 제공하지 마세요.
 응답
 이 메서드는 성공하면 응답 본문에 Events 리소스 [https://developers.google.com/workspace/calendar/api/v3/reference/events?hl=ko#resource]를 반환합니다.
-도움이 되었나요?
 의견 보내기

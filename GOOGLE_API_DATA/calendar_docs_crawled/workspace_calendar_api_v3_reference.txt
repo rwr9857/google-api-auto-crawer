@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko
+[2025-07-25] Source URL: https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
 참조 [https://developers.google.com/workspace/calendar/api/v3/reference?hl=ko]
-도움이 되었나요?
 의견 보내기
 API Reference
 bookmark_border
@@ -90,5 +89,4 @@ Settings 리소스에 대한 자세한 내용은 리소스 표현 [https://devel
 get [https://developers.google.com/workspace/calendar/api/v3/reference/settings/get?hl=ko] GET  /users/me/settings/setting 단일 사용자 설정을 반환합니다.
 list [https://developers.google.com/workspace/calendar/api/v3/reference/settings/list?hl=ko] GET  /users/me/settings 인증된 사용자의 모든 사용자 설정을 반환합니다.
 시청 [https://developers.google.com/workspace/calendar/api/v3/reference/settings/watch?hl=ko] POST  /users/me/settings/watch 설정 리소스의 변경사항을 확인합니다.
-도움이 되었나요?
 의견 보내기

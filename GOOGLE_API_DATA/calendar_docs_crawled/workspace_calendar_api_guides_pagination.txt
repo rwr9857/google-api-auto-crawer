@@ -1,0 +1,22 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/calendar/api/guides/pagination
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Google Calendar [https://developers.google.com/workspace/calendar?hl=ko]
+가이드 [https://developers.google.com/workspace/calendar/api/guides/overview?hl=ko]
+의견 보내기
+페이지 스루 리소스 목록
+bookmark_border
+maxResults 필드를 설정하여 목록 요청에 대한 응답에서 서버가 반환하는 최대 리소스 수를 제어할 수 있습니다. 또한 일부 컬렉션 (예: 이벤트)의 경우 서버가 절대 초과하지 않는 검색된 항목 수에 엄격한 제한이 있습니다. 총 이벤트 수가 이 최댓값을 초과하면 서버에서 결과 페이지 하나를 반환합니다.
+maxResults이 한 페이지에 표시되는 결과 수를 보장하지는 않습니다. 불완전한 결과는 결과에 비어 있지 않은 nextPageToken 필드로 감지할 수 있습니다. 다음 페이지를 가져오려면 이전과 정확히 동일한 요청을 실행하고 이전 페이지의 nextPageToken 값이 포함된 pageToken 필드를 추가합니다. 모든 결과가 검색될 때까지 다음 페이지에 새 nextPageToken이 제공됩니다.
+예를 들어 다음은 쿼리와 페이지로 나눈 목록에서 다음 페이지의 결과를 가져오는 쿼리입니다.
+GET /calendars/primary/events?maxResults=10&singleEvents=true
+
+//Result contains
+
+"nextPageToken":"CiAKGjBpNDd2Nmp2Zml2cXRwYjBpOXA",
+후속 쿼리는 nextPageToken의 값을 가져와 pageToken의 값으로 제출합니다.
+GET /calendars/primary/events?maxResults=10&singleEvents=true&pageToken=CiAKGjBpNDd2Nmp2Zml2cXRwYjBpOXA
+의견 보내기
