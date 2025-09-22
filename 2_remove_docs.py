@@ -12,7 +12,8 @@ all_data = collection.get(include=["metadatas"])
 for TAG in TAGS:
     # 현재 태그에 해당하는 문서 ID 수집
     ids_to_delete = [
-        _id for _id, md in zip(all_data["ids"], all_data["metadatas"])
+        _id
+        for _id, md in zip(all_data["ids"], all_data["metadatas"])
         if md.get("tags") == TAG
     ]
 

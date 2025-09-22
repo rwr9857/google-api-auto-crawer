@@ -63,11 +63,15 @@ try:
             wait = WebDriverWait(driver, 15)
 
             # nav 안의 모든 a 태그 선택
-            links = driver.find_elements(By.CSS_SELECTOR, "nav.devsite-tabs-wrapper tab a")
+            links = driver.find_elements(
+                By.CSS_SELECTOR, "nav.devsite-tabs-wrapper tab a"
+            )
 
             # 상단바 링크 수집
             top_links = [
-                link.get_attribute("href") for link in links if link.get_attribute("href")
+                link.get_attribute("href")
+                for link in links
+                if link.get_attribute("href")
             ]
             print(f"✅ 상단바에서 {len(top_links)}개의 링크를 수집했습니다.")
 
@@ -87,7 +91,9 @@ try:
                 driver.get(link)
                 try:
                     nav_container = wait.until(
-                        EC.presence_of_element_located((By.TAG_NAME, "devsite-book-nav"))
+                        EC.presence_of_element_located(
+                            (By.TAG_NAME, "devsite-book-nav")
+                        )
                     )
                     link_elements = nav_container.find_elements(By.TAG_NAME, "a")
                     side_links = [
@@ -134,8 +140,12 @@ try:
 
                     execute_code = False
                     if last_updated:
-                        updated_date = datetime.strptime(last_updated, "%Y-%m-%d").date()
-                        threshold_date = datetime.strptime(THRESHOID_DATE, "%Y-%m-%d").date()
+                        updated_date = datetime.strptime(
+                            last_updated, "%Y-%m-%d"
+                        ).date()
+                        threshold_date = datetime.strptime(
+                            THRESHOID_DATE, "%Y-%m-%d"
+                        ).date()
                         if updated_date >= threshold_date:
                             execute_code = True
                     else:
@@ -148,7 +158,9 @@ try:
 
                         # 링크 href를 본문에 추가
                         try:
-                            links_in_article = article_element.find_elements(By.TAG_NAME, "a")
+                            links_in_article = article_element.find_elements(
+                                By.TAG_NAME, "a"
+                            )
                             for link in links_in_article:
                                 href = link.get_attribute("href")
                                 # href가 유효하고, 클릭 시 페이지 이동을 하는 링크만 대상으로 함
@@ -175,7 +187,8 @@ try:
 
                             # 탭 버튼과 이름 수집
                             tab_buttons = tab_group.find_elements(
-                                By.CSS_SELECTOR, "devsite-tabs tab:not(.devsite-overflow-tab)"
+                                By.CSS_SELECTOR,
+                                "devsite-tabs tab:not(.devsite-overflow-tab)",
                             )
 
                             # 버튼의 표시 텍스트가 비어있을 수 있어서 보강
@@ -200,7 +213,9 @@ try:
                             for p in tab_panels:
                                 key = p.get_attribute("data-tab")
                                 if not key:
-                                    labelledby = p.get_attribute("aria-labelledby") or ""
+                                    labelledby = (
+                                        p.get_attribute("aria-labelledby") or ""
+                                    )
                                     if labelledby.startswith("aria-tab-"):
                                         key = labelledby.replace("aria-tab-", "")
                                 if key:
@@ -233,9 +248,12 @@ try:
                                     try:
                                         # 코드블록이 있으면 우선적으로 코드블록 텍스트 사용
                                         code_block = panel.find_element(
-                                            By.CSS_SELECTOR, "pre.devsite-code-highlight"
+                                            By.CSS_SELECTOR,
+                                            "pre.devsite-code-highlight",
                                         )
-                                        panel_text = code_block.get_attribute("textContent").strip()
+                                        panel_text = code_block.get_attribute(
+                                            "textContent"
+                                        ).strip()
                                     except Exception:
                                         # 숨김 상태여도 textContent로 전부 읽힘
                                         panel_text = (
@@ -244,7 +262,9 @@ try:
                                 else:
                                     panel_text = "(해당 탭의 패널을 찾을 수 없음)"
 
-                                tab_texts.append(f"--- 탭: {tab_name} ---\n{panel_text}")
+                                tab_texts.append(
+                                    f"--- 탭: {tab_name} ---\n{panel_text}"
+                                )
 
                             formatted_tab_content = "\n\n".join(tab_texts)
                             if tab_group.text and formatted_tab_content:
@@ -253,11 +273,15 @@ try:
                                 )
 
                         path = url.split("?")[0].replace(BASE_URL, "")
-                        filename = re.sub(r'[/\\?%*:|"<>]', "_", path).strip("_") + ".txt"
+                        filename = (
+                            re.sub(r'[/\\?%*:|"<>]', "_", path).strip("_") + ".txt"
+                        )
                         filepath = os.path.join(cfg["OUTPUT_DIR"], filename)
 
                         # 파일에 저장할 내용을 "[0000-00-00] Source URL: [URL]\n\n[본문]" 형식으로 구성
-                        content_to_save = f"[{last_updated}] Source URL: {url}\n\n{final_page_text}"
+                        content_to_save = (
+                            f"[{last_updated}] Source URL: {url}\n\n{final_page_text}"
+                        )
 
                         # 파일로 저장
                         with open(filepath, "w", encoding="utf-8") as f:
