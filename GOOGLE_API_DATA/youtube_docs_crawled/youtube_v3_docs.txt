@@ -1,24 +1,23 @@
-Source URL: https://developers.google.com/youtube/v3/docs
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/docs?hl=ko
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
 제품 [https://developers.google.com/products?hl=ko]
 YouTube [https://developers.google.com/youtube?hl=ko]
 Data API [https://developers.google.com/youtube/v3?hl=ko]
-참고자료 [https://developers.google.com/youtube/v3/docs?hl=ko]
+참조 [https://developers.google.com/youtube/v3/docs?hl=ko]
 API Reference
 bookmark_border
 이 페이지의 내용
-API 호출
-리소스 유형
-활동
-자막
-ChannelBanners
-ChannelSections
-채널
-CommentThreads
+API 호출 [https://developers.google.com/youtube/v3/docs?hl=ko#calling-the-api]
+리소스 유형 [https://developers.google.com/youtube/v3/docs?hl=ko#resource-types]
+활동 [https://developers.google.com/youtube/v3/docs?hl=ko#Activities]
+자막 [https://developers.google.com/youtube/v3/docs?hl=ko#Captions]
+ChannelBanners [https://developers.google.com/youtube/v3/docs?hl=ko#ChannelBanners]
+ChannelSections [https://developers.google.com/youtube/v3/docs?hl=ko#ChannelSections]
+채널 [https://developers.google.com/youtube/v3/docs?hl=ko#Channels]
+CommentThreads [https://developers.google.com/youtube/v3/docs?hl=ko#CommentThreads]
 YouTube Data API를 사용하면 일반적으로 YouTube 웹사이트에서 실행되는 함수를 자체 웹사이트 또는 애플리케이션에 통합할 수 있습니다. 아래 목록에는 API를 사용하여 검색할 수 있는 다양한 유형의 리소스가 나와 있습니다. 또한 API는 이러한 리소스를 여러 개 삽입, 업데이트 또는 삭제하는 메서드를 지원합니다.
 이 참조 가이드에서는 API를 사용하여 이러한 모든 작업을 실행하는 방법을 설명합니다. 이 가이드는 리소스 유형별로 구성되어 있습니다. 리소스는 동영상, 재생목록, 구독 등 YouTube 환경의 일부를 구성하는 항목 유형을 나타냅니다. 가이드에서는 각 리소스 유형에 하나 이상의 데이터 표현을 나열하며 리소스는 JSON 객체로 표시됩니다. 또한 리소스 유형별로 지원되는 하나 이상의 메소드(LIST, POST, DELETE 등)와 함께 애플리케이션에서 이러한 메소드를 사용하는 방법에 대해 설명합니다.
 API 호출

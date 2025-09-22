@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/getting-started?hl=ko
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/getting-started?hl=ko
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -11,14 +10,14 @@ Data API [https://developers.google.com/youtube/v3?hl=ko]
 YouTube Data API 개요
 bookmark_border
 이 페이지의 내용
-소개
-시작하기 전에
-리소스 및 리소스 유형
-지원되는 작업
-할당량 사용
-할당량 사용 계산
-부분 리소스
-part 매개변수 사용 방법
+소개 [https://developers.google.com/youtube/v3/getting-started?hl=ko#intro]
+시작하기 전에 [https://developers.google.com/youtube/v3/getting-started?hl=ko#before-you-start]
+리소스 및 리소스 유형 [https://developers.google.com/youtube/v3/getting-started?hl=ko#resources]
+지원되는 작업 [https://developers.google.com/youtube/v3/getting-started?hl=ko#supported-operations]
+할당량 사용 [https://developers.google.com/youtube/v3/getting-started?hl=ko#quota]
+할당량 사용 계산 [https://developers.google.com/youtube/v3/getting-started?hl=ko#calculating-quota-usage]
+부분 리소스 [https://developers.google.com/youtube/v3/getting-started?hl=ko#partial]
+part 매개변수 사용 방법 [https://developers.google.com/youtube/v3/getting-started?hl=ko#part]
 소개
 이 문서는 YouTube와 상호작용하는 애플리케이션을 작성하려는 개발자를 위해 작성되었습니다. YouTube와 API의 기본 개념을 설명합니다. 또한 API가 지원하는 다양한 기능에 대한 개요를 제공합니다.
 시작하기 전에
@@ -129,7 +128,7 @@ fields=items(id,snippet(title,position))
 예 3은 두 부분을 포함하지만 kind 및 etag 속성을 제외하는 동영상 리소스를 반환합니다.
 예 4는 2개의 부분을 포함하지만 kind 및 etag는 물론 리소스의 snippet 객체에 있는 일부 중첩된 속성은 제외하는 동영상 리소스를 반환합니다.
 를 통해 개인정보처리방침을 정의할 수 있습니다. <ph type="x-smartling-placeholder">
---- 탭: 예 1 ---
+--- 탭: 예 1 [https://developers.google.com/youtube/v3/getting-started?hl=ko#%EC%98%88-1] ---
 URL: https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY     &part=snippet,contentDetails,statistics,status
 
 Description: This example retrieves a video resource and identifies several
@@ -182,7 +181,7 @@ API response:
  ]
 }
 
---- 탭: 예 2 ---
+--- 탭: 예 2 [https://developers.google.com/youtube/v3/getting-started?hl=ko#%EC%98%88-2] ---
 URL: https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY     &part=snippet,statistics
 
 Description: This example modifies the part parameter value so that the
@@ -228,7 +227,7 @@ API response:
  ]
 }
 
---- 탭: 예 3 ---
+--- 탭: 예 3 [https://developers.google.com/youtube/v3/getting-started?hl=ko#%EC%98%88-3] ---
 URL: https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY     &part=snippet,statistics&fields=items(id,snippet,statistics)
 
 Description: This example adds the fields parameter to remove all
@@ -269,7 +268,7 @@ API response:
  ]
 }
 
---- 탭: 예 4 ---
+--- 탭: 예 4 [https://developers.google.com/youtube/v3/getting-started?hl=ko#%EC%98%88-4] ---
 URL: https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY     &fields=items(id,snippet(channelId,title,categoryId),statistics)&part=snippet,statistics
 
 Description: This example modifies the fields parameter from example 3

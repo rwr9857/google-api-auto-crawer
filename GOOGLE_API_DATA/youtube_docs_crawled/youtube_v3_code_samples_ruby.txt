@@ -1,0 +1,450 @@
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/code_samples/ruby
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+샘플 [https://developers.google.com/youtube/v3/code_samples?hl=ko]
+Ruby 코드 샘플
+bookmark_border
+이 페이지의 내용
+채널 구독 추가 [https://developers.google.com/youtube/v3/code_samples/ruby?hl=ko#add_a_channel_subscription]
+요청 인증 [https://developers.google.com/youtube/v3/code_samples/ruby?hl=ko#authorize_a_request]
+내 업로드 검색 [https://developers.google.com/youtube/v3/code_samples/ruby?hl=ko#retrieve_my_uploads]
+키워드로 검색 [https://developers.google.com/youtube/v3/code_samples/ruby?hl=ko#search_by_keyword]
+동영상 업로드 [https://developers.google.com/youtube/v3/code_samples/ruby?hl=ko#upload_a_video]
+Ruby용 Google API 클라이언트 라이브러리 [https://developers.google.com/api-client-library/ruby?hl=ko]를 사용하는 다음 코드 샘플은 YouTube Data API에 사용할 수 있습니다. 이러한 코드 샘플은 GitHub의 YouTube API 코드 샘플 저장소 [https://github.com/youtube/api-samples]에 있는 ruby 폴더에서 다운로드할 수 있습니다.
+채널 구독 추가
+이 샘플은 API의 subscriptions.insert 메서드를 호출하여 구독을 추가합니다. 추가할 수 있습니다.
+#!/usr/bin/ruby
+
+require 'rubygems'
+gem 'google-api-client', '>0.7'
+require 'google/api_client'
+require 'google/api_client/client_secrets'
+require 'google/api_client/auth/file_storage'
+require 'google/api_client/auth/installed_app'
+require 'trollop'
+
+# This OAuth 2.0 access scope allows for full read/write access to the
+# authenticated user's account.
+YOUTUBE_SCOPE = 'https://www.googleapis.com/auth/youtube'
+YOUTUBE_API_SERVICE_NAME = 'youtube'
+YOUTUBE_API_VERSION = 'v3'
+
+def get_authenticated_service
+  client = Google::APIClient.new(
+    :application_name => $PROGRAM_NAME,
+    :application_version => '1.0.0'
+  )
+  youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
+
+  file_storage = Google::APIClient::FileStorage.new("#{$PROGRAM_NAME}-oauth2.json")
+  if file_storage.authorization.nil?
+    client_secrets = Google::APIClient::ClientSecrets.load
+    flow = Google::APIClient::InstalledAppFlow.new(
+      :client_id => client_secrets.client_id,
+      :client_secret => client_secrets.client_secret,
+      :scope => [YOUTUBE_SCOPE]
+    )
+    client.authorization = flow.authorize(file_storage)
+  else
+    client.authorization = file_storage.authorization
+  end
+
+  return client, youtube
+end
+
+def main
+  opts = Trollop::options do
+    opt :channel_id, 'ID of the channel to subscribe to.', :type => String,
+          :default => 'UCtVd0c0tGXuTSbU5d8cSBUg'
+  end
+
+  client, youtube = get_authenticated_service
+
+  begin
+    body = {
+      :snippet => {
+        :resourceId => {
+          :channelId => opts[:channel_id]
+        }
+      }
+    }
+
+    # Call the API's youtube.subscriptions.insert method to add the subscription
+    # to the specified channel.
+    subscriptions_response = client.execute!(
+      :api_method => youtube.subscriptions.insert,
+      :parameters => {
+        :part => body.keys.join(',')
+      },
+      :body_object => body
+    )
+
+    puts "A subscription to '#{subscriptions_response.data.snippet.title}' was added."
+  rescue Google::APIClient::TransmissionError => e
+    puts e.result.body
+  end
+end
+
+main
+add_subscription.rb [https://github.com/youtube/api-samples/blob/07263305b59a7c3275bc7e925f9ce6cabf774022/ruby/add_subscription.rb]
+요청 인증
+다음 코드 샘플은 로컬 클라이언트 ID가 있는지 확인하여 OAuth 2.0 승인을 수행합니다. 이 파일을 선택합니다. 이 파일이 없으면 스크립트는 브라우저를 열고 그런 다음 반환된 사용자 인증 정보를 로컬에 저장합니다.
+require 'google/api_client'
+require 'google/api_client/client_secrets'
+require 'json'
+require 'launchy'
+require 'thin'
+
+RESPONSE_HTML = <<stop
+<html>
+  <head>
+    <title>OAuth 2 Flow Complete</title>
+  </head>
+  <body>
+    You have successfully completed the OAuth 2 flow. Please close this browser window and return to your program.
+  </body>
+</html>
+stop
+
+FILE_POSTFIX = '-oauth2.json'
+
+# Small helper for the sample apps for performing OAuth 2.0 flows from the command
+# line. Starts an embedded server to handle redirects.
+class CommandLineOAuthHelper
+
+  def initialize(scope)
+    credentials = Google::APIClient::ClientSecrets.load
+    @authorization = Signet::OAuth2::Client.new(
+      :authorization_uri => credentials.authorization_uri,
+      :token_credential_uri => credentials.token_credential_uri,
+      :client_id => credentials.client_id,
+      :client_secret => credentials.client_secret,
+      :redirect_uri => credentials.redirect_uris.first,
+      :scope => scope
+    )
+  end
+
+  # Request authorization. Checks to see if a local file with credentials is present, and uses that.
+  # Otherwise, opens a browser and waits for response, then saves the credentials locally.
+  def authorize
+    credentialsFile = $0 + FILE_POSTFIX
+
+    if File.exist? credentialsFile
+      File.open(credentialsFile, 'r') do |file|
+        credentials = JSON.load(file)
+        @authorization.access_token = credentials['access_token']
+        @authorization.client_id = credentials['client_id']
+        @authorization.client_secret = credentials['client_secret']
+        @authorization.refresh_token = credentials['refresh_token']
+        @authorization.expires_in = (Time.parse(credentials['token_expiry']) - Time.now).ceil
+        if @authorization.expired?
+          @authorization.fetch_access_token!
+          save(credentialsFile)
+        end
+      end
+    else
+      auth = @authorization
+      url = @authorization.authorization_uri().to_s
+      server = Thin::Server.new('0.0.0.0', 8080) do
+        run lambda { |env|
+          # Exchange the auth code & quit
+          req = Rack::Request.new(env)
+          auth.code = req['code']
+          auth.fetch_access_token!
+          server.stop()
+          [200, {'Content-Type' => 'text/html'}, RESPONSE_HTML]
+        }
+      end
+
+      Launchy.open(url)
+      server.start()
+
+      save(credentialsFile)
+    end
+
+    return @authorization
+  end
+
+  def save(credentialsFile)
+    File.open(credentialsFile, 'w', 0600) do |file|
+      json = JSON.dump({
+        :access_token => @authorization.access_token,
+        :client_id => @authorization.client_id,
+        :client_secret => @authorization.client_secret,
+        :refresh_token => @authorization.refresh_token,
+        :token_expiry => @authorization.expires_at
+      })
+      file.write(json)
+    end
+  end
+end
+oauth_util.rb [https://github.com/youtube/api-samples/blob/07263305b59a7c3275bc7e925f9ce6cabf774022/ruby/oauth/oauth_util.rb]
+내 업로드 검색
+이 샘플은 API의 playlistItems.list 메서드를 호출하여 업로드된 동영상 목록을 검색합니다. 요청에 연결된 채널로 전달됩니다. 이 코드는 channels.list 메서드도 호출합니다. mine 매개변수를 true로 설정하여 채널의 동영상 업로드
+#!/usr/bin/ruby
+
+require 'rubygems'
+gem 'google-api-client', '>0.7'
+require 'google/api_client'
+require 'google/api_client/client_secrets'
+require 'google/api_client/auth/file_storage'
+require 'google/api_client/auth/installed_app'
+
+# This OAuth 2.0 access scope allows for read-only access to the authenticated
+# user's account, but not other types of account access.
+YOUTUBE_READONLY_SCOPE = 'https://www.googleapis.com/auth/youtube.readonly'
+YOUTUBE_API_SERVICE_NAME = 'youtube'
+YOUTUBE_API_VERSION = 'v3'
+
+def get_authenticated_service
+  client = Google::APIClient.new(
+    :application_name => $PROGRAM_NAME,
+    :application_version => '1.0.0'
+  )
+  youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
+
+  file_storage = Google::APIClient::FileStorage.new("#{$PROGRAM_NAME}-oauth2.json")
+  if file_storage.authorization.nil?
+    client_secrets = Google::APIClient::ClientSecrets.load
+    flow = Google::APIClient::InstalledAppFlow.new(
+      :client_id => client_secrets.client_id,
+      :client_secret => client_secrets.client_secret,
+      :scope => [YOUTUBE_READONLY_SCOPE]
+    )
+    client.authorization = flow.authorize(file_storage)
+  else
+    client.authorization = file_storage.authorization
+  end
+
+  return client, youtube
+end
+
+def main
+  client, youtube = get_authenticated_service
+
+  begin
+    # Retrieve the "contentDetails" part of the channel resource for the
+    # authenticated user's channel.
+    channels_response = client.execute!(
+      :api_method => youtube.channels.list,
+      :parameters => {
+        :mine => true,
+        :part => 'contentDetails'
+      }
+    )
+
+    channels_response.data.items.each do |channel|
+      # From the API response, extract the playlist ID that identifies the list
+      # of videos uploaded to the authenticated user's channel.
+      uploads_list_id = channel['contentDetails']['relatedPlaylists']['uploads']
+
+      # Retrieve the list of videos uploaded to the authenticated user's channel.
+      next_page_token = ''
+      until next_page_token.nil?
+        playlistitems_response = client.execute!(
+          :api_method => youtube.playlist_items.list,
+          :parameters => {
+            :playlistId => uploads_list_id,
+            :part => 'snippet',
+            :maxResults => 50,
+            :pageToken => next_page_token
+          }
+        )
+
+        puts "Videos in list #{uploads_list_id}"
+
+        # Print information about each video.
+        playlistitems_response.data.items.each do |playlist_item|
+          title = playlist_item['snippet']['title']
+          video_id = playlist_item['snippet']['resourceId']['videoId']
+
+          puts "#{title} (#{video_id})"
+        end
+
+        next_page_token = playlistitems_response.next_page_token
+      end
+
+      puts
+    end
+  rescue Google::APIClient::TransmissionError => e
+    puts e.result.body
+  end
+end
+
+main
+my_uploads.rb [https://github.com/youtube/api-samples/blob/07263305b59a7c3275bc7e925f9ce6cabf774022/ruby/my_uploads.rb]
+키워드로 검색
+이 샘플은 API의 search.list 메서드를 호출하여 검색 결과를 검색합니다. 특정 키워드와 관련이 있는 키워드입니다.
+#!/usr/bin/ruby
+
+require 'rubygems'
+gem 'google-api-client', '>0.7'
+require 'google/api_client'
+require 'trollop'
+
+# Set DEVELOPER_KEY to the API key value from the APIs & auth > Credentials
+# tab of
+# {{ Google Cloud Console }} <{{ https://cloud.google.com/console }}>
+# Please ensure that you have enabled the YouTube Data API for your project.
+DEVELOPER_KEY = 'REPLACE_ME'
+YOUTUBE_API_SERVICE_NAME = 'youtube'
+YOUTUBE_API_VERSION = 'v3'
+
+def get_service
+  client = Google::APIClient.new(
+    :key => DEVELOPER_KEY,
+    :authorization => nil,
+    :application_name => $PROGRAM_NAME,
+    :application_version => '1.0.0'
+  )
+  youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
+
+  return client, youtube
+end
+
+def main
+  opts = Trollop::options do
+    opt :q, 'Search term', :type => String, :default => 'Google'
+    opt :max_results, 'Max results', :type => :int, :default => 25
+  end
+
+  client, youtube = get_service
+
+  begin
+    # Call the search.list method to retrieve results matching the specified
+    # query term.
+    search_response = client.execute!(
+      :api_method => youtube.search.list,
+      :parameters => {
+        :part => 'snippet',
+        :q => opts[:q],
+        :maxResults => opts[:max_results]
+      }
+    )
+
+    videos = []
+    channels = []
+    playlists = []
+
+    # Add each result to the appropriate list, and then display the lists of
+    # matching videos, channels, and playlists.
+    search_response.data.items.each do |search_result|
+      case search_result.id.kind
+        when 'youtube#video'
+          videos << "#{search_result.snippet.title} (#{search_result.id.videoId})"
+        when 'youtube#channel'
+          channels << "#{search_result.snippet.title} (#{search_result.id.channelId})"
+        when 'youtube#playlist'
+          playlists << "#{search_result.snippet.title} (#{search_result.id.playlistId})"
+      end
+    end
+
+    puts "Videos:\n", videos, "\n"
+    puts "Channels:\n", channels, "\n"
+    puts "Playlists:\n", playlists, "\n"
+  rescue Google::APIClient::TransmissionError => e
+    puts e.result.body
+  end
+end
+
+main
+search.rb [https://github.com/youtube/api-samples/blob/07263305b59a7c3275bc7e925f9ce6cabf774022/ruby/search.rb]
+동영상 업로드
+이 샘플은 API의 videos.insert 메서드를 호출하여 채널에 동영상을 업로드합니다. 요청 관련 ID입니다.
+#!/usr/bin/ruby
+
+require 'rubygems'
+gem 'google-api-client', '>0.7'
+require 'google/api_client'
+require 'google/api_client/client_secrets'
+require 'google/api_client/auth/file_storage'
+require 'google/api_client/auth/installed_app'
+require 'trollop'
+
+# A limited OAuth 2 access scope that allows for uploading files, but not other
+# types of account access.
+YOUTUBE_UPLOAD_SCOPE = 'https://www.googleapis.com/auth/youtube.upload'
+YOUTUBE_API_SERVICE_NAME = 'youtube'
+YOUTUBE_API_VERSION = 'v3'
+
+def get_authenticated_service
+  client = Google::APIClient.new(
+    :application_name => $PROGRAM_NAME,
+    :application_version => '1.0.0'
+  )
+  youtube = client.discovered_api(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION)
+
+  file_storage = Google::APIClient::FileStorage.new("#{$PROGRAM_NAME}-oauth2.json")
+  if file_storage.authorization.nil?
+    client_secrets = Google::APIClient::ClientSecrets.load
+    flow = Google::APIClient::InstalledAppFlow.new(
+      :client_id => client_secrets.client_id,
+      :client_secret => client_secrets.client_secret,
+      :scope => [YOUTUBE_UPLOAD_SCOPE]
+    )
+    client.authorization = flow.authorize(file_storage)
+  else
+    client.authorization = file_storage.authorization
+  end
+
+  return client, youtube
+end
+
+def main
+  opts = Trollop::options do
+    opt :file, 'Video file to upload', :type => String
+    opt :title, 'Video title', :default => 'Test Title', :type => String
+    opt :description, 'Video description',
+          :default => 'Test Description', :type => String
+    opt :category_id, 'Numeric video category. See https://developers.google.com/youtube/v3/docs/videoCategories/list',
+          :default => 22, :type => :int
+    opt :keywords, 'Video keywords, comma-separated',
+          :default => '', :type => String
+    opt :privacy_status, 'Video privacy status: public, private, or unlisted',
+          :default => 'public', :type => String
+  end
+
+  if opts[:file].nil? or not File.file?(opts[:file])
+    Trollop::die :file, 'does not exist'
+  end
+
+  client, youtube = get_authenticated_service
+
+  begin
+    body = {
+      :snippet => {
+        :title => opts[:title],
+        :description => opts[:description],
+        :tags => opts[:keywords].split(','),
+        :categoryId => opts[:category_id],
+      },
+      :status => {
+        :privacyStatus => opts[:privacy_status]
+      }
+    }
+
+    videos_insert_response = client.execute!(
+      :api_method => youtube.videos.insert,
+      :body_object => body,
+      :media => Google::APIClient::UploadIO.new(opts[:file], 'video/*'),
+      :parameters => {
+        :uploadType => 'resumable',
+        :part => body.keys.join(',')
+      }
+    )
+
+    videos_insert_response.resumable_upload.send_all(client)
+
+    puts "Video id '#{videos_insert_response.data.id}' was successfully uploaded."
+  rescue Google::APIClient::TransmissionError => e
+    puts e.result.body
+  end
+end
+
+main
+upload_video.rb [https://github.com/youtube/api-samples/blob/07263305b59a7c3275bc7e925f9ce6cabf774022/ruby/upload_video.rb]

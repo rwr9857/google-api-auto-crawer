@@ -1,0 +1,60 @@
+[2025-08-28] Source URL: https://developers.google.com/youtube/v3/docs/i18nLanguages/list
+
+Home [https://developers.google.com/]
+Products [https://developers.google.com/products]
+YouTube [https://developers.google.com/youtube]
+Data API [https://developers.google.com/youtube/v3]
+Reference [https://developers.google.com/youtube/v3/docs]
+도움이 되었나요?
+I18nLanguages: list
+bookmark_border
+이 페이지의 내용
+Common use cases [https://developers.google.com/youtube/v3/docs/i18nLanguages/list#common-use-cases]
+Request [https://developers.google.com/youtube/v3/docs/i18nLanguages/list#request]
+HTTP request [https://developers.google.com/youtube/v3/docs/i18nLanguages/list#http-request]
+Parameters [https://developers.google.com/youtube/v3/docs/i18nLanguages/list#parameters]
+Request body [https://developers.google.com/youtube/v3/docs/i18nLanguages/list#request-body]
+Response [https://developers.google.com/youtube/v3/docs/i18nLanguages/list#response]
+Properties [https://developers.google.com/youtube/v3/docs/i18nLanguages/list#properties]
+Errors [https://developers.google.com/youtube/v3/docs/i18nLanguages/list#errors]
+Returns a list of application languages that the YouTube website supports.
+Quota impact: A call to this method has a quota cost [https://developers.google.com/youtube/v3/getting-started#quota] of 1 unit.
+Common use cases
+Request
+HTTP request
+GET https://www.googleapis.com/youtube/v3/i18nLanguages
+Parameters
+The following table lists the parameters that this query supports. All of the parameters listed are query parameters.
+Parameters
+Required parameters
+part string
+The part parameter specifies the i18nLanguage resource properties that the API response will include. Set the parameter value to snippet.
+Optional parameters
+hl string
+The hl parameter specifies the language that should be used for text values in the API response. The default value is en_US.
+Request body
+Do not provide a request body when calling this method.
+Response
+If successful, this method returns a response body with the following structure:
+{
+  "kind": "youtube#i18nLanguageListResponse",
+  "etag": 
+etag,
+  "items": [
+    i18nLanguage resource [https://developers.google.com/youtube/v3/docs/i18nLanguages#resource]
+  ]
+}
+Properties
+The following table defines the properties that appear in this resource:
+Properties
+kind string
+Identifies the API resource's type. The value will be youtube#i18nLanguageListResponse.
+etag etag
+The Etag of this resource.
+items[] list
+A list of supported i18n languages. In this map, the i18n language ID is the map key, and its value is the corresponding i18nLanguage resource.
+Errors
+The API does not define any error messages that are unique to this API method. However, this method could still return general API errors listed in the error message [https://developers.google.com/youtube/v3/docs/errors#general] documentation.
+Try it!
+Use the APIs Explorer to call this API and see the API request and response.
+도움이 되었나요?

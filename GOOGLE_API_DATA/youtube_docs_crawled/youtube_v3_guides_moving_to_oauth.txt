@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/moving_to_oauth
+[2025-02-06] Source URL: https://developers.google.com/youtube/v3/guides/moving_to_oauth
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -8,6 +7,7 @@ Switch to English
 YouTube [https://developers.google.com/youtube?hl=ko]
 Data API [https://developers.google.com/youtube/v3?hl=ko]
 가이드 [https://developers.google.com/youtube/v3/getting-started?hl=ko]
+도움이 되었나요?
 ClientLogin에서 OAuth 2.0으로 이전
 bookmark_border
 이 페이지의 내용
@@ -50,3 +50,4 @@ Google 제품의 로그인을 통합하고 소셜 기능을 사용 설정하는 
 요약
 OAuth 2.0 승인은 YouTube 승인이 필요한 개발자에게 유연성을 제공합니다. ClientLogin에 익숙한 개발자는 OAuth 2.0을 사용하도록 애플리케이션을 설정하는 데 시작하는 데 약간 더 많은 작업이 필요할 수 있지만 일단 포팅되면 OAuth 2.0 애플리케이션은 최종 사용자에게 여러 플랫폼에서 더 많은 유연성, 보안, 사용성을 제공합니다.
 OAuth 2.0 또는 이 도움말의 예시와 관련하여 더 궁금한 점이 있으면 언제든지 StackOverflow에서 youtube-api 태그 [http://stackoverflow.com/questions/tagged/youtube-api]를 사용하여 질문해 주세요.
+도움이 되었나요?

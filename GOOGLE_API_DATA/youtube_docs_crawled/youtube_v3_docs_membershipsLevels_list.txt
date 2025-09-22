@@ -1,0 +1,63 @@
+[2024-04-26] Source URL: https://developers.google.com/youtube/v3/docs/membershipsLevels/list
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+참조 [https://developers.google.com/youtube/v3/docs?hl=ko]
+MembershipsLevels: list
+bookmark_border
+이 페이지의 내용
+요청 [https://developers.google.com/youtube/v3/docs/membershipsLevels/list?hl=ko#request]
+HTTP 요청 [https://developers.google.com/youtube/v3/docs/membershipsLevels/list?hl=ko#http-request]
+매개변수 [https://developers.google.com/youtube/v3/docs/membershipsLevels/list?hl=ko#parameters]
+요청 본문 [https://developers.google.com/youtube/v3/docs/membershipsLevels/list?hl=ko#request-body]
+응답 [https://developers.google.com/youtube/v3/docs/membershipsLevels/list?hl=ko#response]
+속성 [https://developers.google.com/youtube/v3/docs/membershipsLevels/list?hl=ko#properties]
+오류 [https://developers.google.com/youtube/v3/docs/membershipsLevels/list?hl=ko#errors]
+참고: 이 엔드포인트는 개인 크리에이터가 자신의 채널 멤버십이 사용 설정된 YouTube 채널을 요청하는 데만 사용할 수 있습니다. Google 또는 YouTube 담당자에게 문의하여 액세스 권한을 요청하세요.
+요청을 승인한 채널의 멤버십 수준을 나열합니다. 레벨은 암시적 표시 순서로 반환됩니다. 이 메서드에 대한 API 요청은 다음 응답 중 하나를 생성합니다.
+크리에이터가 채널 멤버십을 사용 설정했고 가격 책정 수준이 있는 경우 API 응답에 등급 목록이 포함됩니다.
+크리에이터가 채널 멤버십을 사용 설정했지만 가격 수준을 정의하지 않았다면 API 응답에 빈 목록이 포함됩니다.
+크리에이터가 채널 멤버십을 사용 설정하지 않은 경우 API가 channelMembershipsNotEnabled [https://developers.google.com/youtube/v3/docs/membershipsLevels/list?hl=ko#errors] 오류를 반환합니다.
+할당량 영향: 이 메서드를 호출하면 할당량 비용 [https://developers.google.com/youtube/v3/getting-started?hl=ko#quota]이 1단위가 됩니다.
+요청
+HTTP 요청
+GET https://www.googleapis.com/youtube/v3/membershipsLevels
+다음 범위를 사용하여 이 요청을 인증받아야 합니다.
+범위
+https://www.googleapis.com/auth/youtube.channel-memberships.creator
+매개변수
+다음 표에는 이 쿼리가 지원하는 매개변수가 나와 있습니다. 나열된 모든 매개변수는 쿼리 매개변수입니다.
+매개변수
+필수 매개변수
+part string
+part 매개변수는 API 응답에 포함될 membershipsLevel 리소스 속성을 지정합니다. 매개변수 값은 쉼표로 구분된 리소스 부분 목록입니다. 다음 목록은 가져올 수 있는 부분을 보여줍니다.
+id
+snippet
+요청 본문
+이 메소드를 호출할 때 요청 본문을 제공하지 마세요.
+응답
+요청에 성공할 경우 이 메소드는 다음과 같은 구조의 응답 본문을 반환합니다.
+{
+  "kind": "youtube#membershipsLevelListResponse",
+  "etag": etag,
+  "items": [
+    membershipsLevel Resource [https://developers.google.com/youtube/v3/docs/membershipsLevels?hl=ko#resource]
+  ]
+}
+속성
+다음 표는 이 리소스에 표시되는 속성을 정의합니다.
+속성
+kind string
+API 리소스 유형을 식별합니다. 값은 youtube#membershipsLevelListResponse입니다.
+etag etag
+이 리소스의 Etag입니다.
+items[] list
+API 요청을 승인한 채널에서 소유한 membershipsLevel 리소스의 목록입니다.
+오류
+다음 표에서는 이 메서드에 대한 호출에 대한 응답으로 API가 반환할 수 있는 오류 메시지를 확인합니다. 자세한 내용은 오류 메시지 [https://developers.google.com/youtube/v3/docs/errors?hl=ko] 설명서를 참조하세요.
+오류 유형 오류 세부정보 설명
+badRequest (400) channelMembershipsNotEnabled 요청을 승인하는 크리에이터 채널에 채널 멤버십이 사용 설정되지 않았습니다.

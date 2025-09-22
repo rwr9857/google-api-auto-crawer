@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/uploading_a_video
+[2024-11-23] Source URL: https://developers.google.com/youtube/v3/guides/uploading_a_video
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -11,11 +10,11 @@ Data API [https://developers.google.com/youtube/v3?hl=ko]
 동영상 업로드
 bookmark_border
 이 페이지의 내용
-요구사항
-샘플 요청
-스크립트 호출
-샘플 코드
-추가 리소스
+요구사항 [https://developers.google.com/youtube/v3/guides/uploading_a_video?hl=ko#Requirements]
+샘플 요청 [https://developers.google.com/youtube/v3/guides/uploading_a_video?hl=ko#Sample_Requests]
+스크립트 호출 [https://developers.google.com/youtube/v3/guides/uploading_a_video?hl=ko#Calling]
+샘플 코드 [https://developers.google.com/youtube/v3/guides/uploading_a_video?hl=ko#Sample_Code]
+추가 리소스 [https://developers.google.com/youtube/v3/guides/uploading_a_video?hl=ko#Additional_Resources]
 이 가이드에서는 YouTube Data API를 사용하여 YouTube 동영상을 업로드하는 Python 스크립트를 제공하고 설명합니다. 이 코드는 Python용 Google API 클라이언트 라이브러리를 사용합니다. (기타 많이 사용되는 프로그래밍 언어의 클라이언트 라이브러리도 제공됩니다.)
 참고: 샘플 스크립트는 오류를 처리하지 않습니다.
 요구사항

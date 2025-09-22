@@ -1,0 +1,166 @@
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/docs/core_errors
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+참조 [https://developers.google.com/youtube/v3/docs?hl=ko]
+Google API - 전역 도메인 오류
+bookmark_border
+이 페이지의 내용
+오류 [https://developers.google.com/youtube/v3/docs/core_errors?hl=ko#Global_Errors]
+MOVED_PERMANENTLY (301) [https://developers.google.com/youtube/v3/docs/core_errors?hl=ko#MOVED_PERMANENTLY]
+SEE_OTHER (303) [https://developers.google.com/youtube/v3/docs/core_errors?hl=ko#SEE_OTHER]
+NOT_MODIFIED (304) [https://developers.google.com/youtube/v3/docs/core_errors?hl=ko#NOT_MODIFIED]
+TEMPORARY_REDIRECT (307) [https://developers.google.com/youtube/v3/docs/core_errors?hl=ko#TEMPORARY_REDIRECT]
+BAD_REQUEST(400) [https://developers.google.com/youtube/v3/docs/core_errors?hl=ko#BAD_REQUEST]
+UNAUTHORIZED (401) [https://developers.google.com/youtube/v3/docs/core_errors?hl=ko#UNAUTHORIZED]
+PAYMENT_REQUIRED (402) [https://developers.google.com/youtube/v3/docs/core_errors?hl=ko#PAYMENT_REQUIRED]
+이 문서에서는 Google API가 반환하는 일부 오류 코드 및 메시지를 소개합니다. 특히 이 문서에 나와 있는 오류는 Google API의 전역 도메인 또는 기본 도메인에 있습니다. 또한 많은 API에서 자체 도메인을 정의하여 전역 도메인에 없는 API 관련 오류를 식별합니다. 이러한 오류의 경우 JSON 응답의 domain 속성 값이 youtube.parameter와 같은 API 관련 값이 됩니다.
+이 페이지는 RFC 7231 [https://tools.ietf.org/html/rfc7231#section-6]에 정의된 대로 HTTP 상태 코드별로 오류를 나열합니다.
+아래의 JSON 응답 샘플은 전역 오류가 전달되는 방식을 보여줍니다.
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "invalidParameter",
+    "message": "Invalid string value: 'asdf'. Allowed values: [mostpopular]",
+    "locationType": "parameter",
+    "location": "chart"
+   }
+  ],
+  "code": 400,
+  "message": "Invalid string value: 'asdf'. Allowed values: [mostpopular]"
+ }
+}
+오류
+MOVED_PERMANENTLY (301)
+오류 코드 설명
+movedPermanently 이 요청 및 동일한 작업에 대한 향후 요청은 이 요청이 전송된 URL이 아니라 응답의 Location 헤더에 지정된 URL로 보내야 합니다.
+SEE_OTHER (303)
+오류 코드 설명
+seeOther 요청이 성공적으로 처리되었습니다. 응답을 받으려면 Location 헤더에 지정된 URL로 GET 요청을 보냅니다.
+mediaDownloadRedirect 요청이 성공적으로 처리되었습니다. 응답을 받으려면 Location 헤더에 지정된 URL로 GET 요청을 보냅니다.
+NOT_MODIFIED (304)
+오류 코드 설명
+notModified If-None-Match 헤더에 대해 설정된 조건이 충족되지 않았습니다. 이 응답은 요청된 문서가 수정되지 않았고 캐시된 응답을 검색해야 한다는 것을 나타냅니다. If-None-Match HTTP 요청 헤더의 값을 확인합니다.
+TEMPORARY_REDIRECT (307)
+오류 코드 설명
+temporaryRedirect 요청을 처리하려면 이 응답의 Location 헤더에 지정된 URL로 다시 보냅니다.
+BAD_REQUEST(400)
+오류 코드 설명
+badRequest API 요청이 잘못되었거나 형식이 부적절합니다. 따라서 API 서버가 요청을 이해할 수 없습니다.
+badBinaryDomainRequest 바이너리 도메인 요청이 잘못되었습니다.
+badContent 요청 데이터의 콘텐츠 형식이나 다중 파트 요청의 일부 콘텐츠 형식이 지원되지 않습니다.
+badLockedDomainRequest 잠금 상태의 도메인 요청이 잘못되었습니다.
+corsRequestWithXOrigin CORS 요청에 잘못된 CORS 요청을 나타내는 XD3 X-Origin 헤더가 포함되어 있습니다.
+endpointConstraintMismatch 요청이 지정된 API와 일치하지 않아서 실패했습니다. URL 경로의 값이 올바른지 확인합니다.
+invalid 요청에 잘못된 값이 포함되어 있어서 실패했습니다. 값은 매개변수 값, 헤더 값, 속성 값일 수 있습니다.
+invalidAltValue alt 매개변수 값이 알 수 없는 출력 형식을 지정합니다.
+invalidHeader 요청에 잘못된 헤더가 포함되어 있어서 실패했습니다.
+invalidParameter 요청에 잘못된 매개변수 또는 매개변수 값이 포함되어 있어서 실패했습니다. API 문서를 검토하여 요청에 유효한 매개변수를 확인합니다.
+invalidQuery 요청이 잘못되었습니다. API 문서를 확인하여 요청에 지원되는 매개변수를 확인하고 요청에 잘못된 매개변수 조합 또는 잘못된 매개변수 값이 포함되어 있는지 확인합니다. q 요청 매개변수의 값을 확인합니다.
+keyExpired 요청에 제공된 API 키가 만료되었습니다. 즉, API 서버는 요청을 보내는 애플리케이션에 대한 할당량 한도를 확인할 수 없습니다. 자세한 내용을 보거나 새 키를 얻으려면 Google Developers Console [https://console.developers.google.com/?hl=ko]을 확인하세요.
+keyInvalid 요청에 제공된 API 키가 잘못되었습니다. 즉, API 서버는 요청을 보내는 애플리케이션에 대한 할당량 한도를 확인할 수 없습니다. 자세한 내용을 보거나 새 키를 얻으려면 Google Developers Console [https://console.developers.google.com/?hl=ko]을 확인하세요.
+lockedDomainCreationFailure OAuth 토큰이 쿼리 문자열에서 수신되었습니다. 이 API는 JSON 또는 XML 이외의 응답 형식에서는 이 방식을 금지합니다. 가능하면 Authorization 헤더에서 OAuth 토큰을 전송해 보세요.
+notDownload 미디어 다운로드 요청만 /download/* URL 경로로 보낼 수 있습니다. 동일한 경로로 요청을 다시 보내되, /download 프리픽스는 제거하세요.
+notUpload 요청이 업로드 요청이 아니어서 실패했습니다. 업로드 요청만 /upload/* URI로 보낼 수 있습니다. 동일한 경로로 요청을 다시 보내되, /upload 프리픽스는 제거하세요.
+parseError API 서버에서 요청 본문을 파싱할 수 없습니다.
+required API 요청에 필수 정보가 누락되었습니다. 필수 정보는 매개변수 또는 리소스 속성일 수 있습니다.
+tooManyParts 다중 파트 요청에 파트가 너무 많이 포함되어 있어서 실패했습니다.
+unknownApi 요청이 호출하는 API가 인식되지 않습니다.
+unsupportedMediaProtocol 클라이언트가 지원되지 않는 미디어 프로토콜을 사용합니다.
+unsupportedOutputFormat alt 매개변수 값이 이 서비스에 지원되지 않는 출력 형식을 지정합니다. alt 요청 매개변수의 값을 확인합니다.
+wrongUrlForUpload 요청이 업로드 요청이지만 적절한 URI로 보내지 않았으므로 실패했습니다. 업로드 요청은 /upload/* 프리픽스가 포함된 URI로 보내야 합니다. 동일한 경로로 요청을 다시 보내되, /upload 프리픽스는 제거하세요.
+UNAUTHORIZED (401)
+오류 코드 설명
+unauthorized 사용자가 요청을 보낼 권한이 없습니다.
+authError 요청에 제공된 승인 사용자 인증 정보가 잘못되었습니다. Authorization HTTP 요청 헤더의 값을 확인합니다.
+expired 세션이 만료되었습니다. Authorization HTTP 요청 헤더의 값을 확인합니다.
+lockedDomainExpired 이전에 유효했던 잠금 상태의 도메인이 만료되어 요청이 실패했습니다.
+required 이 API 요청을 보내려면 사용자가 로그인해야 합니다. Authorization HTTP 요청 헤더의 값을 확인합니다.
+PAYMENT_REQUIRED (402)
+오류 코드 설명
+dailyLimitExceeded402 개발자가 설정한 일일예산 한도에 도달했습니다.
+quotaExceeded402 요청한 작업에는 할당량이 허용하는 것보다 더 많은 리소스가 필요합니다. 작업을 완료하려면 결제가 필요합니다.
+user402 요청한 작업에는 인증된 사용자의 결제가 필요합니다.
+FORBIDDEN(403)
+오류 코드 설명
+forbidden 요청한 작업이 금지되었으며 완료할 수 없습니다.
+accessNotConfigured 프로젝트가 이 API에 액세스하도록 구성되지 않았습니다. 프로젝트의 API를 활성화하려면 Google Developers Console [https://console.developers.google.com/?hl=ko]을 사용하세요.
+accessNotConfigured 프로젝트가 남용으로 인해 차단되었습니다. http://support.google.com/code/go/developer_compliance [http://support.google.com/code/go/developer_compliance?hl=ko]를 참조하세요.
+accessNotConfigured 프로젝트가 삭제 대상으로 표시되었습니다.
+accountDeleted 요청의 승인 사용자 인증 정보와 연결된 사용자 계정이 삭제되었습니다. Authorization HTTP 요청 헤더의 값을 확인합니다.
+accountDisabled 요청의 승인 사용자 인증 정보와 연결된 사용자 계정이 중지되었습니다. Authorization HTTP 요청 헤더의 값을 확인합니다.
+accountUnverified 요청을 보내는 사용자의 이메일 주소가 인증되지 않았습니다. Authorization HTTP 요청 헤더의 값을 확인합니다.
+concurrentLimitExceeded 동시 사용량 한도에 도달하여 요청이 실패했습니다.
+dailyLimitExceeded API의 일일 할당량 한도에 도달했습니다.
+dailyLimitExceeded 일일 할당량 한도에 도달했고 프로젝트가 남용으로 인해 차단되었습니다. 문제를 해결하려면 Google API 규정 준수 지원 양식 [http://support.google.com/code/go/developer_compliance?hl=ko]을 참조하세요.
+dailyLimitExceededUnreg 인증되지 않은 API 사용의 일일 한도에 도달하여 요청이 실패했습니다. API를 계속 사용하려면 Google Developers Console [https://console.developers.google.com/?hl=ko]을 통해 가입해야 합니다.
+downloadServiceForbidden API가 다운로드 서비스를 지원하지 않습니다.
+insufficientAudience 이 대상에 대한 요청을 완료할 수 없습니다.
+insufficientAuthorizedParty 이 애플리케이션에 대한 요청을 완료할 수 없습니다.
+insufficientPermissions 인증된 사용자에게 이 요청을 실행할 수 있는 충분한 권한이 없습니다.
+limitExceeded 액세스 또는 비율 한도로 인해 요청을 완료할 수 없습니다.
+lockedDomainForbidden 이 API가 잠금 상태의 도메인을 지원하지 않습니다.
+quotaExceeded 요청한 작업에는 할당량이 허용하는 것보다 더 많은 리소스가 필요합니다.
+rateLimitExceeded 지정된 기간 내에 너무 많은 요청이 전송되었습니다.
+rateLimitExceededUnreg 비율 한도가 초과되었고, API를 계속 호출할 수 있으려면 애플리케이션을 등록해야 합니다. Google Developers Console [https://console.developers.google.com/?hl=ko]을 사용하여 가입하세요.
+responseTooLarge 요청한 리소스가 너무 커서 반환할 수 없습니다.
+servingLimitExceeded API에 대해 지정된 전체 비율 한도에 이미 도달했습니다.
+sslRequired 이 작업을 수행하려면 SSL이 필요합니다.
+unknownAuth API 서버에서 요청에 사용된 승인 체계를 인식할 수 없습니다. Authorization HTTP 요청 헤더의 값을 확인합니다.
+userRateLimitExceeded 사용자당 비율 한도에 도달하여 요청이 실패했습니다.
+userRateLimitExceededUnreg 사용자당 비율 한도에 도달하여 요청이 실패했고 클라이언트 개발자가 요청에서 식별되지 않았습니다. 애플리케이션에 대한 프로젝트를 만들려면 Google Developer Console(https://console.developers.google.com)을 사용하세요.
+variableTermExpiredDailyExceeded 가변 기간 할당량이 만료되고 일일 한도에 도달하여 요청이 실패했습니다.
+variableTermLimitExceeded 가변 기간 할당량 한도에 도달하여 요청이 실패했습니다.
+NOT_FOUND (404)
+오류 코드 설명
+notFound 요청과 연결된 리소스를 찾을 수 없어서 요청한 작업이 실패했습니다.
+notFound 요청과 연결된 리소스를 찾을 수 없습니다. 최근 2주간 이 API를 사용하지 않은 경우 App Engine 앱을 다시 배포하고 다시 호출하세요.
+unsupportedProtocol 요청에 사용된 프로토콜이 지원되지 않습니다.
+METHOD_NOT_ALLOWED (405)
+오류 코드 설명
+httpMethodNotAllowed 요청과 연결된 HTTP 메소드가 지원되지 않습니다.
+CONFLICT (409)
+오류 코드 설명
+conflict 요청한 작업이 기존 항목과 충돌하여 API 요청을 완료할 수 없습니다. 예를 들어 중복 항목을 만들려는 요청에 충돌이 발생합니다. 다만 보통 중복 항목은 보다 구체적인 오류로 식별됩니다.
+duplicate 이미 존재하는 리소스를 만들려고 시도했으므로 요청한 작업이 실패했습니다.
+GONE (410)
+오류 코드 설명
+deleted 요청과 연결된 리소스가 삭제되었으므로 요청이 실패했습니다.
+PRECONDITION_FAILED (412)
+오류 코드 설명
+conditionNotMet 요청의 If-Match 또는 If-None-Match HTTP 요청 헤더에 설정된 조건이 충족되지 않았습니다. 자세한 내용은 HTTP 사양의 ETag [https://tools.ietf.org/html/rfc7232#section-2.3] 섹션을 참조하세요. If-Match HTTP 요청 헤더의 값을 확인합니다.
+REQUEST_ENTITY_TOO_LARGE (413)
+오류 코드 설명
+backendRequestTooLarge 요청이 너무 큽니다.
+batchSizeTooLarge 일괄 요청에 너무 많은 요소가 포함되어 있습니다.
+uploadTooLarge 요청에서 보낸 데이터가 너무 커서 요청이 실패했습니다.
+REQUESTED_RANGE_NOT_SATISFIABLE (416)
+오류 코드 설명
+requestedRangeNotSatisfiable 요청이 충족할 수 없는 범위를 지정했습니다.
+EXPECTATION_FAILED (417)
+오류 코드 설명
+expectationFailed 서버에서 클라이언트 기대치를 충족할 수 없습니다.
+PRECONDITION_REQUIRED (428)
+오류 코드 설명
+preconditionRequired 요청에 필요한 전제조건이 제공되지 않았습니다. 이 요청이 성공하려면 요청에 If-Match 또는 If-None-Match 헤더를 제공해야 합니다.
+TOO_MANY_REQUESTS(429)
+오류 코드 설명
+rateLimitExceeded 지정된 기간 내에 너무 많은 요청이 전송되었습니다.
+INTERNAL_SERVER_ERROR (500)
+오류 코드 설명
+internalError 내부 오류로 인해 요청이 실패했습니다.
+NOT_IMPLEMENTED (501)
+오류 코드 설명
+notImplemented 요청한 작업이 구현되지 않았습니다.
+unsupportedMethod 알 수 없는 메소드 또는 작업을 실행하려고 시도하므로 요청이 실패했습니다.
+SERVICE_UNAVAILABLE (503)
+오류 코드 설명
+backendError 백엔드 오류가 발생했습니다.
+backendNotConnected 연결 오류로 인해 요청이 실패했습니다.
+notReady API 서버가 요청을 수락할 준비가 되지 않았습니다.

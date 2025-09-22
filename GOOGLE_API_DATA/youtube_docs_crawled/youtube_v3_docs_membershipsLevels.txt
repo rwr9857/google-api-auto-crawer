@@ -1,0 +1,51 @@
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/docs/membershipsLevels
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+참조 [https://developers.google.com/youtube/v3/docs?hl=ko]
+MembershipsLevels
+bookmark_border
+이 페이지의 내용
+메서드
+리소스 표현
+속성
+참고: 이 엔드포인트는 채널 멤버십이 사용 설정된 자체 YouTube 채널을 요청하는 개별 크리에이터만 사용할 수 있습니다. Google 또는 YouTube 담당자에게 문의하여 액세스 권한을 요청하세요.
+membershipsLevel 리소스는 API 요청을 승인한 크리에이터가 관리하는 가격 책정 수준을 식별합니다.
+메서드
+API는 membershipsLevel 리소스에 대해 다음 메서드를 지원합니다.
+list [https://developers.google.com/youtube/v3/docs/membershipsLevels/list?hl=ko]
+요청을 승인한 채널의 멤버십 등급을 나열합니다.
+리소스 표현
+다음 JSON 구조에서 membershipsLevel 리소스의 형식을 보여줍니다.
+{
+  "kind [https://developers.google.com/youtube/v3/docs/membershipsLevels?hl=ko#kind]": "youtube#membershipsLevel",
+  "etag [https://developers.google.com/youtube/v3/docs/membershipsLevels?hl=ko#etag]": etag,
+  "id [https://developers.google.com/youtube/v3/docs/membershipsLevels?hl=ko#id]": string,
+  "snippet [https://developers.google.com/youtube/v3/docs/membershipsLevels?hl=ko#snippet]": {
+    "creatorChannelId [https://developers.google.com/youtube/v3/docs/membershipsLevels?hl=ko#creatorChannelId]": string,
+    "levelDetails [https://developers.google.com/youtube/v3/docs/membershipsLevels?hl=ko#snippet.levelDetails]": {
+      "displayName [https://developers.google.com/youtube/v3/docs/membershipsLevels?hl=ko#snippet.levelDetails.displayName]": string,
+    }
+  }
+}
+속성
+다음 표는 이 리소스에 표시되는 속성을 정의합니다.
+속성
+kind string
+API 리소스의 유형을 식별합니다. 값은 youtube#membershipsLevel입니다.
+etag etag
+이 리소스의 Etag입니다.
+id string
+YouTube에서 멤버십 등급을 고유하게 식별하기 위해 할당하는 ID입니다. 이 값은 수준의 표시 이름이 변경되더라도 변경되지 않습니다.
+snippet object
+snippet 객체에는 멤버십 등급에 관한 세부정보가 포함됩니다.
+snippet.creatorChannelId string
+가격대를 소유한 크리에이터의 YouTube 채널 ID입니다.
+snippet.levelDetails object
+이 객체에는 멤버십 등급에 관한 데이터가 포함됩니다.
+snippet.levelDetails.displayName string
+레벨의 표시 이름입니다.

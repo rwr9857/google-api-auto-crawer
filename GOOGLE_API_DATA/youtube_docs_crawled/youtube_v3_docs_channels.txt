@@ -1,0 +1,366 @@
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/docs/channels
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+참조 [https://developers.google.com/youtube/v3/docs?hl=ko]
+Channels
+bookmark_border
+이 페이지의 내용
+메서드 [https://developers.google.com/youtube/v3/docs/channels?hl=ko#methods]
+리소스 표현 [https://developers.google.com/youtube/v3/docs/channels?hl=ko#resource-representation]
+속성 [https://developers.google.com/youtube/v3/docs/channels?hl=ko#properties]
+이제 API에서 채널 또는 동영상 [https://developers.google.com/youtube/v3/docs/videos?hl=ko]을 '아동용'으로 표시하는 기능을 지원합니다. 또한 이제 channel 및 video 리소스에는 채널 또는 동영상의 '아동용' 상태를 식별하는 속성도 포함됩니다. 2020년 1월 10일에는 YouTube API 서비스 약관 및 개발자 정책도 업데이트되었습니다. 자세한 내용은 YouTube Data API 서비스 [https://developers.google.com/youtube/v3/revision_history?hl=ko] 및 YouTube API 서비스 약관 [https://developers.google.com/youtube/terms/revision-history?hl=ko]의 버전 기록을 참고하세요.
+channel 리소스에는 YouTube 채널에 관한 정보가 포함됩니다.
+메서드
+API는 channels 리소스에 대해 다음 메서드를 지원합니다.
+list [https://developers.google.com/youtube/v3/docs/channels/list?hl=ko]
+요청 기준과 일치하는 channel 리소스 0개 이상으로 구성된 컬렉션을 반환합니다. 지금 사용해 보기 [https://developers.google.com/youtube/v3/docs/channels/list?hl=ko#usage]
+업데이트 [https://developers.google.com/youtube/v3/docs/channels/update?hl=ko]
+채널의 메타데이터를 업데이트합니다. 이 메서드는 현재 channel 리소스의 brandingSettings 및 invideoPromotion 객체와 하위 속성의 업데이트만 지원합니다. 지금 사용해 보기 [https://developers.google.com/youtube/v3/docs/channels/update?hl=ko#usage]
+리소스 표현
+다음 JSON 구조에서 channels 리소스의 형식을 보여줍니다.
+{
+  "kind [https://developers.google.com/youtube/v3/docs/channels?hl=ko#kind]": "youtube#channel",
+  "etag [https://developers.google.com/youtube/v3/docs/channels?hl=ko#etag]": etag,
+  "id [https://developers.google.com/youtube/v3/docs/channels?hl=ko#id]": string,
+  "snippet [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet]": {
+    "title [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.title]": string,
+    "description [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.description]": string,
+    "customUrl [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.customUrl]": string,
+    "publishedAt [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.publishedAt]": datetime,
+    "thumbnails [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.thumbnails]": {
+      (key): {
+        "url [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.thumbnails.(key).url]": string,
+        "width [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.thumbnails.(key).width]": unsigned integer,
+        "height [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.thumbnails.(key).height]": unsigned integer
+      }
+    },
+    "defaultLanguage [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.defaultLanguage]": string,
+    "localized [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.localized]": {
+      "title [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.localized.title]": string,
+      "description [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.localized.description]": string
+    },
+    "country [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.country]": string
+  },
+  "contentDetails [https://developers.google.com/youtube/v3/docs/channels?hl=ko#contentDetails]": {
+    "relatedPlaylists [https://developers.google.com/youtube/v3/docs/channels?hl=ko#contentDetails.relatedPlaylists]": {
+      "likes [https://developers.google.com/youtube/v3/docs/channels?hl=ko#contentDetails.relatedPlaylists.likes]": string,
+      "favorites [https://developers.google.com/youtube/v3/docs/channels?hl=ko#contentDetails.relatedPlaylists.favorites]": string,
+      "uploads [https://developers.google.com/youtube/v3/docs/channels?hl=ko#contentDetails.relatedPlaylists.uploads]": string
+    }
+  },
+  "statistics [https://developers.google.com/youtube/v3/docs/channels?hl=ko#statistics]": {
+    "viewCount [https://developers.google.com/youtube/v3/docs/channels?hl=ko#statistics.viewCount]": unsigned long,
+    "subscriberCount [https://developers.google.com/youtube/v3/docs/channels?hl=ko#statistics.subscriberCount]": unsigned long,  // this value is rounded to three significant figures
+    "hiddenSubscriberCount [https://developers.google.com/youtube/v3/docs/channels?hl=ko#statistics.hiddenSubscriberCount]": boolean,
+    "videoCount [https://developers.google.com/youtube/v3/docs/channels?hl=ko#statistics.videoCount]": unsigned long
+  },
+  "topicDetails [https://developers.google.com/youtube/v3/docs/channels?hl=ko#topicDetails]": {
+    "topicIds [https://developers.google.com/youtube/v3/docs/channels?hl=ko#topicDetails.topicIds[]]": [
+      string
+    ],
+    "topicCategories [https://developers.google.com/youtube/v3/docs/channels?hl=ko#topicDetails.topicCategories[]]": [
+      string
+    ]
+  },
+  "status [https://developers.google.com/youtube/v3/docs/channels?hl=ko#status]": {
+    "privacyStatus [https://developers.google.com/youtube/v3/docs/channels?hl=ko#status.privacyStatus]": string,
+    "isLinked [https://developers.google.com/youtube/v3/docs/channels?hl=ko#status.isLinked]": boolean,
+    "longUploadsStatus [https://developers.google.com/youtube/v3/docs/channels?hl=ko#status.longUploadsStatus]": string,
+    "madeForKids [https://developers.google.com/youtube/v3/docs/channels?hl=ko#status.madeForKids]": boolean,
+    "selfDeclaredMadeForKids [https://developers.google.com/youtube/v3/docs/channels?hl=ko#status.selfDeclaredMadeForKids]": boolean
+  },
+  "brandingSettings [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings]": {
+    "channel [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.channel]": {
+      "title [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.channel.title]": string,
+      "description [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.channel.description]": string,
+      "keywords [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.channel.keywords]": string,
+      "trackingAnalyticsAccountId [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.channel.trackingAnalyticsAccountId]": string,
+      "unsubscribedTrailer [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.channel.unsubscribedTrailer]": string,
+      "defaultLanguage [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.channel.defaultLanguage]": string,
+      "country [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.channel.country]": string
+    },
+    "watch [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.watch]": {
+      "textColor [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.watch.textColor]": string,
+      "backgroundColor [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.watch.backgroundColor]": string,
+      "featuredPlaylistId [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.watch.featuredPlaylistId]": string
+    }
+  },
+  "auditDetails [https://developers.google.com/youtube/v3/docs/channels?hl=ko#auditDetails]": {
+    "overallGoodStanding [https://developers.google.com/youtube/v3/docs/channels?hl=ko#auditDetails.overallGoodStanding]": boolean,
+    "communityGuidelinesGoodStanding [https://developers.google.com/youtube/v3/docs/channels?hl=ko#auditDetails.communityGuidelinesGoodStanding]": boolean,
+    "copyrightStrikesGoodStanding [https://developers.google.com/youtube/v3/docs/channels?hl=ko#auditDetails.copyrightStrikesGoodStanding]": boolean,
+    "contentIdClaimsGoodStanding [https://developers.google.com/youtube/v3/docs/channels?hl=ko#auditDetails.contentIdClaimsGoodStanding]": boolean
+  },
+  "contentOwnerDetails [https://developers.google.com/youtube/v3/docs/channels?hl=ko#contentOwnerDetails]": {
+    "contentOwner [https://developers.google.com/youtube/v3/docs/channels?hl=ko#contentOwnerDetails.contentOwner]": string,
+    "timeLinked [https://developers.google.com/youtube/v3/docs/channels?hl=ko#contentOwnerDetails.timeLinked]": datetime
+  },
+  "localizations [https://developers.google.com/youtube/v3/docs/channels?hl=ko#localizations]": {
+    (key): {
+      "title [https://developers.google.com/youtube/v3/docs/channels?hl=ko#localizations.(key).title]": string,
+      "description [https://developers.google.com/youtube/v3/docs/channels?hl=ko#localizations.(key).description]": string
+    }
+  }
+}
+속성
+다음 표는 이 리소스에 표시되는 속성을 정의합니다.
+속성
+kind string
+API 리소스의 유형을 식별합니다. 값은 youtube#channel입니다.
+etag etag
+이 리소스의 Etag입니다.
+id string
+YouTube에서 채널을 고유하게 식별하는 데 사용하는 ID입니다.
+snippet object
+snippet 객체에는 제목, 설명, 썸네일 이미지와 같은 채널에 관한 기본 세부정보가 포함됩니다.
+snippet.title string
+채널의 제목입니다.
+snippet.description string
+채널 설명입니다. 속성 값의 최대 길이는 1,000자(영문 기준)입니다.
+snippet.customUrl string
+채널의 맞춤 URL입니다. YouTube 고객센터 [https://support.google.com/youtube/answer/2657968?hl=ko]에서 맞춤 URL을 사용할 수 있는 자격 요건과 URL을 설정하는 방법을 확인하세요.
+snippet.publishedAt datetime
+채널이 생성된 날짜 및 시간입니다. 값은 ISO 8601 [https://www.w3.org/TR/NOTE-datetime] 형식으로 지정됩니다.
+snippet.thumbnails object
+채널과 연결된 썸네일 이미지의 지도입니다. 맵의 각 객체에서 키는 썸네일 이미지의 이름이고 값은 썸네일에 관한 다른 정보가 포함된 객체입니다.
+
+애플리케이션에 썸네일을 표시할 때 코드는 API 응답에서 반환된 이미지 URL을 정확하게 사용해야 합니다. 예를 들어 애플리케이션은 API 응답에서 반환된 URL에서 https 도메인 대신 http 도메인을 사용해서는 안 됩니다.
+
+채널 썸네일 URL은 https 도메인에서만 사용할 수 있으며, 이 도메인으로 인해 URL이 API 응답에 표시됩니다. 애플리케이션에서 http 도메인에서 YouTube 이미지를 로드하려고 하면 손상된 이미지가 표시될 수 있습니다. 새로 만든 채널의 썸네일 이미지는 비어 있을 수 있으며 채널에 썸네일이 표시되기까지 최대 1일이 걸릴 수 있습니다.
+snippet.thumbnails.(key) object
+유효한 키 값은 다음과 같습니다.
+default – 기본 썸네일 이미지입니다. 동영상 또는 동영상을 참조하는 리소스(예: 재생목록 항목 또는 검색 결과)의 기본 썸네일은 너비 120픽셀, 높이 90픽셀입니다. 채널의 기본 미리보기 이미지는 88x88픽셀입니다.
+medium – 썸네일 이미지의 고해상도 버전입니다. 동영상 (또는 동영상을 참조하는 리소스)의 경우 이 이미지의 너비는 320px이고 높이는 180px입니다. 채널의 경우 이 이미지는 240x240픽셀입니다.
+high – 썸네일 이미지의 고해상도 버전입니다. 동영상 (또는 동영상을 참조하는 리소스)의 경우 이 이미지의 너비는 480px이고 높이는 360px입니다. 채널의 경우 이 이미지는 800x800픽셀입니다.
+snippet.thumbnails.(key).url string
+이미지의 URL입니다. 애플리케이션에서 썸네일 URL을 사용하는 방법에 관한 추가 가이드라인은 snippet.thumbnails [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.thumbnails] 속성 정의에서 확인하세요.
+snippet.thumbnails.(key).width unsigned integer
+이미지의 너비입니다.
+snippet.thumbnails.(key).height unsigned integer
+이미지의 높이입니다.
+snippet.defaultLanguage string
+channel 리소스의 snippet.title 및 snippet.description 속성에 있는 텍스트의 언어입니다.
+snippet.localized object
+snippet.localized 객체에는 채널의 현지화된 제목과 설명이 포함되어 있거나 채널 메타데이터의 기본 언어 [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.defaultLanguage]로 채널의 제목과 설명이 포함되어 있습니다.
+channels.list [https://developers.google.com/youtube/v3/docs/channels/list?hl=ko] 요청에서 hl 매개변수를 사용하여 현지화된 텍스트를 반환해야 하는 언어를 지정하고, hl 매개변수 값이 YouTube 애플리케이션 언어 [https://developers.google.com/youtube/v3/docs/i18nLanguages?hl=ko]를 식별하며, 해당 언어로 현지화된 텍스트를 사용할 수 있는 경우 리소스 스니펫에 현지화된 텍스트가 반환됩니다.
+hl 매개변수 값이 지정되지 않았거나 값이 지정되었지만 지정된 언어의 현지화된 메타데이터를 사용할 수 없는 경우 기본 언어의 메타데이터가 반환됩니다.
+속성에 읽기 전용 값이 포함되어 있습니다. localizations [https://developers.google.com/youtube/v3/docs/channels?hl=ko#localizations] 객체를 사용하여 현지화된 메타데이터를 추가, 업데이트 또는 삭제합니다.
+snippet.localized.title string
+현지화된 채널 제목입니다.
+snippet.localized.description string
+현지화된 채널 설명입니다.
+snippet.country string
+채널이 연결된 국가입니다. 이 속성의 값을 설정하려면 brandingSettings.channel.country [https://developers.google.com/youtube/v3/docs/channels?hl=ko#brandingSettings.channel.country] 속성의 값을 업데이트합니다.
+contentDetails object
+contentDetails 객체는 채널의 콘텐츠에 관한 정보를 캡슐화합니다.
+contentDetails.relatedPlaylists object
+relatedPlaylists 객체는 채널의 업로드된 동영상 또는 좋아요 누른 동영상과 같이 채널과 연결된 재생목록을 식별하는 맵입니다. playlists.list [https://developers.google.com/youtube/v3/docs/playlists/list?hl=ko] 메서드를 사용하여 이러한 재생목록을 가져올 수 있습니다.
+contentDetails.relatedPlaylists.likes string
+채널의 좋아요 표시한 동영상이 포함된 재생목록의 ID입니다. playlistItems.insert [https://developers.google.com/youtube/v3/docs/playlistItems/insert?hl=ko] 및 playlistItems.delete [https://developers.google.com/youtube/v3/docs/playlistItems/delete?hl=ko] 메서드를 사용하여 목록에 항목을 추가하거나 삭제합니다.
+contentDetails.relatedPlaylists.favorites string
+이 속성은 지원 중단되었습니다.
+
+채널의 즐겨찾는 동영상이 포함된 재생목록의 ID입니다. playlistItems.insert [https://developers.google.com/youtube/v3/docs/playlistItems/insert?hl=ko] 및 playlistItems.delete [https://developers.google.com/youtube/v3/docs/playlistItems/delete?hl=ko] 메서드를 사용하여 목록에 항목을 추가하거나 삭제합니다.
+
+YouTube에서 즐겨찾는 동영상 기능이 지원 중단되었습니다. 예를 들어 video 리소스의 statistics.favoriteCount 속성은 2015년 8월 28일에 지원 중단되었습니다. 따라서 이전의 이유로 이 속성 값에 빈 재생목록을 참조하는 재생목록 ID가 포함되어 있을 수 있으며, 이로 인해 가져올 수 없습니다.
+contentDetails.relatedPlaylists.uploads string
+채널의 업로드된 동영상이 포함된 재생목록의 ID입니다. videos.insert [https://developers.google.com/youtube/v3/docs/videos/insert?hl=ko] 메서드를 사용하여 새 동영상을 업로드하고 videos.delete [https://developers.google.com/youtube/v3/docs/videos/delete?hl=ko] 메서드를 사용하여 이전에 업로드한 동영상을 삭제합니다.
+statistics object
+statistics 객체는 채널의 통계를 캡슐화합니다.
+statistics.viewCount unsigned long
+채널의 모든 형식의 모든 동영상이 조회된 총 횟수입니다.
+2025년 3월 31일부터 채널의 Shorts 동영상의 경우 Shorts 동영상이 재생되거나 다시 재생되는 횟수를 포함하도록 viewCount가 업데이트됩니다.
+statistics.commentCount unsigned long
+이 속성은 지원 중단되었습니다.
+
+채널의 댓글 수입니다.
+statistics.subscriberCount unsigned long
+채널의 구독자 수입니다. 이 값은 유효 숫자 3자리로 내림합니다. 구독자 수가 반올림되는 방식에 관한 자세한 내용은 수정 내역 [https://developers.google.com/youtube/v3/revision_history?hl=ko#release_notes_09_10_2019] 또는 YouTube 고객센터 [https://support.google.com/youtube/answer/6051134?hl=ko]를 참고하세요.
+statistics.hiddenSubscriberCount boolean
+채널의 구독자 수가 공개적으로 표시되는지 여부를 나타냅니다.
+statistics.videoCount unsigned long
+채널에 업로드된 공개 동영상 수입니다. 이 값은 소유자에게도 채널의 공개 동영상 개수만 반영합니다. 이 동작은 YouTube 웹사이트에 표시되는 수치와 일치합니다.
+topicDetails object
+topicDetails 객체는 채널과 연결된 주제에 관한 정보를 캡슐화합니다.
+
+중요: 주제 ID와 관련된 변경사항에 관한 자세한 내용은 topicDetails.topicIds[] 속성 정의 및 버전 기록 [https://developers.google.com/youtube/v3/revision_history?hl=ko#november-10-2016]을 참고하세요.
+topicDetails.topicIds[] list
+채널과 연결된 주제 ID 목록입니다.
+
+이 속성은 2016년 11월 10일부터 지원 중단되었습니다. 2017년 11월 10일까지 지원됩니다.
+
+
+중요: Freebase 및 Freebase API가 지원 중단됨에 따라 2017년 2월 27일부터 주제 ID가 다르게 작동하기 시작했습니다. 그때부터 YouTube는 선별된 소수의 주제 ID를 반환하기 시작했습니다.
+
+2017년 2월 15일부터 지원되는 주제 ID 보기 [https://developers.google.com/youtube/v3/docs/channels?hl=ko#]
+topicDetails.topicCategories[] list
+채널의 콘텐츠를 설명하는 위키백과 URL 목록입니다.
+status object
+status 객체는 채널의 개인 정보 보호 상태에 관한 정보를 캡슐화합니다.
+status.privacyStatus string
+채널의 개인 정보 보호 상태입니다.
+
+이 속성의 유효한 값은 다음과 같습니다.
+private
+public
+unlisted
+status.isLinked boolean
+채널 데이터에서 이미 YouTube 사용자 이름 또는 Google+ 계정에 연결된 사용자를 식별하는지 여부를 나타냅니다. 이 중 하나에 연결된 사용자는 공개적인 YouTube ID가 이미 있습니다. 이 ID는 동영상 업로드 등 여러 작업을 하려면 반드시 필요합니다s.
+status.longUploadsStatus string
+채널에서 15분이 넘는 동영상을 업로드할 수 있는지 여부를 나타냅니다. 이 속성은 채널 소유자가 API 요청을 승인한 경우에만 반환됩니다. 이 기능에 관한 자세한 내용은 YouTube 고객센터 [https://support.google.com/youtube/answer/71673?hl=ko]를 참고하세요.
+
+이 속성의 유효한 값은 다음과 같습니다.
+allowed – 이 채널은 15분이 넘는 동영상을 업로드할 수 있습니다.
+disallowed – 이 채널은 15분이 넘는 동영상을 업로드할 수 없거나 업로드할 자격이 없습니다. 채널이 YouTube 커뮤니티 가이드 [http://www.youtube.com/t/community_guidelines?hl=ko]에 따라 양호한 상태이고 콘텐츠에 대한 전 세계 콘텐츠 ID 차단이 없는 경우에만 긴 동영상을 업로드할 수 있습니다.
+
+채널 소유자가 채널에서 긴 동영상을 업로드하지 못하게 하는 문제를 해결하면 채널이 allowed 또는 eligible 상태로 되돌아갑니다.
+eligible – 이 채널은 15분이 넘는 동영상을 업로드할 수 있습니다. 하지만 먼저 채널 소유자가 전화 인증 [https://www.youtube.com/verify?hl=ko]을 통해 긴 동영상을 업로드할 수 있는 기능을 사용 설정해야 합니다. 이 기능에 대한 자세한 내용은 YouTube 고객센터 [https://support.google.com/youtube/answer/71673?hl=ko]를 참고하세요.
+status.madeForKids boolean
+이 값은 채널이 아동용으로 지정되었는지 여부를 나타내며 채널의 현재 '아동용' 상태를 포함합니다. 예를 들어 상태는 selfDeclaredMadeForKids 속성의 값에 따라 결정될 수 있습니다. 채널, 동영상 또는 방송의 시청자층 설정에 관한 자세한 내용은 YouTube 고객센터 [https://support.google.com/youtube/answer/9527654?hl=ko]를 참고하세요 .
+status.selfDeclaredMadeForKids boolean
+channels.update [https://developers.google.com/youtube/v3/docs/channels/update?hl=ko] 요청에서 이 속성을 사용하면 채널 소유자가 채널을 아동용으로 지정할 수 있습니다. 속성 값은 채널 소유자가 API 요청을 승인한 경우에만 반환됩니다.
+brandingSettings object
+brandingSettings 객체는 채널의 브랜딩에 관한 정보를 캡슐화합니다.
+brandingSettings.channel object
+channel 객체는 채널 페이지의 브랜딩 속성을 캡슐화합니다.
+brandingSettings.channel.title string
+채널의 제목입니다. 제목의 길이는 최대 30자까지 가능합니다.
+brandingSettings.channel.description string
+채널 설명: 채널 페이지의 채널 정보 상자에 표시됩니다. 속성 값의 최대 길이는 1,000자(영문 기준)입니다.
+brandingSettings.channel.keywords string
+채널과 연결된 키워드입니다. 값은 공백으로 구분된 문자열 목록입니다. 채널 키워드가 허용되는 최대 길이인 500자를 초과하거나 이스케이프 처리되지 않은 따옴표 (")가 포함된 경우 채널 키워드가 잘릴 수 있습니다. 500자 제한은 키워드별 제한이 아니라 모든 키워드의 총 길이에 대한 제한입니다.
+brandingSettings.channel.trackingAnalyticsAccountId string
+채널로의 트래픽을 추적하고 측정하는 데 사용할 Google 애널리틱스 계정 [http://www.google.com/analytics/index.html?hl=ko]의 ID입니다.
+brandingSettings.channel.unsubscribedTrailer string
+채널 페이지의 둘러보기 뷰에 있는 추천 동영상 모듈에서 구독 취소한 시청자를 위해 재생되어야 하는 동영상입니다. 구독 시청자에게는 더 최근의 채널 활동을 보여주는 다른 동영상이 표시될 수 있습니다.
+
+지정된 경우 속성 값은 채널 소유자가 소유한 공개 또는 일부 공개 동영상의 YouTube 동영상 ID여야 합니다.
+brandingSettings.channel.defaultLanguage string
+channel 리소스의 snippet.title 및 snippet.description 속성에 있는 텍스트의 언어입니다.
+brandingSettings.channel.country string
+채널이 연결된 국가입니다. 이 속성을 업데이트하여 snippet.country [https://developers.google.com/youtube/v3/docs/channels?hl=ko#snippet.country] 속성의 값을 설정합니다.
+brandingSettings.watch object
+참고: 이 객체와 모든 하위 속성은 지원 중단되었습니다.
+
+watch 객체는 채널 동영상의 보기 페이지의 브랜딩 속성을 캡슐화합니다.
+brandingSettings.watch.textColor string
+참고: 이 속성은 지원 중단되었습니다.
+
+동영상 보기 페이지의 브랜드 영역의 텍스트 색상입니다.
+brandingSettings.watch.backgroundColor string
+참고: 이 속성은 지원 중단되었습니다.
+
+동영상 보기 페이지의 브랜드 영역 배경 색상입니다.
+brandingSettings.watch.featuredPlaylistId string
+참고: 이 속성은 지원 중단되었습니다. 값을 설정하려고 하면 API에서 오류를 반환합니다.
+brandingSettings.image object
+이 속성과 모든 하위 속성은 지원 중단되었습니다.
+
+image 객체는 채널의 채널 페이지 또는 동영상 보기 페이지에 표시되는 이미지에 관한 정보를 캡슐화합니다.
+brandingSettings.image.bannerImageUrl string
+이 속성은 지원 중단되었습니다.
+
+YouTube 웹사이트의 채널 페이지에 표시되는 배너 이미지의 URL입니다. 이미지는 1060x175픽셀입니다.
+brandingSettings.image.bannerMobileImageUrl string
+이 속성은 지원 중단되었습니다.
+
+모바일 애플리케이션의 채널 페이지에 표시되는 배너 이미지의 URL입니다. 이미지는 640x175픽셀입니다.
+brandingSettings.image.watchIconImageUrl string
+이 속성은 지원 중단되었습니다.
+
+동영상 플레이어 위에 표시되는 이미지의 URL입니다. 높이는 25픽셀이고 너비는 170픽셀을 초과할 수 없습니다. 이 이미지를 제공하지 않으면 채널 이름이 이미지 대신 표시됩니다.
+brandingSettings.image.trackingImageUrl string
+이 속성은 지원 중단되었습니다.
+
+채널 또는 동영상 페이지 조회수 통계를 수집하는 데 사용할 수 있는 1x1 추적 픽셀의 URL입니다.
+brandingSettings.image.bannerTabletLowImageUrl string
+이 속성은 지원 중단되었습니다.
+
+태블릿 애플리케이션의 채널 페이지에 표시되는 저해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 1138x188픽셀입니다.
+brandingSettings.image.bannerTabletImageUrl string
+이 속성은 지원 중단되었습니다.
+
+태블릿 애플리케이션의 채널 페이지에 표시되는 배너 이미지의 URL입니다. 이미지는 1707x283픽셀입니다.
+brandingSettings.image.bannerTabletHdImageUrl string
+이 속성은 지원 중단되었습니다.
+
+태블릿 애플리케이션의 채널 페이지에 표시되는 고해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 2276x377픽셀입니다.
+brandingSettings.image.bannerTabletExtraHdImageUrl string
+이 속성은 지원 중단되었습니다.
+
+태블릿 애플리케이션의 채널 페이지에 표시되는 초고해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 2560x424픽셀입니다.
+brandingSettings.image.bannerMobileLowImageUrl string
+이 속성은 지원 중단되었습니다.
+
+모바일 애플리케이션의 채널 페이지에 표시되는 저해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 320x88픽셀입니다.
+brandingSettings.image.bannerMobileMediumHdImageUrl string
+이 속성은 지원 중단되었습니다.
+
+모바일 애플리케이션의 채널 페이지에 표시되는 중간 해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 960x263픽셀입니다.
+brandingSettings.image.bannerMobileHdImageUrl string
+이 속성은 지원 중단되었습니다.
+
+모바일 애플리케이션의 채널 페이지에 표시되는 고해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 1280x360픽셀입니다.
+brandingSettings.image.bannerMobileExtraHdImageUrl string
+이 속성은 지원 중단되었습니다.
+
+모바일 애플리케이션의 채널 페이지에 표시되는 매우 고해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 1440x395픽셀입니다.
+brandingSettings.image.bannerTvImageUrl string
+이 속성은 지원 중단되었습니다.
+
+TV 애플리케이션의 채널 페이지에 표시되는 초고해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 2120x1192픽셀입니다.
+brandingSettings.image.bannerTvLowImageUrl string
+이 속성은 지원 중단되었습니다.
+
+TV 애플리케이션의 채널 페이지에 표시되는 저해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 854x480픽셀입니다.
+brandingSettings.image.bannerTvMediumImageUrl string
+이 속성은 지원 중단되었습니다.
+
+TV 애플리케이션의 채널 페이지에 표시되는 중간 해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 1280x720픽셀입니다.
+brandingSettings.image.bannerTvHighImageUrl string
+이 속성은 지원 중단되었습니다.
+
+TV 애플리케이션의 채널 페이지에 표시되는 고해상도 배너 이미지의 URL입니다. 이미지의 최대 크기는 1920x1080픽셀입니다.
+brandingSettings.image.bannerExternalUrl string
+이 속성은 YouTube에서 채널의 다양한 배너 이미지 크기를 생성하는 데 사용하는 배너 이미지의 위치를 지정합니다.
+brandingSettings.hints[] list
+이 속성과 모든 하위 속성은 지원 중단되었습니다.
+
+hints 객체는 추가 브랜딩 속성을 캡슐화합니다.
+brandingSettings.hints[].property string
+이 속성은 지원 중단되었습니다.
+
+속성입니다.
+brandingSettings.hints[].value string
+이 속성은 지원 중단되었습니다.
+
+속성의 값입니다.
+auditDetails object
+auditDetails 객체는 다중 채널 네트워크 (MCN)가 특정 채널을 수락할지 거부할지 결정하는 동안 평가할 채널 데이터를 캡슐화합니다. 이 리소스 부분을 검색하는 모든 API 요청은 https://www.googleapis.com/auth/youtubepartner-channel-audit 범위가 포함된 승인 토큰을 제공해야 합니다. 또한 해당 범위를 사용하는 모든 토큰은 MCN에서 채널을 수락하거나 거부하기로 결정했을 때 또는 토큰이 발급된 날로부터 2주 이내에 취소되어야 합니다.
+auditDetails.overallGoodStanding boolean
+이 필드는 채널에 문제가 있는지 여부를 나타냅니다. 현재 이 필드는 communityGuidelinesGoodStanding, copyrightStrikesGoodStanding, contentIdClaimsGoodStanding 속성에 대한 논리적 AND 연산의 결과를 나타냅니다. 즉, 다른 모든 속성의 값이 true인 경우 이 속성의 값은 true입니다. 그러나 이러한 속성 중 하나라도 값이 false이면 이 속성의 값은 false입니다. 그러나 이 속성의 값을 설정하는 데 사용되는 방법은 변경될 수 있습니다.
+auditDetails.communityGuidelinesGoodStanding boolean
+채널이 YouTube 커뮤니티 가이드를 준수하는지 여부를 나타냅니다.
+auditDetails.copyrightStrikesGoodStanding boolean
+채널에 저작권 위반 경고가 있는지 여부를 나타냅니다.
+auditDetails.contentIdClaimsGoodStanding boolean
+채널에 해결되지 않은 소유권 주장이 있는지 여부를 나타냅니다.
+contentOwnerDetails object
+contentOwnerDetails 객체는 채널을 콘텐츠 관리자에 연결한 YouTube 파트너에게만 표시되는 채널 데이터를 캡슐화합니다.
+contentOwnerDetails.contentOwner string
+채널에 연결된 콘텐츠 소유자의 ID입니다.
+contentOwnerDetails.timeLinked datetime
+채널이 콘텐츠 소유자에 연결된 날짜 및 시간입니다. 값은 ISO 8601 [https://www.w3.org/TR/NOTE-datetime] 형식으로 지정됩니다.
+localizations object
+localizations 객체는 채널 메타데이터의 번역을 캡슐화합니다.
+localizations.(key) object
+키 값과 연결된 현지화된 메타데이터의 언어입니다. 값은 BCP-47 [http://www.rfc-editor.org/rfc/bcp/bcp47.txt] 언어 코드가 포함된 문자열입니다.
+localizations.(key).title string
+현지화된 채널 제목입니다.
+localizations.(key).description string
+현지화된 채널 설명입니다.

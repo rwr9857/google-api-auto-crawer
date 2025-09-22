@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/quickstart/apps-script
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/quickstart/apps-script
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -60,13 +59,12 @@ function onOpen() {
   }
   var ui = SpreadsheetApp.getUi();
   ui.createMenu('YouTube Data')
-  .addItem('Add channel data', 'getCh
-annel') [https://github.com/youtube/api-samples/blob/07263305b59a7c3275bc7e925f9ce6cabf774022/apps-script/quickstart.gs]
- .addSeparator()
+  .addItem('Add channel data', 'getChannel')
+  .addSeparator()
   .addItem('Add GoogleDevelopers data', 'getGoogleDevelopersChannel')
   .addToUi();
 }
-quickstart.gs
+quickstart.gs [https://github.com/youtube/api-samples/blob/07263305b59a7c3275bc7e925f9ce6cabf774022/apps-script/quickstart.gs]
 저장 를 클릭합니다.
 왼쪽 상단에서 제목 없는 프로젝트를 클릭하고 시작하기를 입력한 다음 이름 바꾸기를 클릭합니다.
 2단계: YouTube Data API 사용 설정

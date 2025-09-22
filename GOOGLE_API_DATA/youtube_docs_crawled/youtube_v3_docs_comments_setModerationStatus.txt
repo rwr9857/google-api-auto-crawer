@@ -1,0 +1,62 @@
+[2025-08-28] Source URL: https://developers.google.com/youtube/v3/docs/comments/setModerationStatus
+
+Home [https://developers.google.com/]
+Products [https://developers.google.com/products]
+YouTube [https://developers.google.com/youtube]
+Data API [https://developers.google.com/youtube/v3]
+Reference [https://developers.google.com/youtube/v3/docs]
+도움이 되었나요?
+Comments: setModerationStatus
+bookmark_border
+이 페이지의 내용
+Common use cases [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#common-use-cases]
+Request [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#request]
+HTTP request [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#http-request]
+Authorization [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#auth]
+Parameters [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#parameters]
+Request body [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#request-body]
+Response [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#response]
+Errors [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#errors]
+Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the comments.
+Quota impact: A call to this method has a quota cost [https://developers.google.com/youtube/v3/getting-started#quota] of 50 units.
+Common use cases
+Request
+HTTP request
+POST https://www.googleapis.com/youtube/v3/comments/setModerationStatus
+Authorization
+This request requires authorization with at least one of the following scopes (read more about authentication and authorization [https://developers.google.com/youtube/v3/guides/authentication]).
+Scope
+https://www.googleapis.com/auth/youtube.force-ssl
+Parameters
+The following table lists the parameters that this query supports. All of the parameters listed are query parameters.
+Parameters
+Required parameters
+id string
+The id parameter specifies a comma-separated list of IDs that identify the comments for which you are updating the moderation status.
+moderationStatus string
+Identifies the new moderation status of the specified comments.
+
+Acceptable values are:
+heldForReview – Marks a comment as awaiting review by a moderator.
+published – Clears a comment for public display.
+rejected – Rejects a comment as being unfit for display. This action also effectively hides all replies to the rejected comment.
+Optional parameters
+banAuthor boolean
+The banAuthor parameter lets you indicate that you want to automatically reject any additional comments written by the comment's author. Set the parameter value to true to ban the author.
+
+Note: This parameter is only valid if the moderationStatus [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#moderationStatus] parameter is also set to rejected.
+Request body
+Do not provide a request body when calling this method.
+Response
+If successful, this method returns an HTTP 204 response code (No Content).
+Errors
+The following table identifies error messages that the API could return in response to a call to this method. Please see the error message [https://developers.google.com/youtube/v3/docs/errors] documentation for more detail.
+Error type Error detail Description
+badRequest (400) banWithoutReject The banAuthor parameter can only be used if the moderationStatus parameter value is rejected.
+badRequest (400) operationNotSupported Comments not based on Google+ offer only limited moderation functionality.
+badRequest (400) processingFailure The API server failed to successfully process the request. While this can be a transient error, it usually indicates that the request's input is invalid.
+forbidden (403) forbidden The moderation status of one or more comments cannot be set due to insufficient permissions. The request might not be properly authorized.
+notFound (404) commentNotFound One or more of the comments that the request is trying to update cannot be found. Check the values of the request's id [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus#id] parameter to ensure that they are correct.
+Try it!
+Use the APIs Explorer to call this API and see the API request and response.
+도움이 되었나요?

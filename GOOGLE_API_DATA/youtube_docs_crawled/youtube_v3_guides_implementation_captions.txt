@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/implementation/captions
+[2024-11-23] Source URL: https://developers.google.com/youtube/v3/guides/implementation/captions
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -11,11 +10,11 @@ Data API [https://developers.google.com/youtube/v3?hl=ko]
 구현: 자막
 bookmark_border
 이 페이지의 내용
-동영상의 자막 트랙 목록 가져오기
-자막 트랙 만들기
-자막 트랙 다운로드
-자막 트랙 업데이트
-자막 트랙 삭제하기
+동영상의 자막 트랙 목록 가져오기 [https://developers.google.com/youtube/v3/guides/implementation/captions?hl=ko#captions-list]
+자막 트랙 만들기 [https://developers.google.com/youtube/v3/guides/implementation/captions?hl=ko#captions-insert]
+자막 트랙 다운로드 [https://developers.google.com/youtube/v3/guides/implementation/captions?hl=ko#captions-download]
+자막 트랙 업데이트 [https://developers.google.com/youtube/v3/guides/implementation/captions?hl=ko#captions-update]
+자막 트랙 삭제하기 [https://developers.google.com/youtube/v3/guides/implementation/captions?hl=ko#captions-delete]
 다음 예에서는 YouTube Data API (v3)를 사용하여 자막과 관련된 기능을 실행하는 방법을 보여줍니다.
 동영상의 자막 트랙 목록 가져오기
 특정 동영상에 사용할 수 있는 자막 트랙 목록을 검색하려면 captions.list [https://developers.google.com/youtube/v3/docs/captions/list?hl=ko] 메서드를 호출합니다. videoId [https://developers.google.com/youtube/v3/docs/captions/list?hl=ko#videoId] 매개변수 값을 자막을 가져오는 동영상을 고유하게 식별하는 YouTube 동영상 ID로 설정합니다. 요청은 OAuth 2.0을 사용하여 승인되어야 합니다.

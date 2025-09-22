@@ -1,0 +1,110 @@
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/docs/comments
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+참조 [https://developers.google.com/youtube/v3/docs?hl=ko]
+Comments
+bookmark_border
+이 페이지의 내용
+메서드 [https://developers.google.com/youtube/v3/docs/comments?hl=ko#methods]
+리소스 표현 [https://developers.google.com/youtube/v3/docs/comments?hl=ko#resource-representation]
+속성 [https://developers.google.com/youtube/v3/docs/comments?hl=ko#properties]
+comment 리소스에는 단일 YouTube 댓글에 관한 정보가 포함되어 있습니다. comment 리소스는 동영상 또는 채널에 대한 댓글을 나타낼 수 있습니다. 또한 댓글은 최상위 댓글 또는 최상위 댓글에 대한 답장일 수 있습니다.
+메서드
+API는 comments 리소스에 대해 다음 메서드를 지원합니다.
+list [https://developers.google.com/youtube/v3/docs/comments/list?hl=ko]
+API 요청 매개변수와 일치하는 주석 목록을 반환합니다. 지금 사용해보기 [https://developers.google.com/youtube/v3/docs/comments/list?hl=ko#usage]
+insert [https://developers.google.com/youtube/v3/docs/comments/insert?hl=ko]
+기존 댓글에 답글을 작성합니다. 참고: 최상위 주석을 만들려면 commentThreads.insert [https://developers.google.com/youtube/v3/docs/commentThreads/insert?hl=ko] 메서드를 사용하세요. 지금 사용해 보기 [https://developers.google.com/youtube/v3/docs/comments/insert?hl=ko#usage]
+업데이트 [https://developers.google.com/youtube/v3/docs/comments/update?hl=ko]
+댓글을 수정합니다. 지금 사용해보기 [https://developers.google.com/youtube/v3/docs/comments/update?hl=ko#usage]
+삭제 [https://developers.google.com/youtube/v3/docs/comments/delete?hl=ko]
+댓글을 삭제합니다. 지금 사용해보기 [https://developers.google.com/youtube/v3/docs/comments/delete?hl=ko#usage]
+setModerationStatus [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus?hl=ko]
+하나 이상의 댓글 검토 상태를 설정합니다. 댓글과 연결된 채널 또는 동영상의 소유자가 API 요청을 승인해야 합니다. 지금 사용해보기 [https://developers.google.com/youtube/v3/docs/comments/setModerationStatus?hl=ko#usage]
+markAsSpam [https://developers.google.com/youtube/v3/docs/comments/markAsSpam?hl=ko]
+참고: 이 메서드는 지원 중단되었으며 더 이상 사용할 수 없습니다. 지원됩니다.
+를 통해 개인정보처리방침을 정의할 수 있습니다.
+하나 이상의 댓글이 스팸으로 신고되어야 한다는 발신자의 의견을 표현합니다.
+리소스 표현
+다음 JSON 구조에서 comments 리소스의 형식을 보여줍니다.
+{
+  "kind [https://developers.google.com/youtube/v3/docs/comments?hl=ko#kind]": "youtube#comment",
+  "etag [https://developers.google.com/youtube/v3/docs/comments?hl=ko#etag]": etag,
+  "id [https://developers.google.com/youtube/v3/docs/comments?hl=ko#id]": string,
+  "snippet [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet]": {
+    "authorDisplayName [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.authorDisplayName]": string,
+    "authorProfileImageUrl [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.authorProfileImageUrl]": string,
+    "authorChannelUrl [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.authorChannelUrl]": string,
+    "authorChannelId [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.authorChannelId]": {
+      "value [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.authorChannelId.value]": string
+    },
+    "channelId [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.channelId]": string,
+    "textDisplay [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.textDisplay]": string,
+    "textOriginal [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.textOriginal]": string,
+    "parentId [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.parentId]": string,
+    "canRate [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.canRate]": boolean,
+    "viewerRating [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.viewerRating]": string,
+    "likeCount [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.likeCount]": unsigned integer,
+    "moderationStatus [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.moderationStatus]": string,
+    "publishedAt [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.publishedAt]": datetime,
+    "updatedAt [https://developers.google.com/youtube/v3/docs/comments?hl=ko#snippet.updatedAt]": datetime
+  }
+}
+속성
+다음 표는 이 리소스에 표시되는 속성을 정의합니다.
+속성
+kind string
+API 리소스의 유형을 식별합니다. 값은 youtube#comment입니다.
+etag etag
+이 리소스의 Etag입니다.
+id string
+YouTube에서 댓글을 고유하게 식별하는 데 사용하는 ID입니다.
+snippet object
+snippet 객체에는 의견에 관한 기본 세부정보가 포함됩니다.
+snippet.authorDisplayName string
+Comment의 작성자 표시 이름입니다.
+snippet.authorProfileImageUrl string
+댓글을 게시한 사용자의 아바타 URL입니다.
+snippet.authorChannelUrl string
+댓글 작성자의 YouTube 채널 URL입니다(있는 경우).
+snippet.authorChannelId object
+이 객체는 가능한 경우 댓글 작성자의 YouTube 채널에 대한 정보를 요약합니다.
+snippet.authorChannelId.value string
+댓글 작성자의 YouTube 채널 ID입니다(있는 경우).
+snippet.channelId string
+댓글과 연결된 YouTube 채널의 ID입니다.
+snippet.textDisplay string
+댓글의 텍스트입니다. 일반 텍스트 또는 HTML로 텍스트를 검색할 수 있습니다. comments.list 메서드와 commentThreads.list 메서드는 모두 선택한 텍스트 형식을 지정하는 textFormat 매개변수를 지원합니다.
+
+일반 텍스트도 원래 댓글 텍스트와 다를 수 있습니다. 예를 들어 동영상 링크를 동영상 제목으로 대체할 수 있습니다.
+snippet.textOriginal string
+처음 게시되거나 최종 업데이트된 댓글의 원본 원시 텍스트입니다. 원본 텍스트는 인증된 사용자가 댓글 작성자인 경우에만 반환됩니다.
+snippet.parentId string
+상위 댓글의 고유 ID입니다. 이 속성은 댓글이 다른 댓글에 대한 답글로 제출된 경우에만 설정됩니다.
+snippet.canRate boolean
+이 설정은 현재 뷰어가 댓글을 평가할 수 있는지 여부를 나타냅니다.
+snippet.viewerRating string
+시청자가 이 댓글에 부여한 평점입니다. 이 속성은 dislike 등급을 식별하지 않지만 이 동작은 변경될 수 있습니다. 그동안 시청자가 댓글을 긍정적으로 평가하면 속성 값은 like입니다. 사용자가 댓글에 부정적인 평점을 주었거나 댓글에 평점을 주지 않은 경우를 비롯한 다른 모든 경우에는 값이 none입니다.
+
+이 속성의 유효한 값은 다음과 같습니다.
+like
+none
+snippet.likeCount unsigned integer
+댓글에 받은 총 좋아요(긍정적인 평점) 수입니다.
+snippet.moderationStatus string
+댓글의 검토 상태입니다. 이 속성은 채널 소유자나 요청된 댓글이 달린 동영상의 소유자가 API 요청을 승인한 경우에만 반환됩니다. 또한 API 요청에서 id [https://developers.google.com/youtube/v3/docs/comments/list?hl=ko#id] 필터 매개변수를 사용한 경우 이 속성은 설정되지 않습니다.
+
+이 속성의 유효한 값은 다음과 같습니다.
+heldForReview
+likelySpam
+published
+rejected
+snippet.publishedAt datetime
+댓글이 원래 게시된 날짜 및 시간입니다. 값은 ISO 8601 [https://www.w3.org/TR/NOTE-datetime] 형식으로 지정됩니다.
+snippet.updatedAt datetime
+댓글이 마지막으로 업데이트된 날짜 및 시간입니다. 값은 ISO 8601 [https://www.w3.org/TR/NOTE-datetime] 형식으로 지정됩니다.

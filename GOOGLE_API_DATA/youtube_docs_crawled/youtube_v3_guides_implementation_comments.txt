@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/implementation/comments
+[2024-11-23] Source URL: https://developers.google.com/youtube/v3/guides/implementation/comments
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -11,13 +10,13 @@ Data API [https://developers.google.com/youtube/v3?hl=ko]
 구현: 댓글
 bookmark_border
 이 페이지의 내용
-동영상의 댓글 검색
-채널에 대한 댓글 또는 채널과 연결된 댓글 검색
-의견 추가
-댓글에 답글 달기
-최상위 댓글 또는 댓글 답글 업데이트
-댓글의 검토 상태 설정
-댓글 삭제
+동영상의 댓글 검색 [https://developers.google.com/youtube/v3/guides/implementation/comments?hl=ko#comments-list-video]
+채널에 대한 댓글 또는 채널과 연결된 댓글 검색 [https://developers.google.com/youtube/v3/guides/implementation/comments?hl=ko#comments-list-channel]
+의견 추가 [https://developers.google.com/youtube/v3/guides/implementation/comments?hl=ko#comments-add]
+댓글에 답글 달기 [https://developers.google.com/youtube/v3/guides/implementation/comments?hl=ko#comments-add-reply]
+최상위 댓글 또는 댓글 답글 업데이트 [https://developers.google.com/youtube/v3/guides/implementation/comments?hl=ko#comments-update]
+댓글의 검토 상태 설정 [https://developers.google.com/youtube/v3/guides/implementation/comments?hl=ko#comments-set-moderation-status]
+댓글 삭제 [https://developers.google.com/youtube/v3/guides/implementation/comments?hl=ko#comments-delete]
 comments.markAsSpam [https://developers.google.com/youtube/v3/docs/comments/markAsSpam?hl=ko] 메서드는 더 이상 지원되지 않습니다.
 다음 예에서는 YouTube Data API (v3)를 사용하여 댓글과 관련된 기능을 실행하는 방법을 보여줍니다.
 동영상의 댓글 검색

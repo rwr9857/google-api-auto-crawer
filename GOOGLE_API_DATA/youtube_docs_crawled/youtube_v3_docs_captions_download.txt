@@ -1,0 +1,67 @@
+[2025-02-06] Source URL: https://developers.google.com/youtube/v3/docs/captions/download
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+참조 [https://developers.google.com/youtube/v3/docs?hl=ko]
+도움이 되었나요?
+Captions: download
+bookmark_border
+이 페이지의 내용
+일반적인 사용 사례 [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko#common-use-cases]
+요청 [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko#request]
+HTTP 요청 [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko#http-request]
+승인 [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko#auth]
+매개변수 [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko#parameters]
+요청 본문 [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko#request-body]
+응답 [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko#response]
+오류 [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko#errors]
+자막 트랙을 다운로드합니다. 요청에 tfmt 매개변수 값이 지정되지 않은 경우 자막 트랙은 원래 형식으로 반환되고, 요청에 tlang 매개변수 값이 지정되지 않은 경우 원래 언어로 반환됩니다.
+할당량 영향: 이 메서드를 호출하면 할당량 비용 [https://developers.google.com/youtube/v3/getting-started?hl=ko#quota]이 200단위가 됩니다.
+일반적인 사용 사례
+요청
+HTTP 요청
+GET https://www.googleapis.com/youtube/v3/captions/id
+승인
+이 요청에는 다음 범위 중 최소 하나를 사용하여 인증이 필요합니다. (인증 및 승인에 대해 자세히 알아보기 [https://developers.google.com/youtube/v3/guides/authentication?hl=ko])
+범위
+https://www.googleapis.com/auth/youtube.force-ssl
+https://www.googleapis.com/auth/youtubepartner
+매개변수
+다음 표에는 이 쿼리에서 지원하는 매개변수가 나와 있습니다. 나열된 모든 매개변수는 쿼리 매개변수입니다.
+매개변수
+필수 매개변수
+id string
+id 매개변수는 검색 중인 자막 트랙을 식별합니다. 값은 caption 리소스의 id [https://developers.google.com/youtube/v3/docs/captions?hl=ko#id] 속성으로 식별된 자막 트랙 ID입니다.
+선택적 매개변수
+onBehalfOfContentOwner string
+이 매개변수는 적절하게 승인된 요청 [https://developers.google.com/youtube/v3/guides/authentication?hl=ko]에서만 사용할 수 있습니다. 참고: 이 매개변수는 YouTube 콘텐츠 파트너 전용입니다.
+
+onBehalfOfContentOwner 매개변수는 요청의 승인 사용자 인증 정보가 매개변수 값에 지정된 콘텐츠 소유자를 대신하는 YouTube CMS 사용자를 식별함을 나타냅니다. 이 매개변수는 여러 YouTube 채널을 소유하고 관리하는 YouTube 콘텐츠 파트너를 위해 마련되었습니다. 콘텐츠 소유자는 한 번 인증하면 개별 채널마다 인증 사용자 인증 정보를 제공하지 않고도 모든 동영상 및 채널 데이터에 액세스할 수 있습니다. 사용자가 인증할 실제 CMS 계정은 지정된 YouTube 콘텐츠 소유자에게 연결되어야 합니다.
+tfmt string
+tfmt 매개변수는 자막 트랙이 특정 형식으로 반환되어야 함을 지정합니다. 이 매개변수가 요청에 포함되지 않으면 트랙이 원래 형식으로 반환됩니다.
+
+지원되는 값은 다음과 같습니다.
+sbv – SubViewer 자막
+scc – Scenarist Closed Caption 형식
+srt – SubRip 자막
+ttml – Timed Text Markup Language 자막
+vtt – 웹 동영상 텍스트 트랙 캡션
+tlang string
+tlang 매개변수는 API 응답이 지정된 자막 트랙의 번역을 반환해야 함을 지정합니다. 이 매개변수의 값은 원하는 자막 언어를 식별하는 ISO 639-1 두 자리 언어 코드 [http://www.loc.gov/standards/iso639-2/php/code_list.php]입니다. 번역은 Google 번역과 같은 기계 번역을 사용하여 생성됩니다.
+요청 본문
+이 메소드를 호출할 때 요청 본문을 제공하지 마세요.
+응답
+이 메서드는 성공하면 바이너리 파일을 반환합니다. 응답의 Content-Type 헤더는 application/octet-stream입니다.
+오류
+아래 표에는 이 메서드 호출에 대한 응답으로 API에서 반환할 수 있는 오류 메시지가 나와 있습니다. 자세한 내용은 오류 메시지 [https://developers.google.com/youtube/v3/docs/errors?hl=ko] 설명서를 참조하세요.
+오류 유형 오류 세부정보 설명
+forbidden (403) forbidden 요청과 연결된 권한으로는 자막 트랙을 다운로드하기에 충분하지 않습니다. 요청이 제대로 인증되지 않았을 수 있습니다.
+invalidValue (400) couldNotConvert 자막 트랙 데이터를 요청된 언어 또는 형식으로 변환할 수 없습니다. 요청된 tfmt 및 tlang 값이 유효하고 요청된 자막 트랙의 snippet.status가 failed이 아닌지 확인합니다.
+notFound (404) captionNotFound 자막 트랙을 찾을 수 없습니다. 요청의 id 매개변수 값이 올바른지 확인합니다.
+사용해 보기
+APIs Explorer를 사용하여 이 API를 호출하고 API 요청 및 응답을 확인합니다.
+도움이 되었나요?

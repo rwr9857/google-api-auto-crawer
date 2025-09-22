@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/implementation/search
+[2024-11-23] Source URL: https://developers.google.com/youtube/v3/guides/implementation/search
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -11,11 +10,11 @@ Data API [https://developers.google.com/youtube/v3?hl=ko]
 구현: 검색 요청
 bookmark_border
 이 페이지의 내용
-동영상
-재생목록
-채널
-특정 언어와 관련된 결과
-개발자의 앱 또는 웹사이트를 통해 업로드된 동영상
+동영상 [https://developers.google.com/youtube/v3/guides/implementation/search?hl=ko#search-videos]
+재생목록 [https://developers.google.com/youtube/v3/guides/implementation/search?hl=ko#search-playlists]
+채널 [https://developers.google.com/youtube/v3/guides/implementation/search?hl=ko#search-channels]
+특정 언어와 관련된 결과 [https://developers.google.com/youtube/v3/guides/implementation/search?hl=ko#search-relevance-language]
+개발자의 앱 또는 웹사이트를 통해 업로드된 동영상 [https://developers.google.com/youtube/v3/guides/implementation/search?hl=ko#videos-uploaded-via-the-developers-app-or-website]
 다음 예는 v3 API에서 여러 유형의 검색 요청을 완료하는 방법을 보여줍니다.
 동영상
 이 예에서는 search.list [https://developers.google.com/youtube/v3/docs/search/list?hl=ko] 메서드를 호출하여 'skateboarding dog' 쿼리와 관련된 조회수가 가장 많은 고화질 (HD) 동영상을 찾습니다. 쿼리는 order, part, q, type, videoDefinition 매개변수를 설정합니다.

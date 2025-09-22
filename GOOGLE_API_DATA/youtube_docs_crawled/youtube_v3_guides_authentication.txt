@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/authentication
+[2024-11-05] Source URL: https://developers.google.com/youtube/v3/guides/authentication
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -11,7 +10,7 @@ Data API [https://developers.google.com/youtube/v3?hl=ko]
 OAuth 2.0 승인 구현
 bookmark_border
 이 페이지의 내용
-OAuth 2.0 흐름
+OAuth 2.0 흐름 [https://developers.google.com/youtube/v3/guides/authentication?hl=ko#OAuth2_Flows]
 YouTube Data API는 비공개 사용자 데이터에 대한 액세스 승인을 위한 OAuth 2.0 프로토콜 [http://oauth.net/2/]을 지원합니다. 다음 목록에서는 몇 가지 핵심 OAuth 2.0 개념을 설명합니다.
 사용자가 Google Account or YouTube account에 로그인해야 하는 애플리케이션의 기능을 처음 사용하려고 하면 애플리케이션에서 OAuth 2.0 승인 프로세스를 시작합니다.
 애플리케이션이 사용자를 Google의 승인 서버로 안내합니다. 이 페이지의 링크는 애플리케이션이 사용자의 계정에 대해 요청하는 액세스 권한의 scope를 지정합니다. scope는 애플리케이션이 인증된 사용자 역할을 할 때 가져오거나, 삽입하거나, 업데이트하거나, 삭제할 수 있는 리소스를 지정합니다.

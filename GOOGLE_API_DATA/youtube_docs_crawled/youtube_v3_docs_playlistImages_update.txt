@@ -1,0 +1,55 @@
+[2024-08-16] Source URL: https://developers.google.com/youtube/v3/docs/playlistImages/update
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+참조 [https://developers.google.com/youtube/v3/docs?hl=ko]
+PlaylistImages: update
+bookmark_border
+이 페이지의 내용
+요청 [https://developers.google.com/youtube/v3/docs/playlistImages/update?hl=ko#request]
+HTTP 요청 [https://developers.google.com/youtube/v3/docs/playlistImages/update?hl=ko#http-request]
+승인 [https://developers.google.com/youtube/v3/docs/playlistImages/update?hl=ko#auth]
+매개변수 [https://developers.google.com/youtube/v3/docs/playlistImages/update?hl=ko#parameters]
+요청 본문 [https://developers.google.com/youtube/v3/docs/playlistImages/update?hl=ko#request-body]
+응답 [https://developers.google.com/youtube/v3/docs/playlistImages/update?hl=ko#response]
+재생목록 이미지를 수정합니다.
+할당량 영향: 이 메서드를 호출하면 50단위의 할당량 비용 [https://developers.google.com/youtube/v3/getting-started?hl=ko#quota]이 발생합니다.
+요청
+HTTP 요청
+PUT https://www.googleapis.com/youtube/v3/playlistImages
+승인
+이 요청에는 다음 범위 중 최소 하나를 사용하여 인증이 필요합니다. (인증 및 승인에 대해 자세히 알아보기 [https://developers.google.com/youtube/v3/guides/authentication?hl=ko])
+범위
+https://www.googleapis.com/auth/youtubepartner
+https://www.googleapis.com/auth/youtube
+https://www.googleapis.com/auth/youtube.force-ssl
+매개변수
+다음 표에는 이 쿼리가 지원하는 매개변수가 나와 있습니다. 나열된 모든 매개변수는 쿼리 매개변수입니다.
+매개변수
+필수 매개변수
+part string
+part 매개변수는 하나 이상의 playlistImage 리소스를 쉼표로 구분한 목록 속성을 지정합니다.
+
+매개변수가 하위 속성이 포함된 속성을 나타냅니다. 하위 속성은 응답에 포함됩니다
+선택적 매개변수
+onBehalfOfContentOwner string
+참고: onBehalfOfContentOwner 매개변수는 YouTube 콘텐츠 파트너 전용이며 적절하게 인증된 요청 [https://developers.google.com/youtube/v3/guides/authentication?hl=ko]에서만 사용할 수 있습니다.
+
+이 매개변수는 여러 YouTube 채널을 소유하고 관리하는 YouTube 콘텐츠 파트너를 위해 설계되었습니다. 이 기능을 사용하면 콘텐츠 소유자와 제휴한 사용자가 한 번만 인증하면 개별 채널의 사용자 인증 정보를 제공하지 않고도 콘텐츠 소유자의 모든 동영상 및 채널 데이터에 액세스하고 관리할 수 있습니다.
+
+매개변수가 있는 경우 매개변수 값은 콘텐츠 소유자를 나타내며 요청의 승인 사용자 인증 정보는 콘텐츠 소유자를 대신할 권한이 있는 YouTube 사용자를 식별합니다. 사용자가 인증할 계정이 YouTube 크리에이터 스튜디오 설정에서 지정된 콘텐츠 소유자에게 연결 [https://support.google.com/youtube/answer/4524878?hl=ko]되어 있어야 합니다.
+요청 본문
+요청 본문에 playlistImages 리소스 [https://developers.google.com/youtube/v3/docs/playlistImages?hl=ko#resource]를 제공합니다.
+해당 리소스의 경우:
+다음 속성에 값을 지정해야 합니다.
+snippet.playlistId
+snippet.type
+다음 속성에 값을 설정할 수 있습니다.
+snippet.width
+snippet.height
+응답
+성공하는 경우 이 메소드는 응답 본문에 playlistItem 리소스 [https://developers.google.com/youtube/v3/docs/playlistImages?hl=ko#resource]를 반환합니다.

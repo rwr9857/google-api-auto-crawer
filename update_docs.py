@@ -37,7 +37,7 @@ CONFIGS = {
 
 # 사용할 config 선택
 # 여기만 TARGET 으로 바꾸면 됨
-TARGET = "identity"
+TARGET = "youtube"
 cfg = CONFIGS[TARGET]
 
 
@@ -82,7 +82,7 @@ try:
         )
     )
 
-    print(f"✅ 상단바에서 {len(top_links)}개의 중복제거된 링크를 수집했습니다.")
+    print(f"✅ 중복제거 후 {len(top_links)}개의 링크를 수집했습니다.")
 
     all_side_links = []
     for link in top_links:

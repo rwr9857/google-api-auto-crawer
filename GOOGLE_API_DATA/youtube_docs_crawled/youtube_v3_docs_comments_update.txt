@@ -1,0 +1,58 @@
+[2025-08-28] Source URL: https://developers.google.com/youtube/v3/docs/comments/update
+
+Home [https://developers.google.com/]
+Products [https://developers.google.com/products]
+YouTube [https://developers.google.com/youtube]
+Data API [https://developers.google.com/youtube/v3]
+Reference [https://developers.google.com/youtube/v3/docs]
+도움이 되었나요?
+Comments: update
+bookmark_border
+이 페이지의 내용
+Common use cases [https://developers.google.com/youtube/v3/docs/comments/update#common-use-cases]
+Request [https://developers.google.com/youtube/v3/docs/comments/update#request]
+HTTP request [https://developers.google.com/youtube/v3/docs/comments/update#http-request]
+Authorization [https://developers.google.com/youtube/v3/docs/comments/update#auth]
+Parameters [https://developers.google.com/youtube/v3/docs/comments/update#parameters]
+Request body [https://developers.google.com/youtube/v3/docs/comments/update#request-body]
+Response [https://developers.google.com/youtube/v3/docs/comments/update#response]
+Errors [https://developers.google.com/youtube/v3/docs/comments/update#errors]
+Modifies a comment.
+Quota impact: A call to this method has a quota cost [https://developers.google.com/youtube/v3/getting-started#quota] of 50 units.
+Common use cases
+Request
+HTTP request
+PUT https://www.googleapis.com/youtube/v3/comments
+Authorization
+This request requires authorization with at least one of the following scopes (read more about authentication and authorization [https://developers.google.com/youtube/v3/guides/authentication]).
+Scope
+https://www.googleapis.com/auth/youtube.force-ssl
+Parameters
+The following table lists the parameters that this query supports. All of the parameters listed are query parameters.
+Parameters
+Required parameters
+part string
+The part parameter identifies the properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.
+
+The following list contains the part names that you can include in the parameter value:
+id
+snippet
+Request body
+Provide a comment resource [https://developers.google.com/youtube/v3/docs/comments#resource] in the request body. For that resource:
+You can set values for these properties:
+snippet.textOriginal
+Response
+If successful, this method returns a comment resource [https://developers.google.com/youtube/v3/docs/comments#resource] in the response body.
+Errors
+The following table identifies error messages that the API could return in response to a call to this method. Please see the error message [https://developers.google.com/youtube/v3/docs/errors] documentation for more detail.
+Error type Error detail Description
+badRequest (400) commentTextTooLong The comment resource that is being updated contains too many characters in the snippet.textOriginal property.
+badRequest (400) invalidCommentMetadata The request metadata is invalid.
+badRequest (400) operationNotSupported Only Google+ based comments can be updated.
+badRequest (400) processingFailure The API server failed to successfully process the request. While this can be a transient error, it usually indicates that the request's input is invalid. Check the structure of the comment resource in the request body to ensure that it is valid.
+forbidden (403) forbidden The comment could not be updated due to insufficient permissions. The request might not be properly authorized.
+forbidden (403) ineligibleAccount The YouTube account used to authorize the API request must be merged with the user's Google account to update a comment or comment thread.
+notFound (404) commentNotFound The specified comment could not be found. Check the value of the id [https://developers.google.com/youtube/v3/docs/comments#id] property in the request body to ensure that it is correct.
+Try it!
+Use the APIs Explorer to call this API and see the API request and response.
+도움이 되었나요?

@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/implementation/playlists
+[2024-11-23] Source URL: https://developers.google.com/youtube/v3/guides/implementation/playlists
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -11,11 +10,11 @@ Data API [https://developers.google.com/youtube/v3?hl=ko]
 구현: 재생목록
 bookmark_border
 이 페이지의 내용
-현재 사용자의 재생목록 가져오기
-사용자의 재생목록 가져오기
-특정 재생목록에 대한 정보 검색
-재생목록 추가
-재생목록 업데이트
+현재 사용자의 재생목록 가져오기 [https://developers.google.com/youtube/v3/guides/implementation/playlists?hl=ko#playlists-retrieve-for-current-user]
+사용자의 재생목록 가져오기 [https://developers.google.com/youtube/v3/guides/implementation/playlists?hl=ko#playlists-retrieve-for-user]
+특정 재생목록에 대한 정보 검색 [https://developers.google.com/youtube/v3/guides/implementation/playlists?hl=ko#playlists-retrieve-single-playlist]
+재생목록 추가 [https://developers.google.com/youtube/v3/guides/implementation/playlists?hl=ko#playlists-insert]
+재생목록 업데이트 [https://developers.google.com/youtube/v3/guides/implementation/playlists?hl=ko#playlists-update]
 다음 예에서는 YouTube Data API (v3)를 사용하여 재생목록 및 재생목록 항목과 관련된 기능을 실행하는 방법을 보여줍니다.
 현재 사용자의 재생목록 가져오기
 playlists.list [https://developers.google.com/youtube/v3/docs/playlists/list?hl=ko] 메서드를 호출하여 현재 인증된 사용자의 재생목록을 가져옵니다. 요청에서 mine [https://developers.google.com/youtube/v3/docs/playlists/list?hl=ko#mine] 매개변수의 값을 true로 설정합니다. mine 매개변수를 사용하는 요청은 OAuth 2.0을 사용하여 승인해야 합니다.

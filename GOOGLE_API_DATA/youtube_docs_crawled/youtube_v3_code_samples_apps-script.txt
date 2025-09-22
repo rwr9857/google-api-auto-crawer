@@ -1,0 +1,179 @@
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/code_samples/apps-script
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+샘플 [https://developers.google.com/youtube/v3/code_samples?hl=ko]
+Apps Script 코드 샘플
+bookmark_border
+이 페이지의 내용
+내 업로드 검색
+키워드로 검색
+주제별 검색
+채널 구독
+동영상 업데이트
+YouTube Data API에는 다음과 같은 Apps Script 코드 샘플을 사용할 수 있습니다. 이러한 코드 샘플은 GitHub의 YouTube API 코드 샘플 저장소 [https://github.com/youtube/api-samples]의 apps-script 폴더에서 다운로드할 수 있습니다.
+내 업로드 검색
+이 함수는 현재 스크립트 사용자의 업로드한 동영상을 검색합니다. 실행하려면 YouTube의 OAuth 읽기/쓰기 범위와 사용자 승인이 필요합니다. Apps Script의 런타임 환경에서 사용자가 스크립트를 처음 실행하면 Apps Script에서 스크립트에서 호출하는 서비스에 액세스할 권한을 사용자에게 요청합니다. 권한이 부여되면 일정 기간 동안 캐시됩니다. 필요한 권한이 변경되거나 ScriptApp.invalidateAuth() 함수에 의해 무효화되면 스크립트를 실행하는 사용자에게 권한을 다시 요청하라는 메시지가 표시됩니다.
+
+이 스크립트는 다음 단계에 따라 활성 사용자의 업로드된 동영상을 검색합니다.
+사용자의 채널을 가져옵니다.
+사용자의 '업로드' 재생목록을 가져옵니다.
+이 재생목록을 반복하고 동영상 ID 및 제목을 로깅합니다.
+다음 페이지 토큰(있는 경우)을 가져옵니다. 페이지가 있으면 다음 페이지를 가져옵니다. 3단계를 반복합니다.
+/**
+ * This function retrieves the current script user's uploaded videos. To execute,
+ * it requires the OAuth read/write scope for YouTube as well as user authorization.
+ * In Apps Script's runtime environment, the first time a user runs a script, Apps
+ * Script will prompt the user for permission to access the services called by the
+ * script. After permissions are granted, they are cached for some periodF of time.
+ * The user running the script will be prompted for permission again once the
+ * permissions required change, or when they are invalidated by the
+ * ScriptApp.invalidateAuth() function.
+ *
+ * This script takes the following steps to retrieve the active user's uploaded videos:
+ *    1. Fetches the user's channels
+ *    2. Fetches the user's 'uploads' playlist
+ *    3. Iterates through this playlist and logs the video IDs and titles
+ *    4. Fetches a next page token (if any). If there is one, fetches the next page. GOTO Step 3
+ */
+function retrieveMyUploads() {
+  var results = YouTube.Channels.list('contentDetails', {mine: true});
+  for(var i in results.items) {
+    var item = results.items[i];
+    // Get the playlist ID, which is nested in contentDetails, as described in the
+    // Channel resource: https://developers.google.com/youtube/v3/docs/channels
+    var playlistId = item.contentDetails.relatedPlaylists.uploads;
+
+    var nextPageToken = '';
+
+    // This loop retrieves a set of playlist items and checks the nextPageToken in the
+    // response to determine whether the list contains additional items. It repeats that process
+    // until it has retrieved all of the items in the list.
+    while (nextPageToken != null) {
+      var playlistResponse = YouTube.PlaylistItems.list('snippet', {
+        playlistId: playlistId,
+        maxResults: 25,
+        pageToken: nextPageToken
+      });
+
+      for (var j = 0; j < playlistResponse.items.length; j++) {
+        var playlistItem = playlistResponse.items[j];
+        Logger.log('[%s] Title: %s',
+                   playlistItem.snippet.resourceId.videoId,
+                   playlistItem.snippet.title);
+
+      }
+      nextPageToken = playlistResponse.nextPageToken;
+    }
+  }
+}
+키워드로 검색
+이 함수는 'dogs' 키워드와 관련된 동영상을 검색합니다. 검색 결과의 동영상 ID 및 제목이 Apps Script 로그에 로깅됩니다.
+
+이 샘플에서는 결과가 25개로 제한됩니다. 더 많은 결과를 반환하려면 Search:list [https://developers.google.com/youtube/v3/docs/search/list?hl=ko]에 설명된 대로 추가 매개변수를 전달합니다.
+/**
+ * This function searches for videos related to the keyword 'dogs'. The video IDs and titles
+ * of the search results are logged to Apps Script's log.
+ *
+ * Note that this sample limits the results to 25. To return more results, pass
+ * additional parameters as documented here:
+ *   https://developers.google.com/youtube/v3/docs/search/list
+ */
+function searchByKeyword() {
+  var results = YouTube.Search.list('id,snippet', {q: 'dogs', maxResults: 25});
+  for(var i in results.items) {
+    var item = results.items[i];
+    Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
+  }
+}
+주제별 검색
+이 함수는 특정 Freebase 주제와 연결된 동영상을 검색하여 동영상 ID와 제목을 Apps Script 로그에 기록합니다. 이 예에서는 Google Apps Script의 주제 ID를 사용합니다.
+
+이 샘플에서는 결과가 25개로 제한됩니다. 더 많은 결과를 반환하려면 Search:list [https://developers.google.com/youtube/v3/docs/search/list?hl=ko]에 설명된 대로 추가 매개변수를 전달합니다.
+/**
+ * This function searches for videos that are associated with a particular Freebase
+ * topic, logging their video IDs and titles to the Apps Script log. This example uses
+ * the topic ID for Google Apps Script.
+ *
+ * Note that this sample limits the results to 25. To return more results, pass
+ * additional parameters as documented here:
+ *   https://developers.google.com/youtube/v3/docs/search/list
+ */
+function searchByTopic() {
+  var mid = '/m/0gjf126';
+  var results = YouTube.Search.list('id,snippet', {topicId: mid, maxResults: 25});
+  for(var i in results.items) {
+    var item = results.items[i];
+    Logger.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
+  }
+}
+채널 구독
+이 샘플은 활성 사용자를 channelId로 지정된 Google 개발자 YouTube 채널에 구독합니다.
+/**
+ * This sample subscribes the active user to the Google Developers
+ * YouTube channel, specified by the channelId.
+ */
+function addSubscription() {
+  // Replace this channel ID with the channel ID you want to subscribe to
+  var channelId = 'UC_x5XG1OV2P6uZZ5FSM9Ttw';
+  var resource = {
+    snippet: {
+      resourceId: {
+        kind: 'youtube#channel',
+        channelId: channelId
+      }
+    }
+  };
+
+  try {
+    var response = YouTube.Subscriptions.insert(resource, 'snippet');
+    Logger.log(response);
+  } catch (e) {
+    if(e.message.match('subscriptionDuplicate')) {
+      Logger.log('Cannot subscribe; already subscribed to channel: ' + channelId);
+    } else {
+      Logger.log('Error adding subscription: ' + e.message);
+    }
+  }
+}
+동영상 업데이트
+이 샘플은 활성 사용자의 업로드를 찾은 후 문자열을 추가하여 가장 최근 업로드의 설명을 업데이트합니다.
+/**
+ * This sample finds the active user's uploads, then updates the most recent
+ * upload's description by appending a string.
+ */
+function updateVideo() {
+  // 1. Fetch all the channels owned by active user
+  var myChannels = YouTube.Channels.list('contentDetails', {mine: true});
+  // 2. Iterate through the channels and get the uploads playlist ID
+  for (var i = 0; i < myChannels.items.length; i++) {
+    var item = myChannels.items[i];
+    var uploadsPlaylistId = item.contentDetails.relatedPlaylists.uploads;
+
+    var playlistResponse = YouTube.PlaylistItems.list('snippet', {
+      playlistId: uploadsPlaylistId,
+      maxResults: 1
+    });
+
+    // Get the videoID of the first video in the list
+    var video = playlistResponse.items[0];
+    var originalDescription = video.snippet.description;
+    var updatedDescription = originalDescription + ' Description updated via Google Apps Script';
+
+    video.snippet.description = updatedDescription;
+
+    var resource = {
+      snippet: {
+        title: video.snippet.title,
+        description: updatedDescription,
+        categoryId: '22'
+      },
+      id: video.snippet.resourceId.videoId
+    };
+    YouTube.Videos.update(resource, 'id,snippet');
+  }
+}

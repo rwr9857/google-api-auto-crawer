@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/implementation/channels
+[2024-11-23] Source URL: https://developers.google.com/youtube/v3/guides/implementation/channels
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -11,10 +10,10 @@ Data API [https://developers.google.com/youtube/v3?hl=ko]
 구현: 채널
 bookmark_border
 이 페이지의 내용
-채널 정보 검색
-채널의 브랜딩 정보 설정
-채널 섹션 관리
-채널의 워터마크 이미지 업로드 및 설정하기
+채널 정보 검색 [https://developers.google.com/youtube/v3/guides/implementation/channels?hl=ko#channels-list]
+채널의 브랜딩 정보 설정 [https://developers.google.com/youtube/v3/guides/implementation/channels?hl=ko#channels-list]
+채널 섹션 관리 [https://developers.google.com/youtube/v3/guides/implementation/channels?hl=ko#channel-sections]
+채널의 워터마크 이미지 업로드 및 설정하기 [https://developers.google.com/youtube/v3/guides/implementation/channels?hl=ko#channels-watermarks]
 이 페이지에서는 YouTube Data API (v3)를 사용하여 채널 데이터 검색 및 업데이트와 관련된 기능을 실행하는 방법을 설명합니다. channel 리소스에는 채널에서 업로드하고 좋아요한 동영상을 식별하는 재생목록 ID가 포함됩니다. channels.list 메서드를 호출할 때 이 정보를 가져오려면 part [https://developers.google.com/youtube/v3/docs/channels/list?hl=ko#part] 매개변수 값에 contentDetails 리소스 부분이 포함되어 있는지 확인합니다.
 채널 정보 검색
 channels.list [https://developers.google.com/youtube/v3/docs/channels/list?hl=ko] 메서드를 호출하여 특정 채널에 대한 정보를 가져옵니다. 채널을 식별하는 방법에는 여러 가지가 있습니다.

@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/implementation/ratings
+[2024-11-23] Source URL: https://developers.google.com/youtube/v3/guides/implementation/ratings
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -11,9 +10,9 @@ Data API [https://developers.google.com/youtube/v3?hl=ko]
 구현: 평점
 bookmark_border
 이 페이지의 내용
-동영상 평가하기
-현재 사용자의 동영상 평점 검색
-현재 사용자가 평가한 동영상 검색
+동영상 평가하기 [https://developers.google.com/youtube/v3/guides/implementation/ratings?hl=ko#ratings-insert]
+현재 사용자의 동영상 평점 검색 [https://developers.google.com/youtube/v3/guides/implementation/ratings?hl=ko#ratings-get]
+현재 사용자가 평가한 동영상 검색 [https://developers.google.com/youtube/v3/guides/implementation/ratings?hl=ko#videos-list-by-rating]
 다음 예에서는 YouTube Data API (v3)를 사용하여 동영상 평점과 관련된 기능을 실행하는 방법을 보여줍니다.
 동영상 평가하기
 videos.rate [https://developers.google.com/youtube/v3/docs/videos/rate?hl=ko] 메서드를 호출하여 동영상에 대한 사용자 평점을 제출합니다. 이 요청은 OAuth 2.0을 사용하여 승인해야 합니다.

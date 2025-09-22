@@ -1,6 +1,5 @@
-Source URL: https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps
+[2025-08-27] Source URL: https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps
 
-YouTube에서 Shorts 동영상의 조회수를 집계하는 방식에 맞게 Data API를 업데이트하고 있습니다. 자세히 알아보기 [https://developers.google.com/youtube/v3/revision_history?hl=ko#march-26,-2025]
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 홈 [https://developers.google.com/?hl=ko]
@@ -8,25 +7,26 @@ Switch to English
 YouTube [https://developers.google.com/youtube?hl=ko]
 Data API [https://developers.google.com/youtube/v3?hl=ko]
 가이드 [https://developers.google.com/youtube/v3/getting-started?hl=ko]
+도움이 되었나요?
 웹 서버 애플리케이션용 OAuth 2.0 사용
 bookmark_border
 이 페이지의 내용
-클라이언트 라이브러리
-기본 요건
-프로젝트에 API 사용 설정
-승인 사용자 인증 정보 만들기
-액세스 범위 식별
+클라이언트 라이브러리 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#libraries]
+기본 요건 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#prerequisites]
+프로젝트에 API 사용 설정 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#enable-apis]
+승인 사용자 인증 정보 만들기 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#creatingcred]
+액세스 범위 식별 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#identify-access-scopes]
 이 문서에서는 웹 서버 애플리케이션이 Google API 클라이언트 라이브러리 또는 Google OAuth 2.0 엔드포인트를 사용하여 YouTube Data API에 액세스하기 위한 OAuth 2.0 승인을 구현하는 방법을 설명합니다.
 OAuth 2.0을 사용하면 사용자가 사용자 이름, 비밀번호, 기타 정보를 비공개로 유지하면서 특정 데이터를 애플리케이션과 공유할 수 있습니다. 예를 들어 애플리케이션은 OAuth 2.0을 사용하여 사용자의 YouTube 채널에 동영상을 업로드할 권한을 얻을 수 있습니다.
-이 OAuth 2.0 흐름은 사용자 승인을 위한 것입니다. 기밀 정보를 저장하고 상태를 유지할 수 있는 애플리케이션을 위해 설계되었습니다. 적절히 승인된 웹 서버 애플리케이션은 사용자가 애플리케이션과 상호작용하는 동안 또는 사용자가 애플리케이션을 종료한 후에 API에 액세스할 수 있습니다.
+이 OAuth 2.0 흐름은 사용자 승인을 위한 것입니다. 기밀 정보를 저장하고 상태를 유지할 수 있는 애플리케이션을 위해 설계되었습니다. 적절하게 승인된 웹 서버 애플리케이션은 사용자가 애플리케이션과 상호작용하는 동안 또는 사용자가 애플리케이션을 종료한 후에 API에 액세스할 수 있습니다.
 웹 서버 애플리케이션은 특히 사용자별 데이터가 아닌 프로젝트 기반 데이터에 액세스하기 위해 Cloud API를 호출할 때 서비스 계정 [https://developers.google.com/identity/protocols/oauth2/service-account?hl=ko]을 사용하여 API 요청을 승인하는 경우가 많습니다. 웹 서버 애플리케이션은 사용자 승인과 함께 서비스 계정을 사용할 수 있습니다. YouTube Data API는 여러 YouTube 채널을 소유하고 관리하는 YouTube 콘텐츠 소유자에게만 서비스 계정 흐름을 지원합니다. 특히 콘텐츠 소유자는 서비스 계정을 사용하여 onBehalfOfContentOwner 요청 매개변수를 지원하는 API 메서드를 호출할 수 있습니다.
-참고: 구현을 올바르게 수행하는 것의 보안 관련 영향을 고려할 때 Google의 OAuth 2.0 엔드포인트와 상호작용할 때는 OAuth 2.0 라이브러리를 사용하는 것이 좋습니다. 다른 사용자가 제공하는 디버깅된 코드를 사용하는 것이 좋으며, 이는 개발자와 사용자를 보호하는 데 도움이 됩니다. 자세한 내용은 클라이언트 라이브러리 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#libraries]를 참고하세요.
+참고: 구현을 올바르게 수행하는 것의 보안상 영향을 고려할 때 Google의 OAuth 2.0 엔드포인트와 상호작용할 때는 OAuth 2.0 라이브러리를 사용하는 것이 좋습니다. 다른 사용자가 제공하는 디버깅된 코드를 사용하는 것이 좋으며, 이는 개발자와 사용자를 보호하는 데 도움이 됩니다. 자세한 내용은 클라이언트 라이브러리 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#libraries]를 참고하세요.
 클라이언트 라이브러리
 이 페이지의 언어별 예에서는 Google API 클라이언트 라이브러리 [https://developers.google.com/api-client-library?hl=ko]를 사용하여 OAuth 2.0 승인을 구현합니다. 코드 샘플을 실행하려면 먼저 해당 언어용 클라이언트 라이브러리를 설치해야 합니다.
 Google API 클라이언트 라이브러리를 사용하여 애플리케이션의 OAuth 2.0 흐름을 처리하면 클라이언트 라이브러리에서 애플리케이션이 직접 처리해야 하는 많은 작업을 실행합니다. 예를 들어 애플리케이션이 저장된 액세스 토큰을 사용하거나 새로고침할 수 있는 시점과 애플리케이션이 동의를 다시 획득해야 하는 시점을 결정합니다. 클라이언트 라이브러리는 올바른 리디렉션 URL을 생성하고 액세스 토큰에 대한 승인 코드를 교환하는 리디렉션 핸들러를 구현하는 데도 도움이 됩니다.
 서버 측 애플리케이션용 Google API 클라이언트 라이브러리는 다음 언어로 제공됩니다.
 Go [https://github.com/googleapis/google-api-go-client]
-Java [https://developers.google.com/api-client-library/java?hl=ko]
+Java [https://github.com/googleapis/google-auth-library-java]
 .NET [https://developers.google.com/api-client-library/dotnet?hl=ko]
 Node.js [https://github.com/googleapis/google-api-nodejs-client]
 Dart [https://dart.dev/googleapis/]
@@ -38,12 +38,12 @@ Ruby [https://github.com/googleapis/google-api-ruby-client]
 프로젝트에 API 사용 설정
 Google API를 호출하는 애플리케이션은 API Console에서 해당 API를 사용 설정해야 합니다.
 프로젝트에서 API를 사용 설정하려면 다음 단계를 따르세요.
-Google API Console에서Open the API Library [https://console.developers.google.com/apis/library?hl=ko] 을 사용합니다.
+Google API Console에서Open the API Library [https://console.developers.google.com/apis/library?hl=ko] 를 사용합니다.
 If prompted, select a project, or create a new one.
 라이브러리 페이지를 사용하여 YouTube Data API를 찾아 사용 설정합니다. 애플리케이션에서 사용할 다른 API를 찾아 사용 설정합니다.
 승인 사용자 인증 정보 만들기
 OAuth 2.0을 사용하여 Google API에 액세스하는 애플리케이션에는 Google의 OAuth 2.0 서버에 애플리케이션을 식별하는 승인 사용자 인증 정보가 있어야 합니다. 다음 단계에서는 프로젝트의 사용자 인증 정보를 만드는 방법을 설명합니다. 그러면 애플리케이션에서 사용자 인증 정보를 사용하여 해당 프로젝트에 사용 설정된 API에 액세스할 수 있습니다.
-Go to the Credentials page [https://console.developers.google.com/apis/credentials?hl=ko].
+Go to the Clients page [https://console.developers.google.com/auth/clients?hl=ko].
 클라이언트 만들기를 클릭합니다.
 웹 애플리케이션 애플리케이션 유형을 선택합니다.
 양식을 작성하고 만들기를 클릭합니다. PHP, Java, Python, Ruby, .NET과 같은 언어 및 프레임워크를 사용하는 애플리케이션은 승인된 리디렉션 URI를 지정해야 합니다. 리디렉션 URI는 OAuth 2.0 서버가 응답을 보낼 수 있는 엔드포인트입니다. 이러한 엔드포인트는 Google의 유효성 검사 규칙 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#uri-validation]을 준수해야 합니다.
@@ -69,7 +69,7 @@ OAuth 2.0 API 범위 [https://developers.google.com/identity/protocols/oauth2/sc
 공개 애플리케이션에서 특정 사용자 데이터에 대한 액세스를 허용하는 범위를 사용하는 경우 인증 절차를 완료해야 합니다. 애플리케이션을 테스트할 때 화면에 확인되지 않은 앱이 표시되면 확인 요청을 제출하여 이를 삭제해야 합니다. 고객센터에서 인증되지 않은 앱 [https://support.google.com/cloud/answer/7454865?hl=ko]에 대해 자세히 알아보고 앱 인증에 관한 자주 묻는 질문(FAQ) [https://support.google.com/cloud/answer/9110914?hl=ko]에 대한 답변을 확인하세요.
 언어별 요구사항
 이 문서의 코드 샘플을 실행하려면 Google 계정, 인터넷 액세스, 웹브라우저가 필요합니다. API 클라이언트 라이브러리 중 하나를 사용하는 경우 아래의 언어별 요구사항도 참고하세요.
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 이 문서의 PHP 코드 샘플을 실행하려면 다음이 필요합니다.
 
 
@@ -83,7 +83,7 @@ OAuth 2.0 API 범위 [https://developers.google.com/identity/protocols/oauth2/sc
 
 자세한 내용은 PHP용 Google API 클라이언트 라이브러리 [https://github.com/googleapis/google-api-php-client]를 참고하세요.
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 이 문서의 Python 코드 샘플을 실행하려면 다음이 필요합니다.
 
 
@@ -105,7 +105,7 @@ OAuth 2.0 API 범위 [https://developers.google.com/identity/protocols/oauth2/sc
 
 Python 및 관련 이전 가이드를 업그레이드할 수 없는 경우 Google API Python 클라이언트 라이브러리 출시 노트 [https://github.com/googleapis/google-api-python-client?tab=readme-ov-file#version-20-release]를 검토하세요.
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 이 문서의 Ruby 코드 샘플을 실행하려면 다음이 필요합니다.
 
 
@@ -119,7 +119,7 @@ Python 및 관련 이전 가이드를 업그레이드할 수 없는 경우 Googl
     Sinatra Ruby 웹 애플리케이션 프레임워크
     gem install sinatra
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 이 문서의 Node.js 코드 샘플을 실행하려면 다음이 필요합니다.
 
 
@@ -128,7 +128,7 @@ Python 및 관련 이전 가이드를 업그레이드할 수 없는 경우 Googl
     Google API Node.js 클라이언트는 다음을 지원합니다.
     npm install googleapis crypto express express-session
 
---- 탭: HTTP/REST ---
+--- 탭: tabpanel-httprest ---
 OAuth 2.0 엔드포인트를 직접 호출하기 위해 라이브러리를 설치할 필요는 없습니다.
 OAuth 2.0 액세스 토큰 가져오기
 다음 단계에서는 애플리케이션이 Google의 OAuth 2.0 서버와 상호작용하여 사용자를 대신하여 API 요청을 실행하기 위한 사용자의 동의를 얻는 방법을 보여줍니다. 사용자 승인이 필요한 Google API 요청을 실행하려면 애플리케이션에 해당 동의가 있어야 합니다.
@@ -143,7 +143,7 @@ OAuth 2.0 액세스 토큰 가져오기
 OAuth 2.0 인증 및 승인에 Google 클라이언트 라이브러리를 사용하는 경우 이러한 매개변수를 정의하는 객체를 만들고 구성합니다.
 Google OAuth 2.0 엔드포인트를 직접 호출하면 URL이 생성되고 해당 URL에 매개변수가 설정됩니다.
 아래 탭에서는 웹 서버 애플리케이션에 지원되는 승인 매개변수를 정의합니다. 언어별 예시에서는 클라이언트 라이브러리나 승인 라이브러리를 사용하여 이러한 매개변수를 설정하는 객체를 구성하는 방법도 보여줍니다.
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 다음 코드 스니펫은 승인 요청의 매개변수를 정의하는 Google\Client() 객체를 만듭니다.
 
 이 객체는 client_secret.json 파일의 정보를 사용하여 애플리케이션을 식별합니다. (이 파일에 대한 자세한 내용은 승인 사용자 인증 정보 만들기 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#creatingcred]를 참고하세요.) 이 객체는 애플리케이션이 액세스 권한을 요청하는 범위와 Google OAuth 2.0 서버의 응답을 처리하는 애플리케이션 인증 엔드포인트의 URL도 식별합니다. 마지막으로 코드는 선택적 access_type 및 include_granted_scopes 매개변수를 설정합니다.
@@ -186,10 +186,10 @@ $client->setPrompt('consent');
 // authorization
 $client->setIncludeGrantedScopes(true);
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 다음 코드 스니펫은 google-auth-oauthlib.flow 모듈을 사용하여 승인 요청을 구성합니다.
 
-이 코드는 인증 사용자 인증 정보를 만든 후 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#creatingcred] 다운로드한 client_secret.json 파일의 정보를 사용하여 애플리케이션을 식별하는 Flow 객체를 생성합니다. 이 객체는 애플리케이션이 액세스 권한을 요청하는 범위와 Google OAuth 2.0 서버의 응답을 처리하는 애플리케이션의 인증 엔드포인트 URL도 식별합니다. 마지막으로 코드는 선택적 access_type 및 include_granted_scopes 매개변수를 설정합니다.
+이 코드는 인증 사용자 인증 정보를 만든 후 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#creatingcred] 다운로드한 client_secret.json 파일의 정보를 사용하여 애플리케이션을 식별하는 Flow 객체를 생성합니다. 이 객체는 애플리케이션이 액세스 권한을 요청하는 범위와 Google OAuth 2.0 서버의 응답을 처리하는 애플리케이션 인증 엔드포인트의 URL도 식별합니다. 마지막으로 코드는 선택적 access_type 및 include_granted_scopes 매개변수를 설정합니다.
 
 
 예를 들어 다음 코드는 사용자의 YouTube 계정을 관리하기 위한 오프라인 액세스를 요청합니다.
@@ -226,7 +226,7 @@ authorization_url, state = flow.authorization_url(
     # Optional, set prompt to 'consent' will prompt the user for consent
     prompt='consent')
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 만든 client_secrets.json 파일을 사용하여 애플리케이션에서 클라이언트 객체를 구성합니다. 클라이언트 객체를 구성할 때 애플리케이션이 액세스해야 하는 범위와 OAuth 2.0 서버의 응답을 처리할 애플리케이션의 인증 엔드포인트 URL을 지정합니다.
 
 
@@ -265,7 +265,7 @@ authorizer = Google::Auth::WebUserAuthorizer.new(client_id, scope,
 
 애플리케이션은 클라이언트 객체를 사용하여 승인 요청 URL을 생성하고 액세스 토큰을 HTTP 요청에 적용하는 등의 OAuth 2.0 작업을 실행합니다.
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 다음 코드 스니펫은 승인 요청의 매개변수를 정의하는 google.auth.OAuth2 객체를 만듭니다.
 
 
@@ -317,14 +317,14 @@ const authorizationUrl = oauth2Client.generateAuthUrl({
 
   중요 - refresh_token는 첫 번째 승인에서만 반환됩니다. 자세한 내용은 여기 [https://github.com/googleapis/google-api-nodejs-client/issues/750#issuecomment-304521450]를 참고하세요.
 
---- 탭: HTTP/REST ---
+--- 탭: tabpanel-httprest ---
 Google의 OAuth 2.0 엔드포인트는 https://accounts.google.com/o/oauth2/v2/auth에 있습니다. 이 엔드포인트는 HTTPS를 통해서만 액세스할 수 있습니다. 일반 HTTP 연결은 거부됩니다.
-Google 승인 서버는 웹 서버 애플리케이션에 다음 쿼리 문자열 매개변수를 지원합니다.
+Google 승인 서버는 웹 서버 애플리케이션에 대해 다음 쿼리 문자열 매개변수를 지원합니다.
 매개변수
 client_id 필수
-애플리케이션의 클라이언트 ID입니다. 이 값은 에서 확인할 수 있습니다.
+애플리케이션의 클라이언트 ID입니다. 이 값은 Cloud Console Clients page [https://console.developers.google.com/auth/clients?hl=ko]에서 확인할 수 있습니다.
 redirect_uri 필수
-사용자가 승인 흐름을 완료한 후 API 서버가 사용자를 리디렉션하는 위치를 결정합니다. 이 값은 클라이언트의 에 구성된 OAuth 2.0 클라이언트의 승인된 리디렉션 URI 중 하나와 정확히 일치해야 합니다. 이 값이 제공된 client_id의 승인된 리디렉션 URI와 일치하지 않으면 redirect_uri_mismatch 오류가 발생합니다.
+사용자가 승인 흐름을 완료한 후 API 서버가 사용자를 리디렉션하는 위치를 결정합니다. 이 값은 클라이언트의 Cloud Console Clients page [https://console.developers.google.com/auth/clients?hl=ko]에 구성된 OAuth 2.0 클라이언트의 승인된 리디렉션 URI 중 하나와 정확히 일치해야 합니다. 이 값이 제공된 client_id의 승인된 리디렉션 URI와 일치하지 않으면 redirect_uri_mismatch 오류가 발생합니다.
 http 또는 https 스키마, 케이스, 후행 슬래시('/')는 모두 일치해야 합니다.
 response_type 필수
 Google OAuth 2.0 엔드포인트가 승인 코드를 반환하는지 여부를 결정합니다.
@@ -341,7 +341,7 @@ https://www.googleapis.com/auth/youtube.readonly YouTube 계정 보기
 https://www.googleapis.com/auth/youtube.upload YouTube 동영상 관리
 https://www.googleapis.com/auth/youtubepartner YouTube에서 내 자산과 관련 콘텐츠 조회 및 관리
 https://www.googleapis.com/auth/youtubepartner-channel-audit YouTube 파트너 감사 과정 중 관련된 내 YouTube 채널의 비공개 정보 조회
-OAuth 2.0 API 범위 [https://developers.google.com/identity/protocols/oauth2/scopes?hl=ko] 문서에는 Google API에 액세스하는 데 사용할 수 있는 범위의 전체 목록이 나와 있습니다.
+OAuth 2.0 API 범위 [https://developers.google.com/identity/protocols/oauth2/scopes?hl=ko] 문서에는 Google API에 액세스하는 데 사용할 수 있는 전체 범위 목록이 나와 있습니다.
 가능한 경우 애플리케이션이 컨텍스트에서 승인 범위에 대한 액세스를 요청하는 것이 좋습니다. 점진적 승인 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#incrementalAuth]을 통해 관련 맥락 안에서 사용자 데이터에 대한 액세스를 요청하면 사용자가 애플리케이션에서 요청하는 액세스가 필요한 이유를 더 쉽게 이해할 수 있습니다.
 access_type 권장
 사용자가 브라우저에 없을 때 애플리케이션이 액세스 토큰을 갱신할 수 있는지 여부를 나타냅니다. 유효한 매개변수 값은 online(기본값) 및 offline입니다.
@@ -354,7 +354,7 @@ include_granted_scopes 선택사항
 애플리케이션이 단계적 승인을 사용하여 컨텍스트에서 추가 범위에 대한 액세스를 요청할 수 있도록 지원합니다. 이 매개변수의 값을 true로 설정하고 승인 요청이 승인되면 새 액세스 토큰은 사용자가 이전에 애플리케이션 액세스를 승인한 범위도 포함합니다. 예시는 증분 승인 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#incrementalAuth] 섹션을 참고하세요.
 enable_granular_consent 선택사항
 기본값은 true입니다. false로 설정하면 2019년 이전에 생성된 OAuth 클라이언트 ID에 대해 더 세부적인 Google 계정 권한 [https://developers.google.com/identity/protocols/oauth2/resources/granular-permissions?hl=ko]이 사용 중지됩니다. 더 세분화된 권한이 항상 사용 설정되어 있으므로 최신 OAuth 클라이언트 ID에는 영향을 미치지 않습니다.
-Google에서 애플리케이션의 세부 권한을 사용 설정하면 이 매개변수는 더 이상 영향을 미치지 않습니다.
+Google에서 애플리케이션의 세부적인 권한을 사용 설정하면 이 매개변수는 더 이상 영향을 미치지 않습니다.
 login_hint 선택사항
 애플리케이션이 인증을 시도하는 사용자를 알고 있는 경우 이 매개변수를 사용하여 Google 인증 서버에 힌트를 제공할 수 있습니다. 서버는 힌트를 사용하여 로그인 양식의 이메일 필드를 미리 입력하거나 적절한 다중 로그인 세션을 선택하여 로그인 흐름을 간소화합니다.
 매개변수 값을 이메일 주소 또는 sub 식별자로 설정합니다. 이는 사용자의 Google ID와 동일합니다.
@@ -366,31 +366,31 @@ consent 사용자에게 동의를 요청합니다.
 select_account 사용자에게 계정을 선택하라는 메시지를 표시합니다.
 2단계: Google의 OAuth 2.0 서버로 리디렉션
 사용자를 Google의 OAuth 2.0 서버로 리디렉션하여 인증 및 승인 프로세스를 시작합니다. 일반적으로 이 문제는 애플리케이션에서 사용자의 데이터에 처음 액세스해야 할 때 발생합니다. 증분 승인 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#incrementalAuth]의 경우 이 단계는 애플리케이션이 아직 액세스 권한이 없는 추가 리소스에 처음 액세스해야 할 때도 발생합니다.
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 Google의 OAuth 2.0 서버에서 액세스를 요청하는 URL을 생성합니다.
     $auth_url = $client->createAuthUrl();
   
   사용자를 $auth_url로 리디렉션합니다.
     header('Location: ' . filter_var($auth_url, FILTER_SANITIZE_URL));
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 이 예시에서는 Flask 웹 애플리케이션 프레임워크를 사용하여 사용자를 승인 URL로 리디렉션하는 방법을 보여줍니다.
 
 return flask.redirect(authorization_url)
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 Google의 OAuth 2.0 서버에서 액세스를 요청하는 URL을 생성합니다.
     auth_uri = authorizer.get_authorization_url(request: request)
   사용자를 auth_uri로 리디렉션합니다.
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 1단계 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#creatingclient]의 generateAuthUrl 메서드에서 생성된 URL authorizationUrl을 사용하여 Google의 OAuth 2.0 서버에서 액세스를 요청합니다.
   
   
     사용자를 authorizationUrl로 리디렉션합니다.
     res.redirect(authorizationUrl);
 
---- 탭: HTTP/REST ---
+--- 탭: tabpanel-httprest ---
 Google 승인 서버로 리디렉션하는 샘플
 
         
@@ -412,17 +412,17 @@ Google의 OAuth 2.0 서버는 사용자를 인증하고 애플리케이션이 �
 이 단계에서 사용자는 애플리케이션에 요청된 액세스 권한을 부여할지 결정합니다. 이 단계에서 Google은 애플리케이션의 이름과 사용자의 승인 사용자 인증 정보에 대한 액세스 권한을 요청하는 Google API 서비스, 부여될 액세스 범위의 요약을 표시하는 동의 창을 표시합니다. 그러면 사용자는 애플리케이션에서 요청한 하나 이상의 범위에 대한 액세스 권한을 부여하는 데 동의하거나 요청을 거부할 수 있습니다.
 이 단계에서는 액세스 권한이 부여되었는지 여부를 나타내는 Google의 OAuth 2.0 서버의 응답을 기다리므로 애플리케이션에서 아무것도 하지 않아도 됩니다. 이 응답은 다음 단계에서 설명합니다.
 오류
-Google의 OAuth 2.0 승인 엔드포인트에 대한 요청에 예상되는 인증 및 승인 흐름 대신 사용자 대상 오류 메시지가 표시될 수 있습니다. 일반적인 오류 코드와 권장 해결 방법은 아래에 나열되어 있습니다.
+Google의 OAuth 2.0 승인 엔드포인트에 대한 요청에 예상되는 인증 및 승인 흐름 대신 사용자 대상 오류 메시지가 표시될 수 있습니다. 일반적인 오류 코드와 권장되는 해결 방법은 아래에 나열되어 있습니다.
 admin_policy_enforced
 Google Workspace 관리자의 정책으로 인해 Google 계정에서 요청된 하나 이상의 범위를 승인할 수 없습니다. 관리자가 OAuth 클라이언트 ID에 대한 액세스 권한이 명시적으로 부여될 때까지 모든 범위 또는 민감하고 제한된 범위에 대한 액세스를 제한하는 방법에 대한 자세한 내용은 Google Workspace 관리자 도움말 Google Workspace 데이터에 액세스할 수 있는 서드 파티 및 내부 앱 제어하기 [https://support.google.com/a/answer/7281227?hl=ko]를 참고하세요.
 disallowed_useragent
 승인 엔드포인트가 Google의 OAuth 2.0 정책 [https://developers.google.com/identity/protocols/oauth2/policies?hl=ko#browsers]에 의해 허용되지 않는 삽입된 사용자 에이전트 내에 표시됩니다.
---- 탭: Android ---
+--- 탭: Android [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#android] ---
 Android 개발자는 android.webkit.WebView [https://developer.android.com/reference/android/webkit/WebView?hl=ko]에서 승인 요청을 열 때 이 오류 메시지가 표시될 수 있습니다.
       개발자는 대신 Google Sign-In for Android [https://developers.google.com/identity/sign-in/android?hl=ko] 또는 OpenID Foundation의 AppAuth for Android [https://openid.github.io/AppAuth-Android/]와 같은 Android 라이브러리를 사용해야 합니다.
     Android 앱이 삽입된 사용자 에이전트에서 일반 웹 링크를 열고 사용자가 사이트에서 Google의 OAuth 2.0 승인 엔드포인트로 이동하면 웹 개발자에게 이 오류가 발생할 수 있습니다. 개발자는 일반 링크가 운영체제의 기본 링크 핸들러에서 열리도록 허용해야 합니다. 여기에는 Android 앱 링크 [https://developer.android.com/training/app-links?hl=ko] 핸들러와 기본 브라우저 앱이 모두 포함됩니다. Android 맞춤 탭 [https://developer.chrome.com/docs/android/custom-tabs/overview/?hl=ko] 라이브러리도 지원되는 옵션입니다.
 
---- 탭: iOS ---
+--- 탭: iOS [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ios] ---
 iOS 및 macOS 개발자는 WKWebView [https://developer.apple.com/documentation/webkit/wkwebview]에서 승인 요청을 열 때 이 오류가 발생할 수 있습니다.
       대신 개발자는 Google Sign-In for iOS [https://developers.google.com/identity/sign-in/ios?hl=ko] 또는 OpenID Foundation의 AppAuth for iOS [https://openid.github.io/AppAuth-iOS/]와 같은 iOS 라이브러리를 사용해야 합니다.
     iOS 또는 macOS 앱이 삽입된 사용자 에이전트에서 일반 웹 링크를 열고 사용자가 사이트에서 Google의 OAuth 2.0 승인 엔드포인트로 이동하면 웹 개발자에게 이 오류가 발생할 수 있습니다. 개발자는 일반 링크가 운영체제의 기본 링크 핸들러에서 열리도록 허용해야 합니다. 여기에는 범용 링크 [https://developer.apple.com/ios/universal-links/] 핸들러와 기본 브라우저 앱이 모두 포함됩니다. SFSafariViewController [https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller] 라이브러리도 지원되는 옵션입니다.
@@ -435,7 +435,7 @@ deleted_client
 invalid_grant
 액세스 토큰을 갱신할 때 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#offline] 또는 점진적 승인 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#incrementalAuth]을 사용하는 경우 토큰이 만료되었거나 무효화되었을 수 있습니다. 사용자를 다시 인증하고 사용자 동의를 요청하여 새 토큰을 획득합니다. 이 오류가 계속 표시되면 애플리케이션이 올바르게 구성되었는지, 요청에 올바른 토큰과 매개변수를 사용하고 있는지 확인하세요. 그렇지 않으면 사용자 계정이 삭제되었거나 사용 중지되었을 수 있습니다.
 redirect_uri_mismatch
-승인 요청에 전달된 redirect_uri이 OAuth 클라이언트 ID의 승인된 리디렉션 URI와 일치하지 않습니다. 에서 승인된 리디렉션 URI를 검토합니다.
+승인 요청에 전달된 redirect_uri이 OAuth 클라이언트 ID의 승인된 리디렉션 URI와 일치하지 않습니다. Google Cloud Console Clients page [https://console.developers.google.com/auth/clients?hl=ko]에서 승인된 리디렉션 URI를 검토합니다.
 redirect_uri 매개변수는 지원 중단되어 더 이상 지원되지 않는 OAuth 대역 외 (OOB) 흐름을 참조할 수 있습니다. 이전 가이드 [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko]를 참고하여 통합을 업데이트하세요.
 invalid_request
 요청에 문제가 있습니다. 이 문제는 다음과 같은 여러 이유로 발생할 수 있습니다.
@@ -443,7 +443,7 @@ invalid_request
 요청에 필수 매개변수가 누락되었습니다.
 요청에서 Google이 지원하지 않는 승인 방법을 사용합니다. OAuth 통합이 권장 통합 방법을 사용하는지 확인
 4단계: OAuth 2.0 서버 응답 처리
-중요: 서버에서 OAuth 2.0 응답을 처리하기 전에 Google에서 수신한 state가 승인 요청에서 전송된 state와 일치하는지 확인해야 합니다. 이 확인을 통해 악의적인 스크립트가 아닌 사용자가 요청을 하고 있는지 확인할 수 있으며 CSRF 공격 [https://datatracker.ietf.org/doc/html/rfc6749#section-10.12]의 위험을 줄일 수 있습니다.
+중요: 서버에서 OAuth 2.0 응답을 처리하기 전에 Google에서 수신한 state가 승인 요청에서 전송된 state와 일치하는지 확인해야 합니다. 이 확인은 악의적인 스크립트가 아닌 사용자가 요청을 하고 있는지 확인하고 CSRF 공격 [https://datatracker.ietf.org/doc/html/rfc6749#section-10.12]의 위험을 줄이는 데 도움이 됩니다.
 OAuth 2.0 서버는 요청에 지정된 URL을 사용하여 애플리케이션의 액세스 요청에 응답합니다.
 사용자가 액세스 요청을 승인하면 응답에 승인 코드가 포함됩니다. 사용자가 요청을 승인하지 않으면 응답에 오류 메시지가 포함됩니다. 웹 서버에 반환되는 승인 코드 또는 오류 메시지는 아래와 같이 쿼리 문자열에 표시됩니다.
 오류 응답:
@@ -451,7 +451,7 @@ https://oauth2.example.com/auth?error=access_denied
 승인 코드 응답:
 https://oauth2.example.com/auth?code=4/P7q7W91a-oMsCeLvIaQm6bTrgtp7
 중요: 응답 엔드포인트가 HTML 페이지를 렌더링하는 경우 해당 페이지의 모든 리소스가 URL의 승인 코드를 볼 수 있습니다. 스크립트는 URL을 직접 읽을 수 있으며 Referer HTTP 헤더의 URL은 페이지의 일부 또는 모든 리소스로 전송될 수 있습니다.
-해당 페이지의 모든 리소스 (특히 소셜 플러그인 및 분석과 같은 서드 파티 스크립트)에 승인 사용자 인증 정보를 전송할지 신중하게 고려하세요. 이 문제를 방지하려면 서버에서 먼저 요청을 처리한 다음 응답 매개변수가 포함되지 않은 다른 URL로 리디렉션하는 것이 좋습니다.
+해당 페이지의 모든 리소스 (특히 소셜 플러그인 및 분석과 같은 서드 파티 스크립트)에 승인 사용자 인증 정보를 전송할지 신중하게 고려하세요. 이 문제를 방지하려면 서버가 먼저 요청을 처리한 다음 응답 매개변수가 포함되지 않은 다른 URL로 리디렉션하는 것이 좋습니다.
 샘플 OAuth 2.0 서버 응답
 Google Drive의 파일 메타데이터를 보기 위한 읽기 전용 액세스 권한과 Google Calendar 일정을 보기 위한 읽기 전용 액세스 권한을 요청하는 다음 샘플 URL을 클릭하여 이 흐름을 테스트할 수 있습니다.
 https://accounts.google.com/o/oauth2/v2/auth?
@@ -465,12 +465,12 @@ https://accounts.google.com/o/oauth2/v2/auth?
 OAuth 2.0 흐름을 완료하면 http://localhost/oauth2callback로 리디렉션됩니다. 로컬 머신이 해당 주소에서 파일을 제공하지 않는 한 404 NOT FOUND 오류가 발생할 수 있습니다. 다음 단계에서는 사용자가 애플리케이션으로 다시 리디렉션될 때 URI에 반환되는 정보에 관해 자세히 설명합니다.
 5단계: 갱신 및 액세스 토큰의 승인 코드 교환
 웹 서버는 승인 코드를 받은 후 승인 코드를 액세스 토큰으로 교환할 수 있습니다.
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 승인 코드를 액세스 토큰으로 교환하려면 fetchAccessTokenWithAuthCode 메서드를 사용합니다.
 
 $access_token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 콜백 페이지에서 google-auth 라이브러리를 사용하여 승인 서버 응답을 확인합니다. 그런 다음 flow.fetch_token 메서드를 사용하여 해당 응답의 승인 코드를 액세스 토큰으로 교환합니다.
 
 state = flask.session['state']
@@ -483,26 +483,21 @@ flow.redirect_uri = flask.url_for('oauth2callback', _external=True)
 authorization_response = flask.request.url
 flow.fetch_token(authorization_response=authorization_response)
 
-# Store the credentials in the session.
-# ACTION ITEM for developers:
-#     Store user's access and refresh tokens in your data store if
-#     incorporating this code into your real app.
+# Store the credentials in browser session storage, but for security: client_id, client_secret,
+# and token_uri are instead stored only on the backend server.
 credentials = flow.credentials
 flask.session['credentials'] = {
     'token': credentials.token,
     'refresh_token': credentials.refresh_token,
-    'token_uri': credentials.token_uri,
-    'client_id': credentials.client_id,
-    'client_secret': credentials.client_secret,
     'granted_scopes': credentials.granted_scopes}
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 콜백 페이지에서 googleauth 라이브러리를 사용하여 승인 서버 응답을 확인합니다. authorizer.handle_auth_callback_deferred 메서드를 사용하여 승인 코드를 저장하고 원래 승인을 요청한 URL로 다시 리디렉션합니다. 이렇게 하면 사용자의 세션에 결과를 일시적으로 저장하여 코드 교환이 지연됩니다.
 
   target_url = Google::Auth::WebUserAuthorizer.handle_auth_callback_deferred(request)
   redirect target_url
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 승인 코드를 액세스 토큰으로 교환하려면 getToken 메서드를 사용합니다.
 
 const url = require('url');
@@ -522,7 +517,7 @@ app.get('/oauth2callback', async (req, res) => {
     oauth2Client.setCredentials(tokens);
 });
 
---- 탭: HTTP/REST ---
+--- 탭: tabpanel-httprest ---
 승인 코드를 액세스 토큰으로 교환하려면 https://oauth2.googleapis.com/token 엔드포인트를 호출하고 다음 매개변수를 설정합니다.
 
 
@@ -534,14 +529,14 @@ app.get('/oauth2callback', async (req, res) => {
   
     
       client_id
-       
-       에서 가져온 클라이언트 ID입니다.
+       Cloud Console
+       Clients page [https://console.developers.google.com/auth/clients?hl=ko]에서 가져온 클라이언트 ID입니다.
     
 
     
       client_secret
-       
-       에서 가져온 클라이언트 보안 비밀번호입니다.
+       Cloud Console
+       Clients page [https://console.developers.google.com/auth/clients?hl=ko]에서 가져온 클라이언트 보안 비밀번호입니다.
     
 
     
@@ -557,8 +552,8 @@ app.get('/oauth2callback', async (req, res) => {
     
     
       redirect_uri
-      지정된 client_id의 
-        에 프로젝트에 대해 나열된 리디렉션 URI 중 하나입니다.
+      지정된 client_id의 Cloud Console
+       Clients page [https://console.developers.google.com/auth/clients?hl=ko] 에 프로젝트에 대해 나열된 리디렉션 URI 중 하나입니다.
     
   
 
@@ -615,7 +610,7 @@ Google은 이 요청에 단기 액세스 토큰과 새로고침 토큰이 포함
     
     
       scope
-      access_token에 의해 부여된 액세스 범위로, 공백으로 구분되고 대소문자를 구분하는 문자열 목록으로 표현됩니다.
+      access_token에 의해 부여된 액세스 범위입니다. 공백으로 구분되고 대소문자를 구분하는 문자열 목록으로 표현됩니다.
     
     
       token_type
@@ -642,30 +637,27 @@ Google은 이 요청에 단기 액세스 토큰과 새로고침 토큰이 포함
 오류
 승인 코드를 액세스 토큰으로 교환할 때 예상되는 응답 대신 다음 오류가 발생할 수 있습니다. 일반적인 오류 코드와 권장 해결 방법은 아래에 나열되어 있습니다.
 invalid_grant
-제공된 승인 코드가 잘못되었거나 형식이 잘못되었습니다. OAuth 프로세스를 다시 시작 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#creatingclient]하여 사용자에게 다시 동의를 요청함으로써 새 코드를 요청합니다.
+제공된 승인 코드가 잘못되었거나 형식이 잘못되었습니다. OAuth 프로세스를 다시 시작 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#creatingclient]하여 사용자에게 동의를 다시 요청함으로써 새 코드를 요청합니다.
 6단계: 사용자가 부여한 범위 확인
-여러 권한 (범위)을 요청할 때 사용자가 앱에 모든 권한을 부여하지 않을 수 있습니다. 앱은 실제로 부여된 범위를 확인하고 일부 권한이 거부된 상황을 적절하게 처리해야 합니다. 일반적으로 거부된 범위를 사용하는 기능을 사용 중지하여 처리합니다.
+여러 권한 (범위)을 요청할 때 사용자가 앱에 모든 권한을 부여하지 않을 수 있습니다. 앱은 실제로 부여된 범위를 확인하고 일부 권한이 거부된 상황을 적절하게 처리해야 합니다. 일반적으로 거부된 범위를 사용하는 기능을 사용 중지합니다.
 하지만 예외도 있습니다. 도메인 전체 권한 위임 [https://support.google.com/a/answer/162106?hl=ko]이 있는 Google Workspace Enterprise 앱 또는 신뢰할 수 있음 [https://support.google.com/a/answer/7281227?hl=ko#zippy=,change-access-from-the-app-list]으로 표시된 앱은 세부 권한 동의 화면을 우회합니다. 이러한 앱의 경우 사용자에게 세부 권한 동의 화면이 표시되지 않습니다. 대신 앱은 요청된 범위를 모두 수신하거나 전혀 수신하지 않습니다.
 자세한 내용은 세부 권한 처리 방법 [https://developers.google.com/identity/protocols/oauth2/resources/granular-permissions?hl=ko]을 참고하세요.
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 사용자가 부여한 범위를 확인하려면 getGrantedScope() 메서드를 사용하세요.
 
 // Space-separated string of granted scopes if it exists, otherwise null.
 $granted_scopes = $client->getOAuth2Service()->getGrantedScope();
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 반환된 credentials 객체에는 사용자가 앱에 부여한 범위 목록인 granted_scopes 속성이 있습니다.
 
 credentials = flow.credentials
 flask.session['credentials'] = {
     'token': credentials.token,
     'refresh_token': credentials.refresh_token,
-    'token_uri': credentials.token_uri,
-    'client_id': credentials.client_id,
-    'client_secret': credentials.client_secret,
     'granted_scopes': credentials.granted_scopes}
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 한 번에 여러 범위를 요청할 때는 credentials 객체의 scope 속성을 통해 어떤 범위가 부여되었는지 확인하세요.
 
 # User authorized the request. Now, check which scopes were granted.
@@ -678,7 +670,7 @@ else
   # Update UX and application accordingly
 end
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 한 번에 여러 범위를 요청할 때는 tokens 객체의 scope 속성을 통해 어떤 범위가 부여되었는지 확인하세요.
 
 // User authorized the request. Now, check which scopes were granted.
@@ -694,8 +686,8 @@ else
   // Update UX and application accordingly
 }
 
---- 탭: HTTP/REST ---
-사용자가 특정 범위에 대한 액세스 권한을 애플리케이션에 부여했는지 확인하려면 액세스 토큰 응답의 scope 필드를 검사합니다. access_token에 의해 부여된 액세스 범위입니다. 공백으로 구분되고 대소문자를 구분하는 문자열 목록으로 표현됩니다.
+--- 탭: tabpanel-httprest ---
+사용자가 특정 범위에 대한 액세스 권한을 애플리케이션에 부여했는지 확인하려면 액세스 토큰 응답의 scope 필드를 검사하세요. access_token에 의해 부여된 액세스 범위입니다. 공백으로 구분되고 대소문자를 구분하는 문자열 목록으로 표현됩니다.
 
 
 
@@ -710,7 +702,7 @@ else
     "refresh_token": "1//xEoDL4iW3cxlI7yDbSRFYNG01kVKM2C-259HOF2aQbI"
   }
 Google API 호출
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 다음 단계를 완료하여 액세스 토큰을 사용하여 Google API를 호출합니다.
 
 
@@ -729,7 +721,7 @@ Google API 호출
 
     $channel = $youtube->channels->listChannels('snippet', array('mine' => $mine));
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 액세스 토큰을 획득한 후 애플리케이션은 해당 토큰을 사용하여 지정된 사용자 계정 또는 서비스 계정을 대신하여 API 요청을 승인할 수 있습니다. 사용자별 승인 사용자 인증 정보를 사용하여 호출하려는 API의 서비스 객체를 빌드한 다음 해당 객체를 사용하여 승인된 API 요청을 만듭니다.
 
 
@@ -745,7 +737,7 @@ youtube = build('youtube', 'v3', credentials=credentials)
 
     channel = youtube.channels().list(mine=True, part='snippet').execute()
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 액세스 토큰을 획득한 후 애플리케이션은 해당 토큰을 사용하여 특정 사용자 계정 또는 서비스 계정을 대신하여 API 요청을 할 수 있습니다. 사용자별 승인 사용자 인증 정보를 사용하여 호출하려는 API의 서비스 객체를 빌드한 다음 해당 객체를 사용하여 승인된 API 요청을 만듭니다.
 
 
@@ -758,7 +750,7 @@ youtube = build('youtube', 'v3', credentials=credentials)
   서비스에서 사용자 인증 정보를 설정합니다.
     youtube.authorization = credentials
   
-  서비스 객체에서 제공하는 인터페이스 [https://github.com/googleapis/google-api-ruby-client]를 사용하여 API 서비스에 요청합니다.
+  서비스 객체에서 제공하는 인터페이스 [https://github.com/googleapis/google-api-ruby-client]를 사용하여 API 서비스에 요청을 합니다.
     
 예를 들어 승인된 사용자의 YouTube 채널에 관한 데이터를 가져오려면 다음을 실행합니다.
 
@@ -773,7 +765,7 @@ youtube = build('youtube', 'v3', credentials=credentials)
 
 channel = youtube.list_channels(part, :mine => mine, options: { authorization: auth_client })
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 액세스 토큰을 획득하고 OAuth2 객체에 설정한 후 객체를 사용하여 Google API를 호출합니다. 애플리케이션은 이 토큰을 사용하여 특정 사용자 계정 또는 서비스 계정을 대신하여 API 요청을 승인할 수 있습니다. 호출하려는 API의 서비스 객체를 빌드합니다.
   예를 들어 다음 코드는 Google Drive API를 사용하여 사용자의 Drive에 있는 파일 이름을 나열합니다.
 
@@ -803,7 +795,7 @@ service.channels.list({
   }
 });
 
---- 탭: HTTP/REST ---
+--- 탭: tabpanel-httprest ---
 애플리케이션이 액세스 토큰을 획득한 후 API에 필요한 액세스 범위가 부여된 경우 토큰을 사용하여 지정된 사용자 계정을 대신하여 Google API를 호출할 수 있습니다. 이렇게 하려면 access_token 쿼리 매개변수 또는 Authorization HTTP 헤더 Bearer 값을 포함하여 API에 대한 요청에 액세스 토큰을 포함합니다. 가능한 경우 HTTP 헤더를 사용하는 것이 좋습니다. 쿼리 문자열은 서버 로그에 표시되는 경향이 있기 때문입니다. 대부분의 경우 클라이언트 라이브러리를 사용하여 Google API 호출을 설정할 수 있습니다 (예: YouTube Data API 호출 [https://developers.google.com/youtube/v3/docs?hl=ko]).
 
 
@@ -816,7 +808,7 @@ OAuth 2.0 Playground [https://developers.google.com/oauthplayground/?hl=ko]에�
 
 HTTP GET 예
 
-Authorization: Bearer HTTP 헤더를 사용하여 youtube.channels [https://developers.google.com/youtube/v3/docs/channels/list?hl=ko] 엔드포인트 (YouTube Data API)를 호출하는 것은 다음과 같습니다. 자체 액세스 토큰을 지정해야 합니다.
+Authorization: Bearer HTTP 헤더를 사용하여 youtube.channels [https://developers.google.com/youtube/v3/docs/channels/list?hl=ko] 엔드포인트 (YouTube Data API)를 호출하는 것은 다음과 같을 수 있습니다. 자체 액세스 토큰을 지정해야 합니다.
 
 GET /youtube/v3/channels?part=snippet&mine=true HTTP/1.1
 Host: www.googleapis.com
@@ -832,12 +824,12 @@ curl 명령줄 애플리케이션으로 이러한 명령어를 테스트할 수 
 
 curl -H "Authorization: Bearer access_token" https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true
 
-또는 쿼리 문자열 매개변수 옵션:
+또는 쿼리 문자열 매개변수 옵션을 사용할 수 있습니다.
 
 curl https://www.googleapis.com/youtube/v3/channels?access_token=access_token&part=snippet&mine=true
 전체 예시
 다음 예에서는 사용자가 애플리케이션이 사용자의 YouTube 계정을 관리하도록 인증하고 승인한 후 사용자의 YouTube 채널에 관한 정보를 보여주는 JSON 형식 객체를 출력합니다.
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 이 예시를 실행하려면 다음 안내를 따르세요.
 
 
@@ -946,7 +938,7 @@ if (isset($_GET['error']))
 }
 ?>
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 이 예시에서는 Flask [https://palletsprojects.com/p/flask/] 프레임워크를 사용합니다. OAuth 2.0 흐름을 테스트할 수 있는 웹 애플리케이션을 http://localhost:8080에서 실행합니다. 해당 URL로 이동하면 다음 5개의 링크가 표시됩니다.
 
 
@@ -955,15 +947,16 @@ if (isset($_GET['error']))
   
   인증 흐름 직접 테스트: 이 링크는 사용자를 인증 흐름 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#redirecting]으로 안내하려고 시도하는 페이지로 연결됩니다. 앱이 사용자를 대신하여 승인된 API 요청을 제출할 권한을 요청합니다.
   현재 사용자 인증 정보 취소: 이 링크는 사용자가 이미 애플리케이션에 부여한 권한을 취소 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#tokenrevoke]하는 페이지로 연결됩니다.
-  Flask 세션 사용자 인증 정보 지우기: 이 링크는 Flask 세션에 저장된 승인 사용자 인증 정보를 지웁니다. 이렇게 하면 이미 앱에 권한을 부여한 사용자가 새 세션에서 API 요청을 실행하려고 할 때 어떤 일이 발생하는지 확인할 수 있습니다. 또한 사용자가 앱에 부여된 권한을 취소하고 앱이 여전히 취소된 액세스 토큰으로 요청을 승인하려고 하는 경우 앱이 수신할 API 응답을 확인할 수 있습니다.
+  Flask 세션 사용자 인증 정보 삭제: 이 링크는 Flask 세션에 저장된 승인 사용자 인증 정보를 삭제합니다. 이렇게 하면 이미 앱에 권한을 부여한 사용자가 새 세션에서 API 요청을 실행하려고 할 때 어떤 일이 발생하는지 확인할 수 있습니다. 또한 사용자가 앱에 부여된 권한을 취소하고 앱이 여전히 취소된 액세스 토큰으로 요청을 승인하려고 하는 경우 앱이 수신할 API 응답을 확인할 수 있습니다.
 
 
-참고: 이 코드를 로컬로 실행하려면 기본 요건 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#prerequisites] 섹션의 안내를 따라야 합니다. 여기에는 http://localhost:8080을 사용자 인증 정보의 유효한 리디렉션 URI로 설정하고 해당 사용자 인증 정보의 client_secret.json 파일을 작업 디렉터리에 다운로드하는 작업이 포함됩니다.
+참고: 이 코드를 로컬로 실행하려면 기본 요건 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#prerequisites] 섹션의 안내를 따라야 합니다. 여기에는 http://localhost:8080를 사용자 인증 정보의 유효한 리디렉션 URI로 설정하고 해당 사용자 인증 정보의 client_secret.json 파일을 작업 디렉터리에 다운로드하는 작업이 포함됩니다.
 
 # -*- coding: utf-8 -*-
 
 import os
 import flask
+import json
 import requests
 
 import google.oauth2.credentials
@@ -1057,15 +1050,27 @@ def oauth2callback():
 
   return flask.redirect(flask.url_for('test_api_request'))
   
-
 @app.route('/revoke')
 def revoke():
   if 'credentials' not in flask.session:
     return ('You need to <a href="/authorize">authorize</a> before ' +
             'testing the code to revoke credentials.')
 
+  # Load client secrets from the server-side file.
+  with open(CLIENT_SECRETS_FILE, 'r') as f:
+      client_config = json.load(f)['web']
+
+  # Load user-specific credentials from the session.
+  session_credentials = flask.session['credentials']
+
+  # Reconstruct the credentials object.
   credentials = google.oauth2.credentials.Credentials(
-    **flask.session['credentials'])
+      refresh_token=session_credentials.get('refresh_token'),
+      scopes=session_credentials.get('granted_scopes'),
+      token=session_credentials.get('token'),
+      client_id=client_config.get('client_id'),
+      client_secret=client_config.get('client_secret'),
+      token_uri=client_config.get('token_uri'))
 
   revoke = requests.post('https://oauth2.googleapis.com/revoke',
       params={'token': credentials.token},
@@ -1073,6 +1078,10 @@ def revoke():
 
   status_code = getattr(revoke, 'status_code')
   if status_code == 200:
+    # Clear the user's session credentials after successful revocation
+    if 'credentials' in flask.session:
+        del flask.session['credentials']
+        del flask.session['features']
     return('Credentials successfully revoked.' + print_index_table())
   else:
     return('An error occurred.' + print_index_table())
@@ -1087,21 +1096,14 @@ def clear_credentials():
 def credentials_to_dict(credentials):
   return {'token': credentials.token,
           'refresh_token': credentials.refresh_token,
-          'token_uri': credentials.token_uri,
-          'client_id': credentials.client_id,
-          'client_secret': credentials.client_secret,
           'granted_scopes': credentials.granted_scopes}
 
 def print_index_table():
-  return ('<table>' +
+  return ('<table>' + 
           '<tr><td><a href="/test">Test an API request</a></td>' +
           '<td>Submit an API request and see a formatted JSON response. ' +
           '    Go through the authorization flow if there are no stored ' +
-          '    credentials for the user.</td></tr>' +
-          '<tr><td><a href="/authorize">Test the auth flow directly</a></td>' +
-          '<td>Go directly to the authorization flow. If there are stored ' +
-          '    credentials, you still might not be prompted to reauthorize ' +
-          '    the application.</td></tr>' +
+          '    credentials for the user.</td></tr>' + 
           '<tr><td><a href="/revoke">Revoke current credentials</a></td>' +
           '<td>Revoke the access token associated with the current user ' +
           '    session. After revoking credentials, if you go to the test ' +
@@ -1110,7 +1112,8 @@ def print_index_table():
           '<tr><td><a href="/clear">Clear Flask session credentials</a></td>' +
           '<td>Clear the access token currently stored in the user session. ' +
           '    After clearing the token, if you <a href="/test">test the ' +
-          '    API request</a> again, you should go back to the auth flow.' +
+          '    API request</a> ' +
+          '    again, you should go back to the auth flow.' +
           '</td></tr></table>')
 
 if __name__ == '__main__':
@@ -1127,7 +1130,7 @@ if __name__ == '__main__':
   # for your API project in the Google API Console.
   app.run('localhost', 8080, debug=True)
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 이 예시에서는 Sinatra [http://www.sinatrarb.com/] 프레임워크를 사용합니다.
 
 require 'googleauth'
@@ -1197,7 +1200,7 @@ get '/oauth2callback' do
   redirect target_url
 end
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 이 예시를 실행하려면 다음 안내를 따르세요.
 
 
@@ -1374,7 +1377,7 @@ async function main() {
 }
 main().catch(console.error);
 
---- 탭: HTTP/REST ---
+--- 탭: tabpanel-httprest ---
 이 Python 예시에서는 Flask [https://palletsprojects.com/p/flask/] 프레임워크와 Requests [https://requests.readthedocs.io/] 라이브러리를 사용하여 OAuth 2.0 웹 흐름을 보여줍니다. 이 흐름에는 Python용 Google API 클라이언트 라이브러리를 사용하는 것이 좋습니다. (Python 탭의 예시에서는 클라이언트 라이브러리를 사용합니다.)
 
 import json
@@ -1475,16 +1478,16 @@ OAuth 2.0 프로토콜에서 앱은 범위로 식별되는 리소스에 액세�
 이 경우 로그인 시 앱에서 범위를 액세스할 필요가 없거나 액세스를 요청하지 않을 수 있습니다. 하지만 사용자가 동영상을 평가하거나, 동영상을 재생목록에 추가하거나, 다른 YouTube 작업을 실행하려고 하면 앱에서 https://www.googleapis.com/auth/youtube.force-ssl 범위에 대한 액세스를 요청할 수 있습니다. 마찬가지로 사용자가 캘린더 일정을 추가하려고 하면 앱에서 https://www.googleapis.com/auth/calendar 범위에 대한 액세스를 요청할 수 있습니다.
 점진적 승인을 구현하려면 액세스 토큰을 요청하는 일반적인 흐름을 완료하되 승인 요청에 이전에 부여된 범위가 포함되어 있는지 확인합니다. 이 접근 방식을 사용하면 앱에서 여러 액세스 토큰을 관리하지 않아도 됩니다.
 증분 승인에서 획득한 액세스 토큰에는 다음 규칙이 적용됩니다.
-이 토큰은 새 결합 승인에 포함된 범위에 해당하는 리소스에 액세스하는 데 사용할 수 있습니다.
+이 토큰은 새로운 결합된 승인에 포함된 범위에 해당하는 리소스에 액세스하는 데 사용할 수 있습니다.
 결합된 승인에 갱신 토큰을 사용하여 액세스 토큰을 획득하면 액세스 토큰은 결합된 승인을 나타내며 응답에 포함된 scope 값에 사용할 수 있습니다.
 결합된 승인에는 승인이 서로 다른 클라이언트에서 요청된 경우에도 사용자가 API 프로젝트에 부여한 모든 범위가 포함됩니다. 예를 들어 사용자가 애플리케이션의 데스크톱 클라이언트를 사용하여 하나의 범위에 대한 액세스 권한을 부여한 다음 모바일 클라이언트를 통해 동일한 애플리케이션에 다른 범위를 부여한 경우 결합된 승인에는 두 범위가 모두 포함됩니다.
 결합된 승인을 나타내는 토큰을 취소하면 연결된 사용자를 대신하여 해당 승인의 모든 범위에 대한 액세스 권한이 동시에 취소됩니다.
-주의: 부여된 범위를 포함하도록 선택하면 이전에 사용자가 부여한 범위가 승인 요청에 자동으로 추가됩니다. 앱이 현재 응답에서 반환될 수 있는 모든 범위를 요청하도록 승인되지 않은 경우 경고 또는 오류 페이지가 표시될 수 있습니다. 자세한 내용은 인증되지 않은 앱 [https://support.google.com/cloud/answer/7454865?hl=ko]을 참고하세요.
+주의: 부여된 범위를 포함하도록 선택하면 이전에 사용자가 부여한 범위가 승인 요청에 자동으로 추가됩니다. 앱이 현재 응답에 반환될 수 있는 모든 범위를 요청하도록 승인되지 않은 경우 경고 또는 오류 페이지가 표시될 수 있습니다. 자세한 내용은 인증되지 않은 앱 [https://support.google.com/cloud/answer/7454865?hl=ko]을 참고하세요.
 1단계: 승인 매개변수 설정 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#creatingclient]의 언어별 코드 샘플과 2단계: Google의 OAuth 2.0 서버로 리디렉션 [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#redirecting]의 샘플 HTTP/REST 리디렉션 URL은 모두 증분 승인을 사용합니다. 아래 코드 샘플은 점진적 승인을 사용하는 데 필요한 코드도 보여줍니다.
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 $client->setIncludeGrantedScopes(true);
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 authorization_url, state = flow.authorization_url(
     # Enable offline access so that you can refresh an access token without
     # re-prompting the user for permission. Recommended for web server apps.
@@ -1492,12 +1495,12 @@ authorization_url, state = flow.authorization_url(
     # Enable incremental authorization. Recommended as a best practice.
     include_granted_scopes='true')
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 auth_client.update!(
   :additional_parameters => {"include_granted_scopes" => "true"}
 )
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 const authorizationUrl = oauth2Client.generateAuthUrl({
   // 'online' (default) or 'offline' (gets refresh_token)
   access_type: 'offline',
@@ -1508,7 +1511,7 @@ const authorizationUrl = oauth2Client.generateAuthUrl({
   include_granted_scopes: true
 });
 
---- 탭: HTTP/REST ---
+--- 탭: tabpanel-httprest ---
 이 예시에서 호출 애플리케이션은 사용자가 이미 애플리케이션에 부여한 다른 액세스 권한 외에 사용자의 YouTube 분석 데이터를 가져오는 액세스 권한을 요청합니다.
 
         
@@ -1527,15 +1530,15 @@ If you use a Google API Client Library, the client object [https://developers.go
 If you are not using a client library, you need to set the access_type HTTP query parameter to offline when redirecting the user to Google's OAuth 2.0 server [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#redirecting]. In that case, Google's authorization server returns a refresh token when you exchange an authorization code [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#exchange-authorization-code] for an access token. Then, if the access token expires (or at any other time), you can use a refresh token to obtain a new access token.
 Requesting offline access is a requirement for any application that needs to access a Google API when the user is not present. For example, an app that performs backup services or executes actions at predetermined times needs to be able to refresh its access token when the user is not present. The default style of access is called online.
 Server-side web applications, installed applications, and devices all obtain refresh tokens during the authorization process. Refresh tokens are not typically used in client-side (JavaScript) web applications.
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 If your application needs offline access to a Google API, set the API client's access type to
   offline:
 
 $client->setAccessType("offline");
 
-사용자가 요청된 범위에 오프라인 액세스 권한을 부여하면 사용자가 오프라인 상태일 때 API 클라이언트를 계속 사용하여 사용자를 대신하여 Google API에 액세스할 수 있습니다. 클라이언트 객체는 필요에 따라 액세스 토큰을 새로고침합니다.
+사용자가 요청된 범위에 대한 오프라인 액세스 권한을 부여하면 사용자가 오프라인 상태일 때 API 클라이언트를 계속 사용하여 사용자를 대신하여 Google API에 액세스할 수 있습니다. 클라이언트 객체는 필요에 따라 액세스 토큰을 새로고침합니다.
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 authorization_url, state = flow.authorization_url(
     # Enable offline access so that you can refresh an access token without
     # re-prompting the user for permission. Recommended for web server apps.
@@ -1543,16 +1546,16 @@ authorization_url, state = flow.authorization_url(
     # Enable incremental authorization. Recommended as a best practice.
     include_granted_scopes='true')
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 애플리케이션에 Google API에 대한 오프라인 액세스가 필요한 경우 API 클라이언트의 액세스 유형을 offline로 설정합니다.
 
 auth_client.update!(
   :additional_parameters => {"access_type" => "offline"}
 )
 
-사용자가 요청된 범위에 오프라인 액세스 권한을 부여하면 사용자가 오프라인 상태일 때 API 클라이언트를 계속 사용하여 사용자를 대신하여 Google API에 액세스할 수 있습니다. 클라이언트 객체는 필요에 따라 액세스 토큰을 새로고침합니다.
+사용자가 요청된 범위에 대한 오프라인 액세스 권한을 부여하면 사용자가 오프라인 상태일 때 API 클라이언트를 계속 사용하여 사용자를 대신하여 Google API에 액세스할 수 있습니다. 클라이언트 객체는 필요에 따라 액세스 토큰을 새로고침합니다.
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 const authorizationUrl = oauth2Client.generateAuthUrl({
   // 'online' (default) or 'offline' (gets refresh_token)
   access_type: 'offline',
@@ -1563,7 +1566,7 @@ const authorizationUrl = oauth2Client.generateAuthUrl({
   include_granted_scopes: true
 });
 
---- 탭: HTTP/REST ---
+--- 탭: tabpanel-httprest ---
 액세스 토큰을 새로고침하려면 애플리케이션에서 다음 매개변수가 포함된 HTTPS POST 요청을 Google의 승인 서버 (https://oauth2.googleapis.com/token)로 전송합니다.
 
 
@@ -1618,19 +1621,19 @@ grant_type=refresh_token
 토큰 취소
 사용자가 애플리케이션에 부여된 액세스 권한을 취소하고 싶어 하는 경우도 있습니다. 사용자는 계정 설정 [https://myaccount.google.com/permissions?hl=ko]을 방문하여 액세스 권한을 취소할 수 있습니다. 자세한 내용은 내 계정에 액세스할 수 있는 서드 파티 사이트 및 앱의 사이트 또는 앱 액세스 권한 삭제 섹션 [https://support.google.com/accounts/answer/3466521?hl=ko#remove-access] 지원 문서를 참고하세요.
 애플리케이션이 자신에게 부여된 액세스 권한을 프로그래매틱 방식으로 취소할 수도 있습니다. 프로그래매틱 취소는 사용자가 구독을 취소하거나 애플리케이션을 삭제하거나 앱에 필요한 API 리소스가 크게 변경된 경우에 중요합니다. 즉, 삭제 프로세스의 일부에는 이전에 애플리케이션에 부여된 권한이 삭제되도록 하는 API 요청이 포함될 수 있습니다.
---- 탭: PHP ---
+--- 탭: PHP [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#php] ---
 프로그래매틱 방식으로 토큰을 취소하려면 revokeToken()를 호출합니다.
 
 $client->revokeToken();
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#python] ---
 프로그래매틱 방식으로 토큰을 취소하려면 토큰을 매개변수로 포함하고 Content-Type 헤더를 설정하는 https://oauth2.googleapis.com/revoke에 요청을 전송합니다.
 
 requests.post('https://oauth2.googleapis.com/revoke',
     params={'token': credentials.token},
     headers = {'content-type': 'application/x-www-form-urlencoded'})
 
---- 탭: Ruby ---
+--- 탭: Ruby [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#ruby] ---
 프로그래매틱 방식으로 토큰을 취소하려면 oauth2.revoke 엔드포인트에 HTTP 요청을 실행하세요.
 
 uri = URI('https://oauth2.googleapis.com/revoke')
@@ -1640,7 +1643,7 @@ response = Net::HTTP.post_form(uri, 'token' => auth_client.access_token)
 
 취소가 성공적으로 처리되면 응답의 상태 코드는 200입니다. 오류 조건의 경우 오류 코드와 함께 상태 코드 400가 반환됩니다.
 
---- 탭: Node.js ---
+--- 탭: Node.js [https://developers.google.com/youtube/v3/guides/auth/server-side-web-apps?hl=ko#node.js] ---
 프로그래매틱 방식으로 토큰을 취소하려면 /revoke 엔드포인트에 HTTPS POST 요청을 실행합니다.
 
 const https = require('https');
@@ -1680,7 +1683,7 @@ postReq.end();
 
 취소가 성공적으로 처리되면 응답의 상태 코드는 200입니다. 오류 조건의 경우 오류 코드와 함께 상태 코드 400가 반환됩니다.
 
---- 탭: HTTP/REST ---
+--- 탭: tabpanel-httprest ---
 프로그래매틱 방식으로 토큰을 취소하려면 애플리케이션이 https://oauth2.googleapis.com/revoke에 요청을 보내고 토큰을 매개변수로 포함합니다.
 
 curl -d -X -POST --header "Content-type:application/x-www-form-urlencoded" \
@@ -1702,3 +1705,4 @@ https://schemas.openid.net/secevent/risc/event-type/sessions-revoked
 https://schemas.openid.net/secevent/oauth/event-type/token-revoked
 https://schemas.openid.net/secevent/risc/event-type/account-disabled
 교차 계정 보호를 구현하는 방법과 사용 가능한 이벤트의 전체 목록은 교차 계정 보호로 사용자 계정 보호 페이지 [https://developers.google.com/identity/protocols/risc?hl=ko]를 참고하세요.
+도움이 되었나요?

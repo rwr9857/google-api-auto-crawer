@@ -1,0 +1,109 @@
+[2025-08-21] Source URL: https://developers.google.com/youtube/v3/docs/captions
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+YouTube [https://developers.google.com/youtube?hl=ko]
+Data API [https://developers.google.com/youtube/v3?hl=ko]
+참조 [https://developers.google.com/youtube/v3/docs?hl=ko]
+Captions
+bookmark_border
+이 페이지의 내용
+메서드 [https://developers.google.com/youtube/v3/docs/captions?hl=ko#methods]
+리소스 표현 [https://developers.google.com/youtube/v3/docs/captions?hl=ko#resource-representation]
+속성 [https://developers.google.com/youtube/v3/docs/captions?hl=ko#properties]
+참고: 2024년 3월 13일 YouTube는 captions.insert [https://developers.google.com/youtube/v3/docs/captions/insert?hl=ko] 및 captions.update [https://developers.google.com/youtube/v3/docs/captions/insert?hl=ko] API 엔드포인트의 sync 매개변수를 지원 중단한다고 발표했습니다. 자막 자동 동기화는 YouTube 크리에이터 스튜디오에서 계속 사용할 수 있습니다. 자세한 내용은 API 버전 기록 [https://developers.google.com/youtube/v3/revision_history?hl=ko#release_notes_03_13_2024]을 참고하세요.
+caption 리소스는 YouTube 자막 트랙을 나타냅니다. 자막 트랙은 정확히 하나의 YouTube 동영상에 연결됩니다.
+메서드
+API는 captions 리소스에 대해 다음 메서드를 지원합니다.
+list [https://developers.google.com/youtube/v3/docs/captions/list?hl=ko]
+지정된 동영상과 연결된 자막 트랙 목록을 가져옵니다. API 응답에는 실제 자막이 포함되지 않으며 captions.download [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko] 메서드는 자막 트랙을 검색하는 기능을 제공합니다. 지금 사용해 보기 [https://developers.google.com/youtube/v3/docs/captions/list?hl=ko#usage]
+insert [https://developers.google.com/youtube/v3/docs/captions/insert?hl=ko]
+자막 트랙을 업로드합니다. 지금 사용해보기 [https://developers.google.com/youtube/v3/docs/captions/insert?hl=ko]
+업데이트 [https://developers.google.com/youtube/v3/docs/captions/update?hl=ko]
+자막 트랙을 업데이트합니다. 자막 트랙을 업데이트할 때 트랙의 초안 상태 [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.isDraft]를 변경하거나, 트랙의 새 자막 파일을 업로드하거나, 둘 다를 할 수 있습니다. 지금 사용해 보기 [https://developers.google.com/youtube/v3/docs/captions/update?hl=ko]
+download [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko]
+자막 트랙을 다운로드합니다. 요청에 tfmt 매개변수 값이 지정되지 않은 경우 자막 트랙은 원래 형식으로 반환되고, 요청에 tlang 매개변수 값이 지정되지 않은 경우 원래 언어로 반환됩니다. 지금 사용해 보기 [https://developers.google.com/youtube/v3/docs/captions/download?hl=ko]
+삭제 [https://developers.google.com/youtube/v3/docs/captions/delete?hl=ko]
+지정된 자막 트랙을 삭제합니다. 지금 사용해보기 [https://developers.google.com/youtube/v3/docs/captions/delete?hl=ko]
+리소스 표현
+다음 JSON 구조는 captions 리소스의 형식을 보여줍니다.
+{
+  "kind [https://developers.google.com/youtube/v3/docs/captions?hl=ko#kind]": "youtube#caption",
+  "etag [https://developers.google.com/youtube/v3/docs/captions?hl=ko#etag]": etag,
+  "id [https://developers.google.com/youtube/v3/docs/captions?hl=ko#id]": string,
+  "snippet [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet]": {
+    "videoId [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.videoId]": string,
+    "lastUpdated [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.lastUpdated]": datetime,
+    "trackKind [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.trackKind]": string,
+    "language [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.language]": string,
+    "name [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.name]": string,
+    "audioTrackType [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.audioTrackType]": string,
+    "isCC [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.isCC]": boolean,
+    "isLarge [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.isLarge]": boolean,
+    "isEasyReader [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.isEasyReader]": boolean,
+    "isDraft [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.isDraft]": boolean,
+    "isAutoSynced [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.isAutoSynced]": boolean,
+    "status [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.status]": string,
+    "failureReason [https://developers.google.com/youtube/v3/docs/captions?hl=ko#snippet.failureReason]": string
+  }
+}
+속성
+다음 표는 이 리소스에 표시되는 속성을 정의합니다.
+속성
+kind string
+API 리소스의 유형을 식별합니다. 값은 youtube#caption입니다.
+etag etag
+이 리소스의 Etag입니다.
+id string
+YouTube에서 자막 트랙을 고유하게 식별하는 데 사용하는 ID입니다.
+snippet object
+snippet 객체에는 자막에 관한 기본 세부정보가 포함되어 있습니다.
+snippet.videoId string
+YouTube에서 자막 트랙과 연결된 동영상을 고유하게 식별하는 데 사용하는 ID입니다.
+snippet.lastUpdated datetime
+자막 트랙이 마지막으로 업데이트된 날짜 및 시간입니다. 값은 ISO 8601 [https://www.w3.org/TR/NOTE-datetime] 형식으로 지정됩니다.
+snippet.trackKind string
+Caption 트랙의 유형입니다.
+
+이 속성의 유효한 값은 다음과 같습니다.
+ASR – 자동 음성 인식을 사용하여 생성된 자막 트랙입니다.
+forced – 플레이어에서 다른 트랙이 선택되지 않은 경우 재생되는 자막 트랙입니다. 예를 들어 외계인이 외계 언어로 말하는 모습을 보여주는 동영상에는 외계 언어 자막만 표시되도록 강제 자막 트랙이 있을 수 있습니다.
+standard: 일반 자막 트랙입니다. 기본값입니다.
+snippet.language string
+자막 트랙의 언어입니다. 속성 값은 BCP-47 [http://www.rfc-editor.org/rfc/bcp/bcp47.txt] 언어 태그입니다.
+snippet.name string
+Caption 트랙의 이름입니다. 이 이름은 재생 중에 사용자에게 옵션으로 표시됩니다. 지원되는 최대 이름 길이는 150자(영문 기준)입니다.
+snippet.audioTrackType string
+Caption 트랙과 연결된 오디오 트랙의 유형입니다.
+
+이 속성의 유효한 값은 다음과 같습니다.
+commentary – 자막 트랙은 해설이 포함된 대체 오디오 트랙(예: 디렉터리 해설)에 해당합니다.
+descriptive – 자막 트랙은 추가 설명 오디오가 포함된 대체 오디오 트랙에 해당합니다.
+primary – 자막 트랙은 동영상의 기본 오디오 트랙에 해당하며, 이는 일반적으로 동영상과 연결된 오디오 트랙입니다.
+unknown – 기본값입니다.
+snippet.isCC boolean
+트랙에 청각장애인 및 난청 사용자를 위한 자막이 포함되어 있는지 나타냅니다. 기본값은 false입니다.
+snippet.isLarge boolean
+자막 트랙에서 시각 장애인을 위해 큰 텍스트를 사용하는지 여부를 나타냅니다. 기본값은 false입니다.
+snippet.isEasyReader boolean
+자막 트랙이 '초보자'용 형식인지 나타냅니다. 즉, 언어 학습자를 위한 3학년 수준입니다. 기본값은 false입니다.
+snippet.isDraft boolean
+자막 트랙이 초안인지 여부를 나타냅니다. 값이 true이면 트랙이 공개적으로 표시되지 않습니다. 기본값은 false입니다.
+snippet.isAutoSynced boolean
+YouTube에서 자막 트랙을 동영상의 오디오 트랙에 동기화했는지 나타냅니다. 자막 트랙이 업로드될 때 동기화가 명시적으로 요청된 경우 값은 true입니다. 예를 들어 captions.insert 또는 captions.update 메서드를 호출할 때 sync 매개변수를 true로 설정하여 YouTube에 업로드된 트랙을 동영상에 동기화하도록 지시할 수 있습니다. 값이 false이면 YouTube는 업로드된 자막 트랙의 시간 코드를 사용하여 자막을 표시할 시점을 결정합니다.
+snippet.status string
+Caption 트랙의 상태입니다.
+
+이 속성의 유효한 값은 다음과 같습니다.
+failed
+serving
+syncing
+snippet.failureReason string
+YouTube에서 자막 트랙을 처리하지 못한 이유입니다. 이 속성은 state [https://developers.google.com/youtube/v3/docs/captions?hl=ko#state] 속성의 값이 failed인 경우에만 표시됩니다.
+
+이 속성의 유효한 값은 다음과 같습니다.
+processingFailed – YouTube에서 업로드된 자막 트랙을 처리하지 못했습니다.
+unknownFormat – 자막 트랙의 형식을 인식할 수 없습니다.
+unsupportedFormat – 자막 트랙 형식이 지원되지 않습니다.
