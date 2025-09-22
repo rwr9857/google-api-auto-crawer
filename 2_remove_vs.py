@@ -1,7 +1,7 @@
 import chromadb
 
 COLLECTION_NAME = "google_api_docs"
-TAGS = ["identity", "youtube", "gmail", "calendar"]
+TAGS = ["google_identity", "youtube", "gmail", "calendar"]
 
 client = chromadb.PersistentClient(path="./chroma_db")
 collection = client.get_or_create_collection(name=COLLECTION_NAME)

@@ -16,7 +16,7 @@ CONFIGS = {
     "identity": {
         "START_URL": "/identity/protocols/oauth2?hl=ko",
         "PATTERNS": ["developers.google.com/identity"],
-        "OUTPUT_DIR": "GOOGLE_API_DATA/identity_docs_crawled",
+        "OUTPUT_DIR": "GOOGLE_API_DATA/google_identity_docs_crawled",
     },
     "youtube": {
         "START_URL": "/youtube/v3/getting-started?hl=ko",
