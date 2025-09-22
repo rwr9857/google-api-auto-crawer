@@ -1,0 +1,16 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/WebApplication
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+웹 애플리케이션
+bookmark_border
+유형 이름: WebApplication [https://developers.google.com/workspace/gmail/markup/reference/types/WebApplication?hl=ko]
+SoftwareApplication [https://developers.google.com/workspace/gmail/markup/reference/types/SoftwareApplication?hl=ko]을 확장합니다.
+이름 유형 설명
+브라우저 요구사항 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 사람이 읽을 수 있는 텍스트로 브라우저 요구사항을 지정합니다. 예: 'HTML5 지원 필요'
+의견 보내기

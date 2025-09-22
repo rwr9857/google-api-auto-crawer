@@ -1,0 +1,21 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MusicRecording
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+음악 녹음
+bookmark_border
+유형 이름: MusicRecording [https://developers.google.com/workspace/gmail/markup/reference/types/MusicRecording?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]를 확장합니다.
+이름 유형 설명
+아티스트 음악 그룹 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicGroup?hl=ko] 이 앨범 또는 음원을 공연한 아티스트입니다.
+duration 길이 [https://developers.google.com/workspace/gmail/markup/reference/types/Duration?hl=ko] 항목 길이 (영화, 오디오 녹음, 이벤트 등)입니다. ISO 8601 날짜 형식 [http://ko.wikipedia.org/wiki/ISO_8601]으로 나타냅니다.
+앨범 내 음악 앨범 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicAlbum?hl=ko] 이 음원이 속한 앨범입니다.
+재생목록 음악 재생목록 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicPlaylist?hl=ko] 이 음원이 속한 재생목록입니다.
+isrc 코드 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 녹음을 위한 국제 표준 녹음 코드입니다.
+녹화 음악작품 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicComposition?hl=ko] 이 트랙의 음악작품입니다.
+의견 보내기

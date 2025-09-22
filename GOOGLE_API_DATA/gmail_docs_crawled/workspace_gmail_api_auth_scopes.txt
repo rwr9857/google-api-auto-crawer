@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/auth/scopes?hl=ko
+[2025-08-01] Source URL: https://developers.google.com/workspace/gmail/api/auth/scopes
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 가이드 [https://developers.google.com/workspace/gmail/api/guides?hl=ko]
-도움이 되었나요?
 의견 보내기
 Gmail API 범위 선택
 bookmark_border
@@ -47,5 +46,4 @@ https://mail.google.com/ 스레드 및 메시지의 영구 삭제를 포함한 �
 앱에 다른 Google API에 대한 액세스 권한이 필요한 경우 해당 범위도 추가할 수 있습니다. Google API 범위에 대한 자세한 내용은 OAuth 2.0을 사용하여 Google API에 액세스하기 [https://developers.google.com/accounts/docs/OAuth2?hl=ko]를 참고하세요.
 OAuth 확인
 특정 민감한 OAuth 범위를 사용하려면 앱이 Google의 OAuth 확인 절차 [https://support.google.com/cloud/answer/7454865?hl=ko]를 거쳐야 할 수 있습니다. OAuth 인증 FAQ [https://support.google.com/cloud/answer/9110914?hl=ko]를 읽고 앱이 언제 인증을 거쳐야 하는지, 어떤 유형의 인증이 필요한지 확인하세요. Google API 서비스: 사용자 데이터 정책 [https://developers.google.com/terms/api-services-user-data-policy?hl=ko]도 참고하세요.
-도움이 되었나요?
 의견 보내기

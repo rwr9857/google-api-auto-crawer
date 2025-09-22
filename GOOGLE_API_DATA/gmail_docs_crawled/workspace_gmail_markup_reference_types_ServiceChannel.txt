@@ -1,0 +1,23 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/ServiceChannel
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+서비스 채널
+bookmark_border
+유형 이름: ServiceChannel [https://developers.google.com/workspace/gmail/markup/reference/types/ServiceChannel?hl=ko]
+Intangible [https://developers.google.com/workspace/gmail/markup/reference/types/Intangible?hl=ko] 확장
+이름 유형 설명
+availableLanguage 언어 [https://developers.google.com/workspace/gmail/markup/reference/types/Language?hl=ko] 사용자가 상품과 함께 사용할 수 있는 언어입니다.
+처리 시간 길이 [https://developers.google.com/workspace/gmail/markup/reference/types/Duration?hl=ko] 이 채널을 사용하는 서비스의 예상 처리 시간입니다.
+provideService 서비스 [https://developers.google.com/workspace/gmail/markup/reference/types/Service?hl=ko] 이 채널에서 제공하는 서비스입니다.
+서비스 위치 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 사용자가 서비스에 액세스할 수 있는 위치 (예: 시민 직책, 지역 비즈니스 등)
+서비스 전화 연락처 [https://developers.google.com/workspace/gmail/markup/reference/types/ContactPoint?hl=ko] 서비스에 액세스하는 데 사용할 전화번호입니다.
+서비스 우편 주소 PostalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko] 우편을 통해 서비스에 액세스하기 위한 주소입니다.
+서비스Sms번호 연락처 [https://developers.google.com/workspace/gmail/markup/reference/types/ContactPoint?hl=ko] 문자 메시지로 서비스에 액세스하는 번호입니다.
+서비스 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 서비스에 액세스할 웹사이트
+의견 보내기

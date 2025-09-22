@@ -1,0 +1,97 @@
+[2025-08-28] Source URL: https://developers.google.com/workspace/gmail/release-notes
+
+Home [https://developers.google.com/]
+Google Workspace [https://developers.google.com/workspace]
+Gmail [https://developers.google.com/workspace/gmail]
+Support [https://developers.google.com/workspace/gmail/api/support]
+Send feedback
+Gmail API release notes
+bookmark_border
+이 페이지의 내용
+September 10, 2025 [https://developers.google.com/workspace/gmail/release-notes#September_10_2025]
+May 20, 2025 [https://developers.google.com/workspace/gmail/release-notes#May_20_2025]
+November 12, 2019 [https://developers.google.com/workspace/gmail/release-notes#November_12_2019]
+May 05, 2017 [https://developers.google.com/workspace/gmail/release-notes#May_05_2017]
+February 07, 2017 [https://developers.google.com/workspace/gmail/release-notes#February_07_2017]
+To get the latest product updates delivered to you, add the URL of this page to your feed reader [https://wikipedia.org/wiki/Comparison_of_feed_aggregators], or add the feed URL directly: https://developers.google.com/feeds/gmail-release-notes.xml.
+This page contains release notes for features and updates to the Gmail API. We recommend that Gmail API developers periodically check this list for any new announcements.
+September 10, 2025
+You can now use annotations to create Deal Cards in the Promotions tab. To get started, see the overview of Deal Cards [https://developers.google.com/workspace/gmail/promotab/overview#deal-card].
+May 20, 2025
+For Google Workspace organizations that use hardware key encryption, the Gmail API supports using smart cards for client-side encryption (CSE). For details, see the reference documentation for CseIdentity [https://developers.google.com/gmail/api/reference/rest/v1/users.settings.cse.identities] and CseKeyPair [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs] resources.
+November 12, 2019
+The messages.import method uses a more performant backend implementation. The new version is API-compatible with the previous implementation and all clients automatically started using the new behavior as of a few weeks ago. The new backend supports parallel message.import calls efficiently and clients can now import messages in parallel for a user to achieve higher migration throughput. The quota cost of the message.import method has been decreased to reflect the new performance.
+May 05, 2017
+Deprecated Review Action [https://developers.google.com/gmail/markup/reference/review-action], which sunsets on July 15th, 2017.
+February 07, 2017
+The history.list method [https://developers.google.com/gmail/api/v1/reference/users/history/list] supports filtering history records by type.
+November 30, 2016
+The messages.batchModify method [https://developers.google.com/gmail/api/v1/reference/users/messages/batchModify] lets you modify labels on multiple messages by message IDs, in a single batch operation.
+November 01, 2016
+The Gmail API supports a gmail.metadata scope. This scope gives developers access to a user's mailbox including history records, labels, and email headers, but not email body's or attachments.
+July 01, 2016
+New endpoints for managing mail settings:
+Send-as aliases and Signatures [https://developers.google.com/gmail/api/guides/alias_and_signature_settings]
+Forwarding [https://developers.google.com/gmail/api/guides/forwarding_settings]
+Filters [https://developers.google.com/gmail/api/guides/filter_settings]
+Vacation Responder [https://developers.google.com/gmail/api/guides/vacation_settings]
+POP and IMAP [https://developers.google.com/gmail/api/guides/pop_imap_settings]
+The q request parameter for the drafts.list method [https://developers.google.com/gmail/api/v1/reference/users/drafts/list] restricts results to the messages matching the specified query.
+February 25, 2016
+The messages.batchDelete method [https://developers.google.com/gmail/api/v1/reference/users/messages/batchDelete] lets you delete multiple messages, by message IDs, in a single batch operation.
+January 13, 2016
+The drafts.list method [https://developers.google.com/gmail/api/v1/reference/users/drafts/list] has an includeSpamTrash option, which determines if the response should include drafts with the SPAM or TRASHlabel applied. The default is currently set to true for this option.
+June 22, 2015
+To determine the full state of an email before and after a change, the history.list method [https://developers.google.com/gmail/api/v1/reference/users/history/list] returns all current Message.labelIds as part of the response in messagesAdded, messagesDeleted, labelsAdded, and labelsRemoved.
+June 18, 2015
+Added a Message.internalDate field [https://developers.google.com/gmail/api/v1/reference/users/messages] that exposes the message's creation timestamp in the mailbox.
+May 29, 2015
+You can now send push notifications [https://developers.google.com/gmail/api/guides/push] on mailbox updates, providing real-time server notification without the need for constant polling. With Cloud Pub/Sub [https://cloud.google.com/pubsub/overview], you can now use webhooks—for example, to receive callbacks when updates happen. Additionally, you can filter these notifications to specific Gmail labels.
+March 31, 2015
+New scopes for labels and inserting messages to better protect users and accommodate apps that don't need full mailbox data access:
+https://www.googleapis.com/auth/gmail.insert: Allows the messages.insert [https://developers.google.com/gmail/api/v1/reference/users/messages/insert] and messages.import [https://developers.google.com/gmail/api/v1/reference/users/messages/import] methods only.
+https://www.googleapis.com/auth/gmail.labels: Allows all label operations [https://developers.google.com/gmail/api/v1/reference/users/labels].
+March 18, 2015
+The messages.insert method [https://developers.google.com/gmail/api/v1/reference/users/messages/insert] now supports the deleted request parameter and lets you set SENT and DRAFT labels.
+February 25, 2015
+The history.list method [https://developers.google.com/gmail/api/reference/rest/v1/users.history/list] now provides details of the change type in each history record. For example, using the messagesAdded, messagesDeleted, labelsAdded, or labelsDeleted enums, it's possible to easily tell how a message was changed and typically avoids the need for additional calls to synchronize your client.
+February 11, 2015
+The messages.import method [https://developers.google.com/gmail/api/reference/rest/v1/users.messages/import] now supports the following parameters to better support Email Migration use cases:
+neverMarkSpam
+processForCalendar
+deleted
+January 23, 2015
+You can now specify message.labelIds on messages.import requests [https://developers.google.com/gmail/api/v1/reference/users/messages/import] to automatically apply the given labels to the message.
+The default behavior no longer automatically adds INBOX and UNREAD labels to messages.import emails [https://developers.google.com/gmail/api/v1/reference/users/messages/import]. When message.labelIds isn't specified, imported mail is only visible in All Mail. If you want INBOX or UNREAD labels applied, specify them in the message.labelIds field.
+January 15, 2015
+Increased the default per-user quotas [https://developers.google.com/gmail/api/v1/reference/quota] from 25 units/user/second to 250 units/user/second and adjusted some method costs slightly.
+October 22, 2014
+You can now specify the return format for the threads.get method [https://developers.google.com/gmail/api/v1/reference/users/threads/get]. The available formats are full, metadata, and minimal, similar to the messages.get method. The raw format isn't allowed for the threads.get to avoid unexpectedly large amounts of data being returned.
+October 16, 2014
+The getProfile method [https://developers.google.com/gmail/api/v1/reference/users/getProfile] provides mailbox-wide information like current history ID and total message and thread counts.
+October 06, 2014
+Added a new IMPORTANT label [https://developers.google.com/gmail/api/guides/labels] to match functionality with the Gmail UI.
+Added new fields to the Labels resource to simplify counting how many messages have a given label applied:
+messagesTotal
+messagesUnread
+threadsTotal
+threadsUnread
+September 25, 2014
+The messages.insert method defaults to using receivedTime and the messages.import method defaults to using dateHeader.
+September 08, 2014
+When you use the messages.get method [https://developers.google.com/gmail/api/reference/rest/v1/users.messages/get], you can request the metadata return format to return only the email headers and metadata such as identifiers and labels.
+September 02, 2014
+You can specify the internalDateSource for both the messages.insert [https://developers.google.com/gmail/api/reference/rest/v1/users.messages/insert] and messages.import [https://developers.google.com/gmail/api/reference/rest/v1/users.messages/import] methods.
+July 11, 2014
+Quota costs for all methods in the API have been reduced by a factor of 10. For example, if a method previously cost 150 quota units, it now costs 15. For a complete list of API method costs, see the per-method quota usage chart [https://developers.google.com/gmail/api/reference/quota#per-method_quota_usage].
+June 25, 2014
+The Gmail API is publicly available!
+October 28, 2013
+The Review Action [https://developers.google.com/gmail/markup/reference/review-action] is out of preview, and now available to all users.
+October 03, 2013
+The Schema Validator tool in Testing Your Schemas [https://developers.google.com/gmail/markup/testing-your-schema] has been replaced with the new Email Markup Tester [https://www.google.com/webmasters/markup-tester/].
+July 23, 2013
+It is now possible to use schemas to define Orders [https://developers.google.com/gmail/markup/reference/order], Parcel Deliveries [https://developers.google.com/gmail/markup/reference/parcel-delivery], and the TrackAction [https://developers.google.com/gmail/markup/reference/go-to-action#track_action] to let users track packages being delivered.
+July 11, 2013
+The RSVP Action [https://developers.google.com/gmail/markup/reference/rsvp-action] is now enabled for all emails sent by Google Calendar.
+Send feedback

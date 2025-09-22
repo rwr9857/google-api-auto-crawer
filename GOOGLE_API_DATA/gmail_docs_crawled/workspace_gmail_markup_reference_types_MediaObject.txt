@@ -1,0 +1,32 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MediaObject
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+미디어 객체
+bookmark_border
+유형 이름: MediaObject [https://developers.google.com/workspace/gmail/markup/reference/types/MediaObject?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]를 확장합니다.
+이름 유형 설명
+연결된 도움말 뉴스 기사 [https://developers.google.com/workspace/gmail/markup/reference/types/NewsArticle?hl=ko] 미디어 객체와 연결된 뉴스 기사입니다.
+bitrate 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 미디어 객체의 비트 전송률입니다.
+콘텐츠 크기 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 파일 크기 (메가/킬로바이트)입니다.
+contentUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 미디어 객체의 실제 바이트입니다(예: 이미지 파일 또는 동영상 파일).
+duration 길이 [https://developers.google.com/workspace/gmail/markup/reference/types/Duration?hl=ko] 항목 길이 (영화, 오디오 녹음, 이벤트 등)입니다. ISO 8601 날짜 형식 [http://ko.wikipedia.org/wiki/ISO_8601]으로 나타냅니다.
+embedUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 특정 동영상의 플레이어를 가리키는 URL입니다. 일반적으로 이는 embed 태그의 src 요소에 있는 정보이며 loc 태그의 콘텐츠와 같아서는 안 됩니다.
+인코딩 광고 소재 작업 CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 이 미디어 객체로 인코딩된 CreativeWork입니다.
+인코딩 형식 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] mp3, mpeg4 등
+만료일 날짜 [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] 콘텐츠가 만료되어 더 이상 유용하지 않거나 콘텐츠를 사용할 수 없는 날짜입니다. 동영상에 유용합니다.
+높이 Distance [https://developers.google.com/workspace/gmail/markup/reference/types/Distance?hl=ko] 또는 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 항목의 높이
+playerType 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 플레이어 유형이 필요합니다(예: Flash 또는 Silverlight).
+제작사 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 프로그램(예: 시리즈, 비디오 게임, 에피소드 등)을 담당하는 제작사 또는 스튜디오
+게시 게시 이벤트 [https://developers.google.com/workspace/gmail/markup/reference/types/PublicationEvent?hl=ko] 에피소드, 클립 또는 미디어 객체와 연결된 게시 이벤트입니다.
+지역 허용됨 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 미디어가 허용되는 지역 지정하지 않으면 모든 위치에서 허용된 것으로 간주됩니다. 국가를 ISO 3166 형식 [http://en.wikipedia.org/wiki/ISO_3166]으로 지정합니다.
+구독 필요 Boolean [https://developers.google.com/workspace/gmail/markup/reference/types/Boolean?hl=ko] 미디어에 유료 구독 또는 무료 구독이 필요한지 여부를 나타냅니다. 허용되는 값은 true 또는 false입니다 (이전 버전에는 'yes', 'no'가 있음).
+uploadDate 날짜 [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] 미디어 객체가 사이트에 업로드된 날짜입니다.
+너비 Distance [https://developers.google.com/workspace/gmail/markup/reference/types/Distance?hl=ko] 또는 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 항목의 너비입니다.
+의견 보내기

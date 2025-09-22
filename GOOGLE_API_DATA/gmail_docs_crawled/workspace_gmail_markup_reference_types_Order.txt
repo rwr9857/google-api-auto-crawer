@@ -1,0 +1,46 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Order
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+주문
+bookmark_border
+유형 이름: 주문 [https://developers.google.com/workspace/gmail/markup/reference/types/Order?hl=ko]
+Intangible [https://developers.google.com/workspace/gmail/markup/reference/types/Intangible?hl=ko] 확장
+이름 유형 설명
+acceptedOffer
+(필수) 혜택 [https://developers.google.com/workspace/gmail/markup/reference/types/Offer?hl=ko] 주문에 포함된 혜택입니다.
+acceptedOffer.itemOffered
+(필수) 예약 [https://developers.google.com/workspace/gmail/markup/reference/types/Reservation?hl=ko] 또는 제품 [https://developers.google.com/workspace/gmail/markup/reference/types/Product?hl=ko] 판매되는 항목입니다.
+acceptedOffer.itemOffered.name
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 제품 이름입니다.
+billingAddress PostalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko] 주문의 청구지 주소입니다.
+billingAddress.addressCountry 국가 [https://developers.google.com/workspace/gmail/markup/reference/types/Country?hl=ko] 또는 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 국가 예: 미국 두 글자로 된 ISO 3166-1 alpha-2 국가 코드를 입력할 수도 있습니다.
+billingAddress.addressLocality 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 지역입니다. 예: 마운틴 뷰
+billingAddress.addressRegion 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 지역입니다. 예: CA
+billingAddress.이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] postalAddress의 이름입니다.
+billingAddress.streetAddress 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 상세 주소입니다. 예: 1600 Amphitheatre Pkwy.
+고객 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 또는 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 주문하는 당사자
+고객.이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 사람의 이름입니다.
+orderDate DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 주문 날짜
+주문 번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 거래의 식별자입니다.
+주문 상태 주문 상태 [https://developers.google.com/workspace/gmail/markup/reference/types/OrderStatus?hl=ko] 주문의 현재 상태입니다.
+potentialAction
+(필수) ViewAction [https://developers.google.com/workspace/gmail/markup/reference/types/ViewAction?hl=ko] 주문에 지원되는 작업입니다.
+price
+(필수) Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 전체 거래의 총 가격입니다.
+priceCurrency
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 주문 가격의 통화 (3자리 ISO 4217 형식)입니다.
+priceSpecification PriceSpecification [https://developers.google.com/workspace/gmail/markup/reference/types/PriceSpecification?hl=ko] price/priceCurrency의 더 자세한 대안입니다. 세금 및 배송료를 지정하는 데도 사용됩니다.
+priceSpecification.이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] PriceSpecification의 이름입니다.
+priceSpecification.price Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 전체 거래의 총 가격입니다.
+priceSpecification.priceCurrency 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 주문 가격의 통화 (3자리 ISO 4217 형식)입니다.
+seller
+(필수) Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 또는 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 상품 또는 서비스를 판매하는 당사자 (예: Acme 제품은 Amazon.com을 통해 상품을 제공하는 판매자일 수 있음)
+sellers.이름
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 사람의 이름입니다.
+의견 보내기

@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/threads
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/api/guides/threads
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 가이드 [https://developers.google.com/workspace/gmail/api/guides?hl=ko]
-도움이 되었나요?
 의견 보내기
 스레드 관리
 bookmark_border
@@ -105,5 +104,4 @@ if __name__ == "__main__":
 References 및 In-Reply-To 헤더는 RFC 2822 [https://tools.ietf.org/html/rfc2822#appendix-A.2] 표준을 준수하여 설정해야 합니다.
 Subject 헤더가 일치해야 합니다.
 초안 만들기 [https://developers.google.com/workspace/gmail/api/guides/drafts?hl=ko] 또는 메일 보내기 [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko] 예시를 참고하세요. 두 경우 모두 스레드 ID와 페어링된 threadId 키를 메시지의 메타데이터인 message 객체에 추가하면 됩니다.
-도움이 되었나요?
 의견 보내기

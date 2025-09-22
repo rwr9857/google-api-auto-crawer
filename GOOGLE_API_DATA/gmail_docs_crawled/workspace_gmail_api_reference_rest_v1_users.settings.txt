@@ -1,0 +1,44 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users.settings
+bookmark_border
+이 페이지의 내용
+리소스 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko#resource]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko#methods]
+getAutoForwarding [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko#getautoforwarding]
+getImap [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko#getimap]
+getLanguage [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko#getlanguage]
+getPop [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko#getpop]
+getVacation [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko#getvacation]
+updateAutoForwarding [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko#updateautoforwarding]
+리소스
+이 리소스에는 영구 데이터가 연결되어 있지 않습니다.
+메서드
+getAutoForwarding [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/getAutoForwarding?hl=ko]
+지정된 계정의 자동 전달 설정을 가져옵니다.
+getImap [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/getImap?hl=ko]
+IMAP 설정을 가져옵니다.
+getLanguage [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/getLanguage?hl=ko]
+언어 설정을 가져옵니다.
+getPop [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/getPop?hl=ko]
+POP 설정을 가져옵니다.
+getVacation [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/getVacation?hl=ko]
+부재중 자동응답 설정을 가져옵니다.
+updateAutoForwarding [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/updateAutoForwarding?hl=ko]
+지정된 계정의 자동 전달 설정을 업데이트합니다.
+updateImap [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/updateImap?hl=ko]
+IMAP 설정을 업데이트합니다.
+updateLanguage [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/updateLanguage?hl=ko]
+언어 설정을 업데이트합니다.
+updatePop [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/updatePop?hl=ko]
+POP 설정을 업데이트합니다.
+updateVacation [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/updateVacation?hl=ko]
+부재중 자동응답 설정을 업데이트합니다.
+의견 보내기

@@ -1,0 +1,18 @@
+[None] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/BuyAction
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+구매 액션
+bookmark_border
+유형 이름: BuyAction [https://developers.google.com/workspace/gmail/markup/reference/types/BuyAction?hl=ko]
+TradeAction [https://developers.google.com/workspace/gmail/markup/reference/types/TradeAction?hl=ko]을 확장합니다.
+이름 유형 설명
+판매자 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 서비스 / 상품을 판매 (임대 / 임대 / 대여 / 대출)하는 법인입니다. 판매자가 제공업체일 수도 있습니다.
+vendor Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] '공급업체'는 '판매자'의 이전 용어입니다.
+보증 약속 보증 약속 [https://developers.google.com/workspace/gmail/markup/reference/types/WarrantyPromise?hl=ko] 오퍼에 포함된 보증을 약속합니다.
+의견 보내기

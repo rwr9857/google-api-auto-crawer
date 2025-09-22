@@ -1,0 +1,24 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/LocalBusiness
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+LocalBusiness
+bookmark_border
+유형 이름: LocalBusiness [https://developers.google.com/workspace/gmail/markup/reference/types/LocalBusiness?hl=ko]
+조직 [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko]를 확장합니다.
+이름 유형 설명
+BranchOf Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 이 지역 비즈니스가 속한 대규모 조직(있는 경우)
+허용되는 통화 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 허용되는 통화입니다 (ISO 4217 통화 형식 [http://ko.wikipedia.org/wiki/ISO_4217]).
+영업시간 길이 [https://developers.google.com/workspace/gmail/markup/reference/types/Duration?hl=ko] 비즈니스의 영업시간입니다. 영업시간은 주 단위로 지정할 수 있으며 시작은 일 단위로 시작하여 이후의 시간으로 지정합니다. 여러 요일을 쉼표(',')로 구분하여 나열할 수 있습니다. 요일 또는 시간 범위는 하이픈 '-'을 사용하여 지정됩니다.
+- 일자는 Mo, Tu, We, Th, Fr, Sa, Su의 두 글자 조합을 사용하여 지정됩니다.
+- 시간은 24:00 시간을 사용하여 지정됩니다. 예를 들어 오후 3시는 15:00로 지정됩니다.
+- <time itemprop="openingHours" datetime="Tu,Th 16:00-20:00">Tuesdays and Thursdays 4-8pm</time>의 예
+- 비즈니스가 연중무휴인 경우 <time itemprop="openingHours" datetime="Mo-Su">Monday through Sunday, all day</time>로 지정할 수 있습니다.
+결제 수락됨 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 현금, 신용카드 등
+가격대 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 비즈니스의 가격대입니다(예: $$$).
+의견 보내기

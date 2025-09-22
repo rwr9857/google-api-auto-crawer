@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/markup/overview
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/markup/overview
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,17 +6,18 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 가이드 [https://developers.google.com/workspace/gmail/api/guides?hl=ko]
+도움이 되었나요?
 의견 보내기
 개요
 bookmark_border
 이 페이지의 내용
+schema.org로 이메일의 잠재력 활용 [https://developers.google.com/workspace/gmail/markup/overview?hl=ko#unlock_the_power_of_your_emails_with_schemaorg]
+Gmail 작업 [https://developers.google.com/workspace/gmail/markup/overview?hl=ko#actions]
+Gmail 하이라이트 [https://developers.google.com/workspace/gmail/markup/overview?hl=ko#highlights]
+Gmail 프로모션 탭 [https://developers.google.com/workspace/gmail/markup/overview?hl=ko#promotions_tab]
+Google Calendar [https://developers.google.com/workspace/gmail/markup/overview?hl=ko#google-calendar]
 schema.org로 이메일의 잠재력 활용
-Gmail 작업
-Gmail 하이라이트
-Gmail 프로모션 탭
-Google Calendar
-schema.org로 이메일의 잠재력 활용
-이메일은 업무를 처리하는 데 중요한 역할을 합니다. 친구와 이벤트를 계획하거나 파리 출장을 준비할 때 이메일을 사용하여 작업을 진행할 것입니다. 사용자에게 보내는 이메일에 schema.org [http://schema.org/] 마크업을 추가하면 Google 환경 전반에서 해당 정보를 사용할 수 있으며 사용자가 항공편 체크인과 같은 빠른 작업을 쉽게 실행할 수 있습니다. Gmail, Google Calendar, Google 검색, Google 앱은 이미 이 구조화된 데이터를 사용하고 있습니다.
+이메일은 업무를 처리하는 데 중요한 역할을 합니다. 친구와 이벤트를 계획하거나 파리 출장을 준비할 때 이메일을 사용하여 작업을 지원할 것입니다. 사용자에게 보내는 이메일에 schema.org [http://schema.org/] 마크업을 추가하면 Google 환경 전반에서 해당 정보를 사용할 수 있으며 사용자가 항공편 체크인과 같은 빠른 작업을 쉽게 실행할 수 있습니다. Gmail, Google Calendar, Google 검색, Google 앱은 이미 이 구조화된 데이터를 사용하고 있습니다.
 Schema.org [http://schema.org/]는 Google 및 기타 회사의 공동작업으로 표준화되고 관리되는 마크업 어휘입니다. schema.org와 협력하여 Google은 삽입된 마크업을 수신하는 모든 이메일 제품에서 사용할 수 있도록 개방형 표준을 만들고 있습니다.
 앱에 이메일 마크업을 고려해야 하는 이유에 관한 동영상에서 동기 부여를 얻고 유사한 예를 확인하세요.
 참고: Google에서 사용하는 일부 스키마는 아직 schema.org [http://schema.org/]의 표준화 절차를 거치고 있으므로 향후 변경될 수 있습니다. 자세히 알아보기 [https://developers.google.com/workspace/gmail/markup/reference/schema-org-proposals?hl=ko]
@@ -34,8 +35,8 @@ Gmail은 동일한 schema.org 마크업을 사용하여 이메일 내에서 가�
 티켓이 있는 이벤트의 이벤트 하이라이트 [https://developers.google.com/workspace/gmail/markup/reference/event-reservation?hl=ko]
 주문 [https://developers.google.com/workspace/gmail/markup/reference/order?hl=ko] 및 소포 배송 [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko] 쇼핑 관련 주요 사항
 호텔 예약의 호텔 하이라이트 [https://developers.google.com/workspace/gmail/markup/reference/hotel-reservation?hl=ko]
-인보이스 강조 [https://developers.google.com/workspace/gmail/markup/reference/invoice?hl=ko]
-음식점 예약의 음식점 하이라이트 [https://developers.google.com/workspace/gmail/markup/reference/restaurant-reservation?hl=ko]
+인보이스 강조 표시 [https://developers.google.com/workspace/gmail/markup/reference/invoice?hl=ko]
+음식점 예약용 음식점 하이라이트 [https://developers.google.com/workspace/gmail/markup/reference/restaurant-reservation?hl=ko]
 Train Highlight [https://developers.google.com/workspace/gmail/markup/reference/train-reservation?hl=ko](학습 강조 표시)
 Gmail 프로모션 탭
 프로모션 탭을 사용하면 이메일에서 가장 가치 있는 부분을 사용자가 바로 확인할 수 있습니다. 주요 세션은 다음과 같습니다.
@@ -54,4 +55,5 @@ Google Calendar는 다음 4가지 유형의 마크업 유형을 지원합니다.
 식당 예약의 경우 식당 예약 [https://developers.google.com/workspace/gmail/markup/reference/restaurant-reservation?hl=ko]
 이메일에 마크업을 추가하면 모든 중요한 정보가 포함된 일정이 사용자의 캘린더에 자동으로 추가됩니다.
 자세한 내용은 Google Calendar에 자동으로 추가된 일정 [https://developers.google.com/workspace/gmail/markup/google-calendar?hl=ko]을 참고하세요.
+도움이 되었나요?
 의견 보내기

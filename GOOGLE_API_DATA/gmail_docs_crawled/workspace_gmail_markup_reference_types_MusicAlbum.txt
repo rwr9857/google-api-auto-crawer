@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MusicAlbum
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+음악 앨범
+bookmark_border
+유형 이름: MusicAlbum [https://developers.google.com/workspace/gmail/markup/reference/types/MusicAlbum?hl=ko]
+MusicPlaylist [https://developers.google.com/workspace/gmail/markup/reference/types/MusicPlaylist?hl=ko]를 확장합니다.
+이름 유형 설명
+앨범 제작 유형 음악 앨범 제작 유형 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicAlbumProductionType?hl=ko] 사운드트랙, 라이브 앨범, 스튜디오 앨범 등 콘텐츠 유형에 따라 앨범을 분류합니다.
+앨범 발표 음악 발표 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicRelease?hl=ko] 이 앨범을 발매했습니다.
+앨범 발표 유형 음악 앨범 발표 유형 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicAlbumReleaseType?hl=ko] 이 앨범의 발표 종류: 싱글, EP 또는 앨범
+아티스트 음악 그룹 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicGroup?hl=ko] 이 앨범 또는 음원을 공연한 아티스트입니다.
+의견 보내기

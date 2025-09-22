@@ -1,0 +1,27 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users
+bookmark_border
+이 페이지의 내용
+리소스
+메서드
+getProfile
+stop
+watch
+리소스
+이 리소스에는 영구 데이터가 연결되어 있지 않습니다.
+메서드
+getProfile [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users/getProfile?hl=ko]
+현재 사용자의 Gmail 프로필을 가져옵니다.
+stop [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users/stop?hl=ko]
+지정된 사용자의 메일함에 대한 푸시 알림 수신을 중지합니다.
+watch [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users/watch?hl=ko]
+지정된 사용자 메일함에서 푸시 알림 보기를 설정하거나 업데이트합니다.
+의견 보내기

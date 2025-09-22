@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/quickstart/apps-script
+[2025-09-04] Source URL: https://developers.google.com/workspace/gmail/api/quickstart/apps-script
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,7 +6,6 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 가이드 [https://developers.google.com/workspace/gmail/api/guides?hl=ko]
-도움이 되었나요?
 의견 보내기
 Google Apps Script 빠른 시작
 bookmark_border
@@ -29,7 +28,7 @@ Apps Script에서 Google Workspace 빠른 시작은 고급 Google 서비스 [htt
 Gmail이 사용 설정된 Google 계정
 Google Drive 액세스
 스크립트 만들기
-script.google.com/create [https://script.google.com/create?hl=ko]로 이동하여 새 스크립트를 만듭니다.
+script.google.com/create [https://script.google.com/create?hl=ko]로 이동하여 Apps Script 편집기에서 새 스크립트를 만듭니다.
 스크립트 편집기의 내용을 다음 코드로 바꿉니다.
 gmail/quickstart/quickstart.gs
 GitHub에서 보기 [https://github.com/googleworkspace/apps-script-samples/blob/main/gmail/quickstart/quickstart.gs]
@@ -75,7 +74,7 @@ done 완료
 warning 문제가 발생했습니다
 다음 단계
 Google Apps Script 고급 서비스 문서 [https://developers.google.com/apps-script/guides/services/advanced?hl=ko]
+API 탐색기에서 Google Workspace API 사용해 보기 [https://developers.google.com/workspace/explore?hl=ko]
 인증 및 승인 문제 해결 [https://developers.google.com/workspace/gmail/api/troubleshoot-authentication-authorization?hl=ko]
 Gmail API 참조 문서 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
-도움이 되었나요?
 의견 보내기

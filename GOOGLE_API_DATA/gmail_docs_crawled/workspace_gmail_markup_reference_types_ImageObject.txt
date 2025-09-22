@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/ImageObject
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+ImageObject
+bookmark_border
+유형 이름: ImageObject [https://developers.google.com/workspace/gmail/markup/reference/types/ImageObject?hl=ko]
+MediaObject [https://developers.google.com/workspace/gmail/markup/reference/types/MediaObject?hl=ko]를 확장합니다.
+이름 유형 설명
+caption 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 객체의 자막입니다.
+EXIF 데이터 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] exif 데이터를 저장합니다.
+대표 페이지 Boolean [https://developers.google.com/workspace/gmail/markup/reference/types/Boolean?hl=ko] 이 이미지가 페이지 콘텐츠를 나타내는지 여부를 나타냅니다.
+썸네일 ImageObject [https://developers.google.com/workspace/gmail/markup/reference/types/ImageObject?hl=ko] 이미지 또는 동영상의 썸네일 이미지입니다.
+의견 보내기

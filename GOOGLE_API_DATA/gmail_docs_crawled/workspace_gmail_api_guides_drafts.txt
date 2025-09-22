@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/drafts
+[2025-08-01] Source URL: https://developers.google.com/workspace/gmail/api/guides/drafts
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,9 +10,9 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 임시보관함 사용하기
 bookmark_border
 이 페이지의 내용
-임시보관 메일 작성
-초안 업데이트
-초안 전송
+임시보관 메일 작성 [https://developers.google.com/workspace/gmail/api/guides/drafts?hl=ko#creating_draft_messages]
+초안 업데이트 [https://developers.google.com/workspace/gmail/api/guides/drafts?hl=ko#updating_drafts]
+초안 전송 [https://developers.google.com/workspace/gmail/api/guides/drafts?hl=ko#sending_drafts]
 임시보관함은 DRAFT 시스템 라벨이 적용된 보내지 않은 메일을 나타냅니다. 초안에 포함된 메시지는 생성된 후에는 수정할 수 없지만 대체할 수는 있습니다. 이러한 의미에서 초안 리소스 [https://developers.google.com/workspace/gmail/api/v1/reference/users/drafts?hl=ko]는 메시지가 대체될 때마다 기본 메시지 ID가 변경되므로 안정적인 ID를 제공하는 컨테이너일 뿐입니다.
 임시보관함 내의 메일 리소스 [https://developers.google.com/workspace/gmail/api/v1/reference/users/messages?hl=ko]는 다음과 같은 차이점을 제외하고 다른 메일과 유사하게 작동합니다.
 임시보관함 메시지에는 DRAFT 시스템 라벨 외의 라벨이 있을 수 없습니다.
@@ -23,7 +23,7 @@ RFC 2822 [http://www.ietf.org/rfc/rfc2822.txt]를 준수하는 MIME 메시지를
 메시지를 base64url로 인코딩된 문자열로 변환합니다.
 drafts.message.raw 필드의 값을 인코딩된 문자열로 설정하여 초안을 만듭니다 [https://developers.google.com/workspace/gmail/api/v1/reference/users/drafts/create?hl=ko].
 다음 코드 예에서는 이 프로세스를 보여줍니다.
---- 탭: 자바 ---
+--- 탭: 자바 [https://developers.google.com/workspace/gmail/api/guides/drafts?hl=ko#%EC%9E%90%EB%B0%94] ---
 .filepath {
     color: #fff;
     margin: 6px;
@@ -145,7 +145,7 @@ public class CreateDraft {
   }
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/drafts?hl=ko#python] ---
 .filepath {
     color: #fff;
     margin: 6px;

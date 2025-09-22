@@ -1,0 +1,17 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/TradeAction
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+거래 액션
+bookmark_border
+유형 이름: TradeAction [https://developers.google.com/workspace/gmail/markup/reference/types/TradeAction?hl=ko]
+Action [https://developers.google.com/workspace/gmail/markup/reference/types/Action?hl=ko]을 확장합니다.
+이름 유형 설명
+가격 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약의 총 가격입니다.
+priceSpecification PriceSpecification [https://developers.google.com/workspace/gmail/markup/reference/types/PriceSpecification?hl=ko] 단가 및 배송료 또는 결제 비용을 나타내는 하나 이상의 상세 가격 사양입니다.
+의견 보내기

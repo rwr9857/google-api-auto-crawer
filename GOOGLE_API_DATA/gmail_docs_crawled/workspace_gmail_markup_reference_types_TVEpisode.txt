@@ -1,0 +1,16 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/TVEpisode
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+TVEpisode
+bookmark_border
+유형 이름: TVEpisode [https://developers.google.com/workspace/gmail/markup/reference/types/TVEpisode?hl=ko]
+에피소드 [https://developers.google.com/workspace/gmail/markup/reference/types/Episode?hl=ko]를 확장합니다.
+이름 유형 설명
+TV 시리즈의 일부 TV 시리즈 [https://developers.google.com/workspace/gmail/markup/reference/types/TVSeries?hl=ko] 이 에피소드나 시즌이 속한 TV 시리즈입니다.
+의견 보내기

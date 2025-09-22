@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/filtering
+[2025-07-31] Source URL: https://developers.google.com/workspace/gmail/api/guides/filtering
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,7 +10,7 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 메시지 검색
 bookmark_border
 이 페이지의 내용
-검색 및 필터링 차이점: Gmail UI와 Gmail API
+검색 및 필터링 차이점: Gmail UI와 Gmail API [https://developers.google.com/workspace/gmail/api/guides/filtering?hl=ko#differences]
 messages.list [https://developers.google.com/workspace/gmail/api/v1/reference/users/messages/list?hl=ko] 및 threads.list [https://developers.google.com/workspace/gmail/api/v1/reference/users/threads/list?hl=ko] 메서드를 사용하여 파일을 검색하거나 필터링할 수 있습니다. 이러한 메서드는 Gmail 웹 인터페이스와 동일한 고급 검색 구문 [https://support.google.com/mail/answer/7190?hl=ko]을 대부분 지원하는 q 매개변수를 허용합니다. Gmail UI와 Gmail API 간의 검색 및 필터 차이점 목록은 검색 필터 차이점: Gmail UI와 Gmail API 비교 [https://developers.google.com/workspace/gmail/api/guides/filtering?hl=ko#differences]를 참고하세요.
 이 고급 구문을 사용하면 검색어를 사용하여 발신자, 날짜, 라벨과 같은 속성으로 메일을 필터링할 수 있습니다. 예를 들어 다음 쿼리는 2014년 1월에 사용자가 보낸 모든 메시지를 검색합니다.
 GET https://www.googleapis.com/gmail/v1/users/me/messages?q=in:sent after:2014/01/01 before:2014/02/01

@@ -1,0 +1,16 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/ChooseAction
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+작업 선택
+bookmark_border
+유형 이름: ChooseAction [https://developers.google.com/workspace/gmail/markup/reference/types/ChooseAction?hl=ko]
+AssessAction [https://developers.google.com/workspace/gmail/markup/reference/types/AssessAction?hl=ko]을 확장합니다.
+이름 유형 설명
+option Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 또는 Thing [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 객체의 하위 속성 이 작업에 적용되는 옵션입니다.
+의견 보내기

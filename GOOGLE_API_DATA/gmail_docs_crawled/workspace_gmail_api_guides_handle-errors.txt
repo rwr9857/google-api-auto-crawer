@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/handle-errors
+[2025-08-01] Source URL: https://developers.google.com/workspace/gmail/api/guides/handle-errors
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,11 +10,11 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 오류 해결
 bookmark_border
 이 페이지의 내용
-400 오류 해결: 잘못된 요청
-401 오류 해결: 사용자 인증 정보가 잘못됨
-403 오류 해결: 사용량 한도 초과
-403 오류 해결: 일일 한도 초과
-403 오류 해결: 사용자 비율 한도 초과
+400 오류 해결: 잘못된 요청 [https://developers.google.com/workspace/gmail/api/guides/handle-errors?hl=ko#resolve_a_400_error_bad_request]
+401 오류 해결: 사용자 인증 정보가 잘못됨 [https://developers.google.com/workspace/gmail/api/guides/handle-errors?hl=ko#resolve_a_401_error_invalid_credentials]
+403 오류 해결: 사용량 한도 초과 [https://developers.google.com/workspace/gmail/api/guides/handle-errors?hl=ko#resolve_a_403_error_usage_limit_exceeded]
+403 오류 해결: 일일 한도 초과 [https://developers.google.com/workspace/gmail/api/guides/handle-errors?hl=ko#resolve_a_403_error_daily_limit_exceeded]
+403 오류 해결: 사용자 비율 한도 초과 [https://developers.google.com/workspace/gmail/api/guides/handle-errors?hl=ko#resolve_a_403_error_user_rate_limit_exceeded]
 Gmail API는 두 가지 수준의 오류 정보를 반환합니다.
 헤더의 HTTP 오류 코드 및 메시지입니다.
 오류 처리 방법을 결정하는 데 도움이 되는 추가 세부정보가 포함된 응답 본문의 JSON 객체입니다.
@@ -144,7 +144,7 @@ Gmail 한도에 대한 자세한 내용은 사용량 한도 [https://developers.
 429 오류 해결: 요청이 너무 많음
 429 '요청이 너무 많음' 오류는 일일 사용자당 한도(메일 전송 한도 포함), 대역폭 한도 또는 사용자당 동시 요청 한도로 인해 발생할 수 있습니다. 각 한도에 대한 정보는 다음과 같습니다. 하지만 실패한 요청을 다시 시도 [https://developers.google.com/workspace/gmail/api/guides/handle-errors?hl=ko#exponential-backoff]하거나 여러 Gmail 계정에서 처리를 분할하면 각 한도를 해결할 수 있습니다. 어떤 이유로도 사용자당 한도를 늘릴 수 없습니다. 한도에 대한 자세한 내용은 사용량 한도 [https://developers.google.com/workspace/gmail/api/reference/quota?hl=ko]를 참고하세요.
 메일 전송 한도
-Gmail API는 표준 일일 메일 전송 한도를 적용합니다. 이러한 한도는 유료 Google Workspace 사용자와 무료 gmail.com 사용자에게 다르게 적용됩니다. 이러한 한도는 Google Workspace의 Gmail 전송 한도 [https://support.google.com/a/answer/166852?hl=ko]를 참고하세요.
+Gmail API는 표준 일일 메일 전송 한도를 적용합니다. 이러한 한도는 유료 사용자와 무료 gmail.com 사용자에게 다르게 적용됩니다. 이러한 한도는 의 Gmail 전송 한도 [https://support.google.com/a/answer/166852?hl=ko]를 참고하세요.
 이러한 한도는 사용자별로 적용되며 API 클라이언트, 네이티브/웹 클라이언트, SMTP MSA 등 사용자의 모든 클라이언트에서 공유됩니다. 이러한 한도를 초과하면 재시도 시간과 함께 HTTP 429 Too Many Requests '사용자 비율 제한 초과' '(메일 전송)' 오류가 반환됩니다. 일일 한도를 초과하면 요청이 수락되기 전 여러 시간 동안 이러한 유형의 오류가 발생할 수 있습니다.
 메일 전송 파이프라인은 복잡합니다. 사용자가 할당량을 초과하면 API가 429 오류 응답을 반환하기까지 몇 분 정도 지연될 수 있습니다. 따라서 200 응답이 이메일이 성공적으로 전송되었음을 의미한다고 가정할 수 없습니다.
 대역폭 한도

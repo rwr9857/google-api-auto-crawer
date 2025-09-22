@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/markup/actions/handling-action-requests
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/markup/actions/handling-action-requests
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,13 +10,13 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 작업 요청 처리
 bookmark_border
 이 페이지의 내용
-1단계: 요청 확인
-2단계: 작업 처리
-3단계: 응답 코드 반환
-추가 자료
+1단계: 요청 확인 [https://developers.google.com/workspace/gmail/markup/actions/handling-action-requests?hl=ko#step_1_verify_the_request]
+2단계: 작업 처리 [https://developers.google.com/workspace/gmail/markup/actions/handling-action-requests?hl=ko#step_2_process_the_action]
+3단계: 응답 코드 반환 [https://developers.google.com/workspace/gmail/markup/actions/handling-action-requests?hl=ko#step_3_return_a_response_code]
+추가 자료 [https://developers.google.com/workspace/gmail/markup/actions/handling-action-requests?hl=ko#further_reading]
 작업 선언 [https://developers.google.com/workspace/gmail/markup/actions/declaring-actions?hl=ko]에 설명된 대로 사용자가 인앱 작업과 상호작용하면 Google은 작업에 선언된 URL로 HTTP 요청을 보냅니다.
 다음 예에서는 비용 보고서에 관한 이메일에 ConfirmAction 버튼을 추가합니다.
---- 탭: JSON-LD ---
+--- 탭: JSON-LD [https://developers.google.com/workspace/gmail/markup/actions/handling-action-requests?hl=ko#json-ld] ---
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -33,7 +33,7 @@ bookmark_border
 }
 </script>
 
---- 탭: 마이크로데이터 ---
+--- 탭: 마이크로데이터 [https://developers.google.com/workspace/gmail/markup/actions/handling-action-requests?hl=ko#%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EB%8D%B0%EC%9D%B4%ED%84%B0] ---
 <div itemscope itemtype="http://schema.org/EmailMessage">
   <div itemprop="potentialAction" itemscope itemtype="http://schema.org/ConfirmAction">
     <meta itemprop="name" content="Approve Expense"/>
@@ -75,5 +75,5 @@ Bearer Token [https://developers.google.com/workspace/gmail/markup/actions/verif
 영구적으로 실패하는 경우 Google은 사용자에게 작업이 실패했으며 이메일 내의 대체 안내를 따라야 한다고 알립니다.
 추가 자료
 작업 보안 [https://developers.google.com/workspace/gmail/markup/actions/securing-actions?hl=ko]
-참고: Google에서 사용하는 스키마 중 일부는 아직 schema.org [http://schema.org/]의 표준화 절차를 거치고 있으므로 향후 변경될 수 있습니다. 자세히 알아보기 [https://developers.google.com/workspace/gmail/markup/reference/schema-org-proposals?hl=ko]
+참고: Google에서 사용하는 일부 스키마는 아직 schema.org [http://schema.org/]의 표준화 절차를 거치고 있으므로 향후 변경될 수 있습니다. 자세히 알아보기 [https://developers.google.com/workspace/gmail/markup/reference/schema-org-proposals?hl=ko]
 의견 보내기

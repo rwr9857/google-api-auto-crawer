@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Dataset
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+데이터 세트
+bookmark_border
+유형 이름: 데이터 세트 [https://developers.google.com/workspace/gmail/markup/reference/types/Dataset?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]를 확장합니다.
+이름 유형 설명
+catalog 데이터 카탈로그 [https://developers.google.com/workspace/gmail/markup/reference/types/DataCatalog?hl=ko] 데이터 세트가 포함된 데이터 카탈로그
+배포 데이터 다운로드 [https://developers.google.com/workspace/gmail/markup/reference/types/DataDownload?hl=ko] 다운로드 가능한 데이터 세트 형식(특정 위치에 특정 형식으로 표시)
+공간 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 데이터 세트의 공간 적용 범위입니다(예: 뉴욕 날씨 데이터 세트의 경우 뉴욕주).
+일시적 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 데이터 세트의 시간 적용 범위(예: 2011년 인구 조사 데이터 세트의 경우 2011년(ISO 8601 시간 간격 형식))
+의견 보내기

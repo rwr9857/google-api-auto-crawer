@@ -1,0 +1,20 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Game
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+게임
+bookmark_border
+유형 이름: 게임 [https://developers.google.com/workspace/gmail/markup/reference/types/Game?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]를 확장합니다.
+이름 유형 설명
+문자 속성 사물 [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 가상의 캐릭터 (기술, 힘, 캐릭터 포인트, 이점, 단점)의 특정 측면을 나타내는 데이터입니다.
+게임 항목 사물 [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 아이템은 플레이어가 수집하거나 플레이어가 아닌 캐릭터에 의해 수집될 수 있는 게임 내 객체입니다.
+gameLocation Place [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko], postalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko] 또는 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 게임 (또는 게임의 일부)의 실제 또는 가상의 위치
+플레이어 수 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 이 게임을 할 수 있는 사용자 수 (최소, 최대 또는 범위)를 표시합니다.
+퀘스트 사물 [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 보상을 획득하기 위해 플레이어가 제어하는 캐릭터 또는 캐릭터 그룹이 완료할 수 있는 작업입니다.
+의견 보내기

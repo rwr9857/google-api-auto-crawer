@@ -1,0 +1,17 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MedicalClinic
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+의료용 클리닉
+bookmark_border
+유형 이름: MedicalClinic [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalClinic?hl=ko]
+MedicalOrganization [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalOrganization?hl=ko]을 확장합니다.
+이름 유형 설명
+availableService MedicalProcedure [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalProcedure?hl=ko], MedicalTest [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTest?hl=ko] 또는 MedicalTherapy [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTherapy?hl=ko] 이 제공업체에서 제공하는 의료 서비스
+의료 전문 의료 전문 분야 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalSpecialty?hl=ko] 의료 서비스 제공자의 전문 분야
+의견 보내기

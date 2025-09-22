@@ -1,0 +1,24 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/ContactPoint
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+담당자
+bookmark_border
+유형 이름: ContactPoint [https://developers.google.com/workspace/gmail/markup/reference/types/ContactPoint?hl=ko]
+StructuredValue [https://developers.google.com/workspace/gmail/markup/reference/types/StructuredValue?hl=ko]를 확장함
+이름 유형 설명
+areaServed 행정 구역 [https://developers.google.com/workspace/gmail/markup/reference/types/AdministrativeArea?hl=ko] 이 연락 담당자가 제공하는 위치 (예: 유럽 또는 북미 지역 또는 미국 내에서만 사용할 수 있는 전화번호).
+availableLanguage 언어 [https://developers.google.com/workspace/gmail/markup/reference/types/Language?hl=ko] 사용자가 상품과 함께 사용할 수 있는 언어입니다.
+contactOption ContactPointOption [https://developers.google.com/workspace/gmail/markup/reference/types/ContactPointOption?hl=ko] 이 문의처에서 제공하는 옵션입니다 (예: 수신자 부담 전화번호 또는 청각장애인 지원).
+contactType 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 사람 또는 조직이 다른 용도로 다른 연락처를 보유할 수 있습니다. 예: 영업 담당자, PR 담당자 등 이 속성은 연락처의 종류를 지정하는 데 사용됩니다.
+이메일 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이메일 주소입니다.
+팩스 번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 팩스 번호입니다.
+영업시간 OpeningHoursSpecification [https://developers.google.com/workspace/gmail/markup/reference/types/OpeningHoursSpecification?hl=ko] 이 연락 가능한 시간입니다.
+지원되는 제품 제품 [https://developers.google.com/workspace/gmail/markup/reference/types/Product?hl=ko] 또는 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 지원 담당자와 관련된 제품 또는 서비스 (예: 특정 제품 라인의 제품 지원)입니다. 특정 제품 또는 제품 라인 (예: 'iPhone') 또는 제품 또는 서비스의 일반 카테고리 (예: '스마트폰')일 수 있습니다.
+전화 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 전화번호입니다.
+의견 보내기

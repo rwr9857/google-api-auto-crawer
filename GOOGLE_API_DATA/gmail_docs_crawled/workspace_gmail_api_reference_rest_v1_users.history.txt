@@ -1,0 +1,21 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.history
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users.history
+bookmark_border
+이 페이지의 내용
+리소스 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.history?hl=ko#resource]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.history?hl=ko#methods]
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.history?hl=ko#list]
+리소스
+이 리소스에는 영구 데이터가 연결되어 있지 않습니다.
+메서드
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.history/list?hl=ko]
+지정된 우편함의 모든 변경사항 기록을 표시합니다.
+의견 보내기

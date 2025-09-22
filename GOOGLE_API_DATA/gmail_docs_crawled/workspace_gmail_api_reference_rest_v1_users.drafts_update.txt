@@ -1,0 +1,43 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/update
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+Method: users.drafts.update
+bookmark_border
+이 페이지의 내용
+HTTP 요청 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/update?hl=ko#http-request]
+경로 매개변수 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/update?hl=ko#path-parameters]
+요청 본문 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/update?hl=ko#request-body]
+응답 본문 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/update?hl=ko#response-body]
+승인 범위 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/update?hl=ko#authorization-scopes]
+초안의 콘텐츠를 대체합니다.
+HTTP 요청
+업로드 URI, 미디어 업로드 요청:
+PUT https://gmail.googleapis.com/upload/gmail/v1/users/{userId}/drafts/{id}
+메타데이터 URI, 메타데이터 전용 요청:
+PUT https://gmail.googleapis.com/gmail/v1/users/{userId}/drafts/{id}
+URL은 gRPC 트랜스코딩 [https://google.aip.dev/127] 문법을 사용합니다.
+경로 매개변수
+매개변수
+userId
+string
+사용자의 이메일 주소 인증된 사용자를 나타내는 데 특수 값 me을 사용할 수 있습니다.
+id
+string
+업데이트할 초안의 ID입니다.
+요청 본문
+요청 본문에 Draft [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#Draft]의 인스턴스가 포함됩니다.
+응답 본문
+성공한 경우 응답 본문에 Draft [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#Draft]의 인스턴스가 포함됩니다.
+승인 범위
+다음 OAuth 범위 중 하나가 필요합니다.
+https://mail.google.com/
+https://www.googleapis.com/auth/gmail.modify
+https://www.googleapis.com/auth/gmail.compose
+자세한 내용은 승인 가이드 [https://developers.google.com/workspace/guides/configure-oauth-consent?hl=ko]를 참고하세요.
+의견 보내기

@@ -1,0 +1,23 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MedicalDevice
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+의료 기기
+bookmark_border
+유형 이름: MedicalDevice [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalDevice?hl=ko]
+MedicalEntity [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEntity?hl=ko] 확장
+이름 유형 설명
+부정적인 결과 의료 단체 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEntity?hl=ko] 이 치료의 합병증 또는 부작용일 수 있습니다. 불리한 결과가 심각한 경우 (사망, 장애 또는 영구적 피해를 초래하거나 입원이 필요한 경우 또는 생명을 위협하거나 즉각적인 의학적 주의가 필요한 경우) 심각한 광고 부정으로 태그합니다.
+금기 의료적 제약 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalContraindication?hl=ko] 이 요법의 금기 사항.
+표시 의료 지표 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalIndication?hl=ko] 질환, 증상 등을 치료 및 예방하는 데 이 요법의 사용을 나타내는 요인입니다. 약물과 같은 요법의 경우 공식 승인을 받은 표시뿐 아니라 라벨 사용이 아닌 사용을 모두 포함할 수 있습니다. 이는 의료 승인의 AuthorizedIndication 하위유형을 사용하여 구별할 수 있습니다.
+게시물 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 기기의 수술 후, 치료 또는 후속 조치에 관한 설명입니다.
+사전 작업 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 기기를 이식하기 전에 필요한 작업, 테스트, 기타 준비사항에 관한 설명입니다.
+시술 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 기기 설정, 사용 및 설치와 관련된 절차에 대한 설명입니다.
+purpose MedicalDevicePurpose [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalDevicePurpose?hl=ko] 또는 Thing [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 액션을 목표로 하는 것이 좋습니다. 구체적이거나 추상적일 수 있습니다.
+심각한 광고결과 의료 단체 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEntity?hl=ko] 이 합병증의 심각한 합병증 또는 심각한 부작용일 수 있습니다. 심각한 부정적 결과는 생명을 위협하거나, 사망, 장애 또는 영구적 손상을 야기하는 경우, 입원 또는 기존 입원의 연장, 선천성 이상 또는 선천성 결함을 초래하거나, 환자를 위험에 빠뜨리며 이 정의의 결과 중 하나를 방지하기 위해 의학적 또는 외과적 개입을 요구할 수 있는 결과를 의미합니다.
+의견 보내기

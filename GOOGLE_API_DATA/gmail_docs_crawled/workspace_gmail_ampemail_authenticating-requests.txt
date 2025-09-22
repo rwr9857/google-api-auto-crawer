@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/ampemail/authenticating-requests
+[2025-03-24] Source URL: https://developers.google.com/workspace/gmail/ampemail/authenticating-requests
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,8 +10,8 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 이메일용 AMP에서 요청 인증
 bookmark_border
 이 페이지의 내용
-액세스 토큰
-예
+액세스 토큰 [https://developers.google.com/workspace/gmail/ampemail/authenticating-requests?hl=ko#access_tokens]
+예 [https://developers.google.com/workspace/gmail/ampemail/authenticating-requests?hl=ko#example]
 동적으로 맞춤설정된 이메일 콘텐츠에는 사용자 인증이 필요한 경우가 많습니다. 하지만 사용자 데이터를 보호하기 위해 Gmail 내 AMP 이메일 내에서 이루어진 모든 HTTP 요청은 프록시되고 쿠키가 삭제됩니다.
 AMP 이메일에서 이루어진 요청을 인증하려면 액세스 토큰 [https://developers.google.com/workspace/gmail/ampemail/authenticating-requests?hl=ko#access_tokens]을 사용하면 됩니다.
 액세스 토큰

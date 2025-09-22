@@ -1,0 +1,17 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/Format
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+Format
+bookmark_border
+열거형
+minimal 이메일 메시지 ID 및 라벨만 반환합니다. 이메일 헤더, 본문 또는 페이로드는 반환하지 않습니다.
+full payload 필드에서 파싱된 본문 콘텐츠가 포함된 전체 이메일 메시지 데이터를 반환합니다. raw 필드는 사용되지 않습니다. gmail.metadata 범위를 사용하여 API에 액세스할 때는 형식을 사용할 수 없습니다.
+raw raw 필드의 본문 콘텐츠가 포함된 전체 이메일 메시지 데이터를 base64url로 인코딩된 문자열로 반환합니다. payload 필드는 사용되지 않습니다. gmail.metadata 범위를 사용하여 API에 액세스할 때는 형식을 사용할 수 없습니다.
+metadata 이메일 메시지 ID, 라벨, 이메일 헤더만 반환합니다.
+의견 보내기

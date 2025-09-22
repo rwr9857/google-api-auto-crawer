@@ -1,0 +1,24 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/AnatomicalStructure
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+해부학적 구조
+bookmark_border
+유형 이름: AnatomicalStructure [https://developers.google.com/workspace/gmail/markup/reference/types/AnatomicalStructure?hl=ko]
+MedicalEntity [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEntity?hl=ko] 확장
+이름 유형 설명
+연결된경로생리학 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 해당하는 경우 시스템의 기계적, 물리적, 생화학적 기능에서 발생할 수 있는 비정상적 변화를 포함하여 해부학적 구조와 관련된 병리학에 관한 설명입니다.
+본문 위치 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 해부학적 구조 몸의 위치
+연결 대상 해부학적 구조 [https://developers.google.com/workspace/gmail/markup/reference/types/AnatomicalStructure?hl=ko] 이 구조가 연결되는 다른 해부학적 구조입니다.
+도표 ImageObject [https://developers.google.com/workspace/gmail/markup/reference/types/ImageObject?hl=ko] 구조 및/또는 구성요소의 하위 구조 및/또는 다른 구조와의 연결을 보여주는 다이어그램이 포함된 이미지
+함수 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 해부학적 구조입니다.
+부분 해부학적 시스템 [https://developers.google.com/workspace/gmail/markup/reference/types/AnatomicalSystem?hl=ko] 이 구조가 속한 인체의 해부학적 구조입니다.
+relatedCondition 의료 상태 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalCondition?hl=ko] 이 해부학과 관련된 질병입니다.
+관련 치료 의료 요법 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTherapy?hl=ko] 이 해부학과 관련된 의학적 치료입니다.
+하위 구조 해부학적 구조 [https://developers.google.com/workspace/gmail/markup/reference/types/AnatomicalStructure?hl=ko] 이 해부학적 구조를 구성하는 구성요소(하위) 구조입니다.
+의견 보내기

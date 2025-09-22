@@ -1,0 +1,18 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/LymphaticVessel
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+림프간
+bookmark_border
+유형 이름: LymphaticVessel [https://developers.google.com/workspace/gmail/markup/reference/types/LymphaticVessel?hl=ko]
+Vessel [https://developers.google.com/workspace/gmail/markup/reference/types/Vessel?hl=ko]을 확장합니다.
+이름 유형 설명
+출처 베셀 [https://developers.google.com/workspace/gmail/markup/reference/types/Vessel?hl=ko] 림프 구조에서 유래한 동인, 즉 동맥
+지역 드레이닝 AnatomicalStructure [https://developers.google.com/workspace/gmail/markup/reference/types/AnatomicalStructure?hl=ko] 또는 AnatomicalSystem [https://developers.google.com/workspace/gmail/markup/reference/types/AnatomicalSystem?hl=ko] 이 혈관에 의해 배출되는 해부학적 또는 장기 시스템입니다. 일반적으로 기관의 특정 부분을 나타냅니다.
+runTo 베셀 [https://developers.google.com/workspace/gmail/markup/reference/types/Vessel?hl=ko] 림프 구조 또는 실행자 혈관을 대상으로 합니다.
+의견 보내기

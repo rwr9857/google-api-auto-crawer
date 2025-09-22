@@ -1,0 +1,49 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Reservation
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+예약
+bookmark_border
+유형 이름: 예약 [https://developers.google.com/workspace/gmail/markup/reference/types/Reservation?hl=ko]
+무형 [https://developers.google.com/workspace/gmail/markup/reference/types/Intangible?hl=ko] 또는 사물 [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 확장
+이름 유형 설명
+추가 티켓 텍스트 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 추가 권한 또는 식별자와 같이 티켓에 표시되는 추가 텍스트
+예약 에이전트 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약한 사람
+예약 날짜 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약한 날짜
+예약 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약한 날짜
+중개인 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 구매자와 판매자 간에 교환을 주선하는 법인입니다. 대부분의 경우 중개인은 교환과 관련된 제품이나 서비스의 소유권을 획득하거나 해제하지 않습니다. 법인이 중개자, 판매자 또는 구매자인지 불분명한 경우에는 처음 두 용어가 더 좋습니다.
+취소 예약 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 취소할 수 있는 웹페이지입니다.
+체크인 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 승객이 체크인할 수 있는 웹페이지입니다.
+확인 예약 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 확인할 수 있는 웹페이지입니다.
+크리에이터 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약한 사람 / 조직
+dateModified Date [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] 또는 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약이 마지막으로 수정된 시간입니다.
+포인트 제도 프로그램 멤버십 [https://developers.google.com/workspace/gmail/markup/reference/types/ProgramMembership?hl=ko] .
+수정 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약이 마지막으로 수정된 시간입니다.
+수정 예약 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 수정할 수 있는 웹페이지입니다.
+좌석 수 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약되지 않은 좌석의 경우 좌석 수
+가격 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약의 총 가격입니다.
+priceCurrency[가격 통화] 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약 가격의 통화 (3자리 ISO 4217 형식)입니다.
+프로그램 멤버십 프로그램 멤버십 [https://developers.google.com/workspace/gmail/markup/reference/types/ProgramMembership?hl=ko] 항공사 멤버십, 호텔 포인트 제도 등의 정보가 멤버십에 적용되는 경우
+프로그램 멤버십 사용 프로그램 멤버십 [https://developers.google.com/workspace/gmail/markup/reference/types/ProgramMembership?hl=ko] 항공사 멤버십, 호텔 포인트 제도 등의 정보가 멤버십에 적용되는 경우
+제공업체 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약을 제공하는 조직입니다.
+예약 사물 [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 식당, 영화, 이벤트, 항공편 등 예약의 대상이 됩니다.
+예약 ID 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약의 고유 식별자입니다.
+예약 번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약의 번호, 코드 또는 ID입니다.
+예약 상태 예약 상태 [https://developers.google.com/workspace/gmail/markup/reference/types/ReservationStatus?hl=ko] 또는 예약 상태 유형 [https://developers.google.com/workspace/gmail/markup/reference/types/ReservationStatusType?hl=ko] 예약의 현재 상태입니다.
+예약된 티켓 티켓 [https://developers.google.com/workspace/gmail/markup/reference/types/Ticket?hl=ko] 예약과 관련된 티켓입니다.
+좌석 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약된 좌석의 위치 (예: 27B).
+좌석 유형 QualitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QualitativeValue?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 좌석의 클래스입니다.
+좌석 행 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약된 좌석의 행 위치입니다 (예: B).
+좌석 섹션 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약된 좌석의 섹션 위치입니다 (예: 오케스트라).
+티켓 다운로드 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] .
+티켓번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 티켓의 번호 또는 ID입니다.
+티켓 인쇄 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] .
+티켓 토큰 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 또는 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 바코드 이미지가 사이트에서 호스팅되는 경우 입력란 값은 이미지의 URL 또는 바코드나 QR URI(예: 'barcode128:AB34'(ISO-15417 바코드), 'qrCode:AB34'(QR 코드), 'aztecCode:AB34'(Aztec 코드), 'barcodeEAN:12)CA'(CA) 1234)(CA)
+총가격 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko], PriceSpecification [https://developers.google.com/workspace/gmail/markup/reference/types/PriceSpecification?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 관련 세금, 배송비 등 예약 또는 티켓의 총가격입니다.
+이름 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약이 적용되는 사용자 또는 조직입니다.
+의견 보내기

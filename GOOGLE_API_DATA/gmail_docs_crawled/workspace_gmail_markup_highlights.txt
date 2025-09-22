@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/markup/highlights
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/markup/highlights
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -39,7 +39,7 @@ Gmail의 중요한 기능은 하이라이트입니다. 이름에서 알 수 있�
 주문 하이라이트는 주문 보기 작업을 비롯한 작업도 지원합니다.
 자세한 내용은 주문 마크업 참조 [https://developers.google.com/workspace/gmail/markup/reference/order?hl=ko]를 참고하세요.
 소포 배달
-주문 배송 알림이 포함된 이메일에서 택배 배송 마크업을 사용합니다. 사용자에게는 주문과 동일한 정보가 포함된 칩이 이메일 메시지 위에 표시되며 최신 상태를 보여주는 실시간 상태 배지도 표시됩니다.
+주문 배송 알림이 포함된 이메일에서 택배 배송 마크업을 사용합니다. 사용자에게는 주문과 동일한 정보가 포함된 칩이 이메일 메시지 위에 표시되며, 최신 상태를 보여주는 실시간 상태 배지도 표시됩니다.
 택배 배송 하이라이트도 '택배 추적' 작업을 비롯한 작업을 지원합니다.
 자세한 내용은 소포 배송 마크업 참조 [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko]를 참고하세요.
 호텔 예약
@@ -49,7 +49,7 @@ Gmail의 중요한 기능은 하이라이트입니다. 이름에서 알 수 있�
 레스토랑 예약 확인 이메일에 레스토랑 예약 마크업을 사용합니다. 음식점 예약의 하이라이트에는 예약 세부정보와 지정한 이미지가 표시됩니다.
 자세한 내용은 레스토랑 예약 마크업 참조 [https://developers.google.com/workspace/gmail/markup/reference/restaurant-reservation?hl=ko]를 참고하세요.
 티켓 구매가 필요한 이벤트 예약
-이벤트 예약 확인 이메일에서 티켓이 있는 이벤트 예약 마크업을 사용합니다. 티켓이 있는 이벤트 예약의 하이라이트에는 예약의 선택된 세부정보와 지정한 이미지가 표시됩니다.
+이벤트 예약 확인 이메일에 티켓 이벤트 예약 마크업을 사용합니다. 티켓이 있는 이벤트 예약의 하이라이트에는 예약의 선택된 세부정보와 지정한 이미지가 표시됩니다.
 유료 이벤트 하이라이트에서는 티켓 보기 작업을 비롯한 작업도 지원합니다.
 자세한 내용은 티켓 이벤트 마크업 참조 [https://developers.google.com/workspace/gmail/markup/reference/event-reservation?hl=ko]를 참고하세요.
 의견 보내기

@@ -1,0 +1,23 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/ExercisePlan
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+운동 계획
+bookmark_border
+유형 이름: ExercisePlan [https://developers.google.com/workspace/gmail/markup/reference/types/ExercisePlan?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 또는 PhysicalActivity [https://developers.google.com/workspace/gmail/markup/reference/types/PhysicalActivity?hl=ko]를 확장합니다.
+이름 유형 설명
+활동 시간 길이 [https://developers.google.com/workspace/gmail/markup/reference/types/Duration?hl=ko] 활동에 참여할 수 있는 시간입니다.
+활동 빈도 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 활동에 참여해야 하는 빈도입니다.
+추가 변수 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 환자에게 알려야 할 수도 있는 운동 처방의 추가 구성요소입니다. 여기에는 운동 순서, 움직임의 반복 횟수, 정량적 거리, 시간 경과에 따른 진척도 등이 포함될 수 있습니다.
+운동 유형 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 근력 운동, 근력 운동, 에어로빅, 심장 재활 등 운동 또는 활동 유형
+강도 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 운동과 관련된 강도를 측정하는 양적 측정입니다(예: 분당 심장 박동). 이동 속도를 포함할 수 있습니다.
+반복 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 활동을 반복해야 하는 횟수입니다.
+휴면 기간 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 활동을 중단해야 하는 빈도입니다.
+워크로드 에너지 [https://developers.google.com/workspace/gmail/markup/reference/types/Energy?hl=ko] 운동의 생리학적 출력에 대한 정량적 측정값으로 에너지 소비라고도 합니다.
+의견 보내기

@@ -1,0 +1,17 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/DDxElement
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+DDx요소
+bookmark_border
+유형 이름: DDxElement [https://developers.google.com/workspace/gmail/markup/reference/types/DDxElement?hl=ko]
+MedicalIntangible [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalIntangible?hl=ko] 확장
+이름 유형 설명
+진단 의료 상태 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalCondition?hl=ko] 감별 진단 시 고려되는 하나 이상의 대체 질환.
+구분 기호 의료 서명 또는 증상 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalSignOrSymptom?hl=ko] 감별 진단에서 이 진단과 다른 진단을 구분하는 데 사용할 수 있는 여러 징후 및 증상 중 하나입니다.
+의견 보내기

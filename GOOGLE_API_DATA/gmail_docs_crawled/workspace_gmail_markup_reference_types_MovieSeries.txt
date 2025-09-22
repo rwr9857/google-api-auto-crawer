@@ -1,0 +1,22 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MovieSeries
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+영화 시리즈
+bookmark_border
+유형 이름: MovieSeries [https://developers.google.com/workspace/gmail/markup/reference/types/MovieSeries?hl=ko]
+Series [https://developers.google.com/workspace/gmail/markup/reference/types/Series?hl=ko] 확장
+이름 유형 설명
+작업 수행자 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등에서 배우를 말합니다. 배우는 개별 항목이나 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+배우 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등에서 배우를 말합니다. 배우는 개별 항목이나 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+감독 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등의 콘텐츠 감독입니다. 감독은 개별 항목 또는 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+감독 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등의 콘텐츠 감독입니다. 감독은 개별 항목 또는 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+음악: MusicGroup [https://developers.google.com/workspace/gmail/markup/reference/types/MusicGroup?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 사운드트랙의 작곡가입니다.
+제작사 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 프로그램(예: 시리즈, 비디오 게임, 에피소드 등)을 담당하는 제작사 또는 스튜디오
+예고편 VideoObject [https://developers.google.com/workspace/gmail/markup/reference/types/VideoObject?hl=ko] 영화 또는 TV/라디오 시리즈, 시즌, 에피소드 등의 트레일러입니다.
+의견 보내기

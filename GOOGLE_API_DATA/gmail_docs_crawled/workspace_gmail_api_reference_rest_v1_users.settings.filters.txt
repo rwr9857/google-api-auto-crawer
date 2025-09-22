@@ -1,0 +1,122 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users.settings.filters
+bookmark_border
+이 페이지의 내용
+리소스: 필터 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#resource:-filter]
+기준 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#criteria]
+SizeComparison [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#sizecomparison]
+작업 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#action]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#methods]
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#create]
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#delete]
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#get]
+리소스: 필터
+Gmail 필터의 리소스 정의입니다. 필터는 전체 이메일 대화목록이 아닌 특정 메일에 적용됩니다.
+JSON 표현
+{
+  "id": string,
+  "criteria": {
+    object (Criteria [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#Criteria])
+  },
+  "action": {
+    object (Action [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#Action])
+  }
+}
+필드
+id
+string
+서버에서 할당한 필터의 ID입니다.
+criteria
+object (Criteria [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#Criteria])
+필터의 일치 기준입니다.
+action
+object (Action [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#Action])
+필터에서 실행하는 작업입니다.
+기준
+메일 일치 기준
+JSON 표현
+{
+  "from": string,
+  "to": string,
+  "subject": string,
+  "query": string,
+  "negatedQuery": string,
+  "hasAttachment": boolean,
+  "excludeChats": boolean,
+  "size": integer,
+  "sizeComparison": enum (SizeComparison [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#SizeComparison])
+}
+필드
+from
+string
+발신자의 표시 이름 또는 이메일 주소입니다.
+to
+string
+수신자의 표시 이름 또는 이메일 주소입니다. '받는사람', '참조', '숨은참조' 헤더 필드의 수신자를 포함합니다. 이메일 주소의 로컬 부분만 사용하면 됩니다. 예를 들어 'example'과 'example@'는 모두 'example@gmail.com'과 일치합니다. 이 필드는 대소문자를 구분하지 않습니다.
+subject
+string
+메일 제목에서 대소문자를 구분하지 않는 구문입니다. 후행 및 선행 공백이 잘리고 인접한 공백이 접힙니다.
+query
+string
+지정된 검색어와 일치하는 메시지만 반환합니다. Gmail 검색창과 동일한 쿼리 형식을 지원합니다. 예를 들면 "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread"입니다.
+negatedQuery
+string
+지정된 검색어와 일치하지 않는 메시지만 반환합니다. Gmail 검색창과 동일한 쿼리 형식을 지원합니다. 예를 들면 "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread"입니다.
+hasAttachment
+boolean
+메일에 첨부파일이 있는지 여부입니다.
+excludeChats
+boolean
+응답에서 채팅을 제외해야 하는지 여부입니다.
+size
+integer
+모든 헤더와 첨부파일을 포함한 전체 RFC822 메시지의 크기(바이트)입니다.
+sizeComparison
+enum (SizeComparison [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters?hl=ko#SizeComparison])
+바이트 단위의 메시지 크기가 크기 필드와 어떤 관계가 있어야 하는지 나타냅니다.
+SizeComparison
+크기 필드를 메시지 크기와 비교하는 방법을 결정합니다.
+열거형
+unspecified
+smaller 지정된 크기보다 작은 메시지를 찾습니다.
+larger 지정된 크기보다 큰 메시지를 찾습니다.
+작업
+메시지에서 실행할 작업 집합입니다.
+JSON 표현
+{
+  "addLabelIds": [
+    string
+  ],
+  "removeLabelIds": [
+    string
+  ],
+  "forward": string
+}
+필드
+addLabelIds[]
+string
+메일에 추가할 라벨 목록입니다.
+removeLabelIds[]
+string
+메시지에서 삭제할 라벨 목록입니다.
+forward
+string
+메일을 전달할 이메일 주소입니다.
+메서드
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters/create?hl=ko]
+필터를 만듭니다.
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters/delete?hl=ko]
+지정된 필터를 즉시 영구적으로 삭제합니다.
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters/get?hl=ko]
+필터를 가져옵니다.
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.filters/list?hl=ko]
+Gmail 사용자의 메일 필터를 나열합니다.
+의견 보내기

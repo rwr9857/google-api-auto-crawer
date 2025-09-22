@@ -1,0 +1,25 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Clip
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+Clip
+bookmark_border
+유형 이름: 클립 [https://developers.google.com/workspace/gmail/markup/reference/types/Clip?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]를 확장합니다.
+이름 유형 설명
+작업 수행자 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등에서 배우를 말합니다. 배우는 개별 항목이나 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+배우 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등에서 배우를 말합니다. 배우는 개별 항목이나 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+클립 번호 정수 [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 또는 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 순서가 지정된 클립 그룹 내에서 클립의 위치입니다.
+감독 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등의 콘텐츠 감독입니다. 감독은 개별 항목 또는 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+감독 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등의 콘텐츠 감독입니다. 감독은 개별 항목 또는 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+음악: MusicGroup [https://developers.google.com/workspace/gmail/markup/reference/types/MusicGroup?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 사운드트랙의 작곡가입니다.
+에피소드 에피소드 [https://developers.google.com/workspace/gmail/markup/reference/types/Episode?hl=ko] 클립이 속한 에피소드입니다.
+시즌의 일부 시즌 [https://developers.google.com/workspace/gmail/markup/reference/types/Season?hl=ko] 이 에피소드가 속한 시즌입니다.
+계열 시리즈 [https://developers.google.com/workspace/gmail/markup/reference/types/Series?hl=ko] 이 에피소드 또는 시즌이 속한 시리즈입니다.
+게시 게시 이벤트 [https://developers.google.com/workspace/gmail/markup/reference/types/PublicationEvent?hl=ko] 에피소드, 클립 또는 미디어 객체와 연결된 게시 이벤트입니다.
+의견 보내기

@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/imap/xoauth2-protocol
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/imap/xoauth2-protocol
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -18,21 +18,21 @@ Initial Client Response(초기 클라이언트 응답)
 IMAP 프로토콜 교환
 Initial Client Response(초기 클라이언트 응답)
 오류 응답
-이 문서에서는 IMAP AUTHENTICATE, POP AUTH, SMTP AUTH 명령어와 함께 사용할 SASL XOAUTH2 메커니즘을 정의합니다. 이 메커니즘을 사용하면 OAuth 2.0 액세스 토큰을 사용하여 사용자의 Gmail 계정을 인증할 수 있습니다.
+이 문서에서는 IMAP AUTHENTICATE, POP AUTH, SMTP AUTH 명령어와 함께 사용할 SASL XOAUTH2 메커니즘을 정의합니다. 이 메커니즘을 사용하면 OAuth 2.0 액세스 토큰을 사용하여 사용자 Gmail 계정을 인증할 수 있습니다.
 OAuth 2.0 사용
 먼저 OAuth 2.0을 사용하여 Google API에 액세스하기 [https://developers.google.com/identity/protocols/OAuth2?hl=ko]를 숙지하세요. 이 문서에서는 OAuth 2.0의 작동 방식과 클라이언트 작성에 필요한 단계를 설명합니다.
-작동하는 예시를 보려면 샘플 XOAUTH2 코드 [https://developers.google.com/workspace/gmail/imap/xoauth2-libraries?hl=ko]를 찾아볼 수도 있습니다.
+작동하는 예시를 보려면 샘플 XOAUTH2 코드 [https://developers.google.com/workspace/gmail/imap/xoauth2-libraries?hl=ko]를 찾아보세요.
 OAuth 2.0 범위
 공개 애플리케이션에서 특정 사용자 데이터에 대한 액세스를 허용하는 범위를 사용하는 경우 인증 절차를 완료해야 합니다. 애플리케이션을 테스트할 때 화면에 확인되지 않은 앱이 표시되면 확인 요청을 제출하여 이를 삭제해야 합니다. 고객센터에서 인증되지 않은 앱 [https://support.google.com/cloud/answer/7454865?hl=ko]에 대해 자세히 알아보고 앱 인증에 관한 자주 묻는 질문(FAQ) [https://support.google.com/cloud/answer/9110914?hl=ko]에 대한 답변을 확인하세요.
 IMAP, POP, SMTP 액세스의 범위는 https://mail.google.com/입니다. IMAP, POP 또는 SMTP 앱의 전체 메일 범위에 대한 액세스를 요청하는 경우 Google API 서비스: 사용자 데이터 정책 [https://developers.google.com/terms/api-services-user-data-policy?hl=ko]을 준수해야 합니다.
 앱이 승인되려면 https://mail.google.com/을 완전히 활용해야 합니다.
 앱에 https://mail.google.com/가 필요하지 않다면 Gmail API로 이전하고 더 세부적인 제한된 범위 [https://support.google.com/cloud/answer/9110914?hl=ko#restricted-scopes]를 사용하세요.
 Google Workspace의 도메인 전체 위임
-서비스 계정 [https://developers.google.com/identity/protocols/OAuth2ServiceAccount?hl=ko]을 사용하여 Google Workspace 도메인 전체 위임 [https://developers.google.com/workspace/admin/directory/v1/guides/delegation?hl=ko]을 통해 IMAP를 통해 Google Workspace 사용자의 메일함에 액세스하려는 경우 https://www.googleapis.com/auth/gmail.imap_admin 범위를 사용하여 클라이언트를 승인할 수 있습니다.
+서비스 계정 [https://developers.google.com/identity/protocols/OAuth2ServiceAccount?hl=ko]을 사용하여 IMAP를 통해 Google Workspace 사용자의 메일함에 액세스하기 위해 Google Workspace 도메인 전체 위임 [https://developers.google.com/workspace/admin/directory/v1/guides/delegation?hl=ko]을 사용하려는 경우 https://www.googleapis.com/auth/gmail.imap_admin 범위를 사용하여 클라이언트를 승인할 수 있습니다.
 이 범위로 승인되면 IMAP 연결이 다르게 작동합니다.
 사용자가 Gmail 설정에서 라벨의 'IMAP에 표시'를 사용 중지한 경우에도 모든 라벨이 IMAP을 통해 표시됩니다.
 Gmail 설정의 '폴더 크기 제한'에 사용자가 설정한 내용과 관계없이 모든 메일이 IMAP를 통해 표시됩니다.
-참고: 이 범위는 Google Workspace도메인 전체 위임에만 사용할 수 있습니다. 다른 용도로는 사용할 수 없습니다. 확실하지 않으면 https://mail.google.com/ 범위를 사용하세요.
+참고: 이 범위는 Google Workspace 도메인 전체 위임에만 사용할 수 있습니다. 다른 용도로는 사용할 수 없습니다. 확실하지 않으면 https://mail.google.com/ 범위를 사용하세요.
 SASL XOAUTH2 메커니즘
 XOAUTH2 메커니즘을 사용하면 클라이언트가 OAuth 2.0 액세스 토큰 [https://developers.google.com/identity/protocols/oauth2?hl=ko#2.-obtain-an-access-token-from-the-google-authorization-server.]을 서버로 전송할 수 있습니다. 프로토콜은 다음 섹션에 표시된 인코딩된 값을 사용합니다.
 Initial Client Response(초기 클라이언트 응답)
@@ -60,7 +60,7 @@ SASL 프로토콜에서는 클라이언트가 이 챌린지에 빈 응답을 전
 IMAP 프로토콜 교환
 이 섹션에서는 Gmail IMAP 서버와 함께 SASL XOAUTH2를 사용하는 방법을 설명합니다.
 Initial Client Response(초기 클라이언트 응답)
-SASL XOAUTH2 메커니즘으로 로그인하려면 클라이언트가 XOAUTH2의 메커니즘 매개변수와 위에 구성된 초기 클라이언트 응답을 사용하여 AUTHENTICATE 명령어를 호출합니다. 예를 들면 다음과 같습니다.
+SASL XOAUTH2 메커니즘으로 로그인하려면 클라이언트가 XOAUTH2 메커니즘 매개변수와 위에 구성된 초기 클라이언트 응답을 사용하여 AUTHENTICATE 명령어를 호출합니다. 예를 들면 다음과 같습니다.
 [connection begins]
 C: C01 CAPABILITY
 S: * CAPABILITY IMAP4rev1 UNSELECT IDLE NAMESPACE QUOTA XLIST
@@ -94,7 +94,7 @@ IMAP 프로토콜 교환에 관해 알아야 할 사항은 다음과 같습니�
 POP 프로토콜 교환
 이 섹션에서는 Gmail POP 서버와 함께 SASL XOAUTH2를 사용하는 방법을 설명합니다.
 Initial Client Response(초기 클라이언트 응답)
-SASL XOAUTH2 메커니즘으로 로그인하려면 클라이언트가 XOAUTH2의 메커니즘 매개변수와 위에 구성된 초기 클라이언트 응답을 사용하여 AUTH 명령어를 호출합니다. 예를 들면 다음과 같습니다.
+SASL XOAUTH2 메커니즘으로 로그인하려면 클라이언트가 XOAUTH2 메커니즘 매개변수와 위에 구성된 초기 클라이언트 응답을 사용하여 AUTH 명령어를 호출합니다. 예를 들면 다음과 같습니다.
 [connection begins]
 C: AUTH XOAUTH2 dXNlcj1zb21ldXNlckBleGFtcGxlLmNvbQFhdXRoPUJlYX
 JlciB5YTI5LnZGOWRmdDRxbVRjMk52YjNSbGNrQmhkSFJoZG1semRHRXVZMjl0

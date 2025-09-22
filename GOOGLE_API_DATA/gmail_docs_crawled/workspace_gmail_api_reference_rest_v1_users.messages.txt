@@ -1,0 +1,147 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users.messages
+bookmark_border
+이 페이지의 내용
+리소스: Message [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#resource:-message]
+MessagePart [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#messagepart]
+헤더 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#header]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#methods]
+batchDelete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#batchdelete]
+batchModify [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#batchmodify]
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#delete]
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#get]
+리소스: Message
+이메일 메시지
+JSON 표현
+{
+  "id": string,
+  "threadId": string,
+  "labelIds": [
+    string
+  ],
+  "snippet": string,
+  "historyId": string,
+  "internalDate": string,
+  "payload": {
+    object (MessagePart [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message.MessagePart])
+  },
+  "sizeEstimate": integer,
+  "raw": string
+}
+필드
+id
+string
+메시지의 변경할 수 없는 ID입니다.
+threadId
+string
+메시지가 속한 스레드의 ID입니다. 대화목록에 메시지 또는 답장을 추가하려면 다음 기준을 충족해야 합니다.
+요청된 threadId는 요청과 함께 제공하는 Message 또는 Draft.Message에 지정되어야 합니다.
+References 및 In-Reply-To 헤더는 RFC 2822 [https://tools.ietf.org/html/rfc2822] 표준에 따라 설정해야 합니다.
+Subject 헤더가 일치해야 합니다.
+labelIds[]
+string
+이 메일에 적용된 라벨의 ID 목록입니다.
+snippet
+string
+메시지 텍스트의 일부입니다.
+historyId
+string
+이 메시지를 수정한 마지막 기록의 ID입니다.
+internalDate
+string (int64 [https://developers.google.com/discovery/v1/type-format?hl=ko] format)
+받은편지함의 순서를 결정하는 내부 메시지 생성 타임스탬프 (에포크 밀리초)입니다. 일반 SMTP 수신 이메일의 경우 Google에서 메일을 처음 수락한 시간을 나타내며, 이는 Date 헤더보다 안정적입니다. 그러나 API로 이전된 메일의 경우 클라이언트가 Date 헤더를 기반으로 하도록 구성할 수 있습니다.
+payload
+object (MessagePart [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message.MessagePart])
+메일 부분에서 파싱된 이메일 구조입니다.
+sizeEstimate
+integer
+메시지의 예상 크기(단위: 바이트)입니다.
+raw
+string (bytes [https://developers.google.com/discovery/v1/type-format?hl=ko] format)
+RFC 2822 형식 및 base64url 인코딩된 문자열로 된 전체 이메일 메시지입니다. format=RAW 매개변수가 제공된 경우 messages.get 및 drafts.get 응답으로 반환됩니다.
+base64 인코딩 문자열입니다.
+MessagePart
+단일 MIME 메시지 부분입니다.
+JSON 표현
+{
+  "partId": string,
+  "mimeType": string,
+  "filename": string,
+  "headers": [
+    {
+      object (Header [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message.Header])
+    }
+  ],
+  "body": {
+    object (MessagePartBody [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages.attachments?hl=ko#MessagePartBody])
+  },
+  "parts": [
+    {
+      object (MessagePart [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message.MessagePart])
+    }
+  ]
+}
+필드
+partId
+string
+메시지 부분의 변경할 수 없는 ID입니다.
+mimeType
+string
+메시지 부분의 MIME 유형입니다.
+filename
+string
+첨부파일의 파일 이름입니다. 이 메시지 부분이 첨부파일을 나타내는 경우에만 표시됩니다.
+headers[]
+object (Header [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message.Header])
+이 메시지 부분의 헤더 목록입니다. 전체 메시지 페이로드를 나타내는 최상위 메시지 부분에는 To, From, Subject와 같은 표준 RFC 2822 이메일 헤더가 포함됩니다.
+body
+object (MessagePartBody [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages.attachments?hl=ko#MessagePartBody])
+이 부분의 메일 부분 본문으로, 컨테이너 MIME 메일 부분의 경우 비어 있을 수 있습니다.
+parts[]
+object (MessagePart [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message.MessagePart])
+이 부분의 하위 MIME 메시지 부분입니다. 이는 컨테이너 MIME 메시지 부분(예: multipart/*)에만 적용됩니다. text/plain와 같이 컨테이너가 아닌 MIME 메시지 부분 유형의 경우 이 필드는 비어 있습니다. 자세한 내용은 RFC 1521 [http://www.ietf.org/rfc/rfc1521.txt]을 참고하세요.
+헤더
+JSON 표현
+{
+  "name": string,
+  "value": string
+}
+필드
+name
+string
+: 구분자 앞에 있는 헤더의 이름입니다. 예를 들면 다음과 같습니다. To
+value
+string
+: 구분 기호 뒤의 헤더 값입니다. 예를 들면 다음과 같습니다. someuser@example.com
+메서드
+batchDelete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/batchDelete?hl=ko]
+메시지 ID별로 여러 메시지를 삭제합니다.
+batchModify [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/batchModify?hl=ko]
+지정된 메일의 라벨을 수정합니다.
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/delete?hl=ko]
+지정된 메일을 즉시 완전히 삭제합니다.
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/get?hl=ko]
+지정된 메시지를 가져옵니다.
+import [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/import?hl=ko]
+SMTP를 통한 수신과 유사한 표준 이메일 전송 스캔 및 분류를 사용하여 이 사용자의 메일함에만 메일을 가져옵니다.
+insert [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/insert?hl=ko]
+IMAP APPEND와 마찬가지로 대부분의 검사 및 분류를 우회하여 이 사용자의 편지함에만 메시지를 직접 삽입합니다.
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/list?hl=ko]
+사용자의 편지함에 있는 메일을 나열합니다.
+modify [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/modify?hl=ko]
+지정된 메시지의 라벨을 수정합니다.
+send [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/send?hl=ko]
+지정된 메시지를 To, Cc, Bcc 헤더의 수신자에게 전송합니다.
+trash [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/trash?hl=ko]
+지정된 메일을 휴지통으로 이동합니다.
+untrash [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/untrash?hl=ko]
+휴지통에서 지정된 메일을 삭제합니다.
+의견 보내기

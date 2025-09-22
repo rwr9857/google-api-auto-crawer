@@ -1,0 +1,70 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users.settings.sendAs.smimeInfo
+bookmark_border
+이 페이지의 내용
+리소스: SmimeInfo [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo?hl=ko#resource:-smimeinfo]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo?hl=ko#methods]
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo?hl=ko#delete]
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo?hl=ko#get]
+insert [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo?hl=ko#insert]
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo?hl=ko#list]
+setDefault [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo?hl=ko#setdefault]
+리소스: SmimeInfo
+S/MIME 이메일 구성입니다.
+JSON 표현
+{
+  "id": string,
+  "issuerCn": string,
+  "isDefault": boolean,
+  "expiration": string,
+  "encryptedKeyPassword": string,
+
+  // Union field key can be only one of the following:
+  "pem": string,
+  "pkcs12": string
+  // End of list of possible types for union field key.
+}
+필드
+id
+string
+SmimeInfo의 변경할 수 없는 ID입니다.
+issuerCn
+string
+S/MIME 인증서 발급자의 일반 이름입니다.
+isDefault
+boolean
+이 SmimeInfo가 이 사용자의 발신자 주소에 대한 기본 SmimeInfo인지 여부입니다.
+expiration
+string (int64 [https://developers.google.com/discovery/v1/type-format?hl=ko] format)
+인증서 만료일 (에포크 이후 밀리초 단위)입니다.
+encryptedKeyPassword
+string
+키가 암호화된 경우 암호화된 키 비밀번호입니다.
+통합 필드 key. 예상되는 형식과 사용되는 형식에 따라 공개 키, 비공개 키, 인증서 체인의 다양한 조합으로 구성될 수 있는 S/MIME '키'입니다. key은 다음 중 하나여야 합니다.
+pem
+string
+PEM 형식의 X509 연결된 인증서 문자열 (표준 base64 인코딩)입니다. 키를 반환하는 데 사용되는 형식으로, 공개 키와 인증서 체인 (비공개 키 아님)이 포함됩니다.
+pkcs12
+string (bytes [https://developers.google.com/discovery/v1/type-format?hl=ko] format)
+단일 비공개/공개 키 쌍 및 인증서 체인이 포함된 PKCS#12 형식입니다. 이 형식은 새 SmimeInfo를 만들기 위해 클라이언트에서만 허용되며 비공개 키를 내보낼 수 없으므로 반환되지 않습니다. PKCS#12가 암호화될 수 있으며, 이 경우 encryptedKeyPassword를 적절하게 설정해야 합니다.
+base64 인코딩 문자열입니다.
+메서드
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo/delete?hl=ko]
+지정된 발신자 별칭의 지정된 S/MIME 구성을 삭제합니다.
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo/get?hl=ko]
+지정된 발신자 별칭에 대해 지정된 S/MIME 구성을 가져옵니다.
+insert [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo/insert?hl=ko]
+지정된 발신자 별칭에 지정된 S/MIME 구성을 삽입 (업로드)합니다.
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo/list?hl=ko]
+지정된 발신자 별칭의 S/MIME 구성을 나열합니다.
+setDefault [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.sendAs.smimeInfo/setDefault?hl=ko]
+지정된 발신자 별칭의 기본 S/MIME 구성을 설정합니다.
+의견 보내기

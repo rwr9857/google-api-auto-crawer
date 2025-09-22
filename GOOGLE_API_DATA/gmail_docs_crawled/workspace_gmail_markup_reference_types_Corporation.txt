@@ -1,0 +1,16 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Corporation
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+기업
+bookmark_border
+유형 이름: 기업 [https://developers.google.com/workspace/gmail/markup/reference/types/Corporation?hl=ko]
+조직 [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 확장
+이름 유형 설명
+티커 기호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] Corporation 객체와 관련된 거래소 거래 수단입니다. tickerSymbol은 증권 거래소와 공백 이름으로 구분되는 금융 상품 이름으로 표현됩니다. tickerSymbol 속성의 교환 구성요소의 경우 ISO15022에 지정된 시장 식별자 코드 (MIC)의 제어된 어휘를 사용하는 것이 좋습니다.
+의견 보내기

@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/auth/web-server
+[2025-07-31] Source URL: https://developers.google.com/workspace/gmail/api/auth/web-server
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,14 +10,14 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 서버 측 승인 구현
 bookmark_border
 이 페이지의 내용
-클라이언트 ID 및 클라이언트 비밀번호 만들기
-승인 요청 처리
-사용자 인증
-승인 코드를 액세스 토큰으로 교환
-저장된 사용자 인증 정보로 승인
-OAuth 2.0 사용자 인증 정보 사용
-서비스 객체 인스턴스화
-승인된 요청 전송 및 취소된 사용자 인증 정보 확인
+클라이언트 ID 및 클라이언트 비밀번호 만들기 [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#create_a_client_id_and_client_secret]
+승인 요청 처리 [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#handling_authorization_requests]
+사용자 인증 [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#authenticate_the_user]
+승인 코드를 액세스 토큰으로 교환 [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#exchange_the_authorization_code_for_an_access_token]
+저장된 사용자 인증 정보로 승인 [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#authorizing_with_stored_credentials]
+OAuth 2.0 사용자 인증 정보 사용 [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#using_oauth_20_credentials]
+서비스 객체 인스턴스화 [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#instantiate_a_service_object]
+승인된 요청 전송 및 취소된 사용자 인증 정보 확인 [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#send_authorized_requests_and_check_for_revoked_credentials]
 Gmail API에 대한 요청은 OAuth 2.0 사용자 인증 정보를 사용하여 승인해야 합니다. 사용자가 오프라인인 경우와 같이 애플리케이션에서 사용자를 대신하여 Google API에 액세스해야 하는 경우 서버 측 흐름을 사용해야 합니다. 이 접근 방식에서는 클라이언트에서 서버로 일회성 승인 코드를 전달해야 합니다. 이 코드는 서버의 액세스 토큰과 갱신 토큰을 획득하는 데 사용됩니다.
 서버 측 Google OAuth 2.0 구현에 대해 자세히 알아보려면 웹 서버 애플리케이션용 OAuth 2.0 사용 [https://developers.google.com/identity/protocols/oauth2/web-server?hl=ko]을 참고하세요.
 클라이언트 ID 및 클라이언트 비밀번호 만들기
@@ -36,7 +36,7 @@ OAuth 클라이언트 ID를 만든 경우 애플리케이션 유형을 선택합
 애플리케이션에 offline 액세스가 필요한 경우 앱이 처음 승인 코드를 교환할 때 이전 토큰이 만료된 후 새 액세스 토큰을 받는 데 사용하는 갱신 토큰도 받습니다. 애플리케이션은 나중에 사용할 수 있도록 이 갱신 토큰을 저장합니다 (일반적으로 서버의 데이터베이스에).
 중요: 항상 사용자 새로고침 토큰을 저장하세요. 애플리케이션에 새 갱신 토큰이 필요한 경우 approval_prompt 쿼리 매개변수가 force로 설정된 요청을 전송해야 합니다. 이렇게 하면 사용자에게 애플리케이션에 권한을 다시 부여하는 대화상자가 표시됩니다.
 다음 코드 샘플은 offline 액세스 권한으로 승인 코드를 액세스 토큰으로 교환하고 갱신 토큰을 저장하는 방법을 보여줍니다.
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#python] ---
 CLIENTSECRETS_LOCATION 값을 credentials.json 파일의 위치로 바꿉니다.
 import logging
 from oauth2client.client import flow_from_clientsecrets
@@ -255,7 +255,7 @@ OAuth 2.0 사용자 인증 정보 사용
 이전 섹션에 표시된 대로 OAuth 2.0 사용자 인증 정보를 가져온 후에는 이를 사용하여 Gmail 서비스 객체를 승인하고 API에 요청을 보낼 수 있습니다.
 서비스 객체 인스턴스화
 이 코드 샘플에서는 서비스 객체를 인스턴스화한 다음 승인해서 API 요청을 실행하는 방법을 보여줍니다.
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#python] ---
 from apiclient.discovery import build
 # ...
 
@@ -275,7 +275,7 @@ def build_service(credentials):
 다음 코드 스니펫은 승인된 Gmail 서비스 인스턴스를 사용하여 메시지 목록을 가져옵니다.
 오류가 발생하면 코드는 HTTP 401 상태 코드를 확인합니다. 이 상태 코드는 사용자를 승인 URL로 리디렉션하여 처리해야 합니다.
 Gmail API 작업에 대한 자세한 내용은 API 참조 [https://developers.google.com/workspace/gmail/api/v1/reference?hl=ko]를 참고하세요.
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/auth/web-server?hl=ko#python] ---
 from googleapiclient import errors
 
 # ...

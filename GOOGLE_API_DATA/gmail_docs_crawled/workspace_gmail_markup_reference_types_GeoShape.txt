@@ -1,0 +1,20 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/GeoShape
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+GeoShape
+bookmark_border
+유형 이름: GeoShape [https://developers.google.com/workspace/gmail/markup/reference/types/GeoShape?hl=ko]
+StructuredValue [https://developers.google.com/workspace/gmail/markup/reference/types/StructuredValue?hl=ko]를 확장함
+이름 유형 설명
+box 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 다각형은 시작 지점과 종료 지점이 동일한 지점 간 경로로 둘러싸인 영역입니다. 다각형은 첫 번째와 마지막 점이 동일한 4개 이상의 공백으로 구분된 점으로 표현됩니다.
+원 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 원은 지정된 위도와 경도를 중심으로 하는 지정된 반경의 원형 지역입니다. 원은 쌍과 미터 단위의 반경으로 표현된 쌍으로 표현됩니다.
+elevation Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 위치의 고도
+선 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 선은 2개 이상의 점으로 구성된 지점 간 경로입니다. 선은 공백으로 구분된 두 개 이상의 점 객체로 표현됩니다.
+polygon 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 다각형은 시작 지점과 종료 지점이 동일한 지점 간 경로로 둘러싸인 영역입니다. 다각형은 첫 번째와 마지막 점이 동일한 4개 이상의 공백으로 구분된 점으로 표현됩니다.
+의견 보내기

@@ -1,0 +1,18 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MusicPlaylist
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+음악 재생목록
+bookmark_border
+유형 이름: MusicPlaylist [https://developers.google.com/workspace/gmail/markup/reference/types/MusicPlaylist?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]를 확장합니다.
+이름 유형 설명
+NumTrack 정수 [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 이 앨범 또는 재생목록의 트랙 수입니다.
+레이싱 ItemList [https://developers.google.com/workspace/gmail/markup/reference/types/ItemList?hl=ko] 또는 MusicRecording [https://developers.google.com/workspace/gmail/markup/reference/types/MusicRecording?hl=ko] 음악 녹음(트랙)(일반적으로 1곡) ItemList가 제공되면 목록에 MusicRecording 유형의 항목이 포함되어야 합니다.
+트랙 음악 녹음 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicRecording?hl=ko] 음악 녹음(트랙)(일반적으로 1곡)
+의견 보내기

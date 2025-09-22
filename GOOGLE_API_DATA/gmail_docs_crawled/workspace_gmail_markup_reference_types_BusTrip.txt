@@ -1,0 +1,22 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/BusTrip
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+버스 운행
+bookmark_border
+유형 이름: BusTrip [https://developers.google.com/workspace/gmail/markup/reference/types/BusTrip?hl=ko]
+Intangible [https://developers.google.com/workspace/gmail/markup/reference/types/Intangible?hl=ko] 확장
+이름 유형 설명
+도착버스 정류장 BusStation [https://developers.google.com/workspace/gmail/markup/reference/types/BusStation?hl=ko] 또는 BusStop [https://developers.google.com/workspace/gmail/markup/reference/types/BusStop?hl=ko] 버스가 도착하는 정류장 또는 역입니다.
+도착 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예상 도착 시간입니다.
+버스 이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 버스의 이름입니다 (예: Bolt Express).
+버스 번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 버스의 고유 식별자입니다.
+출발 버스 정류장 BusStation [https://developers.google.com/workspace/gmail/markup/reference/types/BusStation?hl=ko] 또는 BusStop [https://developers.google.com/workspace/gmail/markup/reference/types/BusStop?hl=ko] 버스가 출발하는 정류장 또는 역입니다.
+출발 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예상 출발 시간입니다.
+제공업체 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약을 제공하는 조직입니다.
+의견 보내기

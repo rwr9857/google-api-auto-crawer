@@ -1,0 +1,21 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MedicalStudy
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+의학 연구
+bookmark_border
+유형 이름: MedicalStudy [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalStudy?hl=ko]
+MedicalEntity [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEntity?hl=ko] 확장
+이름 유형 설명
+결과 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 연구의 예상 또는 실제 결과입니다.
+population 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 연구에 사용된 모집단의 모든 특징입니다(예: '만 65세 미만의 남성').
+VIP Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 연구의 스폰서입니다.
+status MedicalStudyStatus [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalStudyStatus?hl=ko] 학습의 상태 (열거형)입니다.
+연구 위치 행정 구역 [https://developers.google.com/workspace/gmail/markup/reference/types/AdministrativeArea?hl=ko] 학습이 진행되거나 실행된 위치입니다.
+연구 제목 의료 단체 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEntity?hl=ko] 연구 주제(연구에서 다룬 질병, 치료, 기기, 약물 등)
+의견 보내기

@@ -1,0 +1,26 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/ExerciseAction
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+운동 작업
+bookmark_border
+유형 이름: ExerciseAction [https://developers.google.com/workspace/gmail/markup/reference/types/ExerciseAction?hl=ko]
+PlayAction [https://developers.google.com/workspace/gmail/markup/reference/types/PlayAction?hl=ko]을 확장합니다.
+이름 유형 설명
+과정 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 위치의 하위 속성 이 액션이 발생한 과정입니다.
+식습관 다이어트 [https://developers.google.com/workspace/gmail/markup/reference/types/Diet?hl=ko] 악기의 하위 속성 이 작업에 사용된 식단입니다.
+distance Distance [https://developers.google.com/workspace/gmail/markup/reference/types/Distance?hl=ko] 운동 또는 이동 등 이동 거리
+운동 계획 운동 계획 [https://developers.google.com/workspace/gmail/markup/reference/types/ExercisePlan?hl=ko] 악기의 하위 속성 이 작업에 사용된 운동 계획입니다.
+운동 유형 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 근력 운동, 근력 운동, 에어로빅, 심장 재활 등 운동 또는 활동 유형
+출발지 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 위치의 하위 속성 작업 전의 객체 또는 에이전트의 원래 위치입니다.
+상대편 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 참가자의 하위 속성입니다. 이 액션의 상대편입니다.
+SportsActivity위치 SportsActivityLocation [https://developers.google.com/workspace/gmail/markup/reference/types/SportsActivityLocation?hl=ko] 위치의 하위 속성 이 작업이 발생한 스포츠 활동 위치입니다.
+스포츠 이벤트 스포츠 이벤트 [https://developers.google.com/workspace/gmail/markup/reference/types/SportsEvent?hl=ko] 위치의 하위 속성 이 액션이 발생한 스포츠 이벤트입니다.
+스포츠팀 스포츠팀 [https://developers.google.com/workspace/gmail/markup/reference/types/SportsTeam?hl=ko] 참가자의 하위 속성입니다. 이 작업에 참여한 스포츠팀입니다.
+도착지 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 위치의 하위 속성 작업 후 객체 또는 에이전트의 최종 위치입니다.
+의견 보내기

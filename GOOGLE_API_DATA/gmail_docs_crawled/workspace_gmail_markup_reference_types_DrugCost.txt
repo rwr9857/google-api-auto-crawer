@@ -1,0 +1,21 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/DrugCost
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+약물 비용
+bookmark_border
+유형 이름: DrugCost [https://developers.google.com/workspace/gmail/markup/reference/types/DrugCost?hl=ko]
+MedicalIntangible [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalIntangible?hl=ko] 확장
+이름 유형 설명
+해당 위치 행정 구역 [https://developers.google.com/workspace/gmail/markup/reference/types/AdministrativeArea?hl=ko] 상태가 적용되는 위치입니다.
+비용 카테고리 DrugCostCategory [https://developers.google.com/workspace/gmail/markup/reference/types/DrugCostCategory?hl=ko] 비용 카테고리(예: 도매, 소매, 보상 한도)
+비용 통화 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 의약품 비용의 통화 (3자리 ISO 4217 형식 [http://ko.wikipedia.org/wiki/ISO_4217])입니다.
+비용 출처 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 비용 데이터의 출처를 포착하기 위한 추가 세부정보입니다. 예: '메디케어 파트 B'
+단위당 비용 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 약물의 단위당 비용입니다.
+의약품 단위 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 약물이 측정되는 단위입니다(예: '5mg 태블릿').
+의견 보내기

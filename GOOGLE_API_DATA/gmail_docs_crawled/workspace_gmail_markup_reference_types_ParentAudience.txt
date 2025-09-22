@@ -1,0 +1,17 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/ParentAudience
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+상위 잠재고객
+bookmark_border
+유형 이름: ParentAudience [https://developers.google.com/workspace/gmail/markup/reference/types/ParentAudience?hl=ko]
+PeopleAudience [https://developers.google.com/workspace/gmail/markup/reference/types/PeopleAudience?hl=ko]를 확장합니다.
+이름 유형 설명
+어린이/연령대 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 자녀의 최대 연령입니다.
+어린이 최소 연령 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 아동의 최소 연령
+의견 보내기

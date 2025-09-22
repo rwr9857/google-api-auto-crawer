@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/sending
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/api/guides/sending
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,9 +10,9 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 이메일 보내기
 bookmark_border
 이 페이지의 내용
-메시지 만들기
-첨부파일이 있는 메시지 만들기
-메시지 전송
+메시지 만들기 [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko#creating_messages]
+첨부파일이 있는 메시지 만들기 [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko#creating_messages_with_attachments]
+메시지 전송 [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko#sending_messages]
 Gmail API를 사용하여 이메일을 보내는 방법은 두 가지입니다.
 messages.send [https://developers.google.com/workspace/gmail/api/v1/reference/users/messages/send?hl=ko] 메서드를 사용하여 직접 전송할 수 있습니다.
 drafts.send [https://developers.google.com/workspace/gmail/api/v1/reference/users/drafts/send?hl=ko] 메서드를 사용하여 초안에서 보낼 수 있습니다.
@@ -23,7 +23,7 @@ messages.send를 호출하거나 초안을 보내는 경우 drafts.send를 호�
 이 워크플로의 세부사항은 선택한 클라이언트 라이브러리 및 프로그래밍 언어에 따라 다를 수 있습니다.
 메시지 만들기
 Gmail API에는 RFC 2822 [https://tools.ietf.org/html/rfc2822]를 준수하고 base64url 문자열로 인코딩된 MIME 이메일 메시지가 필요합니다. 많은 프로그래밍 언어에는 MIME 메시지를 만들고 인코딩하는 프로세스를 간소화하는 라이브러리나 유틸리티가 있습니다. 다음 코드 예에서는 다양한 언어의 Google API 클라이언트 라이브러리를 사용하여 MIME 메시지를 만드는 방법을 보여줍니다.
---- 탭: 자바 ---
+--- 탭: 자바 [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko#%EC%9E%90%EB%B0%94] ---
 javax.mail.internet 패키지의 MimeMessage 클래스를 사용하면 이메일 메시지 생성을 크게 간소화할 수 있습니다. 다음 예에서는 헤더를 포함한 이메일 메시지를 만드는 방법을 보여줍니다.
 
 
@@ -219,7 +219,7 @@ public class CreateMessage {
   }
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko#python] ---
 다음 코드 샘플에서는 MIME 메시지를 만들고, base64url 문자열로 인코딩하고, Message 리소스의 raw 필드에 할당하는 방법을 보여줍니다.
 
 
@@ -333,7 +333,7 @@ if __name__ == "__main__":
   gmail_create_draft()
 첨부파일이 있는 메시지 만들기
 첨부파일이 있는 메시지를 만드는 것은 다른 메시지를 만드는 것과 비슷하지만 파일을 멀티파트 MIME 메시지로 업로드하는 프로세스는 프로그래밍 언어에 따라 다릅니다. 다음 코드 예는 첨부파일이 있는 멀티파트 MIME 메시지를 만드는 방법을 보여줍니다.
---- 탭: 자바 ---
+--- 탭: 자바 [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko#%EC%9E%90%EB%B0%94] ---
 다음 예에서는 멀티파트 MIME 메시지를 만드는 방법을 보여줍니다. 인코딩 및 할당 단계는 위와 동일합니다.
 
 
@@ -501,7 +501,7 @@ public class CreateDraftWithAttachment {
   }
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko#python] ---
 이 예시도 이전 예시와 마찬가지로 메시지를 base64url로 인코딩하고 Message 리소스의 raw 필드에 할당합니다.
 
 
@@ -662,7 +662,7 @@ if __name__ == "__main__":
   gmail_create_draft_with_attachment()
 메시지 전송
 메시지를 만든 후 다음 예와 같이 messages.send [https://developers.google.com/workspace/gmail/api/v1/reference/users/messages/send?hl=ko] 호출의 요청 본문에 제공하여 메시지를 보낼 수 있습니다.
---- 탭: 자바 ---
+--- 탭: 자바 [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko#%EC%9E%90%EB%B0%94] ---
 .filepath {
     color: #fff;
     margin: 6px;
@@ -781,7 +781,7 @@ public class SendMessage {
   }
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/sending?hl=ko#python] ---
 .filepath {
     color: #fff;
     margin: 6px;

@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/DatedMoneySpecification
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+DatedMoneySpecification
+bookmark_border
+유형 이름: DatedMoneySpecification [https://developers.google.com/workspace/gmail/markup/reference/types/DatedMoneySpecification?hl=ko]
+StructuredValue [https://developers.google.com/workspace/gmail/markup/reference/types/StructuredValue?hl=ko]를 확장함
+이름 유형 설명
+amount Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 액수입니다.
+currency 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 금액이 표시되는 통화입니다 (3글자 ISO 4217 [http://ko.wikipedia.org/wiki/ISO_4217] 형식).
+endDate 날짜 [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] 상품의 종료일 및 시간 (ISO 8601 날짜 형식 [http://ko.wikipedia.org/wiki/ISO_8601])입니다.
+startDate 날짜 [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] 상품의 시작 날짜 및 시간입니다 (ISO 8601 날짜 형식 [http://ko.wikipedia.org/wiki/ISO_8601]).
+의견 보내기

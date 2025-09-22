@@ -1,0 +1,53 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Offer
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+혜택
+bookmark_border
+유형 이름: 혜택 [https://developers.google.com/workspace/gmail/markup/reference/types/Offer?hl=ko]
+Intangible [https://developers.google.com/workspace/gmail/markup/reference/types/Intangible?hl=ko] 확장
+이름 유형 설명
+허용되는 결제 수단 결제 수단 [https://developers.google.com/workspace/gmail/markup/reference/types/PaymentMethod?hl=ko] 이 오퍼에 대해 판매자가 수락한 결제 수단입니다.
+부가기능 혜택 [https://developers.google.com/workspace/gmail/markup/reference/types/Offer?hl=ko] 첫 번째 기본 혜택과 함께만 이용할 수 있는 추가 혜택입니다 (예: 추가 요금이 부과되는 보조제 및 확장 프로그램).
+고급 예약 요건 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 오퍼를 수락한 후 리소스 또는 서비스를 실제로 사용하는 데 필요한 시간입니다.
+aggregateRating AggregateRating [https://developers.google.com/workspace/gmail/markup/reference/types/AggregateRating?hl=ko] 상품의 리뷰 또는 평점을 기반으로 한 전반적인 평점입니다.
+availability ItemAvailability [https://developers.google.com/workspace/gmail/markup/reference/types/ItemAvailability?hl=ko] 이 항목의 구매 가능 여부(예: 재고 있음, 재고 없음, 선주문 등)
+availabilityEnds DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 혜택에 포함된 제품 또는 서비스의 제공이 종료되는 경우
+availabilityStarts DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 혜택에 포함된 제품 또는 서비스의 제공이 시작됩니다.
+availableAtOrFrom 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 혜택을 얻을 수 있는 장소(예: 매장 위치)입니다.
+availableDeliveryMethod 게재 방법 [https://developers.google.com/workspace/gmail/markup/reference/types/DeliveryMethod?hl=ko] 이 오퍼에 사용할 수 있는 게재 방법입니다.
+비즈니스 기능 비즈니스 기능 [https://developers.google.com/workspace/gmail/markup/reference/types/BusinessFunction?hl=ko] 번들의 오퍼 또는 구성요소 (TypeAndQuantityNode)의 비즈니스 기능 (예: 판매, 임대, 수리, 폐기)입니다. 기본값은 http://purl.org/goodrelations/v1#Sell입니다.
+category PhysicalActivityCategory [https://developers.google.com/workspace/gmail/markup/reference/types/PhysicalActivityCategory?hl=ko], Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 또는 Thing [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 상품의 카테고리 큰 기호나 슬래시를 사용하여 카테고리 계층 구조를 비공식적으로 표시할 수 있습니다.
+게재 리드 타임 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 주문 상품이 입고된 후 상품이 창고에서 출발하기까지 걸리는 일반적인 지연 시간입니다.
+대상 고객 유형 비즈니스 법인 유형 [https://developers.google.com/workspace/gmail/markup/reference/types/BusinessEntityType?hl=ko] 지정된 혜택이 유효한 고객 유형입니다.
+운영 가능 기간 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 지정된 혜택이 유효한 기간입니다.
+운영 가능 수량 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 오퍼 또는 가격 사양이 유효한 주문 수량의 측정 간격 및 단위입니다. 이를 통해 특정 화물 요금이 특정 수량에 대해서만 유효함을 지정할 수 있습니다.
+운영 가능 지역 GeoShape [https://developers.google.com/workspace/gmail/markup/reference/types/GeoShape?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] ISO 3166-1(ISO 3166-1 alpha-2) 또는 ISO 3166-2 코드, 제품 또는 배송 요금 사양이 유효한 지정학적 지역의 GeoShape
+대상 거래 볼륨 PriceSpecification [https://developers.google.com/workspace/gmail/markup/reference/types/PriceSpecification?hl=ko] 혜택 또는 가격 사양이 유효한 통화 단위(예: 최소 구매 수량 표시, 특정 주문량 이상의 무료 배송, 신용카드 구매를 특정 최소 한도로 제한)
+GTIN13 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 제품 또는 제품이 참조하는 제품의 GTIN-13 [http://apps.gs1.org/GDD/glossary/Pages/GTIN-13.aspx] 코드입니다. 이는 13자리 ISBN 코드 및 EAN UCC-13과 같습니다. 이전의 12자리 UPC 코드를 앞에 0을 추가하여 GTIN-13 코드로 변환할 수 있습니다. 자세한 내용은 GS1 GTIN 요약 [http://www.gs1.org/barcodes/technical/idkeys/gtin]을 참고하세요.
+GTIN14 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 제품 또는 제품이 참조하는 제품의 GTIN-14 [http://apps.gs1.org/GDD/glossary/Pages/GTIN-14.aspx] 코드입니다. 자세한 내용은 GS1 GTIN 요약 [http://www.gs1.org/barcodes/technical/idkeys/gtin]을 참고하세요.
+GTIN8 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 제품 또는 제품이 참조하는 제품의 GTIN-8 [http://apps.gs1.org/GDD/glossary/Pages/GTIN-8.aspx] 코드입니다. 이 코드는 EAN/UCC-8 또는 8자리 EAN이라고도 합니다. 자세한 내용은 GS1 GTIN 요약 [http://www.gs1.org/barcodes/technical/idkeys/gtin]을 참고하세요.
+includeObject TypeAndQuantityNode [https://developers.google.com/workspace/gmail/markup/reference/types/TypeAndQuantityNode?hl=ko] 혜택에 포함된 제품의 정확한 수량을 나타내는 노드로 연결됩니다.
+사용 불가 지역 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 혜택을 가져올 수 없는 장소입니다(예: 거래가 허용되지 않는 지역).
+인벤토리 수준 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 상품의 현재 대략적인 인벤토리 수준입니다.
+itemCondition OfferItemCondition [https://developers.google.com/workspace/gmail/markup/reference/types/OfferItemCondition?hl=ko] OfferItemCondition의 사전 정의된 값 또는 제품, 서비스 또는 오퍼에 포함된 제품 또는 서비스의 상태에 대한 텍스트 설명입니다.
+itemOffered 제품 [https://developers.google.com/workspace/gmail/markup/reference/types/Product?hl=ko] 판매 중인 상품
+MPN 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 제품의 제조업체 부품번호 (MPN) 또는 제품이 참조하는 제품의 정보입니다.
+가격 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약의 총 가격입니다.
+priceCurrency[가격 통화] 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약 가격의 통화 (3자리 ISO 4217 형식)입니다.
+priceSpecification PriceSpecification [https://developers.google.com/workspace/gmail/markup/reference/types/PriceSpecification?hl=ko] 단가 및 배송료 또는 결제 비용을 나타내는 하나 이상의 상세 가격 사양입니다.
+priceValidUntil 날짜 [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] 이 날짜가 지나면 더 이상 가격을 사용할 수 없습니다.
+리뷰 리뷰 [https://developers.google.com/workspace/gmail/markup/reference/types/Review?hl=ko] 리뷰
+reviews 리뷰 [https://developers.google.com/workspace/gmail/markup/reference/types/Review?hl=ko] 항목에 대한 리뷰입니다.
+판매자 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 서비스 / 상품을 판매 (임대 / 임대 / 대여 / 대출)하는 법인입니다. 판매자가 제공업체일 수도 있습니다.
+일련번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 특정 제품의 일련번호 또는 영숫자 식별자입니다. 혜택에 연결된 경우 혜택에 포함된 제품의 일련번호를 바로가기로 지정할 수 있습니다.
+SKU 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 재고 관리 단위 (SKU)로, 제품 또는 서비스 또는 제품이 참조하는 제품의 판매자별 식별자입니다.
+유효 기간 시작 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 상품이 유효해지는 날짜입니다.
+유효 기간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 혜택의 유효 기간, 가격 사양, 영업시간 데이터가 종료되었습니다.
+보증 보증 약속 [https://developers.google.com/workspace/gmail/markup/reference/types/WarrantyPromise?hl=ko] 오퍼에 포함된 보증을 약속합니다.
+의견 보내기

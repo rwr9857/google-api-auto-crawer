@@ -1,0 +1,77 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/FlightReservation
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+항공편 예약
+bookmark_border
+유형 이름: FlightBooking [https://developers.google.com/workspace/gmail/markup/reference/types/FlightReservation?hl=ko]
+예약 [https://developers.google.com/workspace/gmail/markup/reference/types/Reservation?hl=ko] 확장
+이름 유형 설명
+additionalTicketText 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 탑승권에 대한 추가 정보
+항공기 좌석 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약된 좌석의 위치 (예: 27B).
+항공기 좌석 등급 항공기 좌석/좌석 등급입니다.
+항공기 좌석 등급이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 비행기 좌석 클래스의 이름입니다.
+boardingGroup 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 탑승 순서 / 선호 항공편의 항공사별 표시기입니다.
+예약 상담사 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약 대행사 또는 대행사 문자열 (예: '')도 허용합니다.
+예약 에이전트.이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 에이전트/서비스의 이름입니다.
+예약 에이전트.URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 상담사/서비스 웹사이트
+예약 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약한 날짜
+ModifiedTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] (확인 카드/검색 답변의 경우 권장됨) 예약이 마지막으로 수정된 시간입니다.
+잠재 액션 , ConfirmAction [https://developers.google.com/workspace/gmail/markup/reference/types/ConfirmAction?hl=ko], CancelAction [https://developers.google.com/workspace/gmail/markup/reference/types/CancelAction?hl=ko] 또는 CheckInAction [https://developers.google.com/workspace/gmail/markup/reference/types/CheckInAction?hl=ko] ) 예약에서 수행할 수 있는 작업입니다.
+potentialAction.target 진입점 [https://developers.google.com/workspace/gmail/markup/reference/types/EntryPoint?hl=ko] 작업을 처리하기 위한 핸들러(일반적으로 단순 URL)를 지정합니다.
+program멤버십 프로그램 멤버십 [https://developers.google.com/workspace/gmail/markup/reference/types/ProgramMembership?hl=ko] 항공사 멤버십, 호텔 포인트 제도 등의 정보가 멤버십에 적용되는 경우
+programMember.memberNumber 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 멤버십의 식별자입니다.
+program멤버십.프로그램 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 프로그램의 이름입니다.
+예약용
+(필수) 항공편 [https://developers.google.com/workspace/gmail/markup/reference/types/Flight?hl=ko] 예약이 제공되는 항공편입니다.
+예약용.항공사
+(필수) 항공사 [https://developers.google.com/workspace/gmail/markup/reference/types/Airline?hl=ko] 항공편을 제공하는 항공사입니다.
+예약용.에어라인.iataCode
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공사의 IATA 코드입니다.
+예약용.항공선.이름
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공사 이름입니다.
+예약..arrivalAirport
+(필수) 공항 [https://developers.google.com/workspace/gmail/markup/reference/types/Airport?hl=ko] 항공편의 최종 목적지입니다. 또한 문자열 (예: 'John F. 케네디 국제공항 JFK')
+예약용.도착 URL 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 공항의 IATA 코드입니다 (예: 'UA').
+예약 목적.이름: 이름
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 공항 이름입니다.
+예약용.arrivalGate 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공편의 공항 도착 게이트 식별자입니다.
+예약용.도착터미널 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] arrivalGate의 공항 터미널입니다.
+예약 목적. arrivalTime
+(필수) DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예상 도착 시간입니다.
+예약용.탑승시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 탑승이 시작되는 시간입니다.
+예약의.출발항공
+(필수) 공항 [https://developers.google.com/workspace/gmail/markup/reference/types/Airport?hl=ko] 항공편 출발 공항입니다. 문자열 (예: '샌프란시스코 공항 샌프란시스코')도 사용할 수 있습니다.
+예약용.에어포트.iataCode
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 공항의 IATA 코드입니다 (예: 'UA').
+예약의 경우 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 공항 이름입니다.
+예약용.출발문 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공편의 공항 출발 게이트의 식별자입니다.
+예약용.출발터 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 출발 게이트의 공항 터미널입니다.
+예약용.출발시간
+(필수) DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예상 출발 시간입니다.
+예약용.flightNumber
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공편 식별자입니다.
+예약용.운영자 항공사 [https://developers.google.com/workspace/gmail/markup/reference/types/Airline?hl=ko] 항공편을 이용하는 항공사입니다.
+예약의 목적별.iataCode 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공사의 IATA 코드입니다.
+예약용.이름:이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공사 이름입니다.
+예약의 예: webCheckinTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 웹 체크인을 위한 가장 이른 시간입니다.
+예약 번호
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약의 번호 또는 ID입니다.
+예약 상태
+(필수) 예약 상태 [https://developers.google.com/workspace/gmail/markup/reference/types/ReservationStatus?hl=ko] 예약의 현재 상태입니다.
+ticketDownloadUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 탑승권을 다운로드할 수 있는 위치입니다.
+ticketNumber 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 티켓의 번호 또는 ID입니다.
+ticketPrintUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 탑승권을 인쇄할 수 있는 위치입니다.
+ticketToken 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 또는 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 바코드 이미지가 사이트에서 호스팅되는 경우 입력란 값은 이미지의 URL 또는 바코드나 QR URI(예: 'barcode128:AB34'(ISO-15417 바코드), 'qrCode:AB34'(QR 코드), 'aztecCode:AB34'(Aztec 코드), 'barcodeEAN:12)CA'(CA) 1234)(CA)
+underName
+(필수) Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 승객입니다.
+underName.email 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이메일 주소입니다.
+underName.name
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 사람의 이름입니다.
+url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 볼 수 있는 웹페이지입니다.
+의견 보내기

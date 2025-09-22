@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/TypeAndQuantityNode
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+유형 수량 수량 노드
+bookmark_border
+유형 이름: TypeAndQuantityNode [https://developers.google.com/workspace/gmail/markup/reference/types/TypeAndQuantityNode?hl=ko]
+StructuredValue [https://developers.google.com/workspace/gmail/markup/reference/types/StructuredValue?hl=ko]를 확장함
+이름 유형 설명
+좋음 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 혜택에 포함된 상품의 수량입니다.
+비즈니스 기능 비즈니스 기능 [https://developers.google.com/workspace/gmail/markup/reference/types/BusinessFunction?hl=ko] 번들의 오퍼 또는 구성요소 (TypeAndQuantityNode)의 비즈니스 기능 (예: 판매, 임대, 수리, 폐기)입니다. 기본값은 http://purl.org/goodrelations/v1#Sell입니다.
+유형 제품 [https://developers.google.com/workspace/gmail/markup/reference/types/Product?hl=ko] 이 구조화된 값이 참조하는 제품입니다.
+단위 코드 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] UN/CEFACT 일반 코드 (3자)를 사용하여 제공된 측정 단위입니다.
+의견 보내기

@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/reactions/examples
+[2025-08-04] Source URL: https://developers.google.com/workspace/gmail/reactions/examples
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,12 +10,12 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 이메일 반응 예시
 bookmark_border
 이 페이지의 내용
-유효 기간: multipart/alternative
-유효한 단일 신체 부위
-multipart/related의 유효한 중첩 multipart/alternative
-JSON 형식이 잘못됨
-version 필드가 잘못됨
-emoji 필드가 잘못됨
+유효 기간: multipart/alternative [https://developers.google.com/workspace/gmail/reactions/examples?hl=ko#valid_multipartalternative]
+유효한 단일 신체 부위 [https://developers.google.com/workspace/gmail/reactions/examples?hl=ko#single_valid_body_part]
+multipart/related의 유효한 중첩 multipart/alternative [https://developers.google.com/workspace/gmail/reactions/examples?hl=ko#valid_nested_multipartalternative_in_multipartrelated]
+JSON 형식이 잘못됨 [https://developers.google.com/workspace/gmail/reactions/examples?hl=ko#invalid_json_format]
+version 필드가 잘못됨 [https://developers.google.com/workspace/gmail/reactions/examples?hl=ko#invalid_version_field]
+emoji 필드가 잘못됨 [https://developers.google.com/workspace/gmail/reactions/examples?hl=ko#invalid_emoji_field]
 다음은 유효한 이메일 반응 메시지와 유효하지 않은 이메일 반응 메시지의 몇 가지 예입니다.
 유효 기간: multipart/alternative
 이메일 반응은 일반적으로 세 부분으로 구성됩니다.

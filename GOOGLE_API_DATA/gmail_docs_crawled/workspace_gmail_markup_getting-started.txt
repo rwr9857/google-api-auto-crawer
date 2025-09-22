@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/markup/getting-started
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/markup/getting-started
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -13,7 +13,7 @@ bookmark_border
 첫 번째 마크업
 이메일 마크업은 이메일의 구조화된 데이터를 사용하여 작동합니다. Gmail은 JSON-LD [https://developers.google.com/workspace/gmail/markup/reference/formats/json-ld?hl=ko]와 마이크로데이터 [https://developers.google.com/workspace/gmail/markup/reference/formats/microdata?hl=ko]를 모두 지원하며, 둘 중 하나를 사용하여 이메일의 정보를 마크업할 수 있습니다. 이를 통해 Google은 필드를 이해하고 사용자에게 관련 검색 결과, 작업, 카드를 제공할 수 있습니다. 예를 들어 이메일이 이벤트 예약에 관한 내용인 경우 시작 시간, 장소, 티켓 수, 예약을 정의하는 기타 모든 정보를 주석으로 달 수 있습니다.
 첫 번째 마크업
-참가자에게 Google I/O 2013 티켓을 발송하는 담당자이고 이메일에서 마크업 시맨틱 정보를 사용하고 싶다고 가정해 보겠습니다. 최소한 티켓 확인 이메일에는 다음과 같은 HTML이 포함됩니다.
+참가자에게 Google I/O 2013 티켓을 발송하는 담당자이며 이메일에서 마크업 시맨틱 정보를 사용하려고 한다고 가정해 보겠습니다. 최소한 티켓 확인 이메일에는 다음과 같은 HTML이 포함됩니다.
 <html>
   <body>
     <p>

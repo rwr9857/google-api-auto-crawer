@@ -1,0 +1,81 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/api/reference/quota
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+사용량 한도
+bookmark_border
+이 페이지의 내용
+메서드별 할당량 사용량 [https://developers.google.com/workspace/gmail/api/reference/quota?hl=ko#per-method_quota_usage]
+Gmail API에는 API 메서드를 호출할 수 있는 비율을 제한하는 사용량 한도가 적용됩니다. 한도는 Gmail 리소스 사용량을 나타내는 추상 측정 단위인 할당량 단위 [https://developers.google.com/workspace/gmail/api/reference/quota?hl=ko#per-method_quota_usage]로 정의됩니다. 프로젝트별 사용량 한도와 사용자별 사용량 한도라는 두 가지 사용량 한도가 동시에 적용됩니다. 다음 표에는 이러한 사용량 한도가 자세히 나와 있습니다.
+사용량 한도 유형 한도 초과 이유
+프로젝트별 비율 제한 분당 할당량 단위 1,200,000개 rateLimitExceeded [https://developers.google.com/workspace/gmail/api/guides/handle-errors?hl=ko#resolve_a_403_error_rate_limit_exceeded]
+사용자별 비율 제한 사용자별 분당 할당량 단위 15,000개 userRateLimitExceeded [https://developers.google.com/workspace/gmail/api/guides/handle-errors?hl=ko#resolve_a_403_error_user_rate_limit_exceeded]
+참고: 한도 오류 처리에 대한 자세한 내용은 오류 해결 [https://developers.google.com/workspace/gmail/api/guides/handle-errors?hl=ko]을 참고하세요.
+메서드별 할당량 사용량
+요청에서 사용한 할당량 단위 수는 호출된 메서드에 따라 다릅니다. 다음 표에는 메서드별 할당량 단위 사용량이 나와 있습니다.
+메서드 할당량 단위
+drafts.create 10
+drafts.delete 10
+drafts.get 5
+drafts.list 5
+drafts.send 100
+drafts.update 15
+getProfile 1
+history.list 2
+labels.create 5
+labels.delete 5
+labels.get 1
+labels.list 1
+labels.update 5
+messages.attachments.get 5
+messages.batchDelete 50
+messages.batchModify 50
+messages.delete 10
+messages.get 5
+messages.import 25
+messages.insert 25
+messages.list 5
+messages.modify 5
+messages.send 100
+messages.trash 5
+messages.untrash 5
+settings.delegates.create 100
+settings.delegates.delete 5
+settings.delegates.get 1
+settings.delegates.list 1
+settings.filters.create 5
+settings.filters.delete 5
+settings.filters.get 1
+settings.filters.list 1
+settings.forwardingAddresses.create 100
+settings.forwardingAddresses.delete 5
+settings.forwardingAddresses.get 1
+settings.forwardingAddresses.list 1
+settings.getAutoForwarding 1
+settings.getImap 1
+settings.getPop 1
+settings.getVacation 1
+settings.sendAs.create 100
+settings.sendAs.delete 5
+settings.sendAs.get 1
+settings.sendAs.list 1
+settings.sendAs.update 100
+settings.sendAs.verify 100
+settings.updateAutoForwarding 5
+settings.updateImap 5
+settings.updatePop 100
+settings.updateVacation 5
+stop 50
+threads.delete 20
+threads.get 10
+threads.list 10
+threads.modify 10
+threads.trash 10
+threads.untrash 10
+watch 100
+의견 보내기

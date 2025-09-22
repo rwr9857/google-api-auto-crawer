@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/support
+[2025-07-30] Source URL: https://developers.google.com/workspace/gmail/api/support?hl=ko
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English

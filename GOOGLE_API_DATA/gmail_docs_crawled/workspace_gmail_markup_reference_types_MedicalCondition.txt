@@ -1,0 +1,31 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MedicalCondition
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+건강 상태
+bookmark_border
+유형 이름: MedicalCondition [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalCondition?hl=ko]
+MedicalEntity [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEntity?hl=ko] 확장
+이름 유형 설명
+연결된 해부학 AnatomicalStructure [https://developers.google.com/workspace/gmail/markup/reference/types/AnatomicalStructure?hl=ko], AnatomicalSystem [https://developers.google.com/workspace/gmail/markup/reference/types/AnatomicalSystem?hl=ko] 또는 SuperficialAnatomy [https://developers.google.com/workspace/gmail/markup/reference/types/SuperficialAnatomy?hl=ko] 기본 장기 또는 이 엔터티와 관련된 구조
+cause 의료적 원인 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalCause?hl=ko] 근본 원인 구체적으로 말하자면, 결국 결국 발생을 유발하는 병태생리 프로세스의 주요 원인이 되는 인과 작용제 중 하나입니다.
+감별 진단 DDx요소 [https://developers.google.com/workspace/gmail/markup/reference/types/DDxElement?hl=ko] 질환에 대한 감별 진단 세트 중 하나입니다. 구체적으로 말하자면, 보통 인지 과정의 후기로 간주되는 밀접한 진단이나 진단을 통해 이 환자의 환자가 가장 많은 간질을 당한 진단 또는 진단을 받을 가능성이 가장 비슷한 다른 증상과 증상을 찾아냅니다.
+역학 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 연령, 성별, 인종 등 연관된 환자의 특성
+예상 예후 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 질병의 단기 또는 장기적 결과일 가능성이 있습니다.
+NaturalProgressation 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 조건을 처리하지 않고 자연스럽게 진행할 수 있을 경우 예상되는 상태입니다.
+병태생리 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 활동 또는 질환과 관련된 정상적인 기계적, 물리적 및 생화학적 기능의 변화
+가능한 정보 표시 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 질병이 발생할 수 있으며 예기치 않게 발생할 수 있습니다. 합병증에는 질병의 징후나 증상 악화, 다른 기관으로의 질환 확장 등이 포함될 수 있습니다.
+가능한 치료 의료 요법 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTherapy?hl=ko] 이 질환, 징후 또는 증상을 해결하기 위한 가능한 치료입니다.
+주 예방 의료 요법 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTherapy?hl=ko] 백신 접종과 같은 질병의 초기 발생을 예방하는 데 사용되는 예방 요법입니다.
+위험 요인 의료 위험 요인 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalRiskFactor?hl=ko] 환자가 이 질환(예: 나이, 공존 질환)에 접하게 될 위험을 증가시키는 수정 또는 수정할 수 없는 인자입니다.
+보조 예방 의료 요법 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTherapy?hl=ko] 질환의 초기 에피소드 후 질병이 재발하는 것을 방지하는 데 사용되는 예방 요법입니다.
+signOrSymptom 의료 서명 또는 증상 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalSignOrSymptom?hl=ko] 이 질환의 징후 또는 증상입니다. 증상은 의학적 상태를 객관적으로 또는 시각적으로 관찰할 수 있는 증상이지만 증상은 질병의 주관적 경험입니다.
+단계 의료 상태 단계 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalConditionStage?hl=ko] 조건의 단계입니다(해당하는 경우).
+하위유형 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 보다 구체적인 유형의 질환입니다(예: '제1형 당뇨병', '제2형 당뇨병' 또는 '임신 당뇨병').
+일반적인 테스트 의료 테스트 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTest?hl=ko] 일반적으로 이 질환에 대한 의학적 검사가 수행됩니다.
+의견 보내기

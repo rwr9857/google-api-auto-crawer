@@ -1,0 +1,22 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/QualitativeValue
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+정성적 가치
+bookmark_border
+유형 이름: QualitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QualitativeValue?hl=ko]
+열거형 [https://developers.google.com/workspace/gmail/markup/reference/types/Enumeration?hl=ko]을 확장합니다.
+이름 유형 설명
+등호 자격 값 [https://developers.google.com/workspace/gmail/markup/reference/types/QualitativeValue?hl=ko] 질적 값에 대한 이러한 순서 관계는 주체가 객체와 같음을 나타냅니다.
+더 큼 자격 값 [https://developers.google.com/workspace/gmail/markup/reference/types/QualitativeValue?hl=ko] 질적 값에 대한 이러한 순서 관계는 주체가 객체보다 크다는 것을 나타냅니다.
+보다 큼 자격 값 [https://developers.google.com/workspace/gmail/markup/reference/types/QualitativeValue?hl=ko] 질적 값에 대한 이러한 순서 관계는 주체가 객체보다 크거나 같음을 나타냅니다.
+더 낮음 자격 값 [https://developers.google.com/workspace/gmail/markup/reference/types/QualitativeValue?hl=ko] 질적 값에 대한 이러한 순서 관계는 대상이 객체보다 작음을 나타냅니다.
+더 작거나 같음 자격 값 [https://developers.google.com/workspace/gmail/markup/reference/types/QualitativeValue?hl=ko] 질적 값에 대한 이러한 순서 관계는 주체가 객체보다 작거나 같음을 나타냅니다.
+같지 않음 자격 값 [https://developers.google.com/workspace/gmail/markup/reference/types/QualitativeValue?hl=ko] 질적 값에 대한 이러한 순서 관계는 주체가 객체와 같지 않음을 나타냅니다.
+값 참조 열거형 [https://developers.google.com/workspace/gmail/markup/reference/types/Enumeration?hl=ko] 또는 구조화된 값 [https://developers.google.com/workspace/gmail/markup/reference/types/StructuredValue?hl=ko] 원본 값에 대한 추가 정보(예: 기준 온도)를 제공하는 보조 값에 대한 포인터입니다.
+의견 보내기

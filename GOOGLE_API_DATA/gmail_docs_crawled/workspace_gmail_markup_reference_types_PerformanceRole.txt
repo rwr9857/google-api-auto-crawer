@@ -1,0 +1,16 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/PerformanceRole
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+퍼포먼스 역할
+bookmark_border
+유형 이름: PerformanceRole [https://developers.google.com/workspace/gmail/markup/reference/types/PerformanceRole?hl=ko]
+역할 [https://developers.google.com/workspace/gmail/markup/reference/types/Role?hl=ko]을 확장합니다.
+이름 유형 설명
+캐릭터 이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 연기 또는 연기하는 역할(예: PerformanceRole)에서 연기된 캐릭터의 이름입니다.
+의견 보내기

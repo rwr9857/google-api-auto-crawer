@@ -1,0 +1,16 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Comment
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+Comment
+유형 이름: 설명 [https://developers.google.com/workspace/gmail/markup/reference/types/Comment?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]를 확장합니다.
+이름 유형 설명
+반대표 정수 [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 커뮤니티에서 이 질문이 받은 반대표 수입니다.
+상위 항목 질문 [https://developers.google.com/workspace/gmail/markup/reference/types/Question?hl=ko] 일반적인 질문, 답변 또는 항목의 상위 요소입니다.
+찬성 투표수 정수 [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 커뮤니티에서 이 질문이 받은 찬성 투표 수입니다.
+의견 보내기

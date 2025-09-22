@@ -1,0 +1,61 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/FoodEstablishmentReservation
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+음식 예약
+bookmark_border
+유형 이름: Food 신속하게 설정 [https://developers.google.com/workspace/gmail/markup/reference/types/FoodEstablishmentReservation?hl=ko]
+예약 [https://developers.google.com/workspace/gmail/markup/reference/types/Reservation?hl=ko] 확장
+이름 유형 설명
+예약 상담사 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약 대행사 또는 대행사 문자열 (예: '')도 허용합니다.
+예약 에이전트.이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 에이전트/서비스의 이름입니다.
+예약 에이전트.URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 상담사/서비스 웹사이트
+예약 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약한 날짜
+cancel예약 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 취소할 수 있는 웹페이지입니다.
+확인 예약 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 확인할 수 있는 웹페이지입니다.
+ModifiedTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] (확인 카드/검색 답변의 경우 권장됨) 예약이 마지막으로 수정된 시간입니다.
+modify예약 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] (확인 카드/검색 답변의 경우 권장) 예약을 수정할 수 있는 웹페이지
+partySize
+(필수) Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 파티 참여자 수
+price 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] Food체인 예약의 총가격입니다.
+priceCurrency 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] Food체중계 예약의 가격 (3자리 ISO 4217 형식)입니다.''
+program멤버십 프로그램 멤버십 [https://developers.google.com/workspace/gmail/markup/reference/types/ProgramMembership?hl=ko] 항공사 멤버십, 호텔 포인트 제도 등의 정보가 멤버십에 적용되는 경우
+programMember.memberNumber 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 멤버십의 식별자입니다.
+program멤버십.프로그램 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 프로그램의 이름입니다.
+예약용
+(필수) 음식점 [https://developers.google.com/workspace/gmail/markup/reference/types/FoodEstablishment?hl=ko] 예약 대상 음식점입니다.
+예약용.주소
+(필수) PostalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko] 식당 주소입니다.
+예약용.주소.주소국가
+(필수) 국가 [https://developers.google.com/workspace/gmail/markup/reference/types/Country?hl=ko] 또는 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 음식점이 있는 국가입니다.
+예약용.주소.주소지역성
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 식당의 지역 (예: 도시)
+예약용.주소.주소지역
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 식당의 지역 (예: 주)입니다.
+예약용.주소.postalCode
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 식당의 우편번호입니다.
+예약의.주소.streetAddress
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 식당의 상세 주소입니다.
+예약용.이미지 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 음식점의 이미지입니다.
+예약용.이름
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 식당 이름입니다.
+예약용.전화 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 음식 시설의 전화번호입니다.
+예약용.URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 음식점 웹사이트
+예약 번호
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약의 번호 또는 ID입니다.
+예약 상태
+(필수) 예약 상태 [https://developers.google.com/workspace/gmail/markup/reference/types/ReservationStatus?hl=ko] 예약의 현재 상태입니다.
+startTime
+(필수) DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약 날짜 및 시간입니다.
+underName
+(필수) Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 테이블의 대상입니다.
+underName.email 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이메일 주소입니다.
+underName.name
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 사람의 이름입니다.
+url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 볼 수 있는 웹페이지입니다.
+의견 보내기

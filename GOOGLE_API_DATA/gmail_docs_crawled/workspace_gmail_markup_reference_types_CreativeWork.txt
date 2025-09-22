@@ -1,0 +1,81 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+CreativeWork
+bookmark_border
+유형 이름: CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]
+Thing [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 확장
+이름 유형 설명
+정보 사물 [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 콘텐츠의 주제입니다.
+accessibilityAPI 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 리소스가 참조된 접근성 API와 호환됨을 나타냅니다 (WebSchemas 위키에 가능한 값이 나열됨 [http://www.w3.org/wiki/WebSchemas/Accessibility]).
+accessibilityControl 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 설명된 리소스를 완전히 제어하기에 충분한 입력 방법을 식별합니다 (WebSchemas 위키에 가능한 값이 나열됨 [http://www.w3.org/wiki/WebSchemas/Accessibility]).
+accessibilityFeature 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 접근 가능한 미디어, 대체 옵션, 접근성을 위해 지원되는 개선사항 등 리소스의 콘텐츠 기능 (WebSchemas 위키에 가능한 값이 나열됨 [http://www.w3.org/wiki/WebSchemas/Accessibility])
+accessibilityHazard 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 설명된 리소스의 특성으로, 일부 사용자에게는 생리적으로 위험합니다. WCAG 2.0 가이드라인 2.3과 관련이 있습니다 (WebSchemas 위키에 가능한 값 목록 [http://www.w3.org/wiki/WebSchemas/Accessibility]).
+accountablePerson 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] CreativeWork에 대해 법적 책임이 있는 사람을 지정합니다.
+aggregateRating AggregateRating [https://developers.google.com/workspace/gmail/markup/reference/types/AggregateRating?hl=ko] 리뷰 또는 평점 모음을 기반으로 한 상품의 전체 평점입니다.
+alternativeHeadline 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] CreativeWork의 보조 제목입니다.
+associatedMedia MediaObject [https://developers.google.com/workspace/gmail/markup/reference/types/MediaObject?hl=ko] 이 CreativeWork를 인코딩하는 미디어 객체입니다. 이 속성은 인코딩의 동의어입니다.
+audience 시청자층 [https://developers.google.com/workspace/gmail/markup/reference/types/Audience?hl=ko] 항목의 대상 잠재고객입니다(즉, 항목이 제작된 그룹).
+오디오 AudioObject [https://developers.google.com/workspace/gmail/markup/reference/types/AudioObject?hl=ko] 삽입된 오디오 객체입니다.
+저자 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 이 콘텐츠의 작성자입니다. author는 HTML 5에서 rel 태그를 통해 저작자를 표시하는 특수한 메커니즘을 제공한다는 점에서 특별합니다. 이는 다음과 동일하며 서로 바꿔서 사용할 수 있습니다.
+상 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 사람이 수상했거나 이 창작물로 수상한 상입니다.
+수상 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 사람이 수상했거나 이 창작물로 수상한 상입니다.
+문자 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 창작물과 관련된 허구의 인물입니다.
+인용 CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 다른 저작물(예: 다른 간행물, 웹페이지, 학술 논문 등)에 대한 인용 또는 참조
+댓글 수 Comment [https://developers.google.com/workspace/gmail/markup/reference/types/Comment?hl=ko] 또는 UserComments [https://developers.google.com/workspace/gmail/markup/reference/types/UserComments?hl=ko] 참석 여부 회신에 댓글을 달고
+commentCount 정수 [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 이 CreativeWork (예: 도움말, 질문 또는 답변)에 달린 댓글 수입니다. 이는 댓글 시스템이 있는 웹사이트에 게시된 저작물에 가장 적용됩니다. 다른 위치에 추가 댓글이 있을 수 있습니다.
+contentLocation 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 콘텐츠의 위치입니다.
+contentRating 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 콘텐츠의 공식 등급입니다(예: 'MPAA PG-13').
+참여자 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] CreativeWork의 보조 참여자입니다.
+copyrightHolder Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] CreativeWork의 법적 저작권을 보유한 당사자입니다.
+copyrightYear 숫자 [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] CreativeWork의 저작권 침해 신고가 처음 제기된 연도입니다.
+크리에이터 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약한 사람 / 조직입니다.
+dateCreated 날짜 [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] CreativeWork가 생성된 날짜입니다.
+dateModified Date [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] 또는 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약이 마지막으로 수정된 시간입니다.
+datePublished 날짜 [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] 최초 방송/게시일입니다.
+discussionUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] CreativeWork의 댓글이 포함된 페이지의 링크입니다.
+편집자 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] CreativeWork를 수정한 사용자를 지정합니다.
+educationalAlignment AlignmentObject [https://developers.google.com/workspace/gmail/markup/reference/types/AlignmentObject?hl=ko] 확립된 교육 프레임워크와의 일치 여부
+educationalUse 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 교육 맥락에서의 작업 목적입니다(예: '과제', '그룹 과제').
+encoding 또는 MediaObject [https://developers.google.com/workspace/gmail/markup/reference/types/MediaObject?hl=ko] 메서드가 POST인 경우 HTTP 요청에 작업을 인코딩하는 방법
+인코딩 MediaObject [https://developers.google.com/workspace/gmail/markup/reference/types/MediaObject?hl=ko] 이 CreativeWork를 인코딩하는 미디어 객체입니다.
+exampleOfWork CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 이 저작물이 예시/인스턴스/실현/파생된 저작물입니다.
+장르 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 저작물 또는 그룹의 장르입니다.
+hasPart CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 어떤 의미에서는 이 CreativeWork의 일부인 CreativeWork를 나타냅니다.
+광고 제목 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 기사의 헤드라인입니다.
+inLanguage 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 콘텐츠의 언어입니다. IETF BCP 47 표준 [http://tools.ietf.org/html/bcp47]의 언어 코드 중 하나를 사용하세요.
+interactionCount 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 항목과의 특정 사용자 상호작용 횟수입니다(예: 20 UserLikes, 5 UserComments, 300 UserDownloads). 사용자 상호작용 유형은 UserInteraction [https://developers.google.com/workspace/gmail/markup/reference/types/UserInteraction?hl=ko]의 하위유형 중 하나여야 합니다.
+interactivityType 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 학습 리소스에서 지원하는 주된 학습 모드입니다. 허용되는 값은 'active', 'expositive' 또는 'mixed'입니다.
+isBasedOnUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 이 리소스를 만드는 데 사용된 리소스입니다. 이 용어는 여러 소스에 대해 반복될 수 있습니다. 예: http://example.com/great-multiplication-intro.html
+isFamilyFriendly Boolean [https://developers.google.com/workspace/gmail/markup/reference/types/Boolean?hl=ko] 콘텐츠가 모든 연령대에 적합한지 여부를 나타냅니다.
+isPartOf CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 이 CreativeWork가 (어떤 의미에서든) 속한 CreativeWork를 나타냅니다.
+키워드 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 콘텐츠를 설명하는 데 사용된 키워드 또는 태그입니다. 키워드 목록의 여러 항목은 일반적으로 쉼표로 구분됩니다.
+learningResourceType 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 학습 리소스를 특징짓는 주된 유형 또는 종류입니다. 예: '프레젠테이션', '자료'
+라이선스를 받다 CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 또는 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 이 콘텐츠에 적용되는 라이선스 문서입니다(일반적으로 URL로 표시됨).
+멘션 사물 [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] CreativeWork에 개념에 대한 참조가 포함되어 있지만 반드시 개념에 관한 것은 아님을 나타냅니다.
+쿠폰 혜택 [https://developers.google.com/workspace/gmail/markup/reference/types/Offer?hl=ko] 이 상품을 제공하기 위한 제안입니다(예: 제품 판매, 영화 DVD 대여, 이벤트 티켓 무료 제공).
+position Integer [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항목의 시리즈 또는 순서에서 항목의 위치입니다.
+제작자 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 작품 (예: 음악 앨범, 영화, TV/라디오 시리즈 등)을 제작한 사람 또는 조직입니다.
+provider Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약을 제공하는 조직입니다.
+게시자 조직 [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 저작물의 게시자입니다.
+publishingPrinciples URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] CreativeWork 제작을 주로 담당하는 조직의 편집 원칙을 설명하는 페이지 링크입니다.
+recordedAt 이벤트 [https://developers.google.com/workspace/gmail/markup/reference/types/Event?hl=ko] CreativeWork가 녹화된 이벤트입니다. CreativeWork는 이벤트의 전부 또는 일부를 캡처할 수 있습니다.
+releasedEvent PublicationEvent [https://developers.google.com/workspace/gmail/markup/reference/types/PublicationEvent?hl=ko] 발표가 이루어진 장소 및 시간으로, PublicationEvent로 표현됩니다.
+리뷰 리뷰 [https://developers.google.com/workspace/gmail/markup/reference/types/Review?hl=ko] 리뷰입니다.
+리뷰 리뷰 [https://developers.google.com/workspace/gmail/markup/reference/types/Review?hl=ko] 상품 리뷰입니다.
+sourceOrganization 조직 [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 크리에이터가 대리하는 조직입니다.
+텍스트 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 CreativeWork의 텍스트 콘텐츠입니다.
+thumbnailUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 사물과 관련된 썸네일 이미지입니다.
+timeRequired 기간 [https://developers.google.com/workspace/gmail/markup/reference/types/Duration?hl=ko] 일반적인 의도한 대상 그룹이 이 학습 리소스를 사용하거나 학습하는 데 걸리는 대략적인 시간 또는 일반적인 시간입니다(예: 'P30M', 'P1H25M').
+번역기 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 광고 소재를 타겟 시장의 다양한 언어, 지역적 차이, 기술 요구사항에 맞게 조정하는 조직 또는 개인입니다.
+typicalAgeRange 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 일반적으로 예상되는 연령대입니다(예: '7~9세', '11~').
+version 숫자 [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 지정된 리소스에 구현된 CreativeWork의 버전입니다.
+동영상 VideoObject [https://developers.google.com/workspace/gmail/markup/reference/types/VideoObject?hl=ko] 삽입된 동영상 객체입니다.
+workExample CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 이 창작물의 개념을 보여주는 예시/실례/실현/파생물입니다. 예를 들면 페이퍼백 버전, 초판 또는 eBook
+의견 보내기

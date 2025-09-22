@@ -1,0 +1,20 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Question
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+질문
+bookmark_border
+유형 이름: 질문 [https://developers.google.com/workspace/gmail/markup/reference/types/Question?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]를 확장합니다.
+이름 유형 설명
+수락 답변 정답 [https://developers.google.com/workspace/gmail/markup/reference/types/Answer?hl=ko] 일반적으로 질문/답변 사이트에서 선정한 답변입니다. 사이트마다 선택 메커니즘이 다릅니다. 커뮤니티 의견이나 질문 작성자의 관점을 활용하는 등 여러 가지 방법이 있습니다.
+답변 수 정수 [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 이 질문의 답변 수입니다.
+반대표 정수 [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 커뮤니티에서 이 질문이 받은 반대표 수입니다.
+추천 답변 정답 [https://developers.google.com/workspace/gmail/markup/reference/types/Answer?hl=ko] 질문에 대한 답변(질문이 있을 수 있는 여러 질문 중 하나일 수 있음)(예: 질문/답변 사이트)
+찬성 투표수 정수 [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 커뮤니티에서 이 질문이 받은 찬성 투표 수입니다.
+의견 보내기

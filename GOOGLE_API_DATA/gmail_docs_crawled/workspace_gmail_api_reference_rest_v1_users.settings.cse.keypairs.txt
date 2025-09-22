@@ -1,0 +1,142 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users.settings.cse.keypairs
+bookmark_border
+이 페이지의 내용
+리소스: CseKeyPair [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#resource:-csekeypair]
+EnablementState [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#enablementstate]
+CsePrivateKeyMetadata [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#cseprivatekeymetadata]
+KaclsKeyMetadata [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#kaclskeymetadata]
+HardwareKeyMetadata [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#hardwarekeymetadata]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#methods]
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#create]
+disable [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#disable]
+리소스: CseKeyPair
+공개 키, 인증서 체인, 페어링된 비공개 키의 메타데이터로 구성된 클라이언트 측 암호화 S/MIME 키 쌍입니다. Gmail은 키 쌍을 사용하여 다음 작업을 완료합니다.
+발신 클라이언트 측 암호화된 메일에 서명합니다.
+클라이언트 측 암호화된 메일의 답장을 저장하고 다시 엽니다.
+전송된 메시지를 저장하고 다시 엽니다.
+수신 또는 보관처리된 S/MIME 메일을 복호화합니다.
+조직의 사용자에 대한 ID 및 키 쌍을 관리하는 관리자의 경우 요청에 https://www.googleapis.com/auth/gmail.settings.basic 범위로 사용자를 가장할 수 있는 도메인 전체 위임 권한 [https://developers.google.com/identity/protocols/OAuth2ServiceAccount?hl=ko#delegatingauthority]이 있는 서비스 계정 [https://developers.google.com/identity/protocols/OAuth2ServiceAccount?hl=ko]으로 승인해야 합니다.
+자체 ID 및 키 쌍을 관리하는 사용자의 경우 요청에 하드웨어 키 암호화 [https://support.google.com/a/answer/14153163?hl=ko]가 사용 설정되고 구성되어 있어야 합니다.
+JSON 표현
+{
+  "keyPairId": string,
+  "pkcs7": string,
+  "pem": string,
+  "subjectEmailAddresses": [
+    string
+  ],
+  "enablementState": enum (EnablementState [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#EnablementState]),
+  "disableTime": string,
+  "privateKeyMetadata": [
+    {
+      object (CsePrivateKeyMetadata [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#CsePrivateKeyMetadata])
+    }
+  ]
+}
+필드
+keyPairId
+string
+출력 전용입니다. 클라이언트 측 암호화 S/MIME 키 쌍의 변경 불가능한 ID입니다.
+pkcs7
+string
+입력 전용입니다. 공개 키 및 인증서 체인 체인은 PKCS#7 [https://en.wikipedia.org/wiki/PKCS_7] 형식이어야 하며 PEM 인코딩 및 ASCII 암호화를 사용해야 합니다.
+pem
+string
+출력 전용입니다. 공개 키 및 인증서 체인(PEM [https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail] 형식)
+subjectEmailAddresses[]
+string
+출력 전용입니다. 리프 인증서에 지정된 이메일 주소 ID입니다.
+enablementState
+enum (EnablementState [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#EnablementState])
+출력 전용입니다. 키 쌍의 현재 상태입니다.
+disableTime
+string (Timestamp [https://protobuf.dev/reference/protobuf/google.protobuf/#timestamp] format)
+출력 전용입니다. 키 쌍이 DISABLED로 설정된 경우 키 쌍의 상태가 ENABLED에서 DISABLED로 변경된 시간입니다. 이 필드는 키 쌍이 DISABLED 상태에 있을 때만 표시됩니다.
+생성된 출력은 항상 Z-정규화되고 소수점 이하 0, 3, 6 또는 9자리인 RFC 3339를 사용합니다. 'Z' 이외의 오프셋도 허용됩니다. 예를 들면 "2014-10-02T15:01:23Z", "2014-10-02T15:01:23.045123456Z" 또는 "2014-10-02T15:01:23+05:30"입니다.
+privateKeyMetadata[]
+object (CsePrivateKeyMetadata [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#CsePrivateKeyMetadata])
+이 키 쌍의 비공개 키 인스턴스에 대한 메타데이터입니다.
+EnablementState
+키 쌍의 현재 상태에 관한 열거형입니다.
+열거형
+stateUnspecified 키 쌍의 현재 상태가 설정되지 않았습니다. 키 쌍이 사용 설정 또는 사용 중지되지 않았습니다.
+enabled
+키 쌍이 사용 설정됩니다. 이 키 쌍으로 암호화된 이메일 메일의 경우 Gmail에서 메일을 복호화하고 발신 메일에 비공개 키로 서명합니다.
+키 쌍을 사용 설정하려면 keypairs.enable [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs/enable?hl=ko#caribou.api.proto.MailboxService.EnableCseKeyPair] 메서드를 사용합니다.
+disabled
+키 쌍이 사용 중지됩니다. 인증된 사용자는 이메일 메시지를 복호화하거나 발신 메일에 서명할 수 없습니다. 키 쌍이 30일 넘게 사용 중지된 경우 영구적으로 삭제할 수 있습니다.
+키 쌍을 사용 중지하려면 keypairs.disable [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs/disable?hl=ko#caribou.api.proto.MailboxService.DisableCseKeyPair] 메서드를 사용합니다.
+CsePrivateKeyMetadata
+비공개 키 인스턴스의 메타데이터입니다.
+JSON 표현
+{
+  "privateKeyMetadataId": string,
+
+  // Union field metadata_variant can be only one of the following:
+  "kaclsKeyMetadata": {
+    object (KaclsKeyMetadata [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#KaclsKeyMetadata])
+  },
+  "hardwareKeyMetadata": {
+    object (HardwareKeyMetadata [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#HardwareKeyMetadata])
+  }
+  // End of list of possible types for union field metadata_variant.
+}
+필드
+privateKeyMetadataId
+string
+출력 전용입니다. 비공개 키 메타데이터 인스턴스의 불변 ID입니다.
+통합 필드 metadata_variant. 연합 필드: 다음 메타데이터 변형 유형 중 하나가 정확히 하나 있어야 합니다. metadata_variant은 다음 중 하나여야 합니다.
+kaclsKeyMetadata
+object (KaclsKeyMetadata [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#KaclsKeyMetadata])
+외부 키 액세스 제어 목록 서비스에서 관리하는 비공개 키 인스턴스의 메타데이터입니다.
+hardwareKeyMetadata
+object (HardwareKeyMetadata [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs?hl=ko#HardwareKeyMetadata])
+하드웨어 키의 메타데이터입니다.
+KaclsKeyMetadata
+외부 키 액세스 제어 목록 서비스에서 관리하는 비공개 키의 메타데이터입니다. 키 액세스 관리에 관한 자세한 내용은 Google Workspace CSE API 참조 [https://developers.google.com/workspace/cse/reference?hl=ko]를 참고하세요.
+JSON 표현
+{
+  "kaclsUri": string,
+  "kaclsData": string
+}
+필드
+kaclsUri
+string
+비공개 키를 관리하는 키 액세스 제어 목록 서비스의 URI입니다.
+kaclsData
+string
+키 액세스 제어 목록 서비스에서 생성하고 사용하는 불투명 데이터입니다. 최대 크기: 8KiB
+HardwareKeyMetadata
+하드웨어 키의 메타데이터입니다.
+Google Workspace 조직에 하드웨어 키 암호화 [https://support.google.com/a/answer/14153163?hl=ko]가 설정된 경우 사용자는 원하는 경우 비공개 키를 스마트 카드에 저장하고 스마트 카드를 Windows 기기에 연결된 리더에 삽입하여 Gmail에서 이메일 메시지에 서명하고 복호화하는 데 사용할 수 있습니다.
+JSON 표현
+{
+  "description": string
+}
+필드
+description
+string
+하드웨어 키에 관한 설명입니다.
+메서드
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs/create?hl=ko]
+인증된 사용자의 클라이언트 측 암호화 S/MIME 공개 키 인증서 체인 및 비공개 키 메타데이터를 만들고 업로드합니다.
+disable [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs/disable?hl=ko]
+클라이언트 측 암호화 키 쌍을 사용 중지합니다.
+enable [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs/enable?hl=ko]
+사용 중지된 클라이언트 측 암호화 키 쌍을 사용 설정합니다.
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs/get?hl=ko]
+기존 클라이언트 측 암호화 키 쌍을 검색합니다.
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs/list?hl=ko]
+인증된 사용자의 클라이언트 측 암호화 키 쌍을 나열합니다.
+obliterate [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.cse.keypairs/obliterate?hl=ko]
+클라이언트 측 암호화 키 쌍을 즉시 영구적으로 삭제합니다.
+의견 보내기

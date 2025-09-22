@@ -1,0 +1,21 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+PostalAddress
+bookmark_border
+유형 이름: postalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko]
+ContactPoint [https://developers.google.com/workspace/gmail/markup/reference/types/ContactPoint?hl=ko]를 확장합니다.
+이름 유형 설명
+addressCountry 국가 [https://developers.google.com/workspace/gmail/markup/reference/types/Country?hl=ko] 국가 예: 미국 두 글자로 된 ISO 3166-1 alpha-2 국가 코드 [http://en.wikipedia.org/wiki/ISO_3166-1]를 제공할 수도 있습니다.
+addressLocality 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 지역입니다. 예: 마운틴 뷰
+addressRegion 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 지역입니다. 예: CA
+우편번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 우편번호입니다. 예: 94043
+사서함 번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 사서함 주소의 사서함 번호입니다.
+번지 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 상세 주소입니다. 예: 1600 Amphitheatre Pkwy.
+의견 보내기

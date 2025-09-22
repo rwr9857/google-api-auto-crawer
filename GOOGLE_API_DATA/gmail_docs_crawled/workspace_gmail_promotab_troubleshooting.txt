@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/promotab/troubleshooting
+[2025-08-04] Source URL: https://developers.google.com/workspace/gmail/promotab/troubleshooting
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -82,7 +82,7 @@ ESP에서 예외를 만들지 않는 경우 허용될 수 있는 주석을 다�
 최신 버전의 Gmail 앱이 설치된 기기를 사용하고 있는지 확인합니다. 프로모션 탭에서 화면을 아래로 당겨 이메일을 새로고침합니다.
 기기를 다시 시작해 보세요.
 아직도 문제가 해결되지 않았나요? 태블릿과 같은 다른 기기에서 확인해 보세요. 태블릿의 Gmail 버전이 다를 수 있으며 번들이 다르게 표시될 수 있습니다.
-소비자에게만 이메일 번들이 표시됩니다. 이 환경은Google Workspace 사용자에게 영향을 미치지 않습니다.
+소비자에게만 이메일 번들이 표시됩니다. 이 환경은 사용자에게 영향을 미치지 않습니다.
 참고: 이메일이 홀드백 그룹에 포함될 수 있습니다. 위의 방법이 모두 작동하지 않으면 promotabtesting@gmail.com로 끝나는 새 계정을 만드세요. 예를 들어 mycompanypromotabtesting@gmail.com를 만들고 테스트에 새 계정을 사용합니다.
 이메일이 프로모션 탭으로 이동하지 않음
 이메일이 평소에 마케팅 이메일을 보내는 하위 도메인에서 전송되었는지 확인합니다. 잘 알려지지 않은 하위 도메인에서 전송하면 Gmail 탭 분류기가 혼동되어 이메일이 프로모션 탭에 배치되지 않을 수 있습니다.

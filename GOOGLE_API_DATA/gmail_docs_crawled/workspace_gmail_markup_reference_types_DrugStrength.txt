@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/DrugStrength
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+약물 강도
+bookmark_border
+유형 이름: DrugStrength [https://developers.google.com/workspace/gmail/markup/reference/types/DrugStrength?hl=ko]
+MedicalIntangible [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalIntangible?hl=ko] 확장
+이름 유형 설명
+활성 재료 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 활성 성분으로, 일반적으로 화합물 또는 생물학적 물질입니다.
+사용 가능 행정 구역 [https://developers.google.com/workspace/gmail/markup/reference/types/AdministrativeArea?hl=ko] 강도를 사용할 수 있는 위치입니다.
+강도 단위 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 활성 성분의 강도 단위(예: mg)입니다.
+강도 값 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 활성 성분의 강도 값입니다. 예: 325
+의견 보내기

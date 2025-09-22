@@ -1,0 +1,52 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+도움이 되었나요?
+의견 보내기
+REST Resource: users.drafts
+bookmark_border
+이 페이지의 내용
+리소스: 초안 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#resource:-draft]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#methods]
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#create]
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#delete]
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#get]
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#list]
+send [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#send]
+update [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko#update]
+리소스: 초안
+사용자의 편지함에 있는 전자우편 초안입니다.
+JSON 표현
+{
+  "id": string,
+  "message": {
+    object (Message [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message])
+  }
+}
+필드
+id
+string
+답안의 변경할 수 없는 ID입니다.
+message
+object (Message [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message])
+초안의 메시지 콘텐츠입니다.
+메서드
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/create?hl=ko]
+DRAFT 라벨이 지정된 새 초안을 만듭니다.
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/delete?hl=ko]
+지정된 초안을 즉시 영구적으로 삭제합니다.
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/get?hl=ko]
+지정된 답안을 가져옵니다.
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/list?hl=ko]
+사용자의 메일함에 있는 답장을 표시합니다.
+send [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/send?hl=ko]
+지정된 기존 초안을 To, Cc, Bcc 헤더의 수신자에게 전송합니다.
+update [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/update?hl=ko]
+초안의 콘텐츠를 대체합니다.
+도움이 되었나요?
+의견 보내기

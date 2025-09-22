@@ -1,0 +1,17 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/RentAction
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+대여 작업
+bookmark_border
+유형 이름: RentAction [https://developers.google.com/workspace/gmail/markup/reference/types/RentAction?hl=ko]
+TradeAction [https://developers.google.com/workspace/gmail/markup/reference/types/TradeAction?hl=ko]을 확장합니다.
+이름 유형 설명
+집주인 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 참가자의 하위 속성입니다. 부동산의 소유자입니다.
+부동산 중개인 부동산 대리인 [https://developers.google.com/workspace/gmail/markup/reference/types/RealEstateAgent?hl=ko] 참가자의 하위 속성입니다. 관련된 부동산 중개인입니다.
+의견 보내기

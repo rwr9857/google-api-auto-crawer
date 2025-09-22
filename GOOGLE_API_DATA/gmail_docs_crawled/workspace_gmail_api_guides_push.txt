@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/push
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/api/guides/push
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,19 +6,18 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 가이드 [https://developers.google.com/workspace/gmail/api/guides?hl=ko]
-도움이 되었나요?
 의견 보내기
 푸시 알림
 bookmark_border
 이 페이지의 내용
-개요
-초기 Cloud Pub/Sub 설정
-기본 요건
-주제 만들기
-구독 만들기
-주제에 게시 권한 부여
-Gmail 편지함 업데이트 받기
-시계 요청
+개요 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#overview]
+초기 Cloud Pub/Sub 설정 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#initial_cloud_pubsub_setup]
+기본 요건 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#prerequisites]
+주제 만들기 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#create_a_topic]
+구독 만들기 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#create_a_subscription]
+주제에 게시 권한 부여 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#grant_publish_rights_on_your_topic]
+Gmail 편지함 업데이트 받기 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#getting_mailbox_updates]
+시계 요청 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#watch_request]
 개요
 Gmail API는 Gmail 편지함의 변경사항을 확인할 수 있는 서버 푸시 알림을 제공합니다. 이 기능을 사용하여 애플리케이션의 성능을 개선할 수 있습니다. 이를 통해 리소스가 변경되었는지 확인하기 위해 리소스를 폴링하는 데 드는 추가 네트워크 및 컴퓨팅 비용을 없앨 수 있습니다. 편지함이 변경될 때마다 Gmail API는 백엔드 서버 애플리케이션에 알림을 보냅니다.
 참고: 사용자 소유 기기(예: 설치된 앱, 모바일 기기 또는 브라우저)에 대한 알림의 경우 업데이트를 가져오는 데는 폴링 기반 동기화 가이드 [https://developers.google.com/workspace/gmail/api/guides/sync?hl=ko]가 여전히 권장됩니다.
@@ -37,7 +36,7 @@ Gmail 편지함 업데이트 받기
 초기 Cloud Pub/Sub 설정이 완료되면 편지함 업데이트 알림을 전송하도록 Gmail 계정을 구성합니다.
 시계 요청
 Gmail 계정이 Cloud Pub/Sub 주제로 알림을 전송하도록 구성하려면 Gmail API 클라이언트를 사용하여 다른 Gmail API 호출과 마찬가지로 Gmail 사용자 편지함에서 watch [https://developers.google.com/workspace/gmail/api/v1/reference/users/watch?hl=ko]를 호출하면 됩니다. 이렇게 하려면 위에서 만든 주제 이름과 watch 요청의 기타 옵션(예: 필터링할 labels [https://developers.google.com/workspace/gmail/api/guides/labels?hl=ko])을 제공합니다. 예를 들어 받은편지함이 변경될 때마다 알림을 받으려면 다음 단계를 따르세요.
---- 탭: 프로토콜 ---
+--- 탭: 프로토콜 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C] ---
 POST "https://www.googleapis.com/gmail/v1/users/me/watch"
 Content-type: application/json
 
@@ -47,7 +46,7 @@ Content-type: application/json
   labelFilterBehavior: "INCLUDE",
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko#python] ---
 request = {
   'labelIds': ['INBOX'],
   'topicName': 'projects/myproject/topics/mytopic',
@@ -104,5 +103,4 @@ HTTP POST 본문은 JSON이며 실제 Gmail 알림 페이로드는 message.data 
 일반적으로 모든 알림은 몇 초 내에 안정적으로 전송되어야 하지만, 극단적인 상황에서는 알림이 지연되거나 삭제될 수 있습니다. 푸시 메시지를 수신하지 않더라도 애플리케이션이 계속 동기화되도록 이 가능성을 적절하게 처리해야 합니다. 예를 들어 사용자에게 알림이 없는 기간이 지난 후 주기적으로 history.list [https://developers.google.com/workspace/gmail/api/v1/reference/users/history/list?hl=ko]를 호출하도록 대체합니다.
 Cloud Pub/Sub 제한사항
 Cloud Pub/Sub API에도 자체 제한사항이 있으며, 자세한 내용은 가격 [https://cloud.google.com/pubsub/pricing?hl=ko] 및 할당량 [https://cloud.google.com/pubsub/quotas?hl=ko] 문서에 나와 있습니다.
-도움이 되었나요?
 의견 보내기

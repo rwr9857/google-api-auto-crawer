@@ -1,0 +1,20 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Code
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+코드
+bookmark_border
+유형 이름: 코드 [https://developers.google.com/workspace/gmail/markup/reference/types/Code?hl=ko]
+CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko]를 확장합니다.
+이름 유형 설명
+코드 저장소 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 컴파일되지 않고 사람이 읽을 수 있는 코드와 관련 코드가 있는 저장소 링크 (SVN, github, CodePlex)
+프로그래밍 언어 사물 [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 컴퓨터 프로그래밍 언어입니다.
+런타임 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 런타임 플랫폼 또는 스크립트 인터프리터 종속 항목 (예: 자바 v1, Python2.3, .Net Framework 3.0)
+sampleType 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 전체 (컴파일 준비 완료) 솔루션, 코드 스니펫, 인라인 코드, 스크립트, 템플릿
+대상 제품 소프트웨어 애플리케이션 [https://developers.google.com/workspace/gmail/markup/reference/types/SoftwareApplication?hl=ko] 코드를 적용할 운영체제 / 제품을 타겟팅합니다. 여러 버전에 적용되는 경우 제품 이름만 사용할 수 있습니다.
+의견 보내기

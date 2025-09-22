@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/ampemail/debugging-dynamic-email
+[2025-03-24] Source URL: https://developers.google.com/workspace/gmail/ampemail/debugging-dynamic-email
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,8 +10,8 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 동적 이메일 디버그
 bookmark_border
 이 페이지의 내용
-Gmail 웹에서 대체 디버깅 배너 사용 설정
-대체 이유
+Gmail 웹에서 대체 디버깅 배너 사용 설정 [https://developers.google.com/workspace/gmail/ampemail/debugging-dynamic-email?hl=ko#enabling_the_fallback_debugging_banner_in_web]
+대체 이유 [https://developers.google.com/workspace/gmail/ampemail/debugging-dynamic-email?hl=ko#fallback_reasons]
 Gmail에서는 동적 이메일과 관련된 일반적인 문제를 디버그하는 기능을 제공합니다.
 Gmail 웹에서 대체 디버깅 배너 사용 설정
 개발자는 디버깅 배너를 사용 설정하여 이메일이 AMP 이메일로 렌더링되지 않는 이유를 확인할 수 있습니다. 배너에는 이메일의 AMP 부분이 렌더링되지 않고 그 이유가 표시됩니다. 각 이유에 관한 자세한 내용은 다음 섹션을 참고하세요.

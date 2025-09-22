@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/markup/actions/end-to-end-example
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/markup/actions/end-to-end-example
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -19,7 +19,7 @@ bookmark_border
 기본 요건 및 프로젝트 설정
 이 가이드에서는 App Engine SDK [https://developers.google.com/appengine?hl=ko]를 이미 설치했고 App Engine 프로젝트를 만들고 실행하고 게시하는 방법을 알고 있다고 가정합니다.
 먼저 프로젝트의 디렉터리를 만듭니다. 애플리케이션의 모든 파일을 이 디렉터리에 넣습니다.
-다음 코드를 app.yaml라는 파일에 복사하고 {{ APPID }} 자리표시자를 고유한 App Engine 앱 ID로 바꿉니다.
+다음 코드를 app.yaml이라는 파일에 복사하고 {{ APPID }} 자리표시자를 고유한 App Engine 앱 ID로 바꿉니다.
 application: {{ APPID }}
 version: 1
 runtime: python27
@@ -193,5 +193,5 @@ https://subscribe.appspot.com/?user_id=123abcd
 GET 앱 루트 URL에 대한 요청은 수집된 정기 결제를 나열하는 데 사용됩니다. 요청 핸들러는 먼저 Datastore에서 모든 구독을 가져온 다음 간단한 카운터와 함께 페이지에 출력합니다.
 앱 테스트
 App Engine에 앱을 배포 [https://developers.google.com/appengine/docs/python/gettingstartedpython27/uploading?hl=ko]하고 https://APP-ID.appspot.com/email (APP-ID를 App Engine 앱 ID로 대체)를 방문하여 주석이 추가된 이메일을 자신에게 보냅니다.
-앱을 배포하고 정기 결제를 삽입한 후 https://APP-ID.appspot.com에서 앱을 방문하여 정기 결제를 요약한 페이지를 확인합니다.
+앱을 배포하고 정기 결제를 삽입한 후 https://APP-ID.appspot.com에서 앱을 방문하여 정기 결제를 요약하는 페이지를 확인합니다.
 의견 보내기

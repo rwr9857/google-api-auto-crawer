@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/design/css
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/design/css
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,12 +10,12 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 CSS 지원
 bookmark_border
 이 페이지의 내용
-CSS 선택자
-예
-CSS 미디어 쿼리
-예
-지원되는 CSS 속성 및 쿼리
-지원되는 미디어 쿼리
+CSS 선택자 [https://developers.google.com/workspace/gmail/design/css?hl=ko#css_selectors]
+예 [https://developers.google.com/workspace/gmail/design/css?hl=ko#example]
+CSS 미디어 쿼리 [https://developers.google.com/workspace/gmail/design/css?hl=ko#css_media_queries]
+예 [https://developers.google.com/workspace/gmail/design/css?hl=ko#example_2]
+지원되는 CSS 속성 및 쿼리 [https://developers.google.com/workspace/gmail/design/css?hl=ko#supported_css]
+지원되는 미디어 쿼리 [https://developers.google.com/workspace/gmail/design/css?hl=ko#supported_media_queries]
 인라인 <style> 블록과 표준 CSS를 사용하여 Gmail로 전송된 이메일의 스타일을 지정할 수 있습니다. 대부분의 CSS 선택기, 속성, 미디어 쿼리가 지원됩니다. 지원되지 않는 CSS 속성 및 선택기는 Gmail에서 무시될 수 있습니다.
 지원되는 CSS 속성 및 쿼리 [https://developers.google.com/workspace/gmail/design/css?hl=ko#supported_css]의 전체 목록은 참조 가이드를 참고하세요.
 CSS 선택자

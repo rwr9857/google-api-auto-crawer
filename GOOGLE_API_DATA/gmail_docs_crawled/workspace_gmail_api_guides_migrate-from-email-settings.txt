@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/migrate-from-email-settings
+[2025-08-01] Source URL: https://developers.google.com/workspace/gmail/api/guides/migrate-from-email-settings
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,11 +10,11 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 Email Settings API에서 이전
 bookmark_border
 이 페이지의 내용
-요청 승인
-프로토콜 변경사항
-라벨 관리
-필터 관리
-'보내기' 별칭 관리
+요청 승인 [https://developers.google.com/workspace/gmail/api/guides/migrate-from-email-settings?hl=ko#authorizing_requests]
+프로토콜 변경사항 [https://developers.google.com/workspace/gmail/api/guides/migrate-from-email-settings?hl=ko#protocol_changes]
+라벨 관리 [https://developers.google.com/workspace/gmail/api/guides/migrate-from-email-settings?hl=ko#managing_labels]
+필터 관리 [https://developers.google.com/workspace/gmail/api/guides/migrate-from-email-settings?hl=ko#managing_filters]
+'보내기' 별칭 관리 [https://developers.google.com/workspace/gmail/api/guides/migrate-from-email-settings?hl=ko#managing_send-as_aliases]
 이 문서에서는 Email Settings API [https://developers.google.com/workspace/admin/email-settings?hl=ko]와 Gmail API의 주요 차이점을 설명합니다. 이 가이드를 사용하여 앱을 Gmail API로 이전할 수 있습니다.
 요청 승인
 Email Settings API와 마찬가지로 Gmail API는 OAuth 2.0 프로토콜을 사용하여 요청을 승인합니다. 한 가지 중요한 차이점은 Gmail API 권한이 전체 도메인이 아닌 개별 사용자에게 범위가 지정된다는 것입니다. 즉, 도메인 관리자 계정을 승인해도 도메인의 다른 사용자의 메일을 이전할 수는 없습니다. 대신 관리 콘솔 [https://admin.google.com/?hl=ko]에서 허용 목록에 추가된 도메인 전체 권한이 있는 표준 서비스 계정 [https://developers.google.com/accounts/docs/OAuth2ServiceAccount?hl=ko]을 사용하여 적절한 인증 토큰을 생성해야 합니다.
@@ -26,14 +26,14 @@ https://www.googleapis.com/auth/gmail.settings.sharing
 프로토콜 변경사항
 이메일 설정 API는 XML 기반 GDATA 프로토콜을 사용합니다. Gmail API는 JSON을 사용합니다. 설정은 대부분 키/값 쌍으로 구성되므로 페이로드는 버전 간에 개념적으로 유사합니다.
 라벨을 만드는 예:
---- 탭: Email Settings API ---
+--- 탭: Email Settings API [https://developers.google.com/workspace/gmail/api/guides/migrate-from-email-settings?hl=ko#email-settings-api] ---
 POST https://apps-apis.google.com/a/feeds/emailsettings/2.0/{domain name}/{username}/label
 <?xml version="1.0" encoding="utf-8"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns:apps="http://schemas.google.com/apps/2006">
   <apps:property name="label" value="status updates" />
 </atom:entry>
 
---- 탭: Gmail API ---
+--- 탭: Gmail API [https://developers.google.com/workspace/gmail/api/guides/migrate-from-email-settings?hl=ko#gmail-api] ---
 POST https://www.googleapis.com/gmail/v1/users/{username}/labels
 {
    "name": "status updates"
@@ -131,13 +131,13 @@ Gmail API에서 위임을 관리하려면 Delegates [https://developers.google.c
 상태 verificationStatus
 기타 변경사항:
 일반
-delegates.create [https://developers.google.com/workspace/gmail/api/v1/reference/users/settings/delegates/create?hl=ko]를 비롯한 위임 방법을 사용하려면 위임자 사용자가 Gmail을 사용 설정해야 합니다. 즉, 예를 들어 위임자 사용자는Google Workspace에서 정지될 수 없습니다.
+delegates.create [https://developers.google.com/workspace/gmail/api/v1/reference/users/settings/delegates/create?hl=ko]를 비롯한 위임 방법을 사용하려면 위임자 사용자가 Gmail을 사용 설정해야 합니다. 즉, 예를 들어 위임자 사용자는에서 정지될 수 없습니다.
 이메일 별칭은 새 메서드의 위임 이메일 입력으로 사용할 수 없습니다. 위임된 사용자는 기본 이메일 주소로 참조해야 합니다.
 delegates.create [https://developers.google.com/workspace/gmail/api/v1/reference/users/settings/delegates/create?hl=ko]
-이제 이 메서드를 사용하여 동일한 Google Workspace 조직에 속한 여러 도메인 간에 위임 관계를 만들 수 있습니다.
+이제 이 메서드를 사용하여 동일한 조직에 속한 여러 도메인 간에 위임 관계를 만들 수 있습니다.
 이제 이 메서드를 사용하여 다음 로그인 시 비밀번호 변경이 필요한 사용자를 처리할 수 있습니다.
 이 메서드는 성공할 경우 빈 응답 본문이 아닌 응답 본문에 Users.settings.delegates 리소스 [https://developers.google.com/workspace/gmail/api/v1/reference/users/settings/delegates?hl=ko#resource]를 반환합니다.
-위임자 또는 위임된 사용자 중 한 명이 사용 중지된 경우 (예: Google Workspace에서 정지됨) 이 메서드는 HTTP 500 오류 대신 HTTP 4XX 오류와 함께 실패합니다.
+위임자 또는 위임된 사용자 중 한 명이 사용 중지된 경우 (예: 에서 정지됨) 이 메서드는 HTTP 500 오류 대신 HTTP 4XX 오류와 함께 실패합니다.
 delegates.delete [https://developers.google.com/workspace/gmail/api/v1/reference/users/settings/delegates/delete?hl=ko]
 이제 이 메서드를 사용하여 accepted 또는 expired인 위임자뿐만 아니라 모든 verificationStatus [https://developers.google.com/workspace/gmail/api/v1/reference/users/settings/delegates?hl=ko#resource-representations]를 가진 위임자를 삭제할 수 있습니다.
 delegates.get [https://developers.google.com/workspace/gmail/api/v1/reference/users/settings/delegates/get?hl=ko]

@@ -1,0 +1,49 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users.settings.forwardingAddresses
+bookmark_border
+이 페이지의 내용
+리소스: ForwardingAddress [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses?hl=ko#resource:-forwardingaddress]
+VerificationStatus [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses?hl=ko#verificationstatus]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses?hl=ko#methods]
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses?hl=ko#create]
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses?hl=ko#delete]
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses?hl=ko#get]
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses?hl=ko#list]
+리소스: ForwardingAddress
+전달 주소 설정입니다.
+JSON 표현
+{
+  "forwardingEmail": string,
+  "verificationStatus": enum (VerificationStatus [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses?hl=ko#VerificationStatus])
+}
+필드
+forwardingEmail
+string
+메일을 전달할 수 있는 이메일 주소입니다.
+verificationStatus
+enum (VerificationStatus [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses?hl=ko#VerificationStatus])
+이 주소가 인증되었으며 전달에 사용할 수 있는지 여부를 나타냅니다. 읽기 전용입니다.
+VerificationStatus
+전달 사용을 위해 이메일 주소의 소유권이 확인되었는지 여부를 나타냅니다.
+열거형
+verificationStatusUnspecified 지정되지 않은 인증 상태입니다.
+accepted 이제 이 주소를 전달에 사용할 수 있습니다.
+pending 주소가 소유자의 확인을 기다리는 중입니다.
+메서드
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses/create?hl=ko]
+전달 주소를 만듭니다.
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses/delete?hl=ko]
+지정된 전달 주소를 삭제하고 필요한 인증을 취소합니다.
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses/get?hl=ko]
+지정된 전달 주소를 가져옵니다.
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses/list?hl=ko]
+지정된 계정의 전달 주소를 나열합니다.
+의견 보내기

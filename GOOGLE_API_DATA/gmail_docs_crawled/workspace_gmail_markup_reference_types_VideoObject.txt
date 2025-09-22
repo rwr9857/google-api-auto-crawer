@@ -1,0 +1,25 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/VideoObject
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+VideoObject
+bookmark_border
+유형 이름: VideoObject [https://developers.google.com/workspace/gmail/markup/reference/types/VideoObject?hl=ko]
+MediaObject [https://developers.google.com/workspace/gmail/markup/reference/types/MediaObject?hl=ko]를 확장합니다.
+이름 유형 설명
+작업 수행자 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등에서 배우를 말합니다. 배우는 개별 항목이나 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+배우 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등에서 배우를 말합니다. 배우는 개별 항목이나 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+caption 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 객체의 자막입니다.
+감독 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등의 콘텐츠 감독입니다. 감독은 개별 항목 또는 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+감독 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등의 콘텐츠 감독입니다. 감독은 개별 항목 또는 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+음악: MusicGroup [https://developers.google.com/workspace/gmail/markup/reference/types/MusicGroup?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 사운드트랙의 작곡가입니다.
+썸네일 ImageObject [https://developers.google.com/workspace/gmail/markup/reference/types/ImageObject?hl=ko] 이미지 또는 동영상의 썸네일 이미지입니다.
+스크립트 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 MediaObject가 AudioObject 또는 VideoObject인 경우 해당 객체의 스크립트입니다.
+동영상 프레임 크기 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 동영상의 프레임 크기입니다.
+동영상 화질 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 동영상 화질입니다.
+의견 보내기

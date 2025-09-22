@@ -1,0 +1,16 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/AudioObject
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+오디오 객체
+bookmark_border
+유형 이름: AudioObject [https://developers.google.com/workspace/gmail/markup/reference/types/AudioObject?hl=ko]
+MediaObject [https://developers.google.com/workspace/gmail/markup/reference/types/MediaObject?hl=ko]를 확장합니다.
+이름 유형 설명
+스크립트 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 MediaObject가 AudioObject 또는 VideoObject인 경우 해당 객체의 스크립트입니다.
+의견 보내기

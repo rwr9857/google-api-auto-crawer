@@ -1,0 +1,243 @@
+[2025-09-06] Source URL: https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+상품 배송
+bookmark_border
+이 페이지의 내용
+사용 사례 [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko#use_cases]
+기본 상품 배송 [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko#basic_parcel_delivery]
+배송 정보와 함께 상품 배송 [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko#parcel_delivery_with_shipping_information]
+마크업 테스트 [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko#test_your_markup]
+사양 [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko#specification]
+이 템플릿을 사용하여 배송 상태를 설명합니다.
+사용 사례
+기본 상품 배송
+소포 배송의 최소 예시
+--- 탭: JSON-LD [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko#json-ld] ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "ParcelDelivery",
+  "deliveryAddress": {
+    "@type": "PostalAddress",
+    "name": "Pickup Corner",
+    "streetAddress": "24 Willie Mays Plaza",
+    "addressLocality": "San Francisco",
+    "addressRegion": "CA",
+    "addressCountry": "US",
+    "postalCode": "94107"
+  },
+  "expectedArrivalUntil": "2027-03-12T12:00:00-08:00",
+  "carrier": {
+    "@type": "Organization",
+    "name": "FedEx"
+  },
+  "itemShipped": {
+    "@type": "Product",
+    "name": "Google Chromecast"
+  },
+  "partOfOrder": {
+    "@type": "Order",
+    "orderNumber": "176057",
+    "merchant": {
+      "@type": "Organization",
+      "name": "Bob Dole"
+    }
+  }
+}
+</script>
+
+--- 탭: 마이크로데이터 [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko#%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EB%8D%B0%EC%9D%B4%ED%84%B0] ---
+<div itemscope itemtype="http://schema.org/ParcelDelivery">
+  <div itemprop="deliveryAddress" itemscope itemtype="http://schema.org/PostalAddress">
+    <meta itemprop="name" content="Pickup Corner"/>
+    <meta itemprop="streetAddress" content="24 Willie Mays Plaza"/>
+    <meta itemprop="addressLocality" content="San Francisco"/>
+    <meta itemprop="addressRegion" content="CA"/>
+    <meta itemprop="addressCountry" content="US"/>
+    <meta itemprop="postalCode" content="94107"/>
+  </div>
+  <meta itemprop="expectedArrivalUntil" content="2027-03-12T12:00:00-08:00"/>
+  <div itemprop="carrier" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="FedEx"/>
+  </div>
+  <div itemprop="itemShipped" itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="name" content="Google Chromecast"/>
+  </div>
+  <div itemprop="partOfOrder" itemscope itemtype="http://schema.org/Order">
+    <meta itemprop="orderNumber" content="176057"/>
+    <div itemprop="merchant" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob Dole"/>
+    </div>
+  </div>
+</div>
+배송 정보와 함께 상품 배송
+배송 정보가 자세히 설명된 소포 배송 예
+--- 탭: JSON-LD [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko#json-ld] ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "ParcelDelivery",
+  "deliveryAddress": {
+    "@type": "PostalAddress",
+    "name": "John Frank",
+    "streetAddress": "24 Willie Mays Plaza",
+    "addressLocality": "San Francisco",
+    "addressRegion": "CA",
+    "addressCountry": "US",
+    "postalCode": "94107"
+  },
+  "originAddress": {
+    "@type": "PostalAddress",
+    "name": "John Frank",
+    "streetAddress": "25 Willie Mays Plaza",
+    "addressLocality": "San Francisco",
+    "addressRegion": "CA",
+    "addressCountry": "US",
+    "postalCode": "94107"
+  },
+  "expectedArrivalFrom": "2027-03-10T12:00:00-08:00",
+  "expectedArrivalUntil": "2027-03-12T12:00:00-08:00",
+  "carrier": {
+    "@type": "Organization",
+    "name": "FedEx",
+    "url": "http://fedex.com/"
+  },
+  "itemShipped": {
+    "@type": "Product",
+    "name": "iPod Mini",
+    "url": "http://apple.com/ipad32gb",
+    "image": "http://apple.com/images/ipad32gb.jpg",
+    "sku": "B00DR0PDNE",
+    "description": "iPod Mini 32Gb White",
+    "brand": {
+      "@type": "Brand",
+      "name": "Apple"
+    },
+    "color": "white"
+  },
+  "trackingNumber": "3453291231",
+  "trackingUrl": "http://fedex.com/track/3453291231",
+  "potentialAction": {
+    "@type": "TrackAction",
+    "url": "http://fedex.com/track/3453291231"
+  },
+  "hasDeliveryMethod": {
+    "@type": "ParcelService",
+    "name": "http://schema.org/ParcelService"
+  },
+  "partOfOrder": {
+    "@type": "Order",
+    "orderNumber": "176057",
+    "merchant": {
+      "@type": "Organization",
+      "name": "Bob Dole",
+      "sameAs": "http://www.freebase.com/m/0fhkx"
+    },
+    "orderStatus": "http://schema.org/OrderInTransit"
+  }
+}
+</script>
+
+--- 탭: 마이크로데이터 [https://developers.google.com/workspace/gmail/markup/reference/parcel-delivery?hl=ko#%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EB%8D%B0%EC%9D%B4%ED%84%B0] ---
+<div itemscope itemtype="http://schema.org/ParcelDelivery">
+  <div itemprop="deliveryAddress" itemscope itemtype="http://schema.org/PostalAddress">
+    <meta itemprop="name" content="John Frank"/>
+    <meta itemprop="streetAddress" content="24 Willie Mays Plaza"/>
+    <meta itemprop="addressLocality" content="San Francisco"/>
+    <meta itemprop="addressRegion" content="CA"/>
+    <meta itemprop="addressCountry" content="US"/>
+    <meta itemprop="postalCode" content="94107"/>
+  </div>
+  <div itemprop="originAddress" itemscope itemtype="http://schema.org/PostalAddress">
+    <meta itemprop="name" content="John Frank"/>
+    <meta itemprop="streetAddress" content="25 Willie Mays Plaza"/>
+    <meta itemprop="addressLocality" content="San Francisco"/>
+    <meta itemprop="addressRegion" content="CA"/>
+    <meta itemprop="addressCountry" content="US"/>
+    <meta itemprop="postalCode" content="94107"/>
+  </div>
+  <meta itemprop="expectedArrivalFrom" content="2027-03-10T12:00:00-08:00"/>
+  <meta itemprop="expectedArrivalUntil" content="2027-03-12T12:00:00-08:00"/>
+  <div itemprop="carrier" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="FedEx"/>
+    <link itemprop="url" href="http://fedex.com/"/>
+  </div>
+  <div itemprop="itemShipped" itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="name" content="iPod Mini"/>
+    <link itemprop="url" href="http://apple.com/ipad32gb"/>
+    <link itemprop="image" href="http://apple.com/images/ipad32gb.jpg"/>
+    <meta itemprop="sku" content="B00DR0PDNE"/>
+    <meta itemprop="description" content="iPod Mini 32Gb White"/>
+    <div itemprop="brand" itemscope itemtype="http://schema.org/Brand">
+      <meta itemprop="name" content="Apple"/>
+    </div>
+    <meta itemprop="color" content="white"/>
+  </div>
+  <meta itemprop="trackingNumber" content="3453291231"/>
+  <link itemprop="trackingUrl" href="http://fedex.com/track/3453291231"/>
+  <div itemprop="potentialAction" itemscope itemtype="http://schema.org/TrackAction">
+    <link itemprop="url" href="http://fedex.com/track/3453291231"/>
+  </div>
+  <div itemprop="hasDeliveryMethod" itemscope itemtype="http://schema.org/ParcelService">
+    <meta itemprop="name" content="http://schema.org/ParcelService"/>
+  </div>
+  <div itemprop="partOfOrder" itemscope itemtype="http://schema.org/Order">
+    <meta itemprop="orderNumber" content="176057"/>
+    <div itemprop="merchant" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob Dole"/>
+      <link itemprop="sameAs" href="http://www.freebase.com/m/0fhkx"/>
+    </div>
+    <link itemprop="orderStatus" href="http://schema.org/OrderInTransit"/>
+  </div>
+</div>
+마크업 테스트
+이메일 마크업 테스터 도구 [https://www.google.com/webmasters/markup-tester/?hl=ko]를 사용하여 마크업의 유효성을 검사할 수 있습니다. 마크업 코드를 붙여넣고 확인 버튼을 클릭하여 콘텐츠를 스캔하면 오류에 관한 보고서를 받게 됩니다.
+사양
+다음 표에는 이 유형에 사용할 수 있는 모든 속성이 나와 있습니다.
+속성 유형 설명
+deliveryAddress PostalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko] (필수) 목적지 주소입니다.
+deliveryAddress.name 텍스트 PostalAddress의 이름입니다.
+deliveryAddress.streetAddress 텍스트 (필수) 상세 주소입니다. 예: 1600 Amphitheatre Pkwy
+deliveryAddress.addressLocality 텍스트 (필수) 지역입니다. (예: 마운틴 뷰)
+deliveryAddress.addressRegion 텍스트 (필수) 리전입니다. 예: CA.
+deliveryAddress.addressCountry 텍스트 또는 국가 [https://developers.google.com/workspace/gmail/markup/reference/types/Country?hl=ko] (필수) 국가입니다. 미국을 예로 들 수 있습니다. 두 자리 ISO 3166-1 alpha-2 국가 코드를 입력해도 됩니다.
+deliveryAddress.postalCode 텍스트 (필수) 우편번호입니다. 예: 94043
+originAddress PostalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko] 배송업체의 주소입니다.
+originAddress.name 텍스트 PostalAddress의 이름입니다.
+originAddress.streetAddress 텍스트 상세 주소입니다. 예: 1600 Amphitheatre Pkwy
+originAddress.addressLocality 텍스트 지역입니다. (예: 마운틴 뷰)
+originAddress.addressRegion 텍스트 지역입니다. 예: CA.
+originAddress.addressCountry 텍스트 또는 국가 [https://developers.google.com/workspace/gmail/markup/reference/types/Country?hl=ko] 국가입니다. 미국을 예로 들 수 있습니다. 두 자리 ISO 3166-1 alpha-2 국가 코드를 입력해도 됩니다.
+originAddress.postalCode 텍스트 우편번호입니다. 예: 94043
+expectedArrivalFrom DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 택배물이 도착할 것으로 예상되는 가장 빠른 날짜입니다.
+expectedArrivalUntil DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] (필수) 상품이 도착할 것으로 예상되는 가장 늦은 날짜입니다.
+이동통신사 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] (필수) 택배 배송을 담당하는 당사자입니다. 문자열 (예: 'FedEx')도 허용합니다.
+carrier.name 텍스트 (필수) 조직의 이름입니다.
+carrier.url URL 조직의 URL입니다.
+itemShipped 제품 [https://developers.google.com/workspace/gmail/markup/reference/types/Product?hl=ko] 또는 예약 [https://developers.google.com/workspace/gmail/markup/reference/types/Reservation?hl=ko] (필수) 이 배송에 포함된 제품입니다. 수량을 나타내려면 제품을 적절히 반복하거나 이 속성을 사용하지 않고 대신 일부 제품을 포함하여 포함된 제품을 표현하세요. 객체의 배열도 허용합니다.
+itemShipped.name 텍스트 (필수) 제품의 이름입니다.
+itemShipped.url URL (확인 카드/검색 답변에 권장) 제품의 URL로, 일반적으로 판매자 웹사이트의 제품 방문 페이지입니다.
+itemShipped.image URL (확인 카드/검색 답변에 권장) 제품 이미지의 URL로, 일반적으로 판매자의 웹사이트에 있는 이미지입니다.
+itemShipped.sku 텍스트 (확인 카드/검색 답변에 권장) 재고 관리 단위 (SKU)란 제품, 서비스 또는 제품이 참조하는 제품의 판매자별 식별자입니다.
+itemShipped.description 텍스트 제품에 대한 간단한 설명입니다.
+itemShipped.brand 브랜드 [https://developers.google.com/workspace/gmail/markup/reference/types/Brand?hl=ko] 제품과 연결된 브랜드입니다.
+itemShipped.brand.name 텍스트 브랜드 이름입니다.
+itemShipped.color 텍스트 제품의 색상입니다.
+trackingNumber 텍스트 (확인 카드/검색 답변에 권장) 배송업체 운송장 번호입니다.
+trackingUrl URL (확인 카드/검색 답변에 권장) 배송을 추적할 수 있는 웹페이지.
+hasDeliveryMethod DeliveryMethod [https://developers.google.com/workspace/gmail/markup/reference/types/DeliveryMethod?hl=ko] 전송에 사용되는 방법입니다.
+deliveryStatus DeliveryEvent [https://developers.google.com/workspace/gmail/markup/reference/types/DeliveryEvent?hl=ko] 패키지가 여정의 각 구간 (발송에서 최종 배송까지)을 통과할 때 새 항목이 추가되었습니다. 매장 수령, 보관함 등 수령 방식의 배송에 특히 유용합니다.
+partOfOrder 항목 [https://developers.google.com/workspace/gmail/markup/reference/types/Order?hl=ko] (필수) 배송 중인 주문의 세부정보입니다. 배송에 포함된 제품에 대한 세부정보를 itemShipped에서 표현할 수 없는 경우 (예: 발송된 수량) 이 주문을 사용하여 제품을 표현하세요.
+partOfOrder.orderNumber 텍스트 (필수) 거래의 판매자별 식별자입니다.
+partOfOrder.merchant Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] (필수) 주문을 받는 당사자 (예: Amazon.com은 여러 판매자의 판매자임) 문자열도 허용합니다 (예: 'Bob Dole').
+partOfOrder.merchant.name 텍스트 (필수) 조직의 이름입니다.
+partOfOrder.merchant.sameAs URL 판매자의 Freebase URL입니다.
+partOfOrder.orderStatus OrderStatus [https://developers.google.com/workspace/gmail/markup/reference/types/OrderStatus?hl=ko] (확인 카드/검색 답변에 권장) 주문의 현재 상태입니다.
+의견 보내기

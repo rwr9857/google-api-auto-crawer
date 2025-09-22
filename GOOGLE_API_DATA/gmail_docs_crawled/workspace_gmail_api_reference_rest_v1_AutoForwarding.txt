@@ -1,0 +1,39 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/AutoForwarding
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+AutoForwarding
+bookmark_border
+이 페이지의 내용
+Disposition [https://developers.google.com/workspace/gmail/api/reference/rest/v1/AutoForwarding?hl=ko#disposition]
+계정의 자동 전달 설정
+JSON 표현
+{
+  "enabled": boolean,
+  "emailAddress": string,
+  "disposition": enum (Disposition [https://developers.google.com/workspace/gmail/api/reference/rest/v1/AutoForwarding?hl=ko#Disposition])
+}
+필드
+enabled
+boolean
+수신하는 모든 메일이 다른 주소로 자동 전달되는지 여부입니다.
+emailAddress
+string
+모든 수신 메일이 전달되는 이메일 주소입니다. 이 이메일 주소는 전달 주소의 인증된 회원이어야 합니다.
+disposition
+enum (Disposition [https://developers.google.com/workspace/gmail/api/reference/rest/v1/AutoForwarding?hl=ko#Disposition])
+메일이 전달된 후 남아 있어야 하는 상태입니다.
+Disposition
+메일이 자동으로 전달된 후 Gmail에서 메일을 어떻게 처리해야 하는지 지정합니다.
+열거형
+dispositionUnspecified 지정되지 않은 처리입니다.
+leaveInInbox INBOX에 메시지를 남깁니다.
+archive 메일을 보관처리합니다.
+trash 메일을 TRASH로 이동합니다.
+markRead 메시지를 INBOX에 그대로 두고 읽음으로 표시합니다.
+의견 보내기

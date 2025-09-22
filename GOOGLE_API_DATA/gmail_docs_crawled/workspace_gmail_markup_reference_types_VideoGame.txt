@@ -1,0 +1,26 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/VideoGame
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+비디오 게임
+bookmark_border
+유형 이름: VideoGame [https://developers.google.com/workspace/gmail/markup/reference/types/VideoGame?hl=ko]
+Game [https://developers.google.com/workspace/gmail/markup/reference/types/Game?hl=ko] 또는 SoftwareApplication [https://developers.google.com/workspace/gmail/markup/reference/types/SoftwareApplication?hl=ko]을 확장합니다.
+이름 유형 설명
+작업 수행자 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등에서 배우를 말합니다. 배우는 개별 항목이나 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+배우 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등에서 배우를 말합니다. 배우는 개별 항목이나 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+치트코드 CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 코드를 게임에 보냅니다.
+감독 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등의 콘텐츠 감독입니다. 감독은 개별 항목 또는 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+감독 사람 [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] TV, 라디오, 영화, 비디오 게임 등의 콘텐츠 감독입니다. 감독은 개별 항목 또는 시리즈, 에피소드, 클립과 연결할 수 있습니다.
+게임 플랫폼 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko], 사물 [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko] 또는 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 비디오 게임 [http://en.wikipedia.org/wiki/Category:Video_game_platforms]에 사용되는 전자 시스템입니다.
+gameServer GameServer [https://developers.google.com/workspace/gmail/markup/reference/types/GameServer?hl=ko] 게임을 플레이할 수 있는 서버
+게임팁 CreativeWork [https://developers.google.com/workspace/gmail/markup/reference/types/CreativeWork?hl=ko] 도움말, 전술 등에 대한 링크
+음악: MusicGroup [https://developers.google.com/workspace/gmail/markup/reference/types/MusicGroup?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 사운드트랙의 작곡가입니다.
+플레이 모드 게임플레이 모드 [https://developers.google.com/workspace/gmail/markup/reference/types/GamePlayMode?hl=ko] 게임이 멀티플레이어, 협동 또는 싱글 플레이어인지를 나타냅니다. 게임을 멀티플레이어, 협동 플레이, 싱글 플레이어로 동시에 표시할 수 있습니다.
+예고편 VideoObject [https://developers.google.com/workspace/gmail/markup/reference/types/VideoObject?hl=ko] 영화 또는 TV/라디오 시리즈, 시즌, 에피소드 등의 트레일러입니다.
+의견 보내기

@@ -1,0 +1,18 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/BusinessAudience
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+비즈니스 잠재고객
+bookmark_border
+유형 이름: BusinessAudience [https://developers.google.com/workspace/gmail/markup/reference/types/BusinessAudience?hl=ko]
+잠재고객 [https://developers.google.com/workspace/gmail/markup/reference/types/Audience?hl=ko]을 확장합니다.
+이름 유형 설명
+직원 수 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 직원 수에 따른 비즈니스 규모
+연간 수익 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 연간 수익으로 표시된 비즈니스 규모입니다.
+운영 기간(년) QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 비즈니스의 운영 기간
+의견 보내기

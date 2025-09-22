@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MedicalGuideline
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+의료 가이드라인
+bookmark_border
+유형 이름: MedicalGuideline [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalGuideline?hl=ko]
+MedicalEntity [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEntity?hl=ko] 확장
+이름 유형 설명
+증거 수준 MedicalEvidenceLevel [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEvidenceLevel?hl=ko] 가이드라인을 작성하는 데 사용된 데이터의 증거 강도입니다 (열거됨).
+증거 출처 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 지침을 구성하는 데 사용되는 데이터의 출처(예: RCT, 합의 의견 등)
+가이드라인 날짜 날짜 [https://developers.google.com/workspace/gmail/markup/reference/types/Date?hl=ko] 이 가이드라인이 만들어진 날짜입니다.
+가이드라인 제목 의료 단체 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalEntity?hl=ko] 가이드라인의 주제인 질병, 치료 등
+의견 보내기

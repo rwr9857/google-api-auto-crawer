@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/ampemail/security-requirements
+[2025-03-24] Source URL: https://developers.google.com/workspace/gmail/ampemail/security-requirements
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,12 +10,12 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 보안 요구사항
 bookmark_border
 이 페이지의 내용
-발신자 인증
-DKIM 정렬
-TLS 암호화
-HTTP 프록시
-CORS 헤더
-제한사항
+발신자 인증 [https://developers.google.com/workspace/gmail/ampemail/security-requirements?hl=ko#sender_authentication]
+DKIM 정렬 [https://developers.google.com/workspace/gmail/ampemail/security-requirements?hl=ko#dkim_alignment]
+TLS 암호화 [https://developers.google.com/workspace/gmail/ampemail/security-requirements?hl=ko#tls_encryption]
+HTTP 프록시 [https://developers.google.com/workspace/gmail/ampemail/security-requirements?hl=ko#http_proxy]
+CORS 헤더 [https://developers.google.com/workspace/gmail/ampemail/security-requirements?hl=ko#cors_headers]
+제한사항 [https://developers.google.com/workspace/gmail/ampemail/security-requirements?hl=ko#restrictions]
 사용자 안전 및 개인 정보 보호를 위해 동적 이메일에는 추가 보안 요구사항 및 제한사항이 적용됩니다.
 경고: 이를 준수하지 않으면 동적 이메일의 일부가 올바르게 렌더링되지 않거나 Gmail이 HTML로 대체되어 이메일의 AMP 부분이 전혀 렌더링되지 않습니다.
 발신자 인증

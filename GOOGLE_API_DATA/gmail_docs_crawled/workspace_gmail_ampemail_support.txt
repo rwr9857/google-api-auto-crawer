@@ -1,0 +1,54 @@
+[2025-07-30] Source URL: https://developers.google.com/workspace/gmail/ampemail/support
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+지원 [https://developers.google.com/workspace/gmail/api/support?hl=ko]
+의견 보내기
+도움을 얻는 방법
+bookmark_border
+이 페이지의 내용
+AMP 및 이메일용 AMP 관련 문제 [https://developers.google.com/workspace/gmail/ampemail/support?hl=ko#issues_with_amp_and_amp_for_email]
+이메일용 AMP 워킹 그룹 [https://developers.google.com/workspace/gmail/ampemail/support?hl=ko#amp_for_email_working_group]
+Gmail 관련 AMP 문제 [https://developers.google.com/workspace/gmail/ampemail/support?hl=ko#issues_with_amp_specific_to]
+질문과 조언 [https://developers.google.com/workspace/gmail/ampemail/support?hl=ko#questions_advice]
+커뮤니티 포럼 (공식) [https://developers.google.com/workspace/gmail/ampemail/support?hl=ko#community_forums_official]
+Reddit (비공식) [https://developers.google.com/workspace/gmail/ampemail/support?hl=ko#reddit_unofficial]
+Stack Overflow [https://developers.google.com/workspace/gmail/ampemail/support?hl=ko#stack_overflow]
+개발자 제품 의견 [https://developers.google.com/workspace/gmail/ampemail/support?hl=ko#developer_product_feedback]
+AMP 및 이메일용 AMP 관련 문제
+AMP 자체에 관해 궁금한 점이 있거나 지원이 필요한 경우 도움이 되는 여러 위치를 보여주는 AMP 지원 페이지 [https://amp.dev/support/]를 참고하세요.
+이메일용 AMP 워킹 그룹
+AMP 워킹 그룹 [https://github.com/ampproject/meta/blob/main/GOVERNANCE.md#working-groups]은 AMP 기술 운영 위원회 (TSC) [https://github.com/ampproject/meta/blob/main/GOVERNANCE.md#technical-steering-committee-tsc]에서 인정하는 AMP의 특정 분야에 대한 지식과 관심을 가진 커뮤니티의 일부입니다.
+이메일용 AMP 사양을 담당하는 워킹 그룹은 wg-amp4email [https://github.com/ampproject/wg-amp4email]입니다. 다음 채널을 사용하여 워킹 그룹에 문의할 수 있습니다.
+#wg-amp4email 슬랙 채널 [https://amphtml.slack.com/messages/wg-amp4email/] (가입 [https://docs.google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZZriU7Qu6Tg/viewform?fbzx=4406980310789882877&hl=ko])
+ampproject/wg-amp4email GitHub 저장소 문제 [https://github.com/ampproject/wg-amp4email/issues]
+이메일용 AMP 사양과 관련된 질문이나 문제가 있는 경우 Working Group에 문의하세요.
+Gmail 관련 AMP 문제
+Google은 다양한 플랫폼을 함께 사용하여 개발자에게 지원을 제공하고 있습니다. 아래에서 내게 가장 적합한 지원 옵션이 무엇인지 알아보세요.
+참고: 이 채널은 개발자 문제에만 사용해야 합니다. 핵심 제품에 대한 의견은 제품 사용자 인터페이스의 의견 또는 문제 신고 링크를 통해 제출하시기 바랍니다.
+질문과 조언
+커뮤니티 포럼 (공식)
+Google Workspace 개발자 [https://discuss.google.dev/c/google-workspace/20?hl=ko] 커뮤니티 포럼에서 Google Workspace 개발에 관한 대화에 참여하세요.
+Reddit (비공식)
+커뮤니티에서 운영하는 서브레딧에서도 도움을 받을 수 있습니다.
+r/GoogleAppsScript [https://www.reddit.com/r/GoogleAppsScript/]
+r/googleworkspacedevs [https://www.reddit.com/r/googleworkspacedevs/]
+Stack Overflow
+Google은 널리 사용되는 프로그래밍 Q&A 웹사이트인 Stack Overflow [https://stackoverflow.com/questions/tagged/amp-email]에서 기술적인 질문을 해결해 드립니다. Google은 이 사이트를 소유하거나 관리하지 않지만 Google 계정으로 로그인할 수 있습니다.
+Stack Overflow는 다양한 주제에 대한 질문을 포괄하며, 개발자는 이 서비스와 관련된 질문을 [amp-email] 태그로 표시합니다. 질문에 추가 태그를 포함하여 관련 기술 전문가의 주의를 끌 수 있습니다.
+기존 질문 검색 새 질문하기 [https://stackoverflow.com/questions/ask?tags=amp-email,google-workspace]
+개발자 제품 의견
+개발자 제품 기능에 관한 의견이 있는 경우 문제 추적기를 검색 [https://issuetracker.google.com/issues?q=status%3Aopen+componentid%3A592249%2B+type%3A%28bug%7Cfeature_request%7Ccustomer_issue%29&hl=ko]하여 다른 사용자가 이미 동일한 의견을 제출했는지 확인하세요. 기존 의견 보고서를 찾은 경우 문제 번호 옆에 있는 별표를 클릭하여 동의를 표시하고 가장 중요한 보고서의 우선순위를 지정하는 데 도움을 주세요. 추가적인 맥락이나 정보를 제공하고 싶다면 댓글을 추가하세요.
+다른 사용자가 비슷한 의견을 제출하지 않은 경우 새 의견을 제출할 수 있습니다. 중요하다고 생각하는 이유를 포함하여 의견을 최대한 구체적으로 설명해 주세요.
+기존 의견 검색 버그 제출 [https://issuetracker.google.com/issues/new?component=592249&template=1238934&hl=ko] 기능 요청 제출 [https://issuetracker.google.com/issues/new?component=592249&template=1238933&hl=ko]
+Google Workspace 지원팀에 문의하기
+Google Workspace 관리자는 Google Workspace 개발자 지원 전문가에게 이메일을 보낼 수 있습니다 [https://support.google.com/a/answer/6103110?hl=ko].
+문의 시 다음 정보를 포함해야 합니다.
+문제에 대한 설명 및 정상일 때의 작동 방식
+문제를 재현하는 데 사용할 수 있는 단계 목록 및 소량의 샘플 코드 스니펫
+기대한 출력 및 실제로 발생한 출력에 대한 설명. 발생한 오류 메시지를 모두 포함하세요.
+개발 환경에 대한 정보(프로그래밍 언어, 라이브러리 버전 등)
+의견 보내기

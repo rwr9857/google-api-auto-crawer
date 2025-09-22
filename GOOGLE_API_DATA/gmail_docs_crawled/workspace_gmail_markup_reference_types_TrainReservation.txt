@@ -1,0 +1,68 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/TrainReservation
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+기차 예약
+bookmark_border
+유형 이름: Train예약 [https://developers.google.com/workspace/gmail/markup/reference/types/TrainReservation?hl=ko]
+예약 [https://developers.google.com/workspace/gmail/markup/reference/types/Reservation?hl=ko] 확장
+이름 유형 설명
+예약 상담사 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약 대행사 또는 대행사 문자열 (예: '')도 허용합니다.
+예약 에이전트.이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 에이전트/서비스의 이름입니다.
+예약 에이전트.URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 상담사/서비스 웹사이트
+예약 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약한 날짜
+cancel예약 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 취소할 수 있는 웹페이지입니다.
+checkinUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 승객이 체크인할 수 있는 웹페이지입니다.
+확인 예약 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 확인할 수 있는 웹페이지입니다.
+ModifiedTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] (확인 카드/검색 답변의 경우 권장됨) 예약이 마지막으로 수정된 시간입니다.
+modify예약 URL URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] (확인 카드/검색 답변의 경우 권장) 예약을 수정할 수 있는 웹페이지
+program멤버십 프로그램 멤버십 [https://developers.google.com/workspace/gmail/markup/reference/types/ProgramMembership?hl=ko] 항공사 멤버십, 호텔 포인트 제도 등의 정보가 멤버십에 적용되는 경우
+programMember.memberNumber 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 멤버십의 식별자입니다.
+program멤버십.프로그램 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 프로그램의 이름입니다.
+예약용
+(필수) TrainTrip [https://developers.google.com/workspace/gmail/markup/reference/types/TrainTrip?hl=ko] 기차 여행에 관한 정보입니다.
+예약용.arrivalPlatform 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 기차가 도착하는 승강장입니다.
+예약용.arrivalStation
+(필수) 학습 [https://developers.google.com/workspace/gmail/markup/reference/types/TrainStation?hl=ko] 기차가 출발하는 역입니다.
+예약 목적.
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] TrainStation 이름입니다.
+예약 목적.arrivalTime
+(필수) DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예상 도착 시간입니다.
+예약용.출발플랫폼 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 기차가 출발하는 승강장입니다.
+예약용.출발역
+(필수) 학습 [https://developers.google.com/workspace/gmail/markup/reference/types/TrainStation?hl=ko] 기차가 출발하는 역입니다.
+예약의 경우 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] TrainStation 이름입니다.
+예약용.출발시간
+(필수) DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예상 출발 시간입니다.
+예약용.trainCode 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 기차의 고유 식별자입니다.
+예약용.trainCompany Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 기차를 운행하는 조직입니다. 문자열 (예: '')도 허용합니다.
+예약 항목.trainName 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 기차의 이름입니다.
+예약용.trainNumber 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] (확인 카드/검색 답변의 경우 권장) 기차의 번호입니다.
+예약 번호
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약의 번호 또는 ID입니다.
+예약 상태
+(필수) 예약 상태 [https://developers.google.com/workspace/gmail/markup/reference/types/ReservationStatus?hl=ko] 예약의 현재 상태입니다.
+예약 티켓 티켓 [https://developers.google.com/workspace/gmail/markup/reference/types/Ticket?hl=ko] 티켓 정보입니다.
+예약된 티켓.additionalTicketText 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 티켓에 대한 추가 설명 텍스트입니다.
+예약된 티켓.downloadUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] .
+예약된 티켓.price 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 티켓의 총 가격입니다.
+예약된 티켓.priceCurrency 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 티켓 가격의 통화입니다 (3자리 ISO 4217 형식).
+예약된 티켓.printUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] .
+예약된 티켓.ticketed 안장 사용 가능 라이선스 수 [https://developers.google.com/workspace/gmail/markup/reference/types/Seat?hl=ko] 예약된 좌석의 위치 (예: 27B). .
+예약된 티켓.티켓 판매 좌석.seatingType 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 좌석의 유형/클래스입니다.
+예약된 티켓.티켓 판매 좌석.seatNumber 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약된 좌석의 위치입니다.
+예약된 티켓.티켓 판매 좌석.seatRow 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약된 시트의 행 위치입니다.
+예약된 티켓.ticketNumber 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 티켓의 번호 또는 ID입니다.
+예약된 티켓.ticketToken URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 또는 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 바코드 이미지가 사이트에서 호스팅되는 경우 입력란 값은 이미지의 URL 또는 바코드나 QR URI(예: 'barcode128:AB34'(ISO-15417 바코드), 'qrCode:AB34'(QR 코드), 'aztecCode:AB34'(Aztec 코드), 'barcodeEAN:12)CA'(CA) 1234)(CA)
+예약된 티켓.underName Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 티켓이 연결되는 사람 또는 조직입니다.
+예약된 티켓.underName.이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 사람의 이름입니다.
+underName Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 승객입니다.
+underName.email 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이메일 주소입니다.
+underName.name 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] (확인 카드/검색 답변의 경우 권장) 사람 이름입니다.
+url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 볼 수 있는 웹페이지입니다.
+의견 보내기

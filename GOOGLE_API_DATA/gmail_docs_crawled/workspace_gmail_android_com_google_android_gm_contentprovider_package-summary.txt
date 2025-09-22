@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/android/com/google/android/gm/contentprovider/package-summary
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+com.google.android.gm.contentprovider
+bookmark_border
+이 페이지의 내용
+클래스 [https://developers.google.com/workspace/gmail/android/com/google/android/gm/contentprovider/package-summary?hl=ko#classes]
+클래스
+GmailContract [https://developers.google.com/workspace/gmail/android/com/google/android/gm/contentprovider/GmailContract.html?hl=ko]
+Gmail 콘텐츠 제공업체와의 사용 계약
+GmailContract.Labels [https://developers.google.com/workspace/gmail/android/com/google/android/gm/contentprovider/GmailContract.Labels.html?hl=ko] 라벨 정보가 포함된 표
+GmailContract.Labels.LabelCanonicalNames [https://developers.google.com/workspace/gmail/android/com/google/android/gm/contentprovider/GmailContract.Labels.LabelCanonicalNames.html?hl=ko] 기본 Gmail 시스템 라벨의 라벨 표준 이름
+의견 보내기

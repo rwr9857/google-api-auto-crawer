@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings
+[2025-08-01] Source URL: https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,13 +6,14 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 가이드 [https://developers.google.com/workspace/gmail/api/guides?hl=ko]
+도움이 되었나요?
 의견 보내기
 별칭 관리
 bookmark_border
 이 페이지의 내용
-별칭 만들기 및 확인
-SMTP 설정
-서명 관리
+별칭 만들기 및 확인 [https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings?hl=ko#creating_and_verifying_aliases]
+SMTP 설정 [https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings?hl=ko#smtp_settings]
+서명 관리 [https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings?hl=ko#managing_signatures]
 '보내기 권한이 있는 별칭'은 계정에서 메일을 보낼 수 있는 이메일 주소를 나타냅니다. 각 계정에는 항상 계정의 기본 이메일 주소를 나타내는 별칭이 하나 이상 있습니다.
 '다른 주소에서 메일 보내기' 별칭은 웹 인터페이스의 '다른 주소에서 메일 보내기' 기능 [https://support.google.com/mail/answer/22370?hl=ko]에 해당합니다.
 별칭은 계정의 서명을 관리하는 데도 사용됩니다. 이메일 서명을 변경하려면 다른 주소로 보내기 별칭에 대한 기본적인 이해가 필요합니다. 위 동영상에서는 send-as 별칭을 반복하고 사용자의 기본 이메일 주소의 서명을 수정하는 방법을 보여줍니다.
@@ -26,7 +27,7 @@ SMTP 설정
 외부 주소의 별칭은 원격 SMTP 메일 전송 에이전트 (MSA)를 통해 메일을 전송해야 합니다. 별칭의 SMTP MSA를 구성하려면 smtpMsa 필드를 사용하여 연결 세부정보를 제공하세요.
 서명 관리
 각 별칭에 대한 이메일 서명을 구성할 수도 있습니다. 예를 들어 사용자의 기본 주소에 서명을 설정하려면 다음을 실행합니다.
---- 탭: 자바 ---
+--- 탭: 자바 [https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings?hl=ko#%EC%9E%90%EB%B0%94] ---
 .filepath {
     color: #fff;
     margin: 6px;
@@ -125,7 +126,7 @@ public class UpdateSignature {
   }
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings?hl=ko#python] ---
 .filepath {
     color: #fff;
     margin: 6px;
@@ -212,4 +213,5 @@ def update_signature():
 
 if __name__ == "__main__":
   update_signature()
+도움이 되었나요?
 의견 보내기

@@ -1,0 +1,440 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/bus-reservation
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+버스 예약
+bookmark_border
+이 페이지의 내용
+사용 사례 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#use_cases]
+기본 예약 확인 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#basic_reservation_confirmation]
+탑승권 및 티켓 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#boarding_pass_and_ticket]
+지원되는 모든 필드가 포함된 예 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#example_with_all_supported_fields]
+마크업 테스트 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#test_your_markup]
+사양 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#specification]
+사용 사례
+다음 사용 사례는 BusReservation 스키마가 사용되는 방식에 관한 일반적인 예를 보여줍니다. 다음 예를 사용하여 마크업이 올바르게 구성되었는지 확인하세요.
+참고: 시작하기 전에 이메일에 스키마를 삽입 [https://developers.google.com/workspace/gmail/markup/embedding-schemas-in-emails?hl=ko]하는 방법을 이해하고 테스트 스키마 [https://developers.google.com/workspace/gmail/markup/testing-your-schema?hl=ko]를 숙지해야 합니다.
+기본 예약 확인
+예약 확인 이메일을 보낼 때 이메일에 다음 마크업을 삽입합니다.
+Google 앱은 여정 당일에 예약 세부정보를 표시하고 이동수단, 교통정보 등을 고려하여 정시에 버스 정류장에 도착하기 위해 출발해야 하는 시간을 사용자에게 알려줍니다. 아래 예와 같이 체크인 URL을 제공하면 Google 앱에서 사용자에게 여행 24시간 전에 이 URL을 표시합니다.
+--- 탭: JSON-LD [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#json-ld] ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BusReservation",
+  "reservationNumber": "123456",
+  "underName": {
+    "@type": "Person",
+    "name": "John Smith"
+  },
+  "reservationStatus": "http://schema.org/ReservationConfirmed",
+  "reservationFor": {
+    "@type": "BusTrip",
+    "busCompany": {
+      "@type": "Organization",
+      "name": "Bolt NYC"
+    },
+    "departureBusStop": {
+      "@type": "BusStop",
+      "name": "Port Authority, NYC"
+    },
+    "departureTime": "2017-01-04T12:30:00-05:00",
+    "arrivalBusStop": {
+      "@type": "BusStop",
+      "name": "Boston South Station"
+    },
+    "arrivalTime": "2017-01-04T17:10:00-05:00"
+  }
+}
+</script>
+
+--- 탭: 마이크로데이터 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EB%8D%B0%EC%9D%B4%ED%84%B0] ---
+<div itemscope itemtype="http://schema.org/BusReservation">
+  <meta itemprop="reservationNumber" content="123456"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Smith"/>
+  </div>
+  <link itemprop="reservationStatus" href="http://schema.org/ReservationConfirmed"/>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/BusTrip">
+    <div itemprop="busCompany" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bolt NYC"/>
+    </div>
+    <div itemprop="departureBusStop" itemscope itemtype="http://schema.org/BusStop">
+      <meta itemprop="name" content="Port Authority, NYC"/>
+    </div>
+    <meta itemprop="departureTime" content="2017-01-04T12:30:00-05:00"/>
+    <div itemprop="arrivalBusStop" itemscope itemtype="http://schema.org/BusStop">
+      <meta itemprop="name" content="Boston South Station"/>
+    </div>
+    <meta itemprop="arrivalTime" content="2017-01-04T17:10:00-05:00"/>
+  </div>
+</div>
+탑승권 및 티켓
+예약 확인 외에도 별도의 이메일에서 확인 카드 탑승권을 트리거할 수 있습니다.
+확인 카드는 사용자가 정시에 버스 정류장에 도착하는 데 도움이 될 뿐만 아니라 여정 중에 사용자에게 티켓을 표시하는 역할도 합니다. 이를 위해 마크업에 몇 가지 추가 필드를 포함해야 합니다. 승객을 탑승하는 데 필요한 추가 입력란이 있는 경우 additionalTicketText 입력란에 포함합니다.
+좌석 예약이 없는 티켓의 경우 다음 필드 : numSeats, ticketNumber, ticketToken
+--- 탭: JSON-LD [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#json-ld] ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BusReservation",
+  "reservationNumber": "123456",
+  "underName": {
+    "@type": "Person",
+    "name": "John Smith"
+  },
+  "reservationStatus": "http://schema.org/ReservationConfirmed",
+  "reservationFor": {
+    "@type": "BusTrip",
+    "busCompany": "Bolt NYC",
+    "departureBusStop": {
+      "@type": "BusStop",
+      "name": "Port Authority, NYC"
+    },
+    "departureTime": "2017-01-04T12:30:00-05:00",
+    "arrivalBusStop": {
+      "@type": "BusStop",
+      "name": "Boston South Station"
+    },
+    "arrivalTime": "2017-01-04T17:10:00-05:00"
+  },
+  "reservedTicket": {
+    "@type": "Ticket",
+    "underName": "John Smith",
+    "ticketNumber": "123XYZ",
+    "ticketToken": "aztecCode:AB34",
+    "additionalTicketText": "We recommend that you arrive at the station at least 30 minutes prior to your scheduled departure. Allow additional time if you need help with baggage or tickets."
+  }
+}
+</script>
+
+--- 탭: 마이크로데이터 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EB%8D%B0%EC%9D%B4%ED%84%B0] ---
+<div itemscope itemtype="http://schema.org/BusReservation">
+  <meta itemprop="reservationNumber" content="123456"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Smith"/>
+  </div>
+  <link itemprop="reservationStatus" href="http://schema.org/ReservationConfirmed"/>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/BusTrip">
+    <meta itemprop="busCompany" content="Bolt NYC"/>
+    <div itemprop="departureBusStop" itemscope itemtype="http://schema.org/BusStop">
+      <meta itemprop="name" content="Port Authority, NYC"/>
+    </div>
+    <meta itemprop="departureTime" content="2017-01-04T12:30:00-05:00"/>
+    <div itemprop="arrivalBusStop" itemscope itemtype="http://schema.org/BusStop">
+      <meta itemprop="name" content="Boston South Station"/>
+    </div>
+    <meta itemprop="arrivalTime" content="2017-01-04T17:10:00-05:00"/>
+  </div>
+  <div itemprop="reservedTicket" itemscope itemtype="http://schema.org/Ticket">
+    <meta itemprop="underName" content="John Smith"/>
+    <meta itemprop="ticketNumber" content="123XYZ"/>
+    <meta itemprop="ticketToken" content="aztecCode:AB34"/>
+    <meta itemprop="additionalTicketText" content="We recommend that you arrive at the station at least 30 minutes prior to your scheduled departure. Allow additional time if you need help with baggage or tickets."/>
+  </div>
+</div>
+좌석 예약이 있는 티켓의 경우 다음 필드 : seatNumber, seatingType, ticketNumber, ticketToken
+--- 탭: JSON-LD [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#json-ld] ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BusReservation",
+  "reservationNumber": "123456",
+  "underName": {
+    "@type": "Person",
+    "name": "John Smith"
+  },
+  "reservationStatus": "http://schema.org/ReservationConfirmed",
+  "reservationFor": {
+    "@type": "BusTrip",
+    "busCompany": "Bolt NYC",
+    "departureBusStop": {
+      "@type": "BusStop",
+      "name": "Port Authority, NYC"
+    },
+    "departureTime": "2017-01-04T12:30:00-05:00",
+    "arrivalBusStop": {
+      "@type": "BusStop",
+      "name": "Boston South Station"
+    },
+    "arrivalTime": "2017-01-04T17:10:00-05:00"
+  },
+  "reservedTicket": {
+    "@type": "Ticket",
+    "underName": "John Smith",
+    "ticketedSeat": {
+      "@type": "Seat",
+      "seatNumber": "27B",
+      "seatingType": "Coach"
+    },
+    "ticketNumber": "123XYZ",
+    "ticketToken": "aztecCode:AB34",
+    "additionalTicketText": "We recommend that you arrive at the station at least 30 minutes prior to your scheduled departure. Allow additional time if you need help with baggage or tickets."
+  }
+}
+</script>
+
+--- 탭: 마이크로데이터 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EB%8D%B0%EC%9D%B4%ED%84%B0] ---
+<div itemscope itemtype="http://schema.org/BusReservation">
+  <meta itemprop="reservationNumber" content="123456"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Smith"/>
+  </div>
+  <link itemprop="reservationStatus" href="http://schema.org/ReservationConfirmed"/>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/BusTrip">
+    <meta itemprop="busCompany" content="Bolt NYC"/>
+    <div itemprop="departureBusStop" itemscope itemtype="http://schema.org/BusStop">
+      <meta itemprop="name" content="Port Authority, NYC"/>
+    </div>
+    <meta itemprop="departureTime" content="2017-01-04T12:30:00-05:00"/>
+    <div itemprop="arrivalBusStop" itemscope itemtype="http://schema.org/BusStop">
+      <meta itemprop="name" content="Boston South Station"/>
+    </div>
+    <meta itemprop="arrivalTime" content="2017-01-04T17:10:00-05:00"/>
+  </div>
+  <div itemprop="reservedTicket" itemscope itemtype="http://schema.org/Ticket">
+    <meta itemprop="underName" content="John Smith"/>
+    <div itemprop="ticketedSeat" itemscope itemtype="http://schema.org/Seat">
+      <meta itemprop="seatNumber" content="27B"/>
+      <meta itemprop="seatingType" content="Coach"/>
+    </div>
+    <meta itemprop="ticketNumber" content="123XYZ"/>
+    <meta itemprop="ticketToken" content="aztecCode:AB34"/>
+    <meta itemprop="additionalTicketText" content="We recommend that you arrive at the station at least 30 minutes prior to your scheduled departure. Allow additional time if you need help with baggage or tickets."/>
+  </div>
+</div>
+지원되는 모든 필드가 포함된 예
+다음은 지원되는 모든 필드가 채워진 예시입니다.
+--- 탭: JSON-LD [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#json-ld] ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BusReservation",
+  "reservationNumber": "123456",
+  "url": "http://boltbus.com/view/123456",
+  "underName": {
+    "@type": "Person",
+    "name": "John Smith",
+    "email": "john@mail.com"
+  },
+  "programMembership": {
+    "@type": "ProgramMembership",
+    "memberNumber": "12345",
+    "program": "STA"
+  },
+  "bookingAgent": {
+    "@type": "Organization",
+    "name": "Bolt Bus NYC",
+    "url": "http://boltbus.com/"
+  },
+  "bookingTime": "2013-01-14T13:05:00-05:00",
+  "modifiedTime": "2013-03-14T13:05:00-05:00",
+  "confirmReservationUrl": "http://boltbus.com/confirm?id=123456",
+  "cancelReservationUrl": "http://boltbus.com/cancel?id=123456",
+  "modifyReservationUrl": "http://boltbus.com/edit?id=123456",
+  "checkinUrl": "http://boltbus.com/checkin?id=AB3XY2",
+  "reservationStatus": "http://schema.org/ReservationConfirmed",
+  "reservationFor": {
+    "@type": "BusTrip",
+    "name": "?",
+    "busNumber": "63",
+    "busName": "Bolt Bus NY:Boston",
+    "busCompany": {
+      "@type": "Organization",
+      "name": "Bolt NYC"
+    },
+    "departureBusStop": {
+      "@type": "BusStop",
+      "name": "Port Authority, NYC",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "625 8th Avenue",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "postalCode": "10018",
+        "addressCountry": "USA"
+      },
+      "directions": "Bus terminals are at floors 2-4 of the Port Authority building"
+    },
+    "departureTime": "2017-01-04T12:30:00-05:00",
+    "arrivalBusStop": {
+      "@type": "BusStop",
+      "name": "Boston South Station",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Summer St.",
+        "addressLocality": "Boston",
+        "addressRegion": "MA",
+        "postalCode": "02111",
+        "addressCountry": "USA"
+      },
+      "directions": "Bus stops are at thewest side of the train station."
+    },
+    "arrivalTime": "2017-01-04T17:10:00-05:00"
+  },
+  "reservedTicket": {
+    "@type": "Ticket",
+    "ticketNumber": "123XYZ",
+    "downloadUrl": "?",
+    "printUrl": "?",
+    "ticketToken": "qrCode:123456789",
+    "additionalTicketText": "?",
+    "price": "45.00",
+    "priceCurrency": "USD",
+    "underName": {
+      "@type": "Person",
+      "name": "Mary Smith"
+    },
+    "ticketedSeat": {
+      "@type": "Seat",
+      "seatingType": "Coach",
+      "seatNumber": "27",
+      "seatRow": "A"
+    }
+  }
+}
+</script>
+
+--- 탭: 마이크로데이터 [https://developers.google.com/workspace/gmail/markup/reference/bus-reservation?hl=ko#%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EB%8D%B0%EC%9D%B4%ED%84%B0] ---
+<div itemscope itemtype="http://schema.org/BusReservation">
+  <meta itemprop="reservationNumber" content="123456"/>
+  <link itemprop="url" href="http://boltbus.com/view/123456"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Smith"/>
+    <meta itemprop="email" content="john@mail.com"/>
+  </div>
+  <div itemprop="programMembership" itemscope itemtype="http://schema.org/ProgramMembership">
+    <meta itemprop="memberNumber" content="12345"/>
+    <meta itemprop="program" content="STA"/>
+  </div>
+  <div itemprop="bookingAgent" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Bolt Bus NYC"/>
+    <link itemprop="url" href="http://boltbus.com/"/>
+  </div>
+  <meta itemprop="bookingTime" content="2013-01-14T13:05:00-05:00"/>
+  <meta itemprop="modifiedTime" content="2013-03-14T13:05:00-05:00"/>
+  <link itemprop="confirmReservationUrl" href="http://boltbus.com/confirm?id=123456"/>
+  <link itemprop="cancelReservationUrl" href="http://boltbus.com/cancel?id=123456"/>
+  <link itemprop="modifyReservationUrl" href="http://boltbus.com/edit?id=123456"/>
+  <link itemprop="checkinUrl" href="http://boltbus.com/checkin?id=AB3XY2"/>
+  <link itemprop="reservationStatus" href="http://schema.org/ReservationConfirmed"/>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/BusTrip">
+    <meta itemprop="name" content="?"/>
+    <meta itemprop="busNumber" content="63"/>
+    <meta itemprop="busName" content="Bolt Bus NY:Boston"/>
+    <div itemprop="busCompany" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bolt NYC"/>
+    </div>
+    <div itemprop="departureBusStop" itemscope itemtype="http://schema.org/BusStop">
+      <meta itemprop="name" content="Port Authority, NYC"/>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <meta itemprop="streetAddress" content="625 8th Avenue"/>
+        <meta itemprop="addressLocality" content="New York"/>
+        <meta itemprop="addressRegion" content="NY"/>
+        <meta itemprop="postalCode" content="10018"/>
+        <meta itemprop="addressCountry" content="USA"/>
+      </div>
+      <meta itemprop="directions" content="Bus terminals are at floors 2-4 of the Port Authority building"/>
+    </div>
+    <meta itemprop="departureTime" content="2017-01-04T12:30:00-05:00"/>
+    <div itemprop="arrivalBusStop" itemscope itemtype="http://schema.org/BusStop">
+      <meta itemprop="name" content="Boston South Station"/>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <meta itemprop="streetAddress" content="Summer St."/>
+        <meta itemprop="addressLocality" content="Boston"/>
+        <meta itemprop="addressRegion" content="MA"/>
+        <meta itemprop="postalCode" content="02111"/>
+        <meta itemprop="addressCountry" content="USA"/>
+      </div>
+      <meta itemprop="directions" content="Bus stops are at thewest side of the train station."/>
+    </div>
+    <meta itemprop="arrivalTime" content="2017-01-04T17:10:00-05:00"/>
+  </div>
+  <div itemprop="reservedTicket" itemscope itemtype="http://schema.org/Ticket">
+    <meta itemprop="ticketNumber" content="123XYZ"/>
+    <meta itemprop="downloadUrl" content="?"/>
+    <meta itemprop="printUrl" content="?"/>
+    <meta itemprop="ticketToken" content="qrCode:123456789"/>
+    <meta itemprop="additionalTicketText" content="?"/>
+    <meta itemprop="price" content="45.00"/>
+    <meta itemprop="priceCurrency" content="USD"/>
+    <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mary Smith"/>
+    </div>
+    <div itemprop="ticketedSeat" itemscope itemtype="http://schema.org/Seat">
+      <meta itemprop="seatingType" content="Coach"/>
+      <meta itemprop="seatNumber" content="27"/>
+      <meta itemprop="seatRow" content="A"/>
+    </div>
+  </div>
+</div>
+마크업 테스트
+이메일 마크업 테스터 도구 [https://www.google.com/webmasters/markup-tester/?hl=ko]를 사용하여 마크업의 유효성을 검사할 수 있습니다. 마크업 코드를 붙여넣고 확인 버튼을 클릭하여 콘텐츠를 스캔하면 오류에 관한 보고서를 받게 됩니다.
+사양
+이메일의 세부정보를 검토하여 이러한 숙박 시설이 버스 예약에 적용되는지 확인하세요. 이러한 추가 속성을 마크업하면 Google에서 사용자에게 버스 예약에 관한 훨씬 풍부한 설명을 표시할 수 있습니다.
+속성 유형 설명
+reservationNumber 텍스트 (필수) 예약의 번호 또는 ID입니다.
+URL URL 예약을 볼 수 있는 웹페이지입니다.
+underName Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 또는 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] (필수) 승객입니다.
+underName.name 텍스트 (필수) 사람의 이름입니다.
+underName.email 텍스트 이메일 주소입니다.
+programMembership ProgramMembership [https://developers.google.com/workspace/gmail/markup/reference/types/ProgramMembership?hl=ko] 예약에 적용되는 항공사 멤버십, 호텔 포인트 제도 등의 멤버십입니다.
+programMembership.memberNumber 텍스트 멤버십의 식별자입니다.
+programMembership.program 텍스트 프로그램의 이름입니다.
+bookingAgent Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약 대행사 또는 대행사입니다. 문자열 (예: '')도 허용합니다.
+bookingAgent.name 텍스트 에이전트/서비스의 이름입니다.
+bookingAgent.url URL 에이전트/서비스의 웹사이트입니다.
+bookingTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약 날짜입니다.
+modifiedTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] (확인 카드/검색 답변에 권장) 예약이 마지막으로 수정된 시간입니다.
+confirmReservationUrl URL 예약을 확인할 수 있는 웹페이지입니다.
+cancelReservationUrl URL 예약을 취소할 수 있는 웹페이지입니다.
+modifyReservationUrl URL (확인 카드/검색 답변에 권장) 예약을 수정할 수 있는 웹페이지입니다.
+checkinUrl URL 승객이 체크인할 수 있는 웹페이지입니다.
+reservationStatus ReservationStatus [https://developers.google.com/workspace/gmail/markup/reference/types/ReservationStatus?hl=ko] (필수) 예약의 현재 상태입니다.
+reservationFor BusTrip [https://developers.google.com/workspace/gmail/markup/reference/types/BusTrip?hl=ko] (필수) 버스 여정에 대한 정보입니다.
+reservationFor.name 텍스트 BusTrip의 이름입니다.
+reservationFor.busNumber 텍스트 예: 101.
+reservationFor.busName 텍스트 예: 볼트 익스프레스입니다.
+reservationFor.busCompany Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] (필수) 예: 볼트 뉴욕. 문자열 (예: 'Bolt NYC')도 허용합니다.
+reservationFor.busCompany.name 텍스트 (필수) 조직의 이름입니다.
+reservationFor.departureBusStop BusStop [https://developers.google.com/workspace/gmail/markup/reference/types/BusStop?hl=ko] 또는 BusStation [https://developers.google.com/workspace/gmail/markup/reference/types/BusStation?hl=ko] (필수) 버스가 출발하는 위치입니다.
+reservationFor.departureBusStop.name 텍스트 (필수) BusStop의 이름입니다.
+reservationFor.departureBusStop.address PostalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko] 출발 버스 정류장 / 역의 주소입니다.
+reservationFor.departureBusStop.address.streetAddress 텍스트 (확인 카드/검색 답변에 권장) 출발 버스 정류장 / 역의 상세 주소입니다.
+reservationFor.departureBusStop.address.addressLocality 텍스트 (확인 카드/검색 답변에 권장) 출발 버스 정류장 / 역의 지역 (예: 도시)입니다.
+reservationFor.departureBusStop.address.addressRegion 텍스트 (확인 카드/검색 답변에 권장) 출발 버스 정류장 / 역의 지역 (예: 주)
+reservationFor.departureBusStop.address.postalCode 텍스트 (확인 카드/검색 답변에 권장) 출발 버스 정류장 / 역의 우편번호입니다.
+reservationFor.departureBusStop.address.addressCountry 텍스트 또는 국가 [https://developers.google.com/workspace/gmail/markup/reference/types/Country?hl=ko] (확인 카드/검색 답변에 권장) 버스 정류장 / 역이 출발한 국가입니다.
+reservationFor.departureBusStop.directions 텍스트 버스 정류장까지의 경로입니다.
+reservationFor.departureTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] (필수) 버스 출발 시간입니다.
+reservationFor.arrivalBusStop BusStop [https://developers.google.com/workspace/gmail/markup/reference/types/BusStop?hl=ko] 또는 BusStation [https://developers.google.com/workspace/gmail/markup/reference/types/BusStation?hl=ko] (필수) 버스가 도착하는 위치입니다.
+reservationFor.arrivalBusStop.name 텍스트 (필수) BusStop의 이름입니다.
+reservationFor.arrivalBusStop.address PostalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko] 도착 버스 정류장 / 역의 주소입니다.
+reservationFor.arrivalBusStop.address.streetAddress 텍스트 (확인 카드/검색 답변에 권장) 도착 버스 정류장 / 역의 상세 주소입니다.
+reservationFor.arrivalBusStop.address.addressLocality 텍스트 (확인 카드/검색 답변에 권장) 도착 버스 정류장 / 역의 지역 (예: 도시)입니다.
+reservationFor.arrivalBusStop.address.addressRegion 텍스트 (확인 카드/검색 답변에 권장) 도착 버스 정류장 / 역의 지역 (예: 주)입니다.
+reservationFor.arrivalBusStop.address.postalCode 텍스트 (확인 카드/검색 답변에 권장) 도착 버스 정류장 / 역의 우편번호입니다.
+reservationFor.arrivalBusStop.address.addressCountry 텍스트 또는 국가 [https://developers.google.com/workspace/gmail/markup/reference/types/Country?hl=ko] (확인 카드/검색 답변에 권장) 버스 정류장 / 역이 있는 국가입니다.
+reservationFor.arrivalBusStop.directions 텍스트 버스 정류장까지의 경로입니다.
+reservationFor.arrivalTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] (필수) 버스 도착 시간입니다.
+reservedTicket 티켓 [https://developers.google.com/workspace/gmail/markup/reference/types/Ticket?hl=ko] 티켓 정보입니다.
+reservedTicket.ticketNumber 텍스트 티켓의 번호 또는 ID입니다.
+reservedTicket.downloadUrl URL .
+reservedTicket.printUrl URL .
+reservedTicket.ticketToken 텍스트 또는 URL 바코드 이미지가 사이트에서 호스팅되는 경우 입력란의 값은 이미지의 URL이거나 바코드 또는 QR URI(예: 'barcode128:AB34')입니다. (ISO-15417 바코드), 'qrCode:AB34' (QR 코드), 'aztecCode:AB34' (아즈텍 코드), "barcodeEAN:1234" (EAN 코드) 및 'barcodeUPCA:1234' (UPCA 코드).
+reservedTicket.additionalTicketText 텍스트 티켓에 관한 추가 설명 텍스트입니다.
+reservedTicket.price 텍스트 티켓의 총가격입니다.
+reservedTicket.priceCurrency 텍스트 티켓 가격의 통화입니다 (3자리 ISO 4217 형식).
+reservedTicket.underName Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 또는 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 티켓의 대상 개인 또는 조직입니다.
+reservedTicket.underName.name 텍스트 사람의 이름입니다.
+reservedTicket.ticketedSeat 사용 가능 라이선스 수 [https://developers.google.com/workspace/gmail/markup/reference/types/Seat?hl=ko] 예약된 좌석의 위치 (예: 27B). .
+reservedTicket.ticketedSeat.seatingType 텍스트 좌석의 유형/클래스입니다.
+reservedTicket.ticketedSeat.seatNumber 텍스트 예약된 좌석의 위치입니다.
+reservedTicket.ticketedSeat.seatRow 텍스트 예약 좌석의 행 위치입니다.
+참고: Google에서 사용하는 일부 스키마는 아직 schema.org [http://schema.org/]의 표준화 프로세스를 진행 중이므로 향후 변경될 수 있습니다. 자세히 알아보기 [https://developers.google.com/workspace/gmail/markup/reference/schema-org-proposals?hl=ko]
+의견 보내기

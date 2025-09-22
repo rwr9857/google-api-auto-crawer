@@ -1,0 +1,13 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/api/reference/query-parameters
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+표준 쿼리 매개변수
+bookmark_border
+모든 Gmail API 작업에 적용되는 쿼리 매개변수는 시스템 매개변수 [https://cloud.google.com/apis/docs/system-parameters?hl=ko]에 설명되어 있습니다.
+의견 보내기

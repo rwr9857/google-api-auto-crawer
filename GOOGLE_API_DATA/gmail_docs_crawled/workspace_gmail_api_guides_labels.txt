@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/labels
+[2025-07-31] Source URL: https://developers.google.com/workspace/gmail/api/guides/labels
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,10 +10,10 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 라벨 관리
 bookmark_border
 이 페이지의 내용
-라벨 유형
-메일 및 대화목록의 라벨 관리하기
-스레드에 라벨 추가 또는 삭제하기
-메일에 라벨 추가 또는 삭제
+라벨 유형 [https://developers.google.com/workspace/gmail/api/guides/labels?hl=ko#types_of_labels]
+메일 및 대화목록의 라벨 관리하기 [https://developers.google.com/workspace/gmail/api/guides/labels?hl=ko#manage_labels_on_messages_threads]
+스레드에 라벨 추가 또는 삭제하기 [https://developers.google.com/workspace/gmail/api/guides/labels?hl=ko#add_or_remove_labels_to_threads]
+메일에 라벨 추가 또는 삭제 [https://developers.google.com/workspace/gmail/api/guides/labels?hl=ko#add_or_remove_labels_to_messages]
 라벨을 사용하면 Gmail에서 메일과 대화목록을 태그하고 정리하고 분류할 수 있습니다. 라벨은 메일 및 대화목록과 다대다 관계를 갖습니다. 단일 메일 또는 대화목록에 여러 라벨을 적용할 수 있고 여러 메일 또는 대화목록에 단일 라벨을 적용할 수 있습니다.
 라벨을 만들기 [https://developers.google.com/workspace/gmail/api/v1/reference/users/labels/create?hl=ko], 가져오기 [https://developers.google.com/workspace/gmail/api/v1/reference/users/labels/get?hl=ko], 나열하기 [https://developers.google.com/workspace/gmail/api/v1/reference/users/labels/list?hl=ko], 업데이트하기 [https://developers.google.com/workspace/gmail/api/v1/reference/users/labels/update?hl=ko] 또는 삭제하기 [https://developers.google.com/workspace/gmail/api/v1/reference/users/labels/delete?hl=ko]하는 방법에 관한 자세한 내용은 라벨 참조 [https://developers.google.com/workspace/gmail/api/v1/reference/users/labels?hl=ko]를 참고하세요.
 라벨을 관리하려면 https://www.googleapis.com/auth/gmail.labels 범위를 사용해야 합니다. 범위에 대한 자세한 내용은 Gmail API별 승인 및 인증 정보 [https://developers.google.com/workspace/gmail/api/auth/scopes?hl=ko]를 참고하세요.

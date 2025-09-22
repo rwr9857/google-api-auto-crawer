@@ -1,0 +1,522 @@
+[None] Source URL: https://developers.google.com/workspace/gmail/markup/reference/event-reservation
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+이벤트 예약
+bookmark_border
+이 페이지의 내용
+사용 사례
+티켓이 없는 기본 이벤트 알림
+티켓이 있고 지정 좌석이 없는 이벤트
+티켓이 포함된 스포츠 또는 음악 이벤트
+티켓 및 지정석이 있는 이벤트
+여러 티켓
+마크업 테스트
+사양
+이 유형은 이벤트에서 하나 이상의 참석자를 위한 예약을 선언하는 데 사용합니다. 티켓도 선언할 수 있습니다.
+사용 사례
+다음 사용 사례는 EventReservation 스키마가 사용되는 일반적인 예를 보여줍니다. 다음 예를 사용하여 마크업이 올바르게 구성되었는지 확인하세요.
+참고: 시작하기 전에 이메일에 스키마를 삽입 [https://developers.google.com/workspace/gmail/markup/embedding-schemas-in-emails?hl=ko]하는 방법을 이해하고 스키마 테스트 [https://developers.google.com/workspace/gmail/markup/testing-your-schema?hl=ko]에 익숙해야 합니다.
+티켓이 없는 기본 이벤트 알림
+사용자의 이벤트 참석을 확인하는 이메일을 보내는 경우 다음 마크업을 포함하세요. 다음은 이메일을 EventReservation로 간주하기에 충분한 최소 마크업의 예입니다.
+--- 탭: JSON-LD ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "EventReservation",
+  "reservationNumber": "E123456789",
+  "reservationStatus": "http://schema.org/Confirmed",
+  "underName": {
+    "@type": "Person",
+    "name": "John Smith"
+  },
+  "reservationFor": {
+    "@type": "Event",
+    "name": "Foo Fighters Concert",
+    "startDate": "2027-03-06T19:30:00-08:00",
+    "location": {
+      "@type": "Place",
+      "name": "AT&T Park",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "24 Willie Mays Plaza",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94107",
+        "addressCountry": "US"
+      }
+    }
+  }
+}
+</script>
+
+--- 탭: 마이크로데이터 ---
+<div itemscope itemtype="http://schema.org/EventReservation">
+  <meta itemprop="reservationNumber" content="E123456789"/>
+  <link itemprop="reservationStatus" href="http://schema.org/Confirmed"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Smith"/>
+  </div>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/Event">
+    <meta itemprop="name" content="Foo Fighters Concert"/>
+    <meta itemprop="startDate" content="2027-03-06T19:30:00-08:00"/>
+    <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+      <meta itemprop="name" content="AT&T Park"/>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <meta itemprop="streetAddress" content="24 Willie Mays Plaza"/>
+        <meta itemprop="addressLocality" content="San Francisco"/>
+        <meta itemprop="addressRegion" content="CA"/>
+        <meta itemprop="postalCode" content="94107"/>
+        <meta itemprop="addressCountry" content="US"/>
+      </div>
+    </div>
+  </div>
+</div>
+티켓이 있고 지정 좌석이 없는 이벤트
+ticketToken, ticketNumber, numSeats 필드를 포함하여 티켓에 관한 정보를 추가합니다.
+--- 탭: JSON-LD ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "EventReservation",
+  "reservationNumber": "E123456789",
+  "reservationStatus": "http://schema.org/Confirmed",
+  "underName": {
+    "@type": "Person",
+    "name": "John Smith"
+  },
+  "reservationFor": {
+    "@type": "Event",
+    "name": "Foo Fighters Concert",
+    "performer": {
+      "@type": "Organization",
+      "name": "The Foo Fighters",
+      "image": "http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"
+    },
+    "startDate": "2027-03-06T19:30:00-08:00",
+    "location": {
+      "@type": "Place",
+      "name": "AT&T Park",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "24 Willie Mays Plaza",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94107",
+        "addressCountry": "US"
+      }
+    }
+  },
+  "ticketToken": "qrCode:AB34",
+  "ticketNumber": "abc123",
+  "numSeats": "1"
+}
+</script>
+
+--- 탭: 마이크로데이터 ---
+<div itemscope itemtype="http://schema.org/EventReservation">
+  <meta itemprop="reservationNumber" content="E123456789"/>
+  <link itemprop="reservationStatus" href="http://schema.org/Confirmed"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Smith"/>
+  </div>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/Event">
+    <meta itemprop="name" content="Foo Fighters Concert"/>
+    <div itemprop="performer" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Foo Fighters"/>
+      <link itemprop="image" href="http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"/>
+    </div>
+    <meta itemprop="startDate" content="2027-03-06T19:30:00-08:00"/>
+    <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+      <meta itemprop="name" content="AT&T Park"/>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <meta itemprop="streetAddress" content="24 Willie Mays Plaza"/>
+        <meta itemprop="addressLocality" content="San Francisco"/>
+        <meta itemprop="addressRegion" content="CA"/>
+        <meta itemprop="postalCode" content="94107"/>
+        <meta itemprop="addressCountry" content="US"/>
+      </div>
+    </div>
+  </div>
+  <meta itemprop="ticketToken" content="qrCode:AB34"/>
+  <meta itemprop="ticketNumber" content="abc123"/>
+  <meta itemprop="numSeats" content="1"/>
+</div>
+티켓이 포함된 스포츠 또는 음악 이벤트
+reservationFor 유형을 MusicEvent 또는 SportsEvent로 설정합니다. 이벤트가 MusicEvent인 경우 (예: 콘서트) performer.name 및 performer.image를 포함해야 합니다. 경쟁하는 두 팀 또는 선수가 있는 SportsEvent (예: 농구 경기)인 경우 두 팀을 공연자로 포함합니다.
+--- 탭: JSON-LD ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "EventReservation",
+  "reservationNumber": "E123456789",
+  "reservationStatus": "http://schema.org/Confirmed",
+  "underName": {
+    "@type": "Person",
+    "name": "John Smith"
+  },
+  "reservationFor": {
+    "@type": "MusicEvent",
+    "name": "Foo Fighters Concert",
+    "url": "http://foofighterstour.com/SFO",
+    "performer": {
+      "@type": "Organization",
+      "name": "The Foo Fighters",
+      "image": "http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"
+    },
+    "startDate": "2027-03-06T19:30:00-08:00",
+    "endDate": "2027-03-06T23:00:00-08:00",
+    "doorTime": "2027-03-06T16:30:00-08:00",
+    "location": {
+      "@type": "Place",
+      "name": "AT&T Park",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "AT&T Park",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94107",
+        "addressCountry": "US"
+      }
+    }
+  },
+  "ticketToken": "qrCode:AB34",
+  "ticketNumber": "abc123",
+  "numSeats": "1"
+}
+</script>
+
+--- 탭: 마이크로데이터 ---
+<div itemscope itemtype="http://schema.org/EventReservation">
+  <meta itemprop="reservationNumber" content="E123456789"/>
+  <link itemprop="reservationStatus" href="http://schema.org/Confirmed"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Smith"/>
+  </div>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/MusicEvent">
+    <meta itemprop="name" content="Foo Fighters Concert"/>
+    <link itemprop="url" href="http://foofighterstour.com/SFO"/>
+    <div itemprop="performer" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Foo Fighters"/>
+      <link itemprop="image" href="http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"/>
+    </div>
+    <meta itemprop="startDate" content="2027-03-06T19:30:00-08:00"/>
+    <meta itemprop="endDate" content="2027-03-06T23:00:00-08:00"/>
+    <meta itemprop="doorTime" content="2027-03-06T16:30:00-08:00"/>
+    <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+      <meta itemprop="name" content="AT&T Park"/>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <meta itemprop="streetAddress" content="AT&T Park"/>
+        <meta itemprop="addressLocality" content="San Francisco"/>
+        <meta itemprop="addressRegion" content="CA"/>
+        <meta itemprop="postalCode" content="94107"/>
+        <meta itemprop="addressCountry" content="US"/>
+      </div>
+    </div>
+  </div>
+  <meta itemprop="ticketToken" content="qrCode:AB34"/>
+  <meta itemprop="ticketNumber" content="abc123"/>
+  <meta itemprop="numSeats" content="1"/>
+</div>
+티켓 및 지정석이 있는 이벤트
+지정 좌석이 있는 단일 티켓의 경우 ticketToken, ticketNumber, venueSeat, venueRow, venueSection를 포함합니다. 좌석 위치를 설명하는 데 필요한 venueSeat, venueRow, venueSection 중 하나만 포함하면 됩니다.
+numSeats는 포함하지 마세요.
+--- 탭: JSON-LD ---
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "EventReservation",
+  "reservationNumber": "E123456789",
+  "reservationStatus": "http://schema.org/Confirmed",
+  "underName": {
+    "@type": "Person",
+    "name": "John Smith"
+  },
+  "reservationFor": {
+    "@type": "Event",
+    "name": "Foo Fighters Concert",
+    "performer": {
+      "@type": "Organization",
+      "name": "The Foo Fighters",
+      "image": "http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"
+    },
+    "startDate": "2027-03-06T19:30:00-08:00",
+    "location": {
+      "@type": "Place",
+      "name": "AT&T Park",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "24 Willie Mays Plaza",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "postalCode": "94107",
+        "addressCountry": "US"
+      }
+    }
+  },
+  "venueSeat": "12",
+  "venueRow": "A",
+  "venueSection": "101",
+  "ticketToken": "qrCode:AB34",
+  "ticketNumber": "abc123"
+}
+</script>
+
+--- 탭: 마이크로데이터 ---
+<div itemscope itemtype="http://schema.org/EventReservation">
+  <meta itemprop="reservationNumber" content="E123456789"/>
+  <link itemprop="reservationStatus" href="http://schema.org/Confirmed"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Smith"/>
+  </div>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/Event">
+    <meta itemprop="name" content="Foo Fighters Concert"/>
+    <div itemprop="performer" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Foo Fighters"/>
+      <link itemprop="image" href="http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"/>
+    </div>
+    <meta itemprop="startDate" content="2027-03-06T19:30:00-08:00"/>
+    <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+      <meta itemprop="name" content="AT&T Park"/>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <meta itemprop="streetAddress" content="24 Willie Mays Plaza"/>
+        <meta itemprop="addressLocality" content="San Francisco"/>
+        <meta itemprop="addressRegion" content="CA"/>
+        <meta itemprop="postalCode" content="94107"/>
+        <meta itemprop="addressCountry" content="US"/>
+      </div>
+    </div>
+  </div>
+  <meta itemprop="venueSeat" content="12"/>
+  <meta itemprop="venueRow" content="A"/>
+  <meta itemprop="venueSection" content="101"/>
+  <meta itemprop="ticketToken" content="qrCode:AB34"/>
+  <meta itemprop="ticketNumber" content="abc123"/>
+</div>
+여러 티켓
+티켓을 여러 개 처리하는 방법에는 두 가지가 있습니다.
+첫 번째는 numSeats 변경입니다. 즉, 단일 예약은 numSeats명의 개인의 티켓을 나타냅니다.
+개인당 티켓 (예: 바코드)을 하나씩 만들고 티켓에 각 개인의 이름을 표시하려면 numSeats를 1로 설정하여 여러 개의 EventReservations (개인당 하나)를 만듭니다. 아래 예는 이와 같은 모습을 보여줍니다.
+--- 탭: JSON-LD ---
+<script type="application/ld+json">
+[
+  {
+    "@context": "http://schema.org",
+    "@type": "EventReservation",
+    "reservationNumber": "E123456789",
+    "reservationStatus": "http://schema.org/Confirmed",
+    "underName": {
+      "@type": "Person",
+      "name": "John Smith"
+    },
+    "reservationFor": {
+      "@type": "Event",
+      "name": "Foo Fighters Concert",
+      "performer": {
+        "@type": "Person",
+        "name": "The Foo Fighters",
+        "image": "http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"
+      },
+      "startDate": "2027-03-06T19:30:00-08:00",
+      "location": {
+        "@type": "Place",
+        "name": "AT&T Park",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "24 Willie Mays Plaza",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "postalCode": "94107",
+          "addressCountry": "US"
+        }
+      }
+    },
+    "venueSeat": "12",
+    "venueRow": "A",
+    "venueSection": "101",
+    "ticketToken": "qrCode:AB34",
+    "ticketNumber": "abc123"
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "EventReservation",
+    "reservationNumber": "E123456789",
+    "reservationStatus": "http://schema.org/Confirmed",
+    "underName": {
+      "@type": "Person",
+      "name": "Eva Green"
+    },
+    "reservationFor": {
+      "@type": "Event",
+      "name": "Foo Fighters Concert",
+      "performer": {
+        "@type": "Organization",
+        "name": "The Foo Fighters",
+        "image": "http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"
+      },
+      "startDate": "2027-03-06T19:30:00-08:00",
+      "location": {
+        "@type": "Place",
+        "name": "AT&T Park",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "24 Willie Mays Plaza",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "postalCode": "94107",
+          "addressCountry": "US"
+        }
+      }
+    },
+    "venueSeat": "13",
+    "venueRow": "A",
+    "venueSection": "101",
+    "ticketToken": "qrCode:AB34",
+    "ticketNumber": "abc456"
+  }
+]
+</script>
+
+--- 탭: 마이크로데이터 ---
+<div itemscope itemtype="http://schema.org/EventReservation">
+  <meta itemprop="reservationNumber" content="E123456789"/>
+  <link itemprop="reservationStatus" href="http://schema.org/Confirmed"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="John Smith"/>
+  </div>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/Event">
+    <meta itemprop="name" content="Foo Fighters Concert"/>
+   <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="The Foo Fighters"/>
+      <link itemprop="image" href="http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"/>
+    </div>
+    <meta itemprop="startDate" content="2027-03-06T19:30:00-08:00"/>
+    <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+      <meta itemprop="name" content="AT&T Park"/>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <meta itemprop="streetAddress" content="24 Willie Mays Plaza"/>
+        <meta itemprop="addressLocality" content="San Francisco"/>
+        <meta itemprop="addressRegion" content="CA"/>
+        <meta itemprop="postalCode" content="94107"/>
+        <meta itemprop="addressCountry" content="US"/>
+      </div>
+    </div>
+  </div>
+  <meta itemprop="venueSeat" content="12"/>
+  <meta itemprop="venueRow" content="A"/>
+  <meta itemprop="venueSection" content="101"/>
+  <meta itemprop="ticketToken" content="qrCode:AB34"/>
+  <meta itemprop="ticketNumber" content="abc123"/>
+</div>
+<div itemscope itemtype="http://schema.org/EventReservation">
+  <meta itemprop="reservationNumber" content="E123456789"/>
+  <link itemprop="reservationStatus" href="http://schema.org/Confirmed"/>
+  <div itemprop="underName" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Eva Green"/>
+  </div>
+  <div itemprop="reservationFor" itemscope itemtype="http://schema.org/Event">
+    <meta itemprop="name" content="Foo Fighters Concert"/>
+    <div itemprop="performer" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Foo Fighters"/>
+      <link itemprop="image" href="http://www.amprocktv.com/wp-content/uploads/2027/01/foo-fighters-1-680x383.jpg"/>
+    </div>
+    <meta itemprop="startDate" content="2027-03-06T19:30:00-08:00"/>
+    <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+      <meta itemprop="name" content="AT&T Park"/>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <meta itemprop="streetAddress" content="24 Willie Mays Plaza"/>
+        <meta itemprop="addressLocality" content="San Francisco"/>
+        <meta itemprop="addressRegion" content="CA"/>
+        <meta itemprop="postalCode" content="94107"/>
+        <meta itemprop="addressCountry" content="US"/>
+      </div>
+    </div>
+  </div>
+  <meta itemprop="venueSeat" content="13"/>
+  <meta itemprop="venueRow" content="A"/>
+  <meta itemprop="venueSection" content="101"/>
+  <meta itemprop="ticketToken" content="qrCode:AB34"/>
+  <meta itemprop="ticketNumber" content="abc456"/>
+</div>
+마크업 테스트
+이메일 마크업 테스터 도구 [https://www.google.com/webmasters/markup-tester/?hl=ko]를 사용하여 마크업의 유효성을 검사할 수 있습니다. 마크업 코드를 붙여넣고 검증 버튼을 클릭하여 콘텐츠를 검사하고 있는 오류에 관한 보고서를 받습니다.
+사양
+이메일의 세부정보를 검토하여 이러한 속성이 이벤트 예약에 적용되는지 확인하세요. 이러한 추가 속성을 마크업하면 Google에서 사용자에게 훨씬 더 풍부한 이벤트 예약 설명을 표시할 수 있습니다.
+EventReservation
+유형 이름: EventReservation [https://developers.google.com/workspace/gmail/markup/reference/types/EventReservation?hl=ko]
+예약 [https://developers.google.com/workspace/gmail/markup/reference/types/Reservation?hl=ko]을 확장합니다.
+이름 유형 설명
+작업 작업 [https://developers.google.com/workspace/gmail/markup/reference/types/Action?hl=ko] 이 항목에 대해 취할 수 있는 작업입니다.
+action.name 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 작업에 연결된 UI 요소에서 사용자에게 표시되는 문자열입니다.
+action.url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 작업의 타겟 URL입니다. 명시적인 핸들러 필드가 제공되지 않으면 작업 핸들러가 이 URL을 WebActionHandler URL로 사용하여 WebActionHandler로 확장됩니다.
+additionalTicketText 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 티켓에 대한 추가 정보입니다.
+bookingAgent Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약 대리인 또는 대행사 문자열도 허용합니다 (예: "").
+bookingAgent.image URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 조직 이미지의 URL입니다.
+bookingAgent.name 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 상담사/서비스의 이름입니다.
+bookingAgent.url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 상담사/서비스의 웹사이트입니다.
+bookingTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예약 날짜입니다.
+cancelReservationUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 취소할 수 있는 웹페이지입니다.
+confirmReservationUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 확인할 수 있는 웹페이지입니다.
+modifiedTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] (확인 카드/검색 결과에 권장) 예약이 마지막으로 수정된 시간입니다.
+modifyReservationUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] (확인 카드/검색 결과에 권장) 예약을 수정할 수 있는 웹페이지입니다.
+numSeats 숫자 [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 좌석 수입니다.
+price 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] EventReservation의 총 가격입니다.
+priceCurrency 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] EventReservation 가격의 통화 (3글자 ISO 4217 형식)입니다.
+programMembership ProgramMembership [https://developers.google.com/workspace/gmail/markup/reference/types/ProgramMembership?hl=ko] 예약에 적용되는 항공사 멤버십, 호텔 포인트 제도 등
+programMembership.memberNumber 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 멤버십의 식별자입니다.
+programMembership.program 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 프로그램의 이름입니다.
+reservationFor
+(필수) 이벤트 [https://developers.google.com/workspace/gmail/markup/reference/types/Event?hl=ko] Event 또는 BusinessEvent, ChildrenEvent, ComedyEvent, DanceEvent, EducationEvent, Festival, FoodEvent, LiteraryEvent, MovieShowing, MusicEvent, SaleEvent, SocialEvent, SportsEvent, TheaterEvent, VisualArtsEvent 등의 이벤트 하위유형을 사용할 수 있습니다.
+reservationFor.description 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이벤트에 대한 간단한 설명입니다.
+reservationFor.doorTime DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 입장이 시작되는 시간입니다.
+reservationFor.endDate DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 이벤트의 종료일과 종료 시간입니다.
+reservationFor.image URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 이벤트 이미지의 URL입니다.
+reservationFor.location
+(필수) 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 이벤트의 위치입니다.
+reservationFor.location.address
+(필수) PostalAddress [https://developers.google.com/workspace/gmail/markup/reference/types/PostalAddress?hl=ko] 이벤트 위치의 주소입니다.
+reservationFor.location.address.addressCountry
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 또는 국가 [https://developers.google.com/workspace/gmail/markup/reference/types/Country?hl=ko] 이벤트 위치의 국가입니다.
+reservationFor.location.address.addressLocality
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이벤트 위치의 지역 (예: 도시)입니다.
+reservationFor.location.address.addressRegion
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이벤트 위치의 지역 (예: 주)입니다.
+reservationFor.location.address.postalCode
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이벤트 위치의 우편번호입니다.
+reservationFor.location.address.streetAddress
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이벤트 위치의 상세 주소입니다.
+reservationFor.location.name
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이벤트 위치의 이름입니다.
+reservationFor.name
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이벤트 이름입니다.
+reservationFor.performer Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 또는 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] (확인 카드/검색 결과에 권장) 이벤트의 실행자입니다. 객체 배열도 허용합니다.
+reservationFor.performer.image URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] (확인 카드/검색 결과에 권장) 사용자 이미지의 URL입니다.
+reservationFor.performer.name 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] (확인 카드/검색 결과에 권장) 사용자 이름
+reservationFor.performer.url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 사용자의 URL입니다.
+reservationFor.startDate
+(필수) DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 이벤트의 시작일 및 시간입니다.
+reservationFor.url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 이벤트의 URL입니다.
+reservationNumber
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예약 번호 또는 ID입니다.
+reservationStatus
+(필수) ReservationStatus [https://developers.google.com/workspace/gmail/markup/reference/types/ReservationStatus?hl=ko] 예약의 현재 상태입니다.
+ticketDownloadUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 티켓을 다운로드할 수 있는 위치입니다.
+ticketNumber 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 티켓 번호 또는 ID입니다.
+ticketPrintUrl URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 티켓을 인쇄할 수 있는 위치입니다.
+ticketToken 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 또는 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 바코드 이미지가 사이트에 호스팅된 경우 이 필드의 값은 이미지의 URL 또는 바코드 또는 QR URI(예: 'barcode128:AB34'(ISO-15417 바코드), 'qrCode:AB34'(QR 코드), 'aztecCode:AB34'(Aztec 코드), 'barcodeEAN:1234'(EAN 코드), 'barcodeUPCA:1234'(UPCA 코드))입니다.
+underName
+(필수) Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 또는 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 티켓 소지자
+underName.email 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이메일 주소
+underName.name
+(필수) 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 사용자 이름입니다.
+url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 예약을 확인할 수 있는 웹페이지입니다.
+venueRow 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 좌석의 행입니다.
+venueSeat 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 좌석 번호입니다.
+venueSection 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 좌석의 섹션입니다.
+참고: Google에서 사용하는 일부 스키마는 아직 schema.org [http://schema.org/]의 표준화 프로세스를 거치고 있으므로 향후 변경될 수 있습니다. 자세히 알아보기 [https://developers.google.com/workspace/gmail/markup/reference/schema-org-proposals?hl=ko]
+의견 보내기

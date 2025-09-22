@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/sync
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/api/guides/sync
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,9 +10,9 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 Gmail과 클라이언트 동기화
 bookmark_border
 이 페이지의 내용
-전체 동기화
-부분 동기화
-제한사항
+전체 동기화 [https://developers.google.com/workspace/gmail/api/guides/sync?hl=ko#full_synchronization]
+부분 동기화 [https://developers.google.com/workspace/gmail/api/guides/sync?hl=ko#partial_synchronization]
+제한사항 [https://developers.google.com/workspace/gmail/api/guides/sync?hl=ko#limitations]
 클라이언트를 Gmail과 동기화하는 것은 대부분의 애플리케이션 시나리오에서 중요합니다. 전체 동기화와 부분 동기화라는 두 가지 전체 동기화 시나리오가 있습니다. 클라이언트가 Gmail에 처음 연결될 때와 드문 다른 시나리오에서는 전체 동기화가 필요합니다. 클라이언트가 최근에 동기화된 경우 부분 동기화는 전체 동기화보다 가벼운 대안입니다. 푸시 알림 [https://developers.google.com/workspace/gmail/api/guides/push?hl=ko]을 사용하여 필요할 때만 실시간으로 부분 동기화를 트리거하여 불필요한 폴링을 방지할 수도 있습니다.
 전체 동기화
 애플리케이션이 Gmail에 처음 연결되거나 부분 동기화를 사용할 수 없는 경우 전체 동기화를 실행해야 합니다. 전체 동기화 작업에서 애플리케이션은 목적에 필요한 만큼의 최신 메시지나 스레드를 검색하고 저장해야 합니다. 예를 들어 애플리케이션에 최근 메시지 목록이 표시되는 경우 사용자가 표시된 처음 몇 개의 메시지를 지나 스크롤할 때 반응형 인터페이스를 지원할 수 있도록 충분한 메시지를 가져와 캐시할 수 있습니다. 전체 동기화 작업을 실행하는 일반적인 절차는 다음과 같습니다.

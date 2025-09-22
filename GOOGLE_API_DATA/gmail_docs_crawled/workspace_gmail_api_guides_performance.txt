@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/performance
+[2025-08-01] Source URL: https://developers.google.com/workspace/gmail/api/guides/performance
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,10 +10,10 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 성능 관련 도움말
 bookmark_border
 이 페이지의 내용
-gzip을 사용한 압축
-부분 리소스 작업
-부분 응답
-패치(부분 업데이트)
+gzip을 사용한 압축 [https://developers.google.com/workspace/gmail/api/guides/performance?hl=ko#gzip]
+부분 리소스 작업 [https://developers.google.com/workspace/gmail/api/guides/performance?hl=ko#partial]
+부분 응답 [https://developers.google.com/workspace/gmail/api/guides/performance?hl=ko#partial-response]
+패치(부분 업데이트) [https://developers.google.com/workspace/gmail/api/guides/performance?hl=ko#patch]
 이 문서에서는 애플리케이션의 성능을 개선할 수 있는 몇 가지 기술에 대해 설명합니다. 경우에 따라 개념을 설명하기 위해 다른 API 또는 일반적인 API의 예가 사용되기도 하지만, 같은 개념이 Gmail API에도 적용됩니다.
 gzip을 사용한 압축
 각 요청에 필요한 대역폭을 줄이는 쉽고 편리한 한 가지 방법은 gzip 압축을 사용하는 것입니다. 이 경우 결과를 압축 해제하려면 CPU 시간이 추가로 필요하기는 하지만 대신에 네트워크 비용을 절감할 수 있다는 장점이 있습니다.

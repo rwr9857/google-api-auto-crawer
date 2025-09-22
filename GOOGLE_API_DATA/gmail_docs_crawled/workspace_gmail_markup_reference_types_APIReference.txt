@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/APIReference
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+API 참조
+bookmark_border
+유형 이름: APIReference [https://developers.google.com/workspace/gmail/markup/reference/types/APIReference?hl=ko]
+TechArticle [https://developers.google.com/workspace/gmail/markup/reference/types/TechArticle?hl=ko]을 확장합니다.
+이름 유형 설명
+assembly 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 라이브러리 파일 이름(예: mscorlib.dll, system.web.dll)입니다.
+AssemblyVersion 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 연결된 제품/기술 버전(예: .NET Framework 4.5
+프로그래밍 모델 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] API가 관리되는지 아니면 관리되지 않는지를 나타냅니다.
+타겟 플랫폼 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 앱 개발 유형: 전화, 대도시 스타일, 데스크톱, XBox 등
+의견 보내기

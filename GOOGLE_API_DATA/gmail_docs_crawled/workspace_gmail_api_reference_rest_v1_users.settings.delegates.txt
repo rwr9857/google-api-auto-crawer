@@ -1,0 +1,51 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users.settings.delegates
+bookmark_border
+이 페이지의 내용
+리소스: Delegate [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#resource:-delegate]
+VerificationStatus [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#verificationstatus]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#methods]
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#create]
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#delete]
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#get]
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#list]
+리소스: Delegate
+위임받은 사용자의 설정입니다. 위임받은 사용자는 위임자의 계정에서 메일을 읽고 보내고 삭제할 수 있으며 연락처를 확인하고 추가할 수도 있습니다. 위임에 관한 자세한 내용은 '메일 위임 설정' [https://support.google.com/mail/answer/138350?hl=ko]을 참고하세요.
+JSON 표현
+{
+  "delegateEmail": string,
+  "verificationStatus": enum (VerificationStatus [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#VerificationStatus])
+}
+필드
+delegateEmail
+string
+대리인의 이메일 주소입니다.
+verificationStatus
+enum (VerificationStatus [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#VerificationStatus])
+이 주소가 인증되었으며 계정의 위임자 역할을 할 수 있는지 여부를 나타냅니다. 읽기 전용입니다.
+VerificationStatus
+위임 사용을 위해 이메일 주소의 소유권이 확인되었는지 여부를 나타냅니다.
+열거형
+verificationStatusUnspecified 지정되지 않은 인증 상태입니다.
+accepted 이 주소는 계정의 위임자 역할을 할 수 있습니다.
+pending 주소로 인증 요청을 우편으로 보냈으나 소유자가 아직 수락하지 않았습니다.
+rejected 주소로 인증 요청을 우편으로 보냈으나 소유자가 거부했습니다.
+expired 주소로 인증 요청이 우편으로 전송되었으나 인증 없이 만료되었습니다.
+메서드
+create [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/create?hl=ko]
+확인 이메일을 보내지 않고 확인 상태가 accepted로 직접 설정된 위임을 추가합니다.
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/delete?hl=ko]
+지정된 위임을 삭제하고 (위임은 인증 상태와 관계없음) 이를 사용하는 데 필요했을 수 있는 인증을 취소합니다.
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/get?hl=ko]
+지정된 대리자를 가져옵니다.
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/list?hl=ko]
+지정된 계정의 위임자를 나열합니다.
+의견 보내기

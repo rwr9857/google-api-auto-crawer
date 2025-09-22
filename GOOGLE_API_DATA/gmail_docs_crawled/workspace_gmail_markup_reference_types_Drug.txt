@@ -1,0 +1,42 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Drug
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+약물
+bookmark_border
+유형 이름: 약물 [https://developers.google.com/workspace/gmail/markup/reference/types/Drug?hl=ko]
+MedicalTherapy [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTherapy?hl=ko] 확장
+이름 유형 설명
+활성 재료 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 활성 성분으로, 일반적으로 화합물 또는 생물학적 물질입니다.
+managementRoute 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 약물의 투여 경로(예: '구강')입니다.
+주류 경고 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 약물 복용 시 음주와 관련된 예방 조치, 안내, 금기 등
+availableStrength 약물 강도 [https://developers.google.com/workspace/gmail/markup/reference/types/DrugStrength?hl=ko] 약물에 사용할 수 있는 투여량입니다.
+모유수유 경고 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 수유 중인 모체의 약물 사용과 관련된 예방 조치, 안내, 금기 등
+임상 약국학 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 농도 (약초동물학, pK)와 생물학적 영향 (약력학, pD)을 포함하여 약물을 흡수하고 제거하는 설명입니다.
+임상약리학 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 농도 (약초동물학, pK)와 생물학적 영향 (약력학, pD)을 포함하여 약물을 흡수하고 제거하는 설명입니다.
+비용 DrugCost [https://developers.google.com/workspace/gmail/markup/reference/types/DrugCost?hl=ko] 태그된 출처에서 보고된 약물의 단위당 비용입니다.
+DosageForm 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 약물/보조제를 복용할 수 있는 약물(예: '태블릿', '서스펜션', '주사')입니다.
+접종 일정 약속 일정 [https://developers.google.com/workspace/gmail/markup/reference/types/DoseSchedule?hl=ko] 특정 집단에 대한 약물 투여 일정으로, 사용한 유형에 따라 관찰, 권장 또는 최대 접종이 이루어집니다.
+의약품 등급 DrugClass [https://developers.google.com/workspace/gmail/markup/reference/types/DrugClass?hl=ko] 이 약물이 속한 약물의 종류입니다 (예: 스타틴).
+음식 경고 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 약물을 복용 중인 동안 특정 음식의 섭취와 관련된 예방, 지침, 금기 등
+상호작용형 약물 약물 [https://developers.google.com/workspace/gmail/markup/reference/types/Drug?hl=ko] 이 약의 효과에 영향을 미치거나 환자에게 위험을 초래하는 방식으로 이 약과 상호작용하는 것으로 알려진 다른 약물입니다. 참고: 일반적으로 질병 상호작용은 금기로 인식됩니다.
+isAvailableGenericly Boolean [https://developers.google.com/workspace/gmail/markup/reference/types/Boolean?hl=ko] 약물이 일반 형태 (이름 무관)로 제공되는 경우 참입니다.
+독점 Boolean [https://developers.google.com/workspace/gmail/markup/reference/types/Boolean?hl=ko] 이 항목의 이름이 독점 이름/브랜드 이름인 경우 true입니다 (일반 이름 아님).
+labelDetails(라벨 세부정보) URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 의약품의 라벨 세부정보 링크
+법적 상태 DrugLegalStatus [https://developers.google.com/workspace/gmail/markup/reference/types/DrugLegalStatus?hl=ko] 적용되는 규제 대상 약물 일정을 포함해 약물 또는 보조제의 법적 상태입니다.
+제조업체 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 제품 제조업체입니다.
+메커니즘 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 약물 또는 보충제의 약리학적 효과를 만들어내는 구체적인 생화학적 상호작용입니다.
+비독점 이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 약품 또는 보조제의 일반적인 이름입니다.
+과다 복용 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 징후 또는 증상, 치료, 비상 대응을 위한 연락처 정보 등 약물 과다 복용과 관련된 모든 정보입니다.
+임신 카테고리 DrugPregnancyCategory [https://developers.google.com/workspace/gmail/markup/reference/types/DrugPregnancyCategory?hl=ko] 이 약물의 임신 카테고리입니다.
+임신 경고 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 임신 중 이 약물의 사용과 관련된 예방 조치, 권고, 금기 등
+처방 정보 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 약물에 대한 처방 정보 링크
+처방 상태 DrugPrescriptionStatus [https://developers.google.com/workspace/gmail/markup/reference/types/DrugPrescriptionStatus?hl=ko] 이 약물이 처방전 없이 구입할 수 있는지 또는 처방전 없이 구입할 수 있는지 여부를 나타냅니다.
+relatedDrug 약물 [https://developers.google.com/workspace/gmail/markup/reference/types/Drug?hl=ko] 이 약과 관련된 기타 약물(예: 일반적으로 처방되는 대체제)
+경고 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 또는 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] FDA 또는 의약품에 관한 기타 경고 (텍스트 또는 URL)
+의견 보내기

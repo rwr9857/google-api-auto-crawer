@@ -1,8 +1,10 @@
-Source URL: https://developers.google.com/workspace/gmail
+[2025-09-03] Source URL: https://developers.google.com/workspace/gmail?hl=ko
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
 Gmail 솔루션을 개발합니다.
+5분 정도 시간이 있으신가요?
+간단한 온라인 설문조사 [https://forms.gle/XcqRP3PJiQv9ADuj9]에 참여해 주시면 Google Workspace 문서를 개선하는 데 큰 도움이 됩니다.
 Gmail 환경 개선
 부가기능 및 Chat 앱을 사용하여 계정 데이터 또는 외부 서비스에서 제공하는 양방향 콘텐츠를 삽입합니다.
 고객과 주고받은 사용자 이메일 옆에 관련 판매 계약을 표시합니다.

@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings
+[2025-08-01] Source URL: https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,12 +10,12 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 POP 및 IMAP 관리
 bookmark_border
 이 페이지의 내용
-POP
-액세스 사용 설정 및 중지
-메시지 처리
-IMAP
-액세스 사용 설정 및 중지
-메시지 처리
+POP [https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings?hl=ko#pop]
+액세스 사용 설정 및 중지 [https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings?hl=ko#enabling_and_disabling_access]
+메시지 처리 [https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings?hl=ko#message_disposition]
+IMAP [https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings?hl=ko#imap]
+액세스 사용 설정 및 중지 [https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings?hl=ko#enabling_and_disabling_access_2]
+메시지 처리 [https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings?hl=ko#message_disposition_2]
 설정 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko]을 사용하여 POP 및 IMAP 프로토콜을 통해 액세스할 때 Gmail의 동작을 구성할 수 있습니다.
 getPop [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/getPop?hl=ko], updatePop [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/updatePop?hl=ko], getImap [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/getImap?hl=ko] 또는 updateImap [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings/updateImap?hl=ko]에 관한 자세한 내용은 설정 참조 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings?hl=ko]를 참고하세요.
 POP

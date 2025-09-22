@@ -1,0 +1,18 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/CookAction
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+요리사
+bookmark_border
+유형 이름: CookAction [https://developers.google.com/workspace/gmail/markup/reference/types/CookAction?hl=ko]
+CreateAction [https://developers.google.com/workspace/gmail/markup/reference/types/CreateAction?hl=ko]을 확장합니다.
+이름 유형 설명
+음식 시설 음식점 [https://developers.google.com/workspace/gmail/markup/reference/types/FoodEstablishment?hl=ko] 또는 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 위치의 하위 속성 액션이 발생한 특정 음식 시설.
+음식 이벤트 음식 이벤트 [https://developers.google.com/workspace/gmail/markup/reference/types/FoodEvent?hl=ko] 위치의 하위 속성 액션이 발생한 특정 음식 이벤트입니다.
+레시피 레시피 [https://developers.google.com/workspace/gmail/markup/reference/types/Recipe?hl=ko] 악기의 하위 속성 작업을 수행하는 데 사용되는 레시피/안내입니다.
+의견 보내기

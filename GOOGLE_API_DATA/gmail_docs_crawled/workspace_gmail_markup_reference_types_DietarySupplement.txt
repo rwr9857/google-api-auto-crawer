@@ -1,0 +1,27 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/DietarySupplement
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+식이조절 보조식품
+bookmark_border
+유형 이름: DietarySupplement [https://developers.google.com/workspace/gmail/markup/reference/types/DietarySupplement?hl=ko]
+MedicalTherapy [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTherapy?hl=ko] 확장
+이름 유형 설명
+활성 재료 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 활성 성분으로, 일반적으로 화합물 또는 생물학적 물질입니다.
+background 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 보충에 대한 역사적 관점을 수립하는 설명적 정보. 이름에 대한 근거, 보충제를 처음 보이게 된 인구 등을 포함할 수 있습니다.
+DosageForm 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 약물/보조제를 복용할 수 있는 약물(예: '태블릿', '서스펜션', '주사')입니다.
+독점 Boolean [https://developers.google.com/workspace/gmail/markup/reference/types/Boolean?hl=ko] 이 항목의 이름이 독점 이름/브랜드 이름인 경우 true입니다 (일반 이름 아님).
+법적 상태 DrugLegalStatus [https://developers.google.com/workspace/gmail/markup/reference/types/DrugLegalStatus?hl=ko] 적용되는 규제 대상 약물 일정을 포함해 약물 또는 보조제의 법적 상태입니다.
+제조업체 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 제품 제조업체입니다.
+최대 섭취량 MaxDoseSchedule [https://developers.google.com/workspace/gmail/markup/reference/types/MaximumDoseSchedule?hl=ko] 특정 추천 기관에서 정의한 특정 집단에 대한 이 보충제의 권장 섭취량입니다.
+메커니즘 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 약물 또는 보충제의 약리학적 효과를 만들어내는 구체적인 생화학적 상호작용입니다.
+비독점 이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 이 약품 또는 보조제의 일반적인 이름입니다.
+권장 섭취 RecommendedDoseSchedule [https://developers.google.com/workspace/gmail/markup/reference/types/RecommendedDoseSchedule?hl=ko] 특정 추천 기관에서 정의한 특정 집단에 대한 이 보충제의 권장 섭취량입니다.
+안전 고려 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 건강보조식품 관련 잠재적 안전 우려 다른 약물 및 음식과의 상호작용, 임신, 모유 수유, 알려진 부작용, 보충제의 효과를 알리는 기능이 포함될 수 있습니다.
+타겟 인구 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 의도한 대상이나 일반적으로 사용하는 인구의 특징(예: '성인')
+의견 보내기

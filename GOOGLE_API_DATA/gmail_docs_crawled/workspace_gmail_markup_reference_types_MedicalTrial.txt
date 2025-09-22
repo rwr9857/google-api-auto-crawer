@@ -1,0 +1,17 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTrial
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+의학 시험
+bookmark_border
+유형 이름: MedicalTrial [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTrial?hl=ko]
+MedicalStudy [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalStudy?hl=ko] 확장
+이름 유형 설명
+단계 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 무료 체험판의 단계입니다.
+무료 체험 설계 의료 시술 설계 [https://developers.google.com/workspace/gmail/markup/reference/types/MedicalTrialDesign?hl=ko] 무료 체험판 설계에 관한 구체적인 내용입니다.
+의견 보내기

@@ -1,0 +1,18 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/HttpActionHandler
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+HttpActionHandler 클래스의 생성자
+bookmark_border
+유형 이름: HttpActionHandler [https://developers.google.com/workspace/gmail/markup/reference/types/HttpActionHandler?hl=ko]
+ActionHandler [https://developers.google.com/workspace/gmail/markup/reference/types/ActionHandler?hl=ko]를 확장합니다.
+이름 유형 설명
+encoding 또는 MediaObject [https://developers.google.com/workspace/gmail/markup/reference/types/MediaObject?hl=ko] 메서드가 POST일 때 작업을 http 요청으로 인코딩하는 방법
+method HttpRequestMethod [https://developers.google.com/workspace/gmail/markup/reference/types/HttpRequestMethod?hl=ko] HTTP GET 또는 POST 사용 여부입니다. 기본값은 GET입니다.
+url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 작업을 완료하기 위해 가져올 대상 URL입니다.
+의견 보내기

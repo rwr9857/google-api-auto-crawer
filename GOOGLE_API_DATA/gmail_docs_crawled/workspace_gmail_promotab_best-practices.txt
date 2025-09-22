@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/promotab/best-practices
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/promotab/best-practices
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,12 +10,12 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 권장사항
 bookmark_border
 이 페이지의 내용
-이미지
-특가 배지
-로고 URL
-Discount code
-만료일
-이메일 주석을 사용하면 이미지, 할인, 만료일, 기타 혜택을 포함하여 이메일에 생동감을 더할 수 있습니다. 고화질 이미지와 관련성이 가장 높은 정보를 사용하면 Gmail 프로모션 탭에서 이메일을 볼 가능성과 클릭할 가능성이 높아집니다.&ast; [https://developers.google.com/workspace/gmail/promotab/best-practices?hl=ko#footnote]
+이미지 [https://developers.google.com/workspace/gmail/promotab/best-practices?hl=ko#images]
+특가 배지 [https://developers.google.com/workspace/gmail/promotab/best-practices?hl=ko#deal_badge]
+로고 URL [https://developers.google.com/workspace/gmail/promotab/best-practices?hl=ko#logo_url]
+Discount code [https://developers.google.com/workspace/gmail/promotab/best-practices?hl=ko#discount_code]
+만료일 [https://developers.google.com/workspace/gmail/promotab/best-practices?hl=ko#expiration_date]
+이메일 주석을 사용하면 이미지, 할인, 만료일, 기타 혜택을 포함하여 이메일에 생동감을 더할 수 있습니다. 고화질 이미지와 가장 관련성 높은 정보를 사용하면 Gmail 프로모션 탭에서 이메일이 조회되고 클릭될 가능성이 높아집니다.&ast; [https://developers.google.com/workspace/gmail/promotab/best-practices?hl=ko#footnote]
 이 섹션에서는 이메일 메시지에 주석을 추가하기 위한 권장사항을 설명합니다.
 이미지
 텍스트만 사용하지 마세요. 이 공간은 프로모션 이메일의 시각적 구성요소를 강조하기 위해 설계되었습니다. 실적을 개선하려면 제품 또는 라이프스타일 이미지를 사용해 보세요.
@@ -25,7 +25,7 @@ Discount code
 특가 배지
 '20% 할인' 또는 '무료 배송'과 같은 프로모션의 특징을 강조합니다.
 구체적으로 작성합니다. 할인율 또는 프로모션 코드와 같은 프로모션 세부정보를 확인합니다.
-긴 문장을 사용하지 마세요. 배지 공간이 제목과 경쟁하므로 할인 배지에 4단어 이상 또는 완전한 문장을 사용하지 마세요.
+긴 문장을 사용하지 마세요. 배지 공간이 제목 줄과 경쟁하므로 할인 배지에 4단어 이상 또는 완전한 문장을 사용하지 마세요.
 로고 URL
 HTTPS (HTTP 아님) URL을 사용합니다. 이 로고 선택은 이메일 미리보기에만 표시됩니다.
 Discount code
@@ -33,6 +33,6 @@ Discount code
 만료일
 이 기능을 사용하면 이메일이 번들 상단에 두 번 미리보기로 표시됩니다. 처음 전송될 때 한 번, 혜택이 만료된 후 3일 이내에 한 번 표시됩니다.
 만료된 날짜를 주석에 남겨두면 오래된 혜택으로 인식되어 이메일이 번들에 채워지지 않습니다.
-시간 및 시간대를 지정합니다 (예: '2018-12-30T23:59:59-0700'). 날짜 형식 지정에 대한 자세한 내용은 날짜 및 시간 형식 지정 [https://support.google.com/merchants/answer/7055760?hl=ko]을 참고하세요.
+시간 및 시간대를 지정합니다 (예: '2018-12-30T23:59:59-0700'). 날짜 형식에 관한 자세한 내용은 날짜 및 시간 형식 지정 [https://support.google.com/merchants/answer/7055760?hl=ko]을 참고하세요.
 &ast; 이메일은 여러 요인을 기반으로 자동으로 그룹화됩니다.
 의견 보내기

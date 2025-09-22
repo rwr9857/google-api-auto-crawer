@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/uploads
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/api/guides/uploads
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,18 +6,17 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 가이드 [https://developers.google.com/workspace/gmail/api/guides?hl=ko]
-도움이 되었나요?
 의견 보내기
 첨부파일 업로드
 bookmark_border
 이 페이지의 내용
-업로드 옵션
-간단한 업로드
-멀티파트 업로드
-재개 가능한 업로드
-권장사항
-지수 백오프
-API 클라이언트 라이브러리 가이드
+업로드 옵션 [https://developers.google.com/workspace/gmail/api/guides/uploads?hl=ko#uploads]
+간단한 업로드 [https://developers.google.com/workspace/gmail/api/guides/uploads?hl=ko#simple]
+멀티파트 업로드 [https://developers.google.com/workspace/gmail/api/guides/uploads?hl=ko#multipart]
+재개 가능한 업로드 [https://developers.google.com/workspace/gmail/api/guides/uploads?hl=ko#resumable]
+권장사항 [https://developers.google.com/workspace/gmail/api/guides/uploads?hl=ko#best-practices]
+지수 백오프 [https://developers.google.com/workspace/gmail/api/guides/uploads?hl=ko#exp-backoff]
+API 클라이언트 라이브러리 가이드 [https://developers.google.com/workspace/gmail/api/guides/uploads?hl=ko#client-libraries]
 Gmail API를 사용하면 초안 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts?hl=ko]을 생성 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/create?hl=ko]하거나 업데이트 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/update?hl=ko]할 때 또는 메시지 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko]를 삽입 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/insert?hl=ko]하거나 전송 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages/send?hl=ko]할 때 파일 데이터를 업로드할 수 있습니다.
 업로드 옵션
 Gmail API를 사용하면 특정 유형의 바이너리 데이터 또는 미디어를 업로드할 수 있습니다. 업로드할 수 있는 데이터의 구체적인 특성은 미디어 업로드를 지원하는 메서드의 참조 페이지에 지정되어 있습니다.
@@ -307,5 +306,4 @@ API 클라이언트 라이브러리 가이드
 PHP [https://github.com/googleapis/google-api-php-client/blob/master/docs/media.md]
 Python [https://github.com/googleapis/google-api-python-client/blob/master/docs/media.md]
 Ruby [https://github.com/googleapis/google-api-ruby-client/blob/master/docs/usage-guide.md#media]
-도움이 되었나요?
 의견 보내기

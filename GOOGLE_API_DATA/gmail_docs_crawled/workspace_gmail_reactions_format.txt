@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/reactions/format
+[2025-08-04] Source URL: https://developers.google.com/workspace/gmail/reactions/format
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,13 +10,13 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 이메일 반응
 bookmark_border
 이 페이지의 내용
-형식
-전반적인 메시지 형식
-text/vnd.google.email-reaction+json 부분 정의
-Gmail의 text/vnd.google.email-reaction+json 해석
-유효성 검사
-디스플레이
-한도
+형식 [https://developers.google.com/workspace/gmail/reactions/format?hl=ko#format]
+전반적인 메시지 형식 [https://developers.google.com/workspace/gmail/reactions/format?hl=ko#overall_message_format]
+text/vnd.google.email-reaction+json 부분 정의 [https://developers.google.com/workspace/gmail/reactions/format?hl=ko#part-definition]
+Gmail의 text/vnd.google.email-reaction+json 해석 [https://developers.google.com/workspace/gmail/reactions/format?hl=ko#gmails_interpretation_of_textvndgoogleemail-reactionjson]
+유효성 검사 [https://developers.google.com/workspace/gmail/reactions/format?hl=ko#validation]
+디스플레이 [https://developers.google.com/workspace/gmail/reactions/format?hl=ko#display]
+한도 [https://developers.google.com/workspace/gmail/reactions/format?hl=ko#limits]
 이메일 반응을 사용하면 사용자가 이모티콘을 사용하여 재미있고 원활한 방식으로 이메일 메시지에 응답할 수 있습니다.
 형식
 이메일 반응은 반응임을 나타내는 특수 부분이 있는 일반 MIME 형식 이메일입니다.

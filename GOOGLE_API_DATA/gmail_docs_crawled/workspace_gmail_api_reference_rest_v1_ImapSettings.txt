@@ -1,0 +1,41 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/ImapSettings
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+ImapSettings
+bookmark_border
+이 페이지의 내용
+ExpungeBehavior [https://developers.google.com/workspace/gmail/api/reference/rest/v1/ImapSettings?hl=ko#expungebehavior]
+계정의 IMAP 설정
+JSON 표현
+{
+  "enabled": boolean,
+  "autoExpunge": boolean,
+  "expungeBehavior": enum (ExpungeBehavior [https://developers.google.com/workspace/gmail/api/reference/rest/v1/ImapSettings?hl=ko#ExpungeBehavior]),
+  "maxFolderSize": integer
+}
+필드
+enabled
+boolean
+계정에 IMAP이 사용 설정되어 있는지 여부입니다.
+autoExpunge
+boolean
+이 값이 true이면 IMAP에서 삭제된 것으로 표시된 메일이 즉시 삭제됩니다. 그렇지 않으면 Gmail은 삭제된 것으로 표시된 메일을 삭제하기 전에 클라이언트의 업데이트를 기다립니다.
+expungeBehavior
+enum (ExpungeBehavior [https://developers.google.com/workspace/gmail/api/reference/rest/v1/ImapSettings?hl=ko#ExpungeBehavior])
+메일이 삭제된 것으로 표시되고 마지막으로 표시된 IMAP 폴더에서 삭제될 때 메일에 실행되는 작업입니다.
+maxFolderSize
+integer
+IMAP 폴더에 포함할 수 있는 메일 수에 대한 선택적 제한입니다. 유효한 값은 0, 1000, 2000, 5000 또는 10000입니다. 값이 0이면 제한이 없다는 의미로 해석됩니다.
+ExpungeBehavior
+열거형
+expungeBehaviorUnspecified 지정되지 않은 동작입니다.
+archive 삭제된 메일을 보관처리합니다.
+trash 삭제된 것으로 표시된 메일을 휴지통으로 이동합니다.
+deleteForever 삭제된 것으로 표시된 메일을 즉시 완전히 삭제합니다. 삭제된 메시지는 복구할 수 없습니다.
+의견 보내기

@@ -1,0 +1,32 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Flight
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+탑승권
+bookmark_border
+유형 이름: 항공편 [https://developers.google.com/workspace/gmail/markup/reference/types/Flight?hl=ko]
+Intangible [https://developers.google.com/workspace/gmail/markup/reference/types/Intangible?hl=ko] 확장
+이름 유형 설명
+항공기 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 또는 차량 [https://developers.google.com/workspace/gmail/markup/reference/types/Vehicle?hl=ko] 항공기 종류 (예: '보잉 747').
+도착공항 공항 [https://developers.google.com/workspace/gmail/markup/reference/types/Airport?hl=ko] 비행이 종료되는 공항입니다.
+도착 게이트 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공편 도착 게이트의 식별자입니다.
+도착 터미널 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공편 도착 터미널의 식별자입니다.
+도착 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예상 도착 시간입니다.
+이동통신사 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] '운송업체'는 구획 배송 및 배송을 위한 '제공업체'를 나타내는 오래된 용어입니다.
+출발공항 공항 [https://developers.google.com/workspace/gmail/markup/reference/types/Airport?hl=ko] 항공편이 출발한 공항입니다.
+출발 게이트 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공편 출발 게이트의 식별자입니다.
+출발 터미널 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공편 출발 터미널의 식별자입니다.
+출발 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 예상 출발 시간입니다.
+예상 비행 시간 기간 [https://developers.google.com/workspace/gmail/markup/reference/types/Duration?hl=ko] 또는 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 예상 비행 시간
+flightDistance Distance [https://developers.google.com/workspace/gmail/markup/reference/types/Distance?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공편의 거리입니다.
+항공편 번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항공사 IATA 코드를 포함한 항공편의 고유 식별자입니다. 예를 들어, 유나이티드 항공편 110에 대한 설명에서 United에 대한 IATA 코드가 'UA'인 경우 flightNumber는 'UA110'입니다.
+식사 서비스 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 제공되거나 구매 가능한 식사에 관한 설명입니다.
+제공업체 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 예약을 제공하는 조직입니다.
+판매자 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 서비스 / 상품을 판매 (임대 / 임대 / 대여 / 대출)하는 법인입니다. 판매자가 제공업체일 수도 있습니다.
+웹 체크인 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 승객이 항공편에 온라인으로 체크인할 수 있는 시간입니다.
+의견 보내기

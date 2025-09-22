@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/AggregateOffer
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+AggregateOffer
+bookmark_border
+유형 이름: AggregateOffer [https://developers.google.com/workspace/gmail/markup/reference/types/AggregateOffer?hl=ko]
+혜택 [https://developers.google.com/workspace/gmail/markup/reference/types/Offer?hl=ko]을 확장합니다.
+이름 유형 설명
+높은 가격 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 제안된 가격 중 최고가입니다.
+저렴한 가격 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 Text [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 제안된 가격 중 최저가입니다.
+쿠폰 개수 정수 [https://developers.google.com/workspace/gmail/markup/reference/types/Integer?hl=ko] 제품의 제안 수입니다.
+쿠폰 혜택 [https://developers.google.com/workspace/gmail/markup/reference/types/Offer?hl=ko] 이 항목을 제공하겠다는 제안입니다(예: 제품 판매, 영화 DVD 대여, 이벤트 티켓 증정).
+의견 보내기

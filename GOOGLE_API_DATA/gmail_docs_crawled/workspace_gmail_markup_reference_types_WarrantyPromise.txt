@@ -1,0 +1,17 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/WarrantyPromise
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+보증
+bookmark_border
+유형 이름: WarrantyPromise [https://developers.google.com/workspace/gmail/markup/reference/types/WarrantyPromise?hl=ko]
+StructuredValue [https://developers.google.com/workspace/gmail/markup/reference/types/StructuredValue?hl=ko]를 확장함
+이름 유형 설명
+보증 기간 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 보증 약속의 기간입니다. 일반적인 unitCode 값은 연도의 경우 ANN, 월의 경우 MON, 일의 경우 DAY입니다.
+보증 범위 보증 범위 [https://developers.google.com/workspace/gmail/markup/reference/types/WarrantyScope?hl=ko] 보증 약속의 범위입니다.
+의견 보내기

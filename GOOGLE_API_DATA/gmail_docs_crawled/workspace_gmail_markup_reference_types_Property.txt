@@ -1,0 +1,19 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Property
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+속성
+bookmark_border
+유형 이름: 속성 [https://developers.google.com/workspace/gmail/markup/reference/types/Property?hl=ko]
+Intangible [https://developers.google.com/workspace/gmail/markup/reference/types/Intangible?hl=ko] 확장
+이름 유형 설명
+도메인 포함 클래스 [https://developers.google.com/workspace/gmail/markup/reference/types/Class?hl=ko] 속성이 사용될 예상 유형 중 하나인 클래스에 속성을 지정합니다.
+역수 속성 [https://developers.google.com/workspace/gmail/markup/reference/types/Property?hl=ko] 속성을 역 속성과 연결합니다. 역방향 속성은 동일한 항목 쌍을 서로 연결하지만 방향은 반대입니다. 예를 들어 'alumni' 및 'alumniOf' 속성은 서로 반대입니다. 일부 속성에는 명시적인 역방향이 없습니다. 이러한 경우에는 역방향 속성에 RDFa 및 JSON-LD 구문을 사용할 수 있습니다.
+범위 포함 클래스 [https://developers.google.com/workspace/gmail/markup/reference/types/Class?hl=ko] 속성 값의 예상 유형 중 하나를 구성하는 클래스에 속성을 추가합니다.
+대체됨 속성 [https://developers.google.com/workspace/gmail/markup/reference/types/Property?hl=ko] 속성을 대체하는 속성과 관련됩니다.
+의견 보내기

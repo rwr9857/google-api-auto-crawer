@@ -1,0 +1,22 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/Thing
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+Thing
+bookmark_border
+유형 이름: Thing [https://developers.google.com/workspace/gmail/markup/reference/types/Thing?hl=ko]
+이름 유형 설명
+추가 유형 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 항목에 대한 추가 유형으로, 일반적으로 마이크로데이터 구문에 외부 어휘의 특정 유형을 추가하는 데 사용됩니다. 이는 무언가와 대상이 있는 클래스 간의 관계입니다. RDFa 구문에서는 여러 유형에 네이티브 RDFa 구문인 'typeof' 속성을 사용하는 것이 더 좋습니다. Schema.org 도구는 추가적인 유형, 특히 외부에서 정의된 유형을 더 잘 이해하지 못할 수 있습니다.
+대체 이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항목의 별칭입니다.
+설명 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 항목에 대한 간략한 설명
+이미지 ImageObject [https://developers.google.com/workspace/gmail/markup/reference/types/ImageObject?hl=ko] 또는 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 상품의 이미지입니다. URL [http://schema.org/URL] 또는 자세한 ImageObject [http://schema.org/ImageObject]일 수 있습니다.
+이름 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 작업에 연결된 UI 요소에서 사용자에게 표시되는 문자열입니다.
+잠재적 액션 작업 [https://developers.google.com/workspace/gmail/markup/reference/types/Action?hl=ko] 잠재적 작업을 나타내며, 이 작업이 '객체' 역할을 수행하는 이상적인 작업을 설명합니다.
+같음 URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 항목의 ID를 명확하게 나타내는 참조 웹페이지의 URL입니다. 예: 항목의 Wikipedia 페이지, Freebase 페이지 또는 공식 웹사이트 URL
+url URL [https://developers.google.com/workspace/gmail/markup/reference/types/URL?hl=ko] 작업을 완료하기 위해 가져올 대상 URL입니다.
+의견 보내기

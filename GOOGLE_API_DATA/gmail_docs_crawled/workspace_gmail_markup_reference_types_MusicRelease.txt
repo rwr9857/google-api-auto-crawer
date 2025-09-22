@@ -1,0 +1,21 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/MusicRelease
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+음악 발표
+bookmark_border
+유형 이름: MusicRelease [https://developers.google.com/workspace/gmail/markup/reference/types/MusicRelease?hl=ko]
+MusicPlaylist [https://developers.google.com/workspace/gmail/markup/reference/types/MusicPlaylist?hl=ko]를 확장합니다.
+이름 유형 설명
+카탈로그 번호 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 발표의 카탈로그 번호입니다.
+크레딧 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 또는 Person [https://developers.google.com/workspace/gmail/markup/reference/types/Person?hl=ko] 발표곡이 byArtist와 다른 경우 크레딧이 적용되는 그룹입니다. 예를 들어 레드와 블루는 '스테파니 게르마노 밴드'에 반영되지만 레이디 가가에는 반영됩니다.
+duration 길이 [https://developers.google.com/workspace/gmail/markup/reference/types/Duration?hl=ko] 항목 길이 (영화, 오디오 녹음, 이벤트 등)입니다. ISO 8601 날짜 형식 [http://ko.wikipedia.org/wiki/ISO_8601]으로 나타냅니다.
+musicReleaseFormat MusicReleaseFormatType [https://developers.google.com/workspace/gmail/markup/reference/types/MusicReleaseFormatType?hl=ko] 이 발표곡의 형식 (소형 디스크, 디지털 미디어, LP 등)
+음반사 Organization [https://developers.google.com/workspace/gmail/markup/reference/types/Organization?hl=ko] 발표곡을 발행한 라벨입니다.
+출시일 음악 앨범 [https://developers.google.com/workspace/gmail/markup/reference/types/MusicAlbum?hl=ko] 발매된 앨범입니다.
+의견 보내기

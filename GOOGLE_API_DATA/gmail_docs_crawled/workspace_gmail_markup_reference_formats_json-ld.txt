@@ -1,0 +1,32 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/markup/reference/formats/json-ld
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+JSON-LD
+bookmark_border
+JSON-LD [https://json-ld.org/]는 유형과 속성의 어휘를 지정하는 context 개념을 정의하는 사용하기 쉬운 JSON 기반 연결 데이터 형식입니다. Gmail은 다음 예와 같이 schema.org의 @context를 사용하여 HTML 문서에 삽입된 JSON-LD 데이터 [https://json-ld.org/spec/latest/json-ld/#embedding-json-ld-in-html-documents]를 지원합니다.
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "name": "John Doe",
+  "jobTitle": "Graduate research assistant",
+  "affiliation": "University of Dreams",
+  "additionalName": "Johnny",
+  "url": "http://www.example.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1234 Peach Drive",
+    "addressLocality": "Wonderland",
+    "addressRegion": "Georgia"
+  }
+}
+</script>
+참고: @type 키는 예약된 키 이름이며 전체 유형 URI 또는 URI 프래그먼트를 포함해야 합니다 (이 경우 제공된 data-context 속성에서 파생된 http://schema.org/ 접두사가 가정됨).
+JSON-LD 구문의 전체 사양과 요구사항은 json-ld.org [http://json-ld.org/]에서 확인할 수 있으며, 스키마 유효성 검사기 [https://developers.google.com/workspace/gmail/markup/testing-your-schema?hl=ko#schema_validator] 도구를 사용하여 JSON-LD를 사용해 보고 마크업을 디버그할 수도 있습니다.
+의견 보내기

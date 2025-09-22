@@ -1,0 +1,23 @@
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/markup/reference/schema-org-proposals
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+Schema.org 제안
+bookmark_border
+이 페이지의 내용
+Schema.org 제안 목록 [https://developers.google.com/workspace/gmail/markup/reference/schema-org-proposals?hl=ko#list_of_schemaorg_proposals]
+Gmail에서 사용하는 스키마 구조 중 일부는 schema.org [http://schema.org/] 표준 어휘와 다릅니다. Google은 다른 이메일 서비스와 이메일 클라이언트도 이를 최대한 활용할 수 있도록 schema.org 커뮤니티와 협력하여 메일 관련 스키마를 표준화했습니다. 또한 schema.org [http://schema.org/docs/releases.html]의 다양한 개선사항과도 긴밀하게 통합되었습니다.
+Google은 schema.org에서 채택된 스키마 지원을 업데이트하기 위해 계속 노력하고 있습니다. 이 절차가 완료되면 Google은 이러한 스키마를 사용하는 모든 개발자와 사용자를 위해 필요한 전환을 최대한 원활하게 진행할 것입니다.
+Schema.org 제안 목록
+다음 목록은 Gmail의 어휘 제안에 기반한 schema.org 용어를 식별합니다.
+작업 [http://schema.org/Action] - 제안: Schema.org의 작업 [http://www.w3.org/wiki/WebSchemas/ActivityActions]
+주문 [http://schema.org/Order] - 제안: Schema.org의 주문 [http://www.w3.org/wiki/WebSchemas/OrdersSchema]
+예약 [http://schema.org/Reservation] - 제안: Schema.org의 예약 [http://www.w3.org/wiki/WebSchemas/ReservationsSchema]
+EmailMessage [http://schema.org/EmailMessage] - 제안: EmailMessage 유형 [http://www.w3.org/wiki/WebSchemas/EmailMessageSchema]
+Schema.org 어휘는 W3C Schema.org 커뮤니티 그룹 [https://www.w3.org/community/schemaorg/]의 공개 토론을 통해 개발됩니다.
+의견 보내기

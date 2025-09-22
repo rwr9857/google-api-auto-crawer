@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/postmaster/guides/retrieve-metrics
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/postmaster/guides/retrieve-metrics
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English

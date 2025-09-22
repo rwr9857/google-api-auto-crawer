@@ -1,0 +1,18 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/TaxiReservation
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+택시 예약
+bookmark_border
+유형 이름: TaxiBooking [https://developers.google.com/workspace/gmail/markup/reference/types/TaxiReservation?hl=ko]
+예약 [https://developers.google.com/workspace/gmail/markup/reference/types/Reservation?hl=ko] 확장
+이름 유형 설명
+인원수 Number [https://developers.google.com/workspace/gmail/markup/reference/types/Number?hl=ko] 또는 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 예약이 수용해야 하는 사람의 수입니다.
+수령 위치 장소 [https://developers.google.com/workspace/gmail/markup/reference/types/Place?hl=ko] 택시에서 승객을 픽업하거나 렌터카를 픽업할 수 있는 장소입니다.
+수령 시간 DateTime [https://developers.google.com/workspace/gmail/markup/reference/types/DateTime?hl=ko] 택시에서 승객을 픽업하거나 렌터카를 픽업할 수 있습니다.
+의견 보내기

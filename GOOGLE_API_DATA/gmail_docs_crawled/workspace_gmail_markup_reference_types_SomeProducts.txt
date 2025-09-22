@@ -1,0 +1,16 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/SomeProducts
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+일부 제품
+bookmark_border
+유형 이름: SomeProducts [https://developers.google.com/workspace/gmail/markup/reference/types/SomeProducts?hl=ko]
+제품 [https://developers.google.com/workspace/gmail/markup/reference/types/Product?hl=ko] 확장
+이름 유형 설명
+인벤토리 수준 QuantitativeValue [https://developers.google.com/workspace/gmail/markup/reference/types/QuantitativeValue?hl=ko] 상품의 현재 대략적인 인벤토리 수준입니다.
+의견 보내기

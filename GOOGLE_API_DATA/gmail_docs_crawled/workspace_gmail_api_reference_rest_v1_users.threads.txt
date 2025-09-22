@@ -1,0 +1,60 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+REST Resource: users.threads
+bookmark_border
+이 페이지의 내용
+리소스: Thread [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads?hl=ko#resource:-thread]
+메서드 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads?hl=ko#methods]
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads?hl=ko#delete]
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads?hl=ko#get]
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads?hl=ko#list]
+modify [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads?hl=ko#modify]
+trash [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads?hl=ko#trash]
+untrash [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads?hl=ko#untrash]
+리소스: Thread
+대화를 나타내는 메시지 모음입니다.
+JSON 표현
+{
+  "id": string,
+  "snippet": string,
+  "historyId": string,
+  "messages": [
+    {
+      object (Message [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message])
+    }
+  ]
+}
+필드
+id
+string
+스레드의 고유 ID입니다.
+snippet
+string
+메시지 텍스트의 일부입니다.
+historyId
+string
+이 대화목록을 수정한 마지막 기록의 ID입니다.
+messages[]
+object (Message [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.messages?hl=ko#Message])
+대화목록의 메시지 목록입니다.
+메서드
+delete [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/delete?hl=ko]
+지정된 대화목록을 즉시 영구적으로 삭제합니다.
+get [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/get?hl=ko]
+지정된 대화목록을 가져옵니다.
+list [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/list?hl=ko]
+사용자의 메일함에 있는 대화목록을 나열합니다.
+modify [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/modify?hl=ko]
+대화에 적용된 라벨을 수정합니다.
+trash [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/trash?hl=ko]
+지정된 대화목록을 휴지통으로 이동합니다.
+untrash [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/untrash?hl=ko]
+휴지통에서 지정된 대화목록을 삭제합니다.
+의견 보내기

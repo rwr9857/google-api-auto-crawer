@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/promotab/overview
+[2025-08-04] Source URL: https://developers.google.com/workspace/gmail/promotab/overview
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -6,9 +6,11 @@ Switch to English
 Google Workspace [https://developers.google.com/workspace?hl=ko]
 Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 가이드 [https://developers.google.com/workspace/gmail/api/guides?hl=ko]
+도움이 되었나요?
 의견 보내기
 프로모션 탭에서 이메일에 주석 추가
 bookmark_border
+출시 노트
 이 페이지의 내용
 이메일 주석 빌드 [https://developers.google.com/workspace/gmail/promotab/overview?hl=ko#build_email_annotations]
 거래 주석 만들기 [https://developers.google.com/workspace/gmail/promotab/overview?hl=ko#deal-annotation]
@@ -241,4 +243,5 @@ body 태그에 이메일 메시지를 작성합니다.
 다음 단계
 사용 가능한 이메일 마크업 필드에 대해 알아보려면 참고 문서 [https://developers.google.com/workspace/gmail/promotab/reference?hl=ko]를 확인하세요.
 이메일 주석에 관한 권장사항 [https://developers.google.com/workspace/gmail/promotab/best-practices?hl=ko]을 알아보세요.
+도움이 되었나요?
 의견 보내기

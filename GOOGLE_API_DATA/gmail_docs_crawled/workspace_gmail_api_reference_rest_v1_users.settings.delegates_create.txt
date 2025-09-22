@@ -1,0 +1,39 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/create
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+Method: users.settings.delegates.create
+bookmark_border
+이 페이지의 내용
+HTTP 요청 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/create?hl=ko#http-request]
+경로 매개변수 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/create?hl=ko#path-parameters]
+요청 본문 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/create?hl=ko#request-body]
+응답 본문 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/create?hl=ko#response-body]
+승인 범위 [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates/create?hl=ko#authorization-scopes]
+확인 이메일을 보내지 않고 확인 상태가 accepted로 직접 설정된 위임을 추가합니다. 위임받은 사용자는 위임자 사용자와 동일한 Google Workspace 조직의 구성원여야 합니다.
+Gmail에서는 Google Workspace 조직의 각 사용자가 보유할 수 있는 대리인 및 위임자의 수에 제한을 적용합니다. 이러한 한도는 조직에 따라 다르지만 일반적으로 각 사용자는 최대 25명의 위임받은 사용자와 최대 10명의 위임자를 보유할 수 있습니다.
+위임받은 사용자는 이메일 별칭이 아닌 기본 이메일 주소로 참조되어야 합니다.
+또한 새 대리인이 생성되면 새 대리인을 사용할 수 있기까지 최대 1분이 걸릴 수 있습니다.
+이 메서드는 도메인 전체 권한이 위임된 서비스 계정 클라이언트에서만 사용할 수 있습니다.
+HTTP 요청
+POST https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/delegates
+URL은 gRPC 트랜스코딩 [https://google.aip.dev/127] 문법을 사용합니다.
+경로 매개변수
+매개변수
+userId
+string
+사용자의 이메일 주소 특수 값 'me'를 사용하여 인증된 사용자를 나타낼 수 있습니다.
+요청 본문
+요청 본문에 Delegate [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#Delegate]의 인스턴스가 포함됩니다.
+응답 본문
+성공한 경우 응답 본문에 새로 생성된 Delegate [https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.delegates?hl=ko#Delegate]의 인스턴스가 포함됩니다.
+승인 범위
+다음 OAuth 범위가 필요합니다.
+https://www.googleapis.com/auth/gmail.settings.sharing
+자세한 내용은 승인 가이드 [https://developers.google.com/workspace/guides/configure-oauth-consent?hl=ko]를 참고하세요.
+의견 보내기

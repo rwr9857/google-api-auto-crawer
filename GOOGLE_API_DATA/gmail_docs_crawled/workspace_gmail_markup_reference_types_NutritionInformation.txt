@@ -1,0 +1,27 @@
+[2025-07-25] Source URL: https://developers.google.com/workspace/gmail/markup/reference/types/NutritionInformation
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+Google Workspace [https://developers.google.com/workspace?hl=ko]
+Gmail [https://developers.google.com/workspace/gmail?hl=ko]
+참조 [https://developers.google.com/workspace/gmail/api/reference/rest?hl=ko]
+의견 보내기
+NutritionInformation
+bookmark_border
+유형 이름: NutritionInformation [https://developers.google.com/workspace/gmail/markup/reference/types/NutritionInformation?hl=ko]
+StructuredValue [https://developers.google.com/workspace/gmail/markup/reference/types/StructuredValue?hl=ko]를 확장함
+이름 유형 설명
+칼로리 에너지 [https://developers.google.com/workspace/gmail/markup/reference/types/Energy?hl=ko] 칼로리 함량
+탄수화물 콘텐츠 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 탄수화물 그램 수
+콜레스테롤 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 콜레스테롤 밀리그램입니다.
+지방 콘텐츠 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 지방 그램입니다.
+파이버 콘텐츠 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 섬유의 그램 수.
+단백질 성분 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 단백질 그램입니다.
+포화 지방 콘텐츠 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 포화지방의 그램 수
+제공량 텍스트 [https://developers.google.com/workspace/gmail/markup/reference/types/Text?hl=ko] 용량 또는 질량을 기준으로 한 제공량
+나트륨 콘텐츠 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 나트륨 밀리그램.
+설탕 콘텐츠 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 설탕 그램 수.
+트랜스지방 콘텐츠 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 트랜스지방 그램 수
+포화되지 않은 지방 함량 질량 [https://developers.google.com/workspace/gmail/markup/reference/types/Mass?hl=ko] 불포화지방 그램입니다.
+의견 보내기

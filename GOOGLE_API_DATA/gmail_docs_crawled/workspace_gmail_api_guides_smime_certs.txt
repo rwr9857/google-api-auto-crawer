@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/workspace/gmail/api/guides/smime_certs
+[2025-08-29] Source URL: https://developers.google.com/workspace/gmail/api/guides/smime_certs
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -10,14 +10,14 @@ Gmail [https://developers.google.com/workspace/gmail?hl=ko]
 S/MIME 인증서 관리
 bookmark_border
 이 페이지의 내용
-API 액세스 승인
-ACL 범위
-API 사용
-S/MIME 키 업로드
-사용자의 S/MIME 키 나열
-별칭의 S/MIME 키 가져오기
-S/MIME 키 삭제
-별칭의 기본 S/MIME 키 설정
+API 액세스 승인 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#authorizing_api_access]
+ACL 범위 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#acl_scopes]
+API 사용 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#using_the_api]
+S/MIME 키 업로드 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#upload_an_smime_key]
+사용자의 S/MIME 키 나열 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#list_a_users_smime_keys]
+별칭의 S/MIME 키 가져오기 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#retrieve_the_smime_keys_for_an_alias]
+S/MIME 키 삭제 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#delete_an_smime_key]
+별칭의 기본 S/MIME 키 설정 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#set_the_default_smime_key_for_an_alias]
 Gmail S/MIME API는 Google Workspace 도메인의 사용자를 위한 S/MIME 이메일 인증서를 관리할 수 있는 프로그래매틱 액세스를 제공합니다.
 인증서가 작동하려면 관리자가 도메인에 S/MIME을 사용 설정 [https://support.google.com/a/answer/6374496?hl=ko]해야 합니다.
 S/MIME 표준 [https://en.wikipedia.org/wiki/S/MIME]은 공개 키 암호화 및 MIME 데이터 서명에 관한 사양을 제공합니다. 사용자 계정에서 S/MIME 인증서를 구성하면 Gmail에서 다음과 같은 방식으로 해당 인증서를 사용합니다.
@@ -33,7 +33,7 @@ API에 대한 액세스 권한을 부여하는 방법에는 두 가지가 있습
 ACL 범위
 이 API는 Gmail sendAs [https://developers.google.com/workspace/gmail/api/v1/reference/users/settings/sendAs?hl=ko] 메서드와 동일한 ACL 범위 [https://developers.google.com/workspace/gmail/api/auth/scopes?hl=ko]를 사용합니다.
 gmail.settings.basic
-이 범위는 기본 '보낸 사람' S/MIME를 업데이트하는 데 필요합니다.
+이 범위는 기본 SendAs S/MIME를 업데이트하는 데 필요합니다.
 gmail.settings.sharing
 이 범위는 맞춤 from S/MIME를 업데이트하는 데 필요합니다.
 API 사용
@@ -82,14 +82,14 @@ sendAsEmail
 키를 가져올 별칭입니다. 이 별칭을 사용하여 보낸 메일의 '보낸사람:' 헤더에 표시되는 이메일 주소입니다.
 id
 SmimeInfo의 변경 불가능한 ID입니다.
-사용자의 SendAs에는 하나의 S/MIME 키만 기본값입니다. setDefault()를 호출하면 이전 기본값이 설정 해제됩니다.
+사용자의 SendAs에는 하나의 S/MIME 키만 기본값으로 설정됩니다. setDefault()를 호출하면 이전 기본값이 설정 해제됩니다.
 
 특정 키로 서명된 S/MIME 메일을 수신할 때 Gmail에서는 연결된 사용자에게 전송되는 메일을 암호화할 때 가장 먼 미래의 not_before 유효 기간을 기본값으로 사용하여 키를 연결합니다. 사용자가 이미 소통한 Gmail 사용자가 새 기본 키를 사용하도록 하려면 새 기본 키의 not_before 날짜가 이전 기본 키보다 늦거나 이전 기본 키를 취소해야 합니다.
 샘플 코드
 다음 코드 샘플은 API를 사용하여 사용자가 여러 명인 조직의 S/MIME 인증서를 관리하는 방법을 보여줍니다.
 S/MIME 인증서의 SmimeInfo 리소스 만들기
 다음 코드 샘플은 파일에서 인증서를 읽고, base64url 문자열로 인코딩하고, smimeInfo 리소스의 pkcs12 필드에 할당하는 방법을 보여줍니다.
---- 탭: 자바 ---
+--- 탭: 자바 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#%EC%9E%90%EB%B0%94] ---
 .filepath {
     color: #fff;
     margin: 6px;
@@ -167,7 +167,7 @@ public class CreateSmimeInfo {
   }
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#python] ---
 .filepath {
     color: #fff;
     margin: 6px;
@@ -230,7 +230,7 @@ if __name__ == "__main__":
   print(create_smime_info(cert_filename="xyz", cert_password="xyz"))
 S/MIME 인증서 업로드
 인증서를 업로드하려면 smimeInfo.insert [https://developers.google.com/workspace/gmail/api/v1/reference/users/settings/sendAs/smimeInfo/insert?hl=ko]를 호출하고 요청 본문에 smimeInfo 리소스를 제공합니다.
---- 탭: 자바 ---
+--- 탭: 자바 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#%EC%9E%90%EB%B0%94] ---
 .filepath {
     color: #fff;
     margin: 6px;
@@ -318,7 +318,7 @@ public class InsertSmimeInfo {
   }
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#python] ---
 .filepath {
     color: #fff;
     margin: 6px;
@@ -407,7 +407,7 @@ $ cat certificates.csv
 user1@example.com,/path/to/user1_cert.p12,cert_password_1
 user2@example.com,/path/to/user2_cert.p12,cert_password_2
 user3@example.com,/path/to/user3_cert.p12,cert_password_3
---- 탭: 자바 ---
+--- 탭: 자바 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#%EC%9E%90%EB%B0%94] ---
 이전의 createSmimeInfo 및 insertSmimeInfo 호출을 사용하여 CSV 파일에 지정된 인증서를 업로드할 수 있습니다.
 
 
@@ -506,7 +506,7 @@ public class InsertCertFromCsv {
   }
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#python] ---
 이전의 create_smime_info 및 insert_smime_info 호출을 사용하여 CSV 파일에 지정된 인증서를 업로드할 수 있습니다.
 
 
@@ -605,7 +605,7 @@ if __name__ == "__main__":
 인증서 관리
 이 예에서는 smimeInfo API의 여러 호출을 결합하여 조직의 인증서를 관리하는 방법을 보여줍니다. 사용자의 인증서를 나열하고 기본 인증서가 만료되었거나 설정되지 않은 경우 지정된 파일에서 찾은 인증서를 업로드합니다. 그런 다음 만료일이 가장 늦은 인증서를 기본값으로 설정합니다.
 그런 다음 이전 예와 같이 CSV 파일을 처리하는 함수에서 이를 호출합니다.
---- 탭: 자바 ---
+--- 탭: 자바 [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#%EC%9E%90%EB%B0%94] ---
 .filepath {
     color: #fff;
     margin: 6px;
@@ -763,7 +763,7 @@ public class UpdateSmimeCerts {
   }
 }
 
---- 탭: Python ---
+--- 탭: Python [https://developers.google.com/workspace/gmail/api/guides/smime_certs?hl=ko#python] ---
 .filepath {
     color: #fff;
     margin: 6px;
