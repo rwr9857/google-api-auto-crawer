@@ -1,0 +1,254 @@
+[2025-08-31] Source URL: https://developers.google.com/identity/protocols/oauth2/resources/oob-migration
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+승인 [https://developers.google.com/identity/protocols/oauth2?hl=ko]
+Authorization Resources [https://developers.google.com/identity/protocols/oauth2/resources/best-practices?hl=ko]
+의견 보내기
+대역 외 (OOB) 흐름 이전 가이드
+bookmark_border
+이 페이지의 내용
+개요 [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#overview]
+OOB란 무엇인가요? [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#what-is-oob]
+주요 규정 준수 날짜 [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#key-compliance-dates]
+영향을 받는지 확인 [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#determine-if-you-are-affected]
+앱에서 OOB 흐름을 사용하는지 확인하는 방법 [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#how-to-determine-if-your-app-is-using-the-oob-flow]
+안전한 대안으로 이전 [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#migrate-to-a-secure-alternative]
+모바일 클라이언트 (Android / iOS) [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#mobile-clients-android-ios]
+Chrome 앱 클라이언트 [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#chrome-app-client]
+개요
+2022년 2월 16일, Google은 더 안전한 OAuth 흐름을 사용하여 Google OAuth 상호작용을 더 안전하게 만들 계획을 발표 [https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html]했습니다. 이 가이드에서는 OAuth 대역 외 (OOB) 흐름에서 지원되는 대체 흐름으로 성공적으로 이전하는 데 필요한 변경사항과 단계를 설명합니다.
+이는 Google의 OAuth 2.0 승인 엔드포인트와의 상호작용 중에 발생하는 피싱 및 앱 명의 도용 공격을 방지하기 위한 보호 조치입니다.
+OOB란 무엇인가요?
+OAuth 대역 외(OOB) [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#manual-copypaste](수동 복사/붙여넣기 옵션이라고도 함)는 사용자가 OAuth 동의 요청을 승인한 후 사용자 인증 정보를 수락할 리디렉션 URI가 없는 네이티브 클라이언트를 지원하기 위해 개발된 기존 흐름입니다. OOB 흐름은 원격 피싱 위험을 야기하므로 클라이언트는 이 취약점을 방지하기 위해 대체 방법으로 이전해야 합니다.
+OOB 흐름은 모든 클라이언트 유형(예: 웹 애플리케이션, Android, iOS, 유니버설 Windows 플랫폼(UWP), Chrome 앱, TV 및 제한된 입력 기기, 데스크톱 앱)에서 지원 중단됩니다.
+주요 규정 준수 날짜
+2022년 2월 28일 - OOB 흐름에서 새로운 OAuth 사용이 차단됨
+2022년 9월 5일 - 규정을 준수하지 않는 OAuth 요청에 사용자 대상 경고 메시지가 표시될 수 있음
+2022년 10월 3일 - 2022년 2월 28일 이전에 생성된 OAuth 클라이언트의 OOB 흐름이 지원 중단됨
+2023년 1월 31일 - 모든 기존 클라이언트가 차단됨(예외 클라이언트 포함)
+정책을 준수하지 않는 요청에는 사용자에게 표시되는 오류 메시지가 표시됩니다. 이 메시지는 사용자에게 앱이 차단되었음을 알리면서 Google API 콘솔의 OAuth 동의 화면 [https://console.developers.google.com/apis/credentials/consent?hl=ko]에 등록된 지원 이메일을 표시합니다.
+참고: 이번 지원 중단에 관한 알림과 알림을 Google로부터 받으려면 OAuth Branding page [https://console.developers.google.com/auth/branding?hl=ko] 의 Google Cloud Console에서 프로젝트의 지원 및 연락처 이메일 주소를 검토하여 앱의 연락처 정보를 적절하게 구성해야 합니다.
+마이그레이션 프로세스를 완료하려면 다음 두 가지 주요 단계를 따라야 합니다.
+영향을 받는지 확인합니다.
+영향을 받는 경우 더 안전한 대안으로 마이그레이션하세요.
+영향을 받는지 확인
+이 지원 중단은 프로덕션 앱 (즉, 게시 상태가 프로덕션 단계 [https://support.google.com/cloud/answer/10311615?hl=ko#zippy=,in-production]로 설정된 앱)에만 적용됩니다. 이 흐름은 테스트 게시 상태 [https://support.google.com/cloud/answer/10311615?hl=ko#publishing-status&zippy=,testing]가 있는 앱에서 계속 작동합니다.
+참고: 지원 중단은 프로덕션의 내부 [https://support.google.com/cloud/answer/10311615?hl=ko#zippy=,internal] 및 외부 [https://support.google.com/cloud/answer/10311615?hl=ko#zippy=,external] 앱 모두에 적용됩니다.
+OAuth Branding page [https://console.developers.google.com/auth/branding?hl=ko]에서 게시 상태를 검토하고 Google Cloud Console '프로덕션' 게시 상태의 프로젝트에서 OOB 흐름 [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#manual-copypaste]을 사용하는 경우 다음 단계로 진행합니다.
+앱에서 OOB 흐름을 사용하는지 확인하는 방법
+앱 코드 [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#inspect-your-application-code] 또는 아웃바운드 네트워크 호출 [https://developers.google.com/identity/protocols/oauth2/resources/oob-migration?hl=ko#inspect-outgoing-network-call] (앱이 OAuth 라이브러리를 사용하는 경우)을 검사하여 앱에서 실행하는 Google OAuth 승인 요청 [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#step-2:-send-a-request-to-googles-oauth-2.0-server]이 OOB 리디렉션 URI 값을 사용하는지 확인합니다.
+참고: 인증 / 승인 흐름을 처리하는 라이브러리를 사용하는 경우에도 일부 라이브러리에서는 OOB 리디렉션 URI 값의 사용을 추상화하므로 네트워크 호출을 검사하는 것이 좋습니다.
+애플리케이션 코드 검사
+Google OAuth 승인 엔드포인트 [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#step-2:-send-a-request-to-googles-oauth-2.0-server]를 호출하는 애플리케이션 코드 섹션을 검토하고 redirect_uri 매개변수에 다음 값 중 하나가 있는지 확인합니다.
+redirect_uri=urn:ietf:wg:oauth:2.0:oob
+redirect_uri=urn:ietf:wg:oauth:2.0:oob:auto
+redirect_uri=oob
+샘플 OOB 리디렉션 흐름 요청은 다음과 같습니다.
+https://accounts.google.com/o/oauth2/v2/auth?
+response_type=code&
+scope=<SCOPES>&
+state=<STATE>&
+redirect_uri=urn:ietf:wg:oauth:2.0:oob&
+client_id=<CLIENT_ID>
+참고: redirect_uri 값은 일반적으로 애플리케이션이 실행되는 환경에 따라 다르게 설정되므로 애플리케이션 구성 파일(예: .env 파일)도 확인해야 합니다.
+나가는 네트워크 호출 검사
+네트워크 호출을 검사하는 방법은 애플리케이션 클라이언트 유형에 따라 다릅니다.
+웹 애플리케이션 - Chrome에서 네트워크 활동 검사 [https://developer.chrome.com/docs/devtools/network/?hl=ko]
+Android - 네트워크 검사기로 네트워크 트래픽 검사 [https://developer.android.com/studio/debug/network-profiler?hl=ko#:~:text=From%20the%20Android%20Studio%20navigation,Network%20Inspector%20from%20the%20tabs.]
+Chrome 앱
+Chrome 확장 프로그램 페이지 [https://support.google.com/chrome_webstore/answer/2664769?hl=ko]로 이동합니다.
+확장 프로그램 페이지의 오른쪽 상단에 있는 개발자 모드 체크박스를 선택합니다.
+모니터링할 확장 프로그램을 선택합니다.
+확장 프로그램 페이지의 뷰 검사 섹션에서 백그라운드 페이지 링크를 클릭합니다.
+개발자 도구 팝업이 열리면 네트워크 탭 [https://developer.chrome.com/docs/devtools/network/?hl=ko#load]에서 네트워크 트래픽을 모니터링할 수 있습니다.
+iOS - Instruments로 HTTP 트래픽 분석 [https://developer.apple.com/documentation/foundation/url_loading_system/analyzing_http_traffic_with_instruments]
+유니버설 Windows 플랫폼 (UWP) - Visual Studio에서 네트워크 트래픽 검사 [https://devblogs.microsoft.com/visualstudio/introducing-visual-studios-network-tool/]
+데스크톱 앱 - 앱이 개발된 운영체제에서 사용할 수 있는 네트워크 캡처 도구를 사용 [https://en.wikipedia.org/wiki/Comparison_of_packet_analyzers]합니다.
+네트워크 호출을 검사하는 동안 Google OAuth 인증 엔드포인트 [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#step-2:-send-a-request-to-googles-oauth-2.0-server]로 전송된 요청을 찾아 redirect_uri 매개변수에 다음 값 중 하나가 있는지 확인합니다.
+redirect_uri=urn:ietf:wg:oauth:2.0:oob
+redirect_uri=urn:ietf:wg:oauth:2.0:oob:auto
+redirect_uri=oob
+샘플 OOB 리디렉션 흐름 요청은 다음과 같습니다.
+https://accounts.google.com/o/oauth2/v2/auth?
+response_type=code&
+scope=<SCOPES>&
+state=<STATE>&
+redirect_uri=urn:ietf:wg:oauth:2.0:oob&
+client_id=<CLIENT_ID>
+안전한 대안으로 이전
+모바일 클라이언트 (Android / iOS)
+앱이 Android 또는 iOS OAuth 클라이언트 유형으로 OOB 흐름을 사용하는 것으로 확인되면 권장 SDK(Android [https://developers.google.com/identity/sign-in/android?hl=ko], iOS [https://developers.google.com/identity/sign-in/ios?hl=ko])를 사용하도록 마이그레이션해야 합니다.
+SDK를 사용하면 Google API에 쉽게 액세스할 수 있으며 Google의 OAuth 2.0 승인 엔드포인트에 대한 모든 호출을 처리합니다.
+아래 문서 링크에서는 권장 SDK를 사용하여 OOB 리디렉션 URI를 사용하지 않고 Google API에 액세스하는 방법을 설명합니다.
+Android에서 Google API 액세스
+클라이언트 측 액세스
+다음 예에서는 권장되는 Google ID 서비스 Android 라이브러리를 사용하여 Android의 클라이언트 측에서 Google API에 액세스 [https://developer.android.com/identity/authorization?hl=ko]하는 방법을 보여줍니다.
+  List requestedScopes = Arrays.asList(DriveScopes.DRIVE_APPDATA);
+    AuthorizationRequest authorizationRequest = AuthorizationRequest.builder().setRequestedScopes(requestedScopes).build();
+    Identity.getAuthorizationClient(activity)
+            .authorize(authorizationRequest)
+            .addOnSuccessListener(
+                authorizationResult -> {
+                  if (authorizationResult.hasResolution()) {
+                    // Access needs to be granted by the user
+                    PendingIntent pendingIntent = authorizationResult.getPendingIntent();
+                    try {
+    startIntentSenderForResult(pendingIntent.getIntentSender(),
+    REQUEST_AUTHORIZE, null, 0, 0, 0, null);
+                    } catch (IntentSender.SendIntentException e) {
+                    Log.e(TAG, "Couldn't start Authorization UI: " + e.getLocalizedMessage());
+                    }
+                  } else {
+                    // Access already granted, continue with user action
+                    saveToDriveAppFolder(authorizationResult);
+                  }
+                })
+            .addOnFailureListener(e -> Log.e(TAG, "Failed to authorize", e));
+정의된 메서드에 authorizationResult를 전달하여 콘텐츠를 사용자의 드라이브 폴더에 저장합니다. authorizationResult에는 액세스 토큰을 반환하는 getAccessToken() [https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationResult?hl=ko#public-string-getaccesstoken] 메서드가 있습니다.
+서버 측 (오프라인) 액세스
+다음 예에서는 Android에서 서버 측의 Google API에 액세스하는 방법을 보여줍니다.
+참고: 서버 측 (오프라인) 액세스 모드를 사용하려면 서버를 설정하고 승인 코드를 수신할 수 있는 공개 엔드포인트가 있어야 합니다.
+  List requestedScopes = Arrays.asList(DriveScopes.DRIVE_APPDATA);
+    AuthorizationRequest authorizationRequest = AuthorizationRequest.builder()
+    .requestOfflineAccess(webClientId)
+            .setRequestedScopes(requestedScopes)
+            .build();
+    Identity.getAuthorizationClient(activity)
+            .authorize(authorizationRequest)
+            .addOnSuccessListener(
+                authorizationResult -> {
+                  if (authorizationResult.hasResolution()) {
+                    // Access needs to be granted by the user
+                    PendingIntent pendingIntent = authorizationResult.getPendingIntent();
+                    try {
+    startIntentSenderForResult(pendingIntent.getIntentSender(),
+    REQUEST_AUTHORIZE, null, 0, 0, 0, null);
+                    } catch (IntentSender.SendIntentException e) {
+                    Log.e(TAG, "Couldn't start Authorization UI: " + e.getLocalizedMessage());
+                    }
+                  } else {
+                    String authCode = authorizationResult.getServerAuthCode();
+                  }
+                })
+            .addOnFailureListener(e -> Log.e(TAG, "Failed to authorize", e));
+authorizationResult에는 액세스 및 갱신 토큰을 얻기 위해 백엔드로 전송할 수 있는 승인 코드를 반환하는 getServerAuthCode() [https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationResult?hl=ko#public-string-getserverauthcode] 메서드가 있습니다.
+iOS 앱에서 Google API 액세스
+클라이언트 측 액세스
+아래 예에서는 iOS에서 클라이언트 측으로 Google API에 액세스 [https://developers.google.com/identity/sign-in/ios?hl=ko]하는 방법을 보여줍니다.
+user.authentication.do { authentication, error in
+  guard error == nil else { return }
+  guard let authentication = authentication else { return }
+  
+  // Get the access token to attach it to a REST or gRPC request.
+  let accessToken = authentication.accessToken
+  
+  // Or, get an object that conforms to GTMFetcherAuthorizationProtocol for
+  // use with GTMAppAuth and the Google APIs client library.
+  let authorizer = authentication.fetcherAuthorizer()
+}
+액세스 토큰을 사용하여 API를 호출합니다. REST 또는 gRPC 요청의 헤더에 액세스 토큰을 포함하거나 (Authorization: Bearer ACCESS_TOKEN) Objective-C for REST용 Google API 클라이언트 라이브러리 [https://github.com/google/google-api-objectivec-client-for-rest/]와 함께 가져오기 승인자 (GTMFetcherAuthorizationProtocol)를 사용합니다.
+클라이언트 측에서 Google API에 액세스하는 방법은 클라이언트 측 액세스 가이드 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#3_make_an_api_call_with_fresh_tokens]를 참고하세요. 클라이언트 측에서 Google API에 액세스하는 방법을 설명합니다.
+서버 측 (오프라인) 액세스
+아래 예에서는 서버 측에서 Google API에 액세스하여 iOS 클라이언트를 지원하는 방법을 보여줍니다.
+참고: 서버 측 (오프라인) 액세스 모드를 사용하려면 서버를 설정하고 승인 코드를 수신할 수 있는 공개 엔드포인트가 있어야 합니다.
+GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+  guard error == nil else { return }
+  guard let user = user else { return }
+  
+  // request a one-time authorization code that your server exchanges for
+  // an access token and refresh token
+  let authCode = user.serverAuthCode
+}
+서버 측에서 Google API에 액세스하는 방법은 서버 측 액세스 가이드 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#3_make_an_api_call_with_fresh_tokens]를 참고하세요.
+Chrome 앱 클라이언트
+Chrome 앱 클라이언트에서 앱이 OOB 흐름을 사용하는 것으로 확인되면 Chrome Identity API [https://developer.chrome.com/docs/extensions/mv3/tut_oauth/?hl=ko]를 사용하도록 이전해야 합니다.
+아래 예에서는 OOB 리디렉션 URI를 사용하지 않고 모든 사용자 연락처를 가져오는 방법을 보여줍니다.
+window.onload = function() {
+  document.querySelector('button').addEventListener('click', function() {
+
+  
+  // retrieve access token
+  chrome.identity.getAuthToken({interactive: true}, function(token) {
+  
+  // ..........
+
+
+  // the example below shows how to use a retrieved access token with an appropriate scope
+  // to call the Google People API contactGroups.get endpoint
+
+  fetch(
+    'https://people.googleapis.com/v1/contactGroups/all?maxMembers=20&key=API_KEY',
+    init)
+    .then((response) => response.json())
+    .then(function(data) {
+      console.log(data)
+    });
+   });
+ });
+};
+Chrome ID API를 사용하여 사용자를 인증하고 Google 엔드포인트를 호출하는 방법에 대한 자세한 내용은 Chrome ID API 가이드 [https://developer.chrome.com/docs/extensions/mv3/tut_oauth/?hl=ko]를 참고하세요.
+웹 애플리케이션
+앱이 웹 애플리케이션에 OOB 흐름을 사용하고 있는 것으로 확인되면 Google API 클라이언트 라이브러리 중 하나를 사용하도록 이전해야 합니다. 다양한 프로그래밍 언어용 클라이언트 라이브러리는 여기 [https://developers.google.com/identity/protocols/oauth2/web-server?hl=ko#libraries]에 나열되어 있습니다.
+라이브러리를 사용하면 Google API에 쉽게 액세스하고 Google 엔드포인트에 대한 모든 호출을 처리할 수 있습니다.
+서버 측 (오프라인) 액세스
+서버 측 (오프라인) 액세스 모드를 사용하려면 다음 단계를 따라야 합니다.
+서버를 설정하고 승인 코드를 수신할 공개적으로 액세스 가능한 엔드포인트 (리디렉션 URI)를 정의합니다.
+Google Cloud Console의 Clients page [https://console.developers.google.com/auth/clients?hl=ko] 에서 리디렉션 URI [https://support.google.com/cloud/answer/6158849?hl=ko#zippy=,web-applications]를 구성합니다.
+아래 코드 스니펫은 OOB 리디렉션 URI를 사용하지 않고 서버 측에서 Google Drive API를 사용하여 사용자의 Google Drive 파일을 나열하는 NodeJS 예를 보여줍니다.
+async function main() {
+  const server = http.createServer(async function (req, res) {
+
+  if (req.url.startsWith('/oauth2callback')) {
+    let q = url.parse(req.url, true).query;
+
+    if (q.error) {
+      console.log('Error:' + q.error);
+    } else {
+      
+      // Get access and refresh tokens (if access_type is offline)
+      let { tokens } = await oauth2Client.getToken(q.code);
+      oauth2Client.setCredentials(tokens);
+
+      // Example of using Google Drive API to list filenames in user's Drive.
+      const drive = google.drive('v3');
+      drive.files.list({
+        auth: oauth2Client,
+        pageSize: 10,
+        fields: 'nextPageToken, files(id, name)',
+      }, (err1, res1) => {
+        // TODO(developer): Handle response / error.
+      });
+    }
+  }
+}
+서버 측에서 Google API에 액세스하는 방법은 서버 측 웹 앱 가이드 [https://developers.google.com/identity/protocols/oauth2/web-server?hl=ko]를 참고하세요.
+클라이언트 측 액세스
+아래 JavaScript 코드 스니펫은 클라이언트 측에서 Google API를 사용하여 사용자의 캘린더 이벤트에 액세스하는 예를 보여줍니다.
+// initTokenClient() initializes a new token client with your
+// web app's client ID and the scope you need access to
+
+const client = google.accounts.oauth2.initTokenClient({
+  client_id: 'YOUR_GOOGLE_CLIENT_ID',
+  scope: 'https://www.googleapis.com/auth/calendar.readonly',
+  
+  // callback function to handle the token response
+  callback: (tokenResponse) => {
+    if (tokenResponse && tokenResponse.access_token) { 
+      gapi.client.setApiKey('YOUR_API_KEY');
+      gapi.client.load('calendar', 'v3', listUpcomingEvents);
+    }
+  },
+});
+
+function listUpcomingEvents() {
+  gapi.client.calendar.events.list(...);
+}
+클라이언트 측에서 Google API에 액세스하는 방법은 클라이언트 측 웹 앱 가이드 [https://developers.google.com/identity/oauth2/web/guides/use-token-model?hl=ko]를 참고하세요.
+데스크톱 클라이언트
+데스크톱 클라이언트에서 앱이 OOB 흐름을 사용하는 것으로 확인되면 루프백 IP 주소 (localhost 또는 127.0.0.1) 흐름 [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#redirect-uri_loopback]을 사용하도록 마이그레이션해야 합니다.
+참고: 이 구현에서는 승인 코드를 수신하기 위해 로컬 웹 서버 (예: Apache HTTP 서버 사용)에서 리슨해야 합니다.
+의견 보내기

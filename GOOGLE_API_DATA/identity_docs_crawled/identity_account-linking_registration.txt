@@ -1,0 +1,29 @@
+[2025-07-29] Source URL: https://developers.google.com/identity/account-linking/registration
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+승인 [https://developers.google.com/identity/protocols/oauth2?hl=ko]
+Google Account Linking [https://developers.google.com/identity/account-linking?hl=ko]
+의견 보내기
+Google에 등록하기
+bookmark_border
+Google 어시스턴트와 통합하려는 경우 Actions on Google 콘솔 [https://console.actions.google.com/?hl=ko]을 참고하세요.
+그렇지 않은 경우 서비스에 OAuth 2.0 승인을 추가하기 전에 다음 정보를 준비하고 개발자 관계 또는 비즈니스 개발 담당자에게 문의하세요.
+승인 엔드포인트 URL 호스팅되고 Google에서 호출하는 승인 엔드포인트 [https://tools.ietf.org/html/rfc6749#section-3.1]의 URL입니다. 트래픽은 HTTPS를 통해서만 허용되어야 합니다. https://myservice.example.com/auth를 예로 들 수 있습니다. 기존 로그인 페이지를 권한 부여 엔드포인트로 사용하도록 조정할 수 있는 경우가 많습니다.
+승인 엔드포인트에 매개변수로 전송되는 redirect_uri는 다음과 같은 형식을 갖습니다.
+https://oauth-redirect.googleusercontent.com/r/YOUR_PROJECT_ID
+https://oauth-redirect-sandbox.googleusercontent.com/r/YOUR_PROJECT_ID
+redirect_uri는 Google에 할당한 client_id에 대해 허용 목록에 추가되어야 합니다.
+토큰 엔드포인트 URL 호스팅되고 Google에서 호출하는 토큰 엔드포인트 [https://tools.ietf.org/html/rfc6749#section-3.2]의 URL입니다. 트래픽은 HTTPS를 통해 알려진 다른 서비스 (예: Google)에서만 허용되어야 합니다. https://oauth2.example.com/token를 예로 들 수 있습니다. 승인 및 토큰 엔드포인트는 서로 다른 도메인에서 호스팅될 수 있습니다.
+선택적 토큰 철회 엔드포인트 URL입니다. 이 URL은 호스팅되고 Google에서 호출하는 취소 엔드포인트 [https://tools.ietf.org/html/rfc7009]의 URL입니다. 트래픽은 HTTPS를 통해 알려진 다른 서비스 (예: Google)에서만 허용되어야 합니다. https://oauth2.example.com/revoke를 예로 들 수 있습니다. 승인, 토큰, 취소 엔드포인트가 서로 다른 도메인에서 호스팅될 수 있습니다.
+선택사항인 계정 간 보안 (RISC) URL 이 URL은 사용자가 호스팅하고 Google이 호출하는 URL입니다. 값을 선택할 수 있습니다.
+Google의 클라이언트 ID 및 클라이언트 보안 비밀번호 OAuth 2.0 요청에서 요청의 출처를 식별하는 데 사용되는 클라이언트 ID와 요청 위조를 방지하는 데 사용되는 클라이언트 보안 비밀번호를 Google에 할당해야 합니다. Google 클라이언트 ID와 클라이언트 보안 비밀번호는 원하는 URL 안전 문자열 값일 수 있습니다. 클라이언트 보안 비밀번호는 Google과 서비스에만 표시되도록 해야 합니다.
+선택적 범위 문자열 API에서 제공하는 사용자 데이터의 양과 종류에 따라 다양한 사용자 데이터 카테고리를 나타내는 범위를 정의할 수 있습니다. 이렇게 하면 당사자가 특정 종류의 데이터에만 액세스할 수 있는 권한을 사용자에게 요청하고 클라이언트에서 사용할 수 있는 데이터를 승인된 범위로만 제한할 수 있습니다. 특히 서비스에서 Google과의 통합에 필요한 것보다 많은 데이터를 제공하는 경우 범위를 사용하여 일부 데이터에만 액세스 권한을 부여할 수 있습니다.
+Google API 프로젝트 ID
+프로젝트 ID를 확인하려면 다음 단계를 따르세요.
+방문 페이지의 표에서 프로젝트를 찾습니다. 프로젝트 ID는 ID 열에 표시됩니다.
+참고: OAuth 엔드포인트에 대한 요청은 여러 Google IP 주소에서 발생할 수 있습니다. 허용된 IP 목록을 유지하는 것은 권장되지 않으며 Google은 이러한 목록을 게시하지 않습니다. 목록은 동적이며 언제든지 변경될 수 있기 때문입니다. 이러한 목록은 오래되어 사용자에게 서비스 중단과 좋지 않은 환경을 제공하게 됩니다. 대신 요청이 Google에서 시작되었는지 확인하기 위해 역방향 조회를 사용할 수 있습니다. Google 요청을 식별하는 방법에 관한 자세한 내용은 Googlebot 확인 [https://developers.google.com/search/docs/advanced/crawling/verifying-googlebot?visit_id=637552176006795991-2252054900&%3Brd=1&hl=ko]을 참고하세요.
+의견 보내기

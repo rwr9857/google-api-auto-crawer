@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/identity/siwg
+[2025-05-19] Source URL: https://developers.google.com/identity/siwg?hl=ko
 
 Build seamless identity journeys with Sign in with Google
 Simplify development and boost user acquisition. Sign in with Google is a convenient way for users to sign up and into your apps or websites with a single tap by using their Google Accounts. Eliminating the need for separate credentials, complex registration forms, and forgotten passwords. With just a few lines of code, increase your conversion rates, reduce account abandonment, and enjoy happier users.

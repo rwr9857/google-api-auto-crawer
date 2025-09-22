@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/identity/samples
+[None] Source URL: https://developers.google.com/identity/samples?hl=ko
 
 Identity Samples
 Authentication

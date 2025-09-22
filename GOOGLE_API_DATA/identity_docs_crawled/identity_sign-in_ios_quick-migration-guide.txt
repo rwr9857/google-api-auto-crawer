@@ -1,0 +1,63 @@
+[2025-08-31] Source URL: https://developers.google.com/identity/sign-in/ios/quick-migration-guide
+
+중요: 2024년 5월 1일 [https://developer.apple.com/news/?id=3d8a9yyh]부터 Apple에서는 GoogleSignIn-iOS와 같이 흔히 사용되는 SDK를 사용하는 iOS 애플리케이션의 개인 정보 보호 매니페스트 및 서명을 요구 [https://developer.apple.com/support/third-party-SDK-requirements/]합니다. 2024년 5월 1일 전에 GoogleSignIn-iOS v7.1.0 이상으로 업그레이드하세요. 업그레이드 가이드 [https://developers.google.com/identity/sign-in/ios/quick-migration-guide?hl=ko]를 따르세요.
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/authentication?hl=ko]
+시작하기 [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko]
+의견 보내기
+Google 로그인 빠른 이전 가이드
+bookmark_border
+이 페이지의 내용
+Google 로그인 SDK v7.0.0 이상 [https://developers.google.com/identity/sign-in/ios/quick-migration-guide?hl=ko#google_sign-in_sdk_v700]
+Google 로그인 SDK v6.0.0 [https://developers.google.com/identity/sign-in/ios/quick-migration-guide?hl=ko#google_sign-in_sdk_v600]
+이 페이지에서는 Google 로그인 SDK 메이저 버전의 주요 변경사항을 자세히 설명합니다.
+이 가이드에 따라 앱을 최신 버전의 Google 로그인 SDK로 이전하세요. 이 문서는 항상 최신 버전을 참조합니다.
+자세한 내용은 출시 노트 [https://developers.google.com/identity/sign-in/ios/release?hl=ko] 및 GitHub 저장소 [https://github.com/google/GoogleSignIn-iOS]를 참고하세요.
+Google 로그인 SDK v7.0.0 이상
+Google 로그인 SDK v7.0.0 이전 버전에서 앱을 이전하려면 다음과 같이 변경하세요.
+애플리케이션의 Info.plist 파일에서 OAuth 클라이언트 구성을 설정합니다. 런타임 시 (GIDConfiguration 객체를 사용하여) 계속 설정할 수 있지만 더 이상 권장되지 않습니다. 예시와 자세한 내용은 시작하기 [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko#configure_app_project] 가이드를 참고하세요.
+키 Info.plist개 설명
+GIDClientID OAuth 클라이언트 ID [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko#add_client_id]
+GIDServerClientID 백엔드 인증을 위한 서버 OAuth 클라이언트 ID [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko#add_server_client_id]
+GIDHostedDomain Google Workspace 도메인 [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko#add_domain_realm]
+GIDOpenIDRealm OpenID 영역 [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko#add_domain_realm]
+addScopes: 메서드가 GIDGoogleUser로 이동되었습니다. GIDSignIn에서 추가 승인 범위를 요청하는 대신 이제 인증이 완료된 후 GIDGoogleUser에서 승인 범위를 요청 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#2_request_additional_scopes]해야 합니다.
+serverClientID를 앱에 서버 측 API 액세스를 사용 설정 [https://developers.google.com/identity/sign-in/ios/offline-access?hl=ko]하도록 설정하는 경우 이제 완료 시 serverAuthCode가 GIDSignInResult와 함께 반환됩니다.
+GIDAuthentication의 속성이 GIDGoogleUser로 이동했습니다.
+업데이트 메서드 호출:
+v6.2.x v7.0.0 이상
+GIDSignIn
+signInWithConfiguration:presentingViewController:callback: GIDSignIn
+signInWithPresentingViewController:completion:
+GIDSignIn
+restorePreviousSignInWithCallback: GIDSignIn
+restorePreviousSignInWithCompletion:
+GIDSignIn
+disconnectWithCallback: GIDSignIn
+disconnectWithCompletion:
+GIDAuthentication
+doWithFreshTokens: GIDGoogleUser
+refreshTokensIfNeededWithCompletion:
+GIDSignIn
+addScopes:presentingViewController:callback: GIDGoogleUser
+addScopes:presentingViewController:completion:
+Google 로그인 SDK v6.0.0
+Google 로그인 SDK v6.0.0 이전 버전에서 앱을 이전하려면 다음과 같이 변경하세요.
+GIDSignIn.sharedInstance 속성 액세스에 대한 모든 [GIDSignIn sharedInstance] 호출을 업데이트합니다.
+모든 클라이언트 구성 (클라이언트 ID 등)을 GIDConfiguration 객체로 이동합니다.
+삭제된 메서드 호출을 이에 상응하는 새로운 메서드로 업데이트합니다.
+v5.x.x v6.0.0
+signIn signInWithConfiguration:presentingViewController:callback:
+restorePreviousSignIn restorePreviousSignInWithCallback:
+disconnect disconnectWithCallback:
+getTokensWithHandler: doWithFreshTokens:
+refreshTokensWithHandler: doWithFreshTokens:
+GIDSignInDelegate 프로토콜 및 해당 메서드에 대한 모든 참조를 삭제합니다.
+로직을 signIn:didSignInForUser:withError:에서 signInWithConfiguration:presentingViewController:callback:의 콜백 블록으로 이동합니다.
+로직을 signIn:didDisconnectWithUser:withError:에서 disconnectWithCallback:의 콜백 블록으로 이동합니다.
+IBAction 등을 사용하여 signInWithConfiguration:presentingViewController:callback:를 호출하는 메서드에 GIDSignInButton를 수동으로 연결합니다.
+의견 보내기

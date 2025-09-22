@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/identity/passkeys
+[2024-05-03] Source URL: https://developers.google.com/identity/passkeys?hl=ko
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English

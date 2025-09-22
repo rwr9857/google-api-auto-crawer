@@ -1,0 +1,39 @@
+[2025-07-25] Source URL: https://developers.google.com/identity/account-linking/gal-validation-tool
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+승인 [https://developers.google.com/identity/protocols/oauth2?hl=ko]
+Authorization Resources [https://developers.google.com/identity/protocols/oauth2/resources/best-practices?hl=ko]
+도움이 되었나요?
+의견 보내기
+Google 계정 연결 OAuth 구현 테스트
+bookmark_border
+이 페이지의 내용
+테스트 도구 사용 [https://developers.google.com/identity/account-linking/gal-validation-tool?hl=ko#using_the_test_tool]
+도구 가이드 [https://developers.google.com/identity/account-linking/gal-validation-tool?hl=ko#tool_guide]
+액세스 토큰 검증 테스트 [https://developers.google.com/identity/account-linking/gal-validation-tool?hl=ko#access_token_validation_test]
+갱신 토큰 유효성 검사 테스트 [https://developers.google.com/identity/account-linking/gal-validation-tool?hl=ko#refresh_token_validation_test]
+Google 계정 연결 OAuth 유효성 검사 테스트 도구는 OAuth 구현을 테스트하여 Google이 엔드포인트에 액세스할 수 있고 엔드포인트가 유효한 Google 계정 연결 구현에 예상되는 응답을 반환하는지 확인합니다.
+테스트 도구 사용
+아직 도구에 로그인하지 않았다면 로그인 버튼을 사용하여 Google 계정으로 로그인합니다.
+Google 계정 연결 데모 도구 [https://gal-demo.withgoogle.com/]를 사용하여 계정을 연결합니다. 확인 테스트 도구를 실행하는 계정과 동일한 계정으로 연결해야 합니다.
+참고: 데모 도구에 사용할 서비스 ID는 계정 연결 등록 [https://developers.google.com/identity/account-linking/registration?hl=ko] 프로세스 중에 획득한 ID입니다.
+프로젝트 ID를 입력하고 실행 버튼을 클릭합니다. 이 ID는 이전 단계에서 계정을 연결하는 데 사용한 서비스 ID와 동일해야 합니다.
+도구 가이드
+액세스 토큰 검증 테스트
+토큰 교환 엔드포인트에서 반환된 액세스 토큰은 응답 형식이 올바르고 유효한 갱신 토큰이 반환되는지 확인하기 위해 유효성 검사를 거칩니다.
+테스트 설명
+액세스 토큰이 JWT 형식이 아닌지 확인 Google 계정 연결은 액세스 토큰에 JWT를 지원하지 않습니다. JWT가 감지되면 다음 경고가 표시됩니다. The access token seems to be a JWT which is not supported for token exchange endpoints.
+만료 가능한 액세스 토큰에 갱신 토큰이 있는지 확인합니다. 액세스 토큰이 만료될 수 있는 경우 갱신 토큰을 제공해야 합니다. 갱신 토큰을 찾을 수 없으면 이 테스트는 실패합니다.
+갱신 토큰 유효성 검사 테스트
+갱신 토큰은 토큰 교환 엔드포인트에서 새 액세스 토큰으로 올바르게 교환하는지 테스트합니다.
+테스트 설명
+잘못된 갱신 토큰 응답을 검증합니다. 서버는 잘못된 새로고침 토큰 요청에 {"error": "invalid_grant"}와 함께 HTTP 400 Bad Request 오류를 반환해야 합니다. 응답이 오류 코드 또는 메시지와 일치하지 않으면 이 테스트 사례가 실패합니다. 자세한 내용은 액세스 토큰으로 갱신 토큰 교환 [https://developers.google.com/identity/account-linking/oauth-linking?oauth=code&hl=ko#exchange_refresh_tokens_for_access_tokens]을 참고하세요.
+액세스 토큰 갱신을 확인합니다. 갱신 토큰 요청에 대한 응답으로 새 액세스 토큰이 반환되어야 합니다. 서버가 동일한 액세스 토큰을 제공하면 테스트 사례가 실패합니다.
+만료되지 않은 액세스 토큰이 작동하는지 확인합니다.
+새로고침 중에 갱신 토큰이 순환되지 않았는지 확인합니다. 토큰 갱신 요청 후 갱신 토큰이 변경되었는지 확인합니다. 갱신 토큰이 변경되면 서버는 사용자의 계정 연결을 중단할 수 있는 경합 상태를 방지하기 위해 새 갱신 토큰이 사용된 후에만 이전 갱신 토큰을 무효화해야 합니다. 새 새로고침 토큰이 발급되기 전에 이전 새로고침 토큰을 무효화하면 테스트가 실패합니다.
+도움이 되었나요?
+의견 보내기

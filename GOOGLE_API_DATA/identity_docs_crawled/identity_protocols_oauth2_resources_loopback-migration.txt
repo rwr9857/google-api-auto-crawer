@@ -1,0 +1,196 @@
+[2025-08-31] Source URL: https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+승인 [https://developers.google.com/identity/protocols/oauth2?hl=ko]
+Authorization Resources [https://developers.google.com/identity/protocols/oauth2/resources/best-practices?hl=ko]
+의견 보내기
+루프백 IP 주소 흐름 이전 가이드
+bookmark_border
+이 페이지의 내용
+개요 [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#overview]
+루프백 IP 주소 흐름이란 무엇인가요? [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#what-is-the-loopback-ip-address-flow]
+주요 규정 준수 날짜 [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#key-compliance-dates]
+영향을 받는지 확인 [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#determine-if-you-are-affected]
+OAuth 클라이언트 ID 유형 검토 [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#review-your-oauth-client-id-type]
+앱에서 루프백 IP 주소 흐름을 사용하는지 확인하는 방법 [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#how-to-determine-if-your-app-is-using-the-loopback-ip-address-flow]
+지원되는 대안으로 이전 [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#migrate-to-a-supported-alternative]
+모바일 클라이언트 (Android / iOS) [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#mobile-clients-android-ios]
+개요
+2022년 2월 16일, Google은 더 안전한 OAuth 흐름을 사용하여 Google OAuth 상호작용을 더 안전하게 만들 계획을 발표 [https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html]했습니다. 이 가이드에서는 루프백 IP 주소 흐름에서 지원되는 대체 흐름으로 성공적으로 이전하는 데 필요한 변경사항과 단계를 설명합니다.
+이는 Google의 OAuth 2.0 승인 엔드포인트와의 상호작용 중에 발생하는 피싱 및 앱 명의 도용 공격을 방지하기 위한 보호 조치입니다.
+루프백 IP 주소 흐름이란 무엇인가요?
+루프백 IP 주소 흐름 [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#redirect-uri_loopback]은 사용자가 OAuth 동의 요청을 승인한 후 사용자 인증 정보가 전송되는 리디렉션 URI의 호스트 구성요소로 루프백 IP 주소 또는 localhost의 사용을 지원합니다. 이 흐름은 일부 운영체제에서 동일한 루프백 인터페이스에 액세스하는 악성 앱이 지정된 리디렉션 URI에 대한 승인 서버의 응답을 가로채고 승인 코드에 액세스할 수 있는 중간자 [https://wikipedia.org/wiki/Man-in-the-middle_attack] 공격에 취약합니다.
+루프백 IP 주소 흐름은 네이티브 iOS, Android, Chrome OAuth 클라이언트 유형에서 지원이 중단되지만 데스크톱 앱에서는 계속 지원됩니다.
+주요 규정 준수 날짜
+2022년 3월 14일 - 루프백 IP 주소 흐름을 사용하는 새 OAuth 클라이언트가 차단됨
+2022년 8월 1일 - 규정을 준수하지 않는 OAuth 요청에 사용자 대상 경고 메시지가 표시될 수 있습니다.
+2022년 8월 31일 - 2022년 3월 14일 이전에 생성된 네이티브 Android, Chrome 앱, iOS OAuth 클라이언트의 루프백 IP 주소 흐름이 차단됨
+2022년 10월 21일 - 모든 기존 고객이 차단됨(예외 고객 포함)
+정책을 준수하지 않는 요청에는 사용자에게 표시되는 오류 메시지가 표시됩니다. 이 메시지는 사용자에게 앱이 차단되었음을 알리면서 Google API 콘솔의 OAuth 동의 화면 [https://console.developers.google.com/apis/credentials/consent?hl=ko]에 등록된 지원 이메일을 표시합니다.
+참고: 이번 지원 중단에 관한 알림과 알림을 Google로부터 받으려면 OAuth Branding page [https://console.developers.google.com/auth/branding?hl=ko] 의 Google Cloud Console에서 프로젝트의 지원 및 연락처 이메일 주소를 검토하여 앱의 연락처 정보를 적절하게 구성해야 합니다.
+마이그레이션 프로세스를 완료하려면 다음 두 가지 주요 단계를 완료해야 합니다.
+영향을 받는지 확인합니다.
+영향을 받는 경우 지원되는 대체 방법으로 이전하세요.
+영향을 받는지 확인
+OAuth 클라이언트 ID 유형 검토
+Google Cloud Console 의 Clients page [https://console.developers.google.com/auth/clients?hl=ko] 로 이동하여 OAuth 2.0 클라이언트 ID 섹션에서 OAuth 클라이언트 ID 유형을 확인합니다. 웹 애플리케이션, Android, iOS, 유니버설 Windows 플랫폼 (UWP), Chrome 앱, TV 및 제한된 입력 기기, 데스크톱 앱 중 하나입니다.
+클라이언트 유형이 Android, Chrome 앱 또는 iOS이고 루프백 IP 주소 흐름을 사용하는 경우 다음 단계로 진행합니다.
+데스크톱 앱 OAuth 클라이언트에서 루프백 IP 주소 흐름을 사용하는 경우 해당 OAuth 클라이언트 유형과의 사용이 계속 지원되므로 이 지원 중단과 관련된 조치를 취하지 않아도 됩니다.
+참고: 이번 지원 중단은 게시 상태(테스트 [https://support.google.com/cloud/answer/10311615?hl=ko#publishing-status&zippy=,testing] 및 프로덕션 [https://support.google.com/cloud/answer/10311615?hl=ko#zippy=,in-production])와 사용자 유형(내부 [https://support.google.com/cloud/answer/10311615?hl=ko#zippy=,internal] 및 외부 [https://support.google.com/cloud/answer/10311615?hl=ko#zippy=,external])에 적용됩니다.
+앱에서 루프백 IP 주소 흐름을 사용하는지 확인하는 방법
+앱 코드 [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#inspect-your-application-code] 또는 아웃바운드 네트워크 호출 [https://developers.google.com/identity/protocols/oauth2/resources/loopback-migration?hl=ko#inspect-outgoing-network-call] (앱이 OAuth 라이브러리를 사용하는 경우)을 검사하여 앱에서 실행하는 Google OAuth 승인 요청 [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#step-2:-send-a-request-to-googles-oauth-2.0-server]이 루프백 리디렉션 URI 값을 사용하는지 확인합니다.
+참고: 인증 / 승인 흐름을 처리하는 라이브러리를 사용하는 경우에도 루프백 리디렉션 URI 값의 사용을 추상화하는 라이브러리가 있으므로 네트워크 호출을 검사하는 것이 좋습니다.
+애플리케이션 코드 검사
+Google OAuth 승인 엔드포인트 [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#step-2:-send-a-request-to-googles-oauth-2.0-server]를 호출하는 애플리케이션 코드 섹션을 검토하고 redirect_uri 매개변수에 다음 값 중 하나가 있는지 확인합니다.
+redirect_uri=http://127.0.0.1:<port> 예: redirect_uri=http://127.0.0.1:3000
+redirect_uri=http://[::1]:<port> 예: redirect_uri=http://[::1]:3000
+redirect_uri=http://localhost:<port> 예: redirect_uri=http://localhost:3000
+샘플 루프백 IP 주소 리디렉션 흐름 요청은 아래와 같습니다.
+https://accounts.google.com/o/oauth2/v2/auth?
+redirect_uri=http://localhost:3000&
+response_type=code&
+scope=<SCOPES>&
+state=<STATE>&
+client_id=<CLIENT_ID>
+참고: redirect_uri 값은 일반적으로 애플리케이션이 실행되는 환경에 따라 다르게 설정되므로 애플리케이션 구성 파일(예: .env 파일)도 확인해야 합니다.
+나가는 네트워크 호출 검사
+네트워크 호출을 검사하는 방법은 애플리케이션 클라이언트 유형에 따라 다릅니다.
+웹 애플리케이션 - Chrome에서 네트워크 활동 검사 [https://developer.chrome.com/docs/devtools/network/?hl=ko]
+Android - 네트워크 검사기로 네트워크 트래픽 검사 [https://developer.android.com/studio/debug/network-profiler?hl=ko#:~:text=From%20the%20Android%20Studio%20navigation,Network%20Inspector%20from%20the%20tabs.]
+Chrome 앱
+Chrome 확장 프로그램 페이지 [https://support.google.com/chrome_webstore/answer/2664769?hl=ko]로 이동합니다.
+확장 프로그램 페이지의 오른쪽 상단에 있는 개발자 모드 체크박스를 선택합니다.
+모니터링할 확장 프로그램을 선택합니다.
+확장 프로그램 페이지의 뷰 검사 섹션에서 백그라운드 페이지 링크를 클릭합니다.
+개발자 도구 팝업이 열리면 네트워크 탭 [https://developer.chrome.com/docs/devtools/network/?hl=ko#load]에서 네트워크 트래픽을 모니터링할 수 있습니다.
+iOS - Instruments로 HTTP 트래픽 분석 [https://developer.apple.com/documentation/foundation/url_loading_system/analyzing_http_traffic_with_instruments]
+유니버설 Windows 플랫폼 (UWP) - Visual Studio에서 네트워크 트래픽 검사 [https://devblogs.microsoft.com/visualstudio/introducing-visual-studios-network-tool/]
+데스크톱 앱 - 앱이 개발된 운영체제에서 사용할 수 있는 네트워크 캡처 도구를 사용 [https://en.wikipedia.org/wiki/Comparison_of_packet_analyzers]합니다.
+네트워크 호출을 검사하는 동안 Google OAuth 인증 엔드포인트 [https://developers.google.com/identity/protocols/oauth2/native-app?hl=ko#step-2:-send-a-request-to-googles-oauth-2.0-server]로 전송된 요청을 찾아 redirect_uri 매개변수에 다음 값 중 하나가 있는지 확인합니다.
+redirect_uri=http://127.0.0.1:<port> 예: redirect_uri=http://127.0.0.1:3000
+redirect_uri=http://[::1]:<port> 예: redirect_uri=http://[::1]:3000
+redirect_uri=http://localhost:<port> 예: redirect_uri=http://localhost:3000
+샘플 루프백 IP 주소 리디렉션 흐름 요청은 다음과 같습니다.
+https://accounts.google.com/o/oauth2/v2/auth?
+redirect_uri=http://localhost:3000&
+response_type=code&
+scope=<SCOPES>&
+state=<STATE>&
+client_id=<CLIENT_ID>
+지원되는 대안으로 이전
+모바일 클라이언트 (Android / iOS)
+앱이 Android 또는 iOS OAuth 클라이언트 유형으로 루프백 IP 주소 흐름을 사용하는 것으로 확인되면 권장 SDK(Android [https://developers.google.com/identity/sign-in/android?hl=ko], iOS [https://developers.google.com/identity/sign-in/ios?hl=ko])를 사용하도록 마이그레이션해야 합니다.
+SDK를 사용하면 Google API에 쉽게 액세스할 수 있으며 Google의 OAuth 2.0 승인 엔드포인트에 대한 모든 호출을 처리합니다.
+아래 문서 링크에서는 권장 SDK를 사용하여 루프백 IP 주소 리디렉션 URI를 사용하지 않고 Google API에 액세스하는 방법을 설명합니다.
+Android에서 Google API 액세스
+클라이언트 측 액세스
+다음 예에서는 권장되는 Google ID 서비스 Android 라이브러리를 사용하여 Android의 클라이언트 측에서 Google API에 액세스 [https://developer.android.com/identity/authorization?hl=ko]하는 방법을 보여줍니다.
+  List requestedScopes = Arrays.asList(DriveScopes.DRIVE_APPDATA);
+    AuthorizationRequest authorizationRequest = AuthorizationRequest.builder().setRequestedScopes(requestedScopes).build();
+    Identity.getAuthorizationClient(activity)
+            .authorize(authorizationRequest)
+            .addOnSuccessListener(
+                authorizationResult -> {
+                  if (authorizationResult.hasResolution()) {
+                    // Access needs to be granted by the user
+                    PendingIntent pendingIntent = authorizationResult.getPendingIntent();
+                    try {
+    startIntentSenderForResult(pendingIntent.getIntentSender(),
+    REQUEST_AUTHORIZE, null, 0, 0, 0, null);
+                    } catch (IntentSender.SendIntentException e) {
+                    Log.e(TAG, "Couldn't start Authorization UI: " + e.getLocalizedMessage());
+                    }
+                  } else {
+                    // Access already granted, continue with user action
+                    saveToDriveAppFolder(authorizationResult);
+                  }
+                })
+            .addOnFailureListener(e -> Log.e(TAG, "Failed to authorize", e));
+정의된 메서드에 authorizationResult를 전달하여 콘텐츠를 사용자의 드라이브 폴더에 저장합니다. authorizationResult에는 액세스 토큰을 반환하는 getAccessToken() [https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationResult?hl=ko#public-string-getaccesstoken] 메서드가 있습니다.
+서버 측 (오프라인) 액세스
+다음 예에서는 Android에서 서버 측의 Google API에 액세스하는 방법을 보여줍니다.
+참고: 서버 측 (오프라인) 액세스 모드를 사용하려면 서버를 설정하고 승인 코드를 수신할 수 있는 공개 엔드포인트가 있어야 합니다.
+  List requestedScopes = Arrays.asList(DriveScopes.DRIVE_APPDATA);
+    AuthorizationRequest authorizationRequest = AuthorizationRequest.builder()
+    .requestOfflineAccess(webClientId)
+            .setRequestedScopes(requestedScopes)
+            .build();
+    Identity.getAuthorizationClient(activity)
+            .authorize(authorizationRequest)
+            .addOnSuccessListener(
+                authorizationResult -> {
+                  if (authorizationResult.hasResolution()) {
+                    // Access needs to be granted by the user
+                    PendingIntent pendingIntent = authorizationResult.getPendingIntent();
+                    try {
+    startIntentSenderForResult(pendingIntent.getIntentSender(),
+    REQUEST_AUTHORIZE, null, 0, 0, 0, null);
+                    } catch (IntentSender.SendIntentException e) {
+                    Log.e(TAG, "Couldn't start Authorization UI: " + e.getLocalizedMessage());
+                    }
+                  } else {
+                    String authCode = authorizationResult.getServerAuthCode();
+                  }
+                })
+            .addOnFailureListener(e -> Log.e(TAG, "Failed to authorize", e));
+authorizationResult에는 액세스 및 갱신 토큰을 얻기 위해 백엔드로 전송할 수 있는 승인 코드를 반환하는 getServerAuthCode() [https://developers.google.com/android/reference/com/google/android/gms/auth/api/identity/AuthorizationResult?hl=ko#public-string-getserverauthcode] 메서드가 있습니다.
+iOS 앱에서 Google API 액세스
+클라이언트 측 액세스
+아래 예에서는 iOS에서 클라이언트 측으로 Google API에 액세스 [https://developers.google.com/identity/sign-in/ios?hl=ko]하는 방법을 보여줍니다.
+user.authentication.do { authentication, error in
+  guard error == nil else { return }
+  guard let authentication = authentication else { return }
+  
+  // Get the access token to attach it to a REST or gRPC request.
+  let accessToken = authentication.accessToken
+  
+  // Or, get an object that conforms to GTMFetcherAuthorizationProtocol for
+  // use with GTMAppAuth and the Google APIs client library.
+  let authorizer = authentication.fetcherAuthorizer()
+}
+액세스 토큰을 사용하여 API를 호출합니다. REST 또는 gRPC 요청의 헤더에 액세스 토큰을 포함하거나 (Authorization: Bearer ACCESS_TOKEN) Objective-C for REST용 Google API 클라이언트 라이브러리 [https://github.com/google/google-api-objectivec-client-for-rest/]와 함께 가져오기 승인자 (GTMFetcherAuthorizationProtocol)를 사용합니다.
+클라이언트 측에서 Google API에 액세스하는 방법은 클라이언트 측 액세스 가이드 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#3_make_an_api_call_with_fresh_tokens]를 참고하세요. 클라이언트 측에서 Google API에 액세스하는 방법을 설명합니다.
+서버 측 (오프라인) 액세스
+아래 예에서는 서버 측에서 Google API에 액세스하여 iOS 클라이언트를 지원하는 방법을 보여줍니다.
+참고: 서버 측 (오프라인) 액세스 모드를 사용하려면 서버를 설정하고 승인 코드를 수신할 수 있는 공개 엔드포인트가 있어야 합니다.
+GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+  guard error == nil else { return }
+  guard let user = user else { return }
+  
+  // request a one-time authorization code that your server exchanges for
+  // an access token and refresh token
+  let authCode = user.serverAuthCode
+}
+서버 측에서 Google API에 액세스하는 방법은 서버 측 액세스 가이드 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#3_make_an_api_call_with_fresh_tokens]를 참고하세요.
+Chrome 앱 클라이언트
+Chrome 앱 클라이언트에서 앱이 루프백 IP 주소 흐름을 사용하는 것으로 확인되면 Chrome ID API [https://developer.chrome.com/docs/extensions/mv3/tut_oauth/?hl=ko]를 사용하도록 이전해야 합니다.
+아래 예에서는 루프백 IP 주소 리디렉션 URI를 사용하지 않고 모든 사용자 연락처를 가져오는 방법을 보여줍니다.
+window.onload = function() {
+  document.querySelector('button').addEventListener('click', function() {
+
+  
+  // retrieve access token
+  chrome.identity.getAuthToken({interactive: true}, function(token) {
+  
+  // ..........
+
+
+  // the example below shows how to use a retrieved access token with an appropriate scope
+  // to call the Google People API contactGroups.get endpoint
+
+  fetch(
+    'https://people.googleapis.com/v1/contactGroups/all?maxMembers=20&key=API_KEY',
+    init)
+    .then((response) => response.json())
+    .then(function(data) {
+      console.log(data)
+    });
+   });
+ });
+};
+Chrome ID API를 사용하여 사용자를 인증하고 Google 엔드포인트를 호출하는 방법에 대한 자세한 내용은 Chrome ID API 가이드 [https://developer.chrome.com/docs/extensions/mv3/tut_oauth/?hl=ko]를 참고하세요.
+의견 보내기

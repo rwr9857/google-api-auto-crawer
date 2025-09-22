@@ -1,4 +1,4 @@
-[2025-08-31] Source URL: https://developers.google.com/identity/protocols/oauth2/native-app
+[2025-08-31] Source URL: https://developers.google.com/identity/protocols/oauth2/native-app#cross-account-protection
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English

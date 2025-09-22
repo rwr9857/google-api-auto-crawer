@@ -1,0 +1,35 @@
+[2025-07-25] Source URL: https://developers.google.com/identity/sign-in/ios/disconnect
+
+중요: 2024년 5월 1일 [https://developer.apple.com/news/?id=3d8a9yyh]부터 Apple에서는 GoogleSignIn-iOS와 같이 흔히 사용되는 SDK를 사용하는 iOS 애플리케이션의 개인 정보 보호 매니페스트 및 서명을 요구 [https://developer.apple.com/support/third-party-SDK-requirements/]합니다. 2024년 5월 1일 전에 GoogleSignIn-iOS v7.1.0 이상으로 업그레이드하세요. 업그레이드 가이드 [https://developers.google.com/identity/sign-in/ios/quick-migration-guide?hl=ko]를 따르세요.
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/authentication?hl=ko]
+시작하기 [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko]
+의견 보내기
+액세스 토큰 취소 및 앱 연결 해제
+bookmark_border
+Google로 로그인한 사용자에게 앱에서 자녀의 Google 계정 연결을 해제할 수 있습니다. 사용자가 앱을 사용하려면 앱에서 수집된 정보를 삭제해야 합니다. Google API
+다음 코드 예에서는 프로그래매틱 방식으로 액세스를 취소하는 방법을 보여줍니다. 사용자 대신 앱이 부여된 토큰과 사용자 계정을 삭제할 수 있습니다.
+--- 탭: Swift [https://developers.google.com/identity/sign-in/ios/disconnect?hl=ko#swift] ---
+GIDSignIn.sharedInstance.disconnect { error in
+    guard error == nil else { return }
+
+    // Google Account disconnected from your app.
+    // Perform clean-up actions, such as deleting data associated with the
+    //   disconnected account.
+}
+
+--- 탭: Objective-C [https://developers.google.com/identity/sign-in/ios/disconnect?hl=ko#objective-c] ---
+[GIDSignIn.sharedInstance disconnectWithCompletion:^(NSError * _Nullable error) {
+    if (error) { return; }
+
+    // Google Account disconnected from your app.
+    // Perform clean-up actions, such as deleting data associated with the
+    //   disconnected account.
+}];
+disconnectWithCompletion: 메서드는 계정 연결을 해제하고 토큰을 취소합니다. 사용자를 로그아웃시키면 안 됩니다. disconnectWithCompletion:를 호출하기 전에 확인할 수 있습니다.
+그러면 콜백 블록 내에서 성공적인 연결 해제에 응답할 수 있습니다. 앱 또는 백엔드 코드에서 적절한 로직을 트리거해야 합니다.
+의견 보내기

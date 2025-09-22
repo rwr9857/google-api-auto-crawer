@@ -1,0 +1,59 @@
+[2025-04-15] Source URL: https://developers.google.com/identity/passkeys/supported-environments
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/authentication?hl=ko]
+패스키 [https://developers.google.com/identity/passkeys?hl=ko]
+도움이 되었나요?
+의견 보내기
+Android 및 Chrome에서 패스키 지원
+bookmark_border
+이 페이지의 내용
+Google 비밀번호 관리자 [https://developers.google.com/identity/passkeys/supported-environments?hl=ko#google-password-manager]
+Android의 패스키 지원 [https://developers.google.com/identity/passkeys/supported-environments?hl=ko#android-passkey-support]
+인증 관리자 [https://developers.google.com/identity/passkeys/supported-environments?hl=ko#credential-manager]
+Chrome의 패스키 지원 [https://developers.google.com/identity/passkeys/supported-environments?hl=ko#passkey_support_on_chrome]
+Android [https://developers.google.com/identity/passkeys/supported-environments?hl=ko#android]
+iOS / iPadOS [https://developers.google.com/identity/passkeys/supported-environments?hl=ko#ios_ipados]
+macOS [https://developers.google.com/identity/passkeys/supported-environments?hl=ko#macos]
+Windows [https://developers.google.com/identity/passkeys/supported-environments?hl=ko#windows]
+패스키는 비밀번호 관리자를 통해 기기에서 생성, 저장, 동기화됩니다. 예를 들어 Android의 Chrome에 있는 웹사이트에서 생성된 패스키는 기본적으로 Google 비밀번호 관리자에 저장된 후 macOS, Windows, Linux, ChromeOS의 Chrome과 같이 Google 비밀번호 관리자를 사용할 수 있는 다양한 환경에 동기화됩니다. 사용자는 환경에 따라 패스키를 저장하거나 패스키를 인증할 비밀번호 관리자를 선택할 수 있습니다. 사용자의 비밀번호 관리자는 사용자 인증 정보가 반환될 때까지 RP (신뢰 당사자)에 대해 불투명합니다.
+Google 비밀번호 관리자
+Google 비밀번호 관리자는 Android 및 Chrome에서 패스키를 저장, 제공, 동기화합니다. Google 비밀번호 관리자는 Android에서 패스키 제공업체로 기본적으로 사용 설정되며 Chrome 및 기타 브라우저를 비롯한 모든 앱에서 사용할 수 있습니다. 데스크톱 운영체제 (Windows, macOS, Linux, ChromeOS)의 Chrome에도 Google 비밀번호 관리자 지원이 포함되어 있습니다.
+사용자가 Google 비밀번호 관리자로 패스키를 만들면 패스키가 동기화되고 엔드 투 엔드 암호화됩니다. Google 비밀번호 관리자의 첫 번째 패스키가 데스크톱에서 생성된 경우 Chrome에서 Google 비밀번호 관리자 PIN을 만들라는 메시지를 표시하며 이 PIN이 사용됩니다. 사용자는 Google 계정에 로그인하고 Android 기기 화면 잠금 또는 Google 비밀번호 관리자 PIN을 입력하여 새 환경에서 동기화된 패스키를 복호화해야 합니다.
+그림 1: Chrome에서 Google 비밀번호 관리자 PIN을 요청할 때 표시되는 대화상자
+Android의 패스키 지원
+인증 관리자
+Android 앱은 인증 관리자 [https://developer.android.com/identity/sign-in/credential-manager?hl=ko] Jetpack [https://developer.android.com/jetpack?hl=ko] 라이브러리를 통해 패스키를 지원합니다. 인증 관리자는 패스키, 비밀번호, ID 제휴와 같은 다양한 사용자 인증 정보 유형을 처리합니다. 패스키는 Android 9 (API 수준 28) 이상을 실행하는 기기에서 지원됩니다. 비밀번호와 Google 계정으로 로그인은 Android 4.4부터 지원됩니다.
+많은 기기에서 인증 관리자는 기본적으로 패스키를 Google 비밀번호 관리자에 저장합니다. 사용자는 Android 14 이상에서 시스템 설정에서 다른 비밀번호 관리자를 패스키 제공업체로 선택할 수 있습니다.
+그림 2: 사용자는 Android 시스템 설정에서 패스키 제공업체를 선택할 수 있습니다.
+사용자는 다른 기기에 저장된 패스키를 사용하여 로그인하도록 선택할 수 있습니다. 예를 들어 패스키가 iPhone에 저장되어 있고 사용자가 패스키가 없는 Android 앱에 로그인하려고 할 때 '다른 휴대전화 또는 태블릿을 사용'하여 Android 기기에 QR 코드를 표시한 다음 iPhone을 사용하여 QR 코드를 스캔하고 교차 기기 인증을 선택할 수 있습니다.
+그림 3: 교차 기기 패스키 로그인에 QR 코드 대화상자가 표시됩니다.
+Chrome의 패스키 지원
+Android, macOS, Windows, Linux, ChromeOS용 Chrome은 기본적으로 Google 비밀번호 관리자에 패스키를 저장하고 패스키로 인증합니다. iOS 또는 iPadOS의 Chrome은 시스템 설정에서 사용 설정하여 Google 비밀번호 관리자에 패스키를 저장하고 패스키로 인증할 수 있습니다.
+그림 4: macOS의 Chrome에서 Touch ID 기반 패스키 로그인
+모든 플랫폼의 Chrome은 교차 기기 인증을 지원합니다. Android 또는 iOS 기기에서 패스키를 사용하려면 메시지가 표시되면 적절한 옵션을 선택합니다. 교차 기기 인증 사용자 환경에 관해 자세히 알아보려면 휴대전화로 로그인 [https://developers.google.com/identity/passkeys/use-cases?hl=ko#sign-in-with-a-phone]을 참고하세요.
+Android iOS/iPadOS macOS Windows Linux ChromeOS
+Google 비밀번호 관리자 1
+교차 기기 인증
+지원됨 1 iOS/iPadOS 17 이상 필요
+Android
+Android OS 9 이상에서 실행되는 Chrome은 패스키를 지원합니다. Android의 Chrome에서 생성된 패스키는 Google 비밀번호 관리자에 저장됩니다. Google 비밀번호 관리자는 패스키를 동기화하여 다른 플랫폼에서도 사용할 수 있도록 합니다.
+Android 14 이상에서는 Android용 Chrome의 패스키를 시스템 설정에서 패스키 제공업체로 선택된 비밀번호 관리자에서 생성하고 저장할 수 있습니다.
+참고: 일부 Android OEM 기기에는 이 내용이 반영되지 않을 수 있습니다.
+iOS / iPadOS
+iOS/iPadOS 16 이상을 실행하는 Chrome에서는 패스키를 지원합니다. iOS/iPadOS에서 생성된 패스키는 기본적으로 iCloud 키체인 또는 비밀번호 앱에 저장됩니다. iOS/iPadOS 17 이상을 사용하는 사용자는 시스템 설정에서 Chrome을 자동 완성 제공업체로 설정하여 Google 비밀번호 관리자에 패스키를 저장할 수 있습니다.
+macOS
+macOS용 Chrome에서는 패스키를 지원합니다. macOS의 Chrome에서 생성된 패스키는 Google 비밀번호 관리자 또는 iCloud 키체인 (macOS 13.5 이상)에 저장할 수 있습니다. iCloud 키체인의 패스키는 사용자의 Apple 기기에서 동기화되며 다른 브라우저와 앱에서 사용할 수 있습니다.
+macOS용 Chrome은 사용자가 선택하는 경우 다른 환경에 동기화되지 않는 패스키를 Chrome 프로필에 저장할 수도 있습니다.
+Windows
+Windows용 Chrome은 패스키를 지원합니다. Windows의 Chrome에서 생성된 패스키는 Google 비밀번호 관리자에 저장됩니다.
+Linux
+Linux용 Chrome은 패스키를 지원합니다. Linux의 Chrome에서 생성된 패스키는 Google 비밀번호 관리자에 저장됩니다.
+ChromeOS
+ChromeOS의 Chrome에서 패스키를 지원합니다. ChromeOS의 Chrome에서 생성된 패스키는 Google 비밀번호 관리자에 저장됩니다.
+도움이 되었나요?
+의견 보내기

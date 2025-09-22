@@ -1,0 +1,47 @@
+[2025-07-25] Source URL: https://developers.google.com/identity/sign-in/case-studies
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Sign in with Google [https://developers.google.com/identity/siwg?hl=ko]
+도움이 되었나요?
+의견 보내기
+우수사례 & 추천 앱
+bookmark_border
+이 페이지의 내용
+우수사례 [https://developers.google.com/identity/sign-in/case-studies?hl=ko#case-studies]
+Pinterest [https://developers.google.com/identity/sign-in/case-studies?hl=ko#pinterest]
+Reddit [https://developers.google.com/identity/sign-in/case-studies?hl=ko#reddit]
+Iron Company [https://developers.google.com/identity/sign-in/case-studies?hl=ko#iron-company]
+eBay [https://developers.google.com/identity/sign-in/case-studies?hl=ko#ebay]
+Vikatan [https://developers.google.com/identity/sign-in/case-studies?hl=ko#vikatan]
+The News Minute [https://developers.google.com/identity/sign-in/case-studies?hl=ko#the-news-minute]
+Lokmat [https://developers.google.com/identity/sign-in/case-studies?hl=ko#lokmat]
+Google 계정으로 로그인은 사용자가 Gmail, Play, 포토, 기타 Google 서비스에서 이미 사용 중인 Google 계정으로 로그인할 수 있도록 하여 사용자의 로그인 부담을 줄이는 보안 인증 시스템입니다.
+다음은 Google 계정으로 로그인을 통합하여 성공을 거둔 사례입니다.
+우수사례
+Pinterest
+Pinterest 사용자는 다른 여러 단계 로그인 옵션에 비해 Google 원탭을 사용할 가능성이 2배 더 높습니다.
+자세히 알아보기 [https://developers.google.com/identity/sign-in/case-studies/pinterest?hl=ko]
+Reddit
+Google 계정으로 로그인 버튼과 원탭 메시지를 함께 구현하여 전환수가 거의 2배 증가했습니다.
+자세히 알아보기 [https://developers.google.com/identity/sign-in/case-studies/reddit?hl=ko]
+Iron Company
+웹용 Google 원탭을 구현한 후 가입이 8배 증가했습니다.
+자세히 알아보기 [https://developers.google.com/identity/sign-in/case-studies/iron-company?hl=ko]
+eBay
+원탭을 구현하면 데스크톱과 모바일 웹에서 모두 로그인할 가능성이 100% 증가합니다.
+자세히 알아보기 [https://developers.google.com/identity/sign-in/case-studies/ebay?hl=ko]
+Vikatan
+신규 계정 생성 비율이 270% 증가함
+자세히 알아보기 [https://developers.google.com/identity/sign-in/case-studies/vikatan?hl=ko]
+The News Minute
+원탭 구현으로 구독 15% 증가
+자세히 알아보기 [https://developers.google.com/identity/sign-in/case-studies/the-news-minute?hl=ko]
+Lokmat
+Lokmat는 Google 계정으로 로그인을 구현한 후 이메일 구독자가 150% 증가했습니다.
+자세히 알아보기 [https://developers.google.com/identity/sign-in/case-studies/lokmat?hl=ko]
+도움이 되었나요?
+의견 보내기

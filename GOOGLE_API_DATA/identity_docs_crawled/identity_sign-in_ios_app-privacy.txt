@@ -1,0 +1,18 @@
+[2025-07-25] Source URL: https://developers.google.com/identity/sign-in/ios/app-privacy
+
+중요: 2024년 5월 1일 [https://developer.apple.com/news/?id=3d8a9yyh]부터 Apple에서는 GoogleSignIn-iOS와 같이 흔히 사용되는 SDK를 사용하는 iOS 애플리케이션의 개인 정보 보호 매니페스트 및 서명을 요구 [https://developer.apple.com/support/third-party-SDK-requirements/]합니다. 2024년 5월 1일 전에 GoogleSignIn-iOS v7.1.0 이상으로 업그레이드하세요. 업그레이드 가이드 [https://developers.google.com/identity/sign-in/ios/quick-migration-guide?hl=ko]를 따르세요.
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/authentication?hl=ko]
+시작하기 [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko]
+의견 보내기
+Apple의 App Store 데이터 공개 요건에 대비
+bookmark_border
+Apple은 App Store에 앱을 게시하는 개발자에게 앱의 데이터 사용과 관련된 특정 정보 [https://developer.apple.com/app-store/app-privacy-details/]를 공개하도록 요구합니다. Apple은 2020년 12월 8일부터 새로운 앱 및 앱 업데이트에 이러한 공개 요구사항을 적용한다고 발표 [https://developer.apple.com/news/?id=vlj9jty9]했습니다. 이 페이지에서는 개발자가 App Store Connect에서 더 쉽게 질문에 답변할 수 있도록 iOS 및 macOS SDK용 Google 로그인 데이터 수집 관행을 설명합니다.
+사용자가 빠르고 안전하게 로그인하도록 하기 위해 iOS 및 macOS SDK용 Google 로그인에서 다음 정보를 수집할 수 있습니다.
+사용자 식별자로, 사용자의 동의로 생성된 OAuth 권한 부여를 기록합니다.
+IP 주소: 사기 방지를 위해 기기의 일반적인 위치를 예상하는 데 사용될 수 있습니다.
+의견 보내기

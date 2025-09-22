@@ -1,0 +1,230 @@
+[2025-07-25] Source URL: https://developers.google.com/identity/sign-in/ios/release
+
+중요: 2024년 5월 1일 [https://developer.apple.com/news/?id=3d8a9yyh]부터 Apple에서는 GoogleSignIn-iOS와 같이 흔히 사용되는 SDK를 사용하는 iOS 애플리케이션의 개인 정보 보호 매니페스트 및 서명을 요구 [https://developer.apple.com/support/third-party-SDK-requirements/]합니다. 2024년 5월 1일 전에 GoogleSignIn-iOS v7.1.0 이상으로 업그레이드하세요. 업그레이드 가이드 [https://developers.google.com/identity/sign-in/ios/quick-migration-guide?hl=ko]를 따르세요.
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/authentication?hl=ko]
+시작하기 [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko]
+의견 보내기
+Google 로그인 iOS 및 macOS SDK 출시 노트
+bookmark_border
+9.0.0
+GSI를 통해 AppAuth에 맞춤 nonce 제공 허용 (#402 [https://github.com/google/GoogleSignIn-iOS/pull/402], #476 [https://github.com/google/GoogleSignIn-iOS/pull/476])
+GIDSignIn에서 잘못된 오류 코드 수정 (#472 [https://github.com/google/GoogleSignIn-iOS/pull/472])
+macOS에서 GTMAppAuth 5 지원 추가 (#522 [https://github.com/google/GoogleSignIn-iOS/pull/522])
+데이터 보호 이전 버그 수정 (#533 [https://github.com/google/GoogleSignIn-iOS/pull/533])
+내부
+AppAuthCore를 명시적 종속 항목으로 추가 (#470 [https://github.com/google/GoogleSignIn-iOS/pull/470])
+iPhone 시뮬레이터를 14에서 15로 업데이트 (#494 [https://github.com/google/GoogleSignIn-iOS/pull/494])
+빠른 버튼 통합 테스트 수정 (#497 [https://github.com/google/GoogleSignIn-iOS/pull/497])
+러너를 macos-13으로 업데이트 (#498 [https://github.com/google/GoogleSignIn-iOS/pull/498])
+upload-artifact@v4.6.2을 사용하도록 scorecards.yml 업데이트 (#516 [https://github.com/google/GoogleSignIn-iOS/pull/516])
+AppAuth 및 GTMAppAuth 종속 항목 업데이트 (#517 [https://github.com/google/GoogleSignIn-iOS/pull/517], #521 [https://github.com/google/GoogleSignIn-iOS/pull/521])
+재사용자의 Swift 통합 테스트 수정 (#518 [https://github.com/google/GoogleSignIn-iOS/pull/518])
+.build 및 Package.resolved를 포함하도록 .gitignore 업데이트 (#520 [https://github.com/google/GoogleSignIn-iOS/pull/520])
+NSUserDefaults를 올바르게 설정하고 해체하도록 GIDSignInTest 업데이트 (#527 [https://github.com/google/GoogleSignIn-iOS/pull/527])
+8.0.0
+Google로 로그인하는 동안 애플리케이션의 무결성을 설정하기 위해 Firebase 앱 체크 지원을 추가하는 일반 출시
+최소 iOS 지원을 iOS 12로 업데이트 (#445 [https://github.com/google/GoogleSignIn-iOS/pull/445])
+내부
+AppCheckCore 종속 항목을 v11.0으로 업데이트 (#454 [https://github.com/google/GoogleSignIn-iOS/pull/454])
+테스트 도우미에 instancetype 반환 추가 (#393 [https://github.com/google/GoogleSignIn-iOS/pull/393])
+GTMSessionFetcher 모듈식 가져오기 삭제 (#403 [https://github.com/google/GoogleSignIn-iOS/pull/403])
+번들러 그룹에서 activesupport를 5.2.5에서 5.2.8.1로 범프 (#429 [https://github.com/google/GoogleSignIn-iOS/pull/429])
+지원 중단된 macos-11 러너 삭제 (#447 [https://github.com/google/GoogleSignIn-iOS/pull/447])
+테스트에서 지원 중단된 보관 API 사용 업데이트 (#449 [https://github.com/google/GoogleSignIn-iOS/pull/449])
+7.1.0-fac-beta-1.1.0
+Google로 로그인하는 동안 애플리케이션의 무결성을 설정하는 데 사용되는 Firebase 앱 체크 토큰을 지원하는 베타 출시
+v7.1.0 [https://github.com/google/GoogleSignIn-iOS/releases/tag/7.1.0]에서 출시된 개인 정보 보호 매니페스트 지원 추가
+내부
+제출 전 명령의 통합 테스트 확인 (#368 [https://github.com/google/GoogleSignIn-iOS/pull/368])
+테스트 건너뛰기 통합 키 (#374 [https://github.com/google/GoogleSignIn-iOS/pull/374])
+App Check 출시 브랜치에 개인 정보 보호 매니페스트 추가 (#392 [https://github.com/google/GoogleSignIn-iOS/pull/392])
+GIDFakeFetcherService 헤더의 init에 반환 유형 추가 [https://github.com/google/GoogleSignIn-iOS/commit/ebf681cac127497da55c932cb5bbf185971a29e7]
+7.1.0
+GoogleSignInSwiftSupport 포드에서 Swift 5.0으로 업데이트 (#317 [https://github.com/google/GoogleSignIn-iOS/pull/317])
+문서 업데이트 (#351 [https://github.com/google/GoogleSignIn-iOS/pull/351], #372 [https://github.com/google/GoogleSignIn-iOS/pull/372])
+개인 정보 보호 매니페스트 추가 (#382 [https://github.com/google/GoogleSignIn-iOS/pull/382])
+내부
+SFSafariViewController의 오타 수정 (#291 [https://github.com/google/GoogleSignIn-iOS/pull/291])
+단위 테스트에서 OCMock 사용 수정 (#298 [https://github.com/google/GoogleSignIn-iOS/pull/298])
+GTMAppAuth 4.0.0의 새로운 위임 프로토콜 [https://github.com/google/GTMAppAuth/pull/224] 사용 (#299 [https://github.com/google/GoogleSignIn-iOS/pull/299])
+-[GIDSignIn restorePreviousSignIn:]을 호출하기 전에 completion가 nil이 아닌지 확인합니다 (#301 [https://github.com/google/GoogleSignIn-iOS/pull/301]).
+GitHub 워크플로에서 macos-11 러너 삭제 (#302 [https://github.com/google/GoogleSignIn-iOS/pull/302])
+UI 자동화 테스트가 통과하도록 버튼 이름 참조 업데이트 (#308 [https://github.com/google/GoogleSignIn-iOS/pull/308])
+7.1.0-fac-beta-1.0.0
+Google로 로그인하는 동안 애플리케이션의 무결성을 설정하는 데 사용되는 Firebase 앱 체크 토큰을 지원하는 베타 출시
+내부
+SignInSample Podfile 최소 iOS 버전 업데이트 (#355 [https://github.com/google/GoogleSignIn-iOS/pull/355])
+지속적 통합 중에 통과하도록 AppCheckExample 단위 테스트 타겟 업데이트 (#356 [https://github.com/google/GoogleSignIn-iOS/pull/356])
+7.1.0-fac-eap-1.0.0
+Google로 로그인하는 동안 애플리케이션의 무결성을 설정하는 데 사용되는 Firebase 앱 체크 토큰을 지원하는 사전 체험 프로그램 (EAP) 출시
+-[GIDSignIn configureWithCompletion:] [https://github.com/google/GoogleSignIn-iOS/blob/7.1.0-fac-eap-1.0.0/GoogleSignIn/Sources/Public/GoogleSignIn/GIDSignIn.h#L79]을 사용하여 앱에서 최대한 빨리 Firebase 앱 체크를 사용하도록 GSI를 구성하여 지연 시간을 최소화하세요.
+디버그 빌드 또는 지속적 통합 환경에서 -[GIDSignIn configureDebugProviderWithAPIKey:completion:] [https://github.com/google/GoogleSignIn-iOS/blob/7.1.0-fac-eap-1.0.0/GoogleSignIn/Sources/Public/GoogleSignIn/GIDSignIn.h#L91]를 사용합니다.
+Firebase 앱 체크를 사용하도록 GSI를 구성하는 예를 보여주는 새로운 샘플 앱 [https://github.com/google/GoogleSignIn-iOS/tree/7.1.0-fac-eap-1.0.0/Samples/Swift/AppAttestExample]
+내부
+SFSafariViewController의 오타 수정 (#291 [https://github.com/google/GoogleSignIn-iOS/pull/291])
+GitHub 워크플로에서 macos-11 러너 삭제 (#302 [https://github.com/google/GoogleSignIn-iOS/pull/302])
+UI 자동화 테스트가 통과하도록 버튼 이름 참조 업데이트 (#308 [https://github.com/google/GoogleSignIn-iOS/pull/308])
+-[GIDSignIn restorePreviousSignIn:]를 호출하기 전에 completion가 nil이 아닌지 확인합니다 (#301 [https://github.com/google/GoogleSignIn-iOS/pull/301]).
+GTMAppAuth 4.0.0의 새로운 위임 프로토콜 [https://github.com/google/GTMAppAuth/pull/224] 사용 (#299 [https://github.com/google/GoogleSignIn-iOS/pull/299])
+7.0.0
+이제 모든 구성은 Info.plist 파일을 통해 제공할 수 있습니다. (#228 [https://github.com/google/GoogleSignIn-iOS/pull/228])
+<key>KEY</key><string>VALUE</string> 쌍에서 다음 키를 사용하여 SDK를 구성합니다.
+GIDClientID(필수)
+GIDServerClientID(선택사항)
+GIDHostedDomain(선택사항)
+GIDOpenIDRealm(선택사항)
+Swift 동시 실행 [https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html] 지원 (#187 [https://github.com/google/GoogleSignIn-iOS/pull/187])
+API 노출 영역 개선 (#249 [https://github.com/google/GoogleSignIn-iOS/pull/249], #228 [https://github.com/google/GoogleSignIn-iOS/pull/228], #187 [https://github.com/google/GoogleSignIn-iOS/pull/187])
+GIDSignIn
+새 configuration 속성입니다.
+signIn: 메서드에서 Configuration: 인수를 삭제했습니다.
+addScopes:를 삭제하고 GIDGoogleUser에 추가했습니다.
+블록을 사용하는 비동기 메서드의 callback: 인수를 completion:로 이름을 바꿨습니다.
+GIDGoogleUser
+새 configuration 속성입니다.
+새 addScopes: 메서드가 GIDSignIn에서 이동했습니다.
+authentication 속성이 삭제되고 다음으로 대체되었습니다.
+새 accessToken 속성입니다.
+새 refreshToken 속성입니다.
+새 idToken 속성입니다.
+새 fetcherAuthorizer 속성입니다.
+새로운 refreshTokensIfNeededWithCompletion: 메서드를 지원합니다.
+GIDGoogleUser에서 액세스, 새로고침, ID 토큰을 나타내는 새로운 GIDToken 클래스
+성공적인 signIn 또는 addScopes 흐름의 결과를 나타내는 새로운 GIDSignInResult 클래스
+GIDSignInCallback, GIDDisconnectCallback, GIDAuthenticationAction 블록 유형 정의가 삭제되었습니다.
+6.2.4
+2.x 버전을 허용하도록 GTMSessionFetcher 종속 항목이 업데이트되었습니다. (#207 [https://github.com/google/GoogleSignIn-iOS/pull/207])
+6.2.3
+CocoaPods use_frameworks!를 사용하여 GoogleSignInSwift에서 리소스 로딩 수정 (#197 [https://github.com/google/GoogleSignIn-iOS/pull/197])
+Swift Package Manager를 사용할 때 특정 시나리오에서 GoogleSignInSwift의 빌드 오류 방지 (#166 [https://github.com/google/GoogleSignIn-iOS/pull/166])
+6.2.2
+Swift Package Manager를 사용할 때 GoogleSignInSwift의 빌드 오류 방지 (#157 [https://github.com/google/GoogleSignIn-iOS/pull/157])
+Xcode 12 이하에서 빌드 오류 방지 (#158 [https://github.com/google/GoogleSignIn-iOS/pull/158])
+6.2.1
+GoogleSignInSwiftSupport을 Swift 지원 CocoaPod의 이름으로 사용합니다. (#137 [https://github.com/google/GoogleSignIn-iOS/pull/137])
+6.2.0
+macOS 지원 (#104 [https://github.com/google/GoogleSignIn-iOS/pull/104])
+SwiftUI 'Google 계정으로 로그인' 버튼이 추가되었습니다. (#103 [https://github.com/google/GoogleSignIn-iOS/pull/103])
+로그인 시 추가 범위를 요청하는 기능이 추가되었습니다. (#30 [https://github.com/google/GoogleSignIn-iOS/pull/30])
+여러 문제가 수정되었습니다. (#87 [https://github.com/google/GoogleSignIn-iOS/pull/87], #106 [https://github.com/google/GoogleSignIn-iOS/issues/106])
+6.1.0
+SwiftUI를 보여주는 새로운 Swift 샘플 앱 (#63 [https://github.com/google/GoogleSignIn-iOS/pull/63])
+Mac Catalyst 지원
+addScopes 구현이 개선되었습니다. (#68 [https://github.com/google/GoogleSignIn-iOS/pull/68], #70 [https://github.com/google/GoogleSignIn-iOS/pull/70])
+6.0.2
+라이브러리로 빌드할 때 모듈 가져오기를 사용할 수 있는지 확인합니다. (#53 [https://github.com/google/GoogleSignIn-iOS/pull/53])
+6.0.1
+signIn 및 addScopes 메서드에 대해 중첩된 콜백이 호출되지 않는 문제 수정 (#29 [https://github.com/google/GoogleSignIn-iOS/pull/29])
+6.0.0
+iOS용 Google 로그인이 이제 오픈소스입니다.
+Swift Package Manager 지원
+M1 Mac에서 시뮬레이터 지원
+API 노출 영역 업데이트
+GIDSignIn
+sharedInstance이 이제 클래스 속성입니다.
+이제 signIn는 signInWithConfiguration:presentingViewController:callback:이며 항상 기본 프로필 범위를 요청합니다.
+addScopes:presentingViewController:callback:는 현재 로그인한 사용자에게 기본 프로필을 넘어 범위를 추가하는 새로운 방법입니다.
+restorePreviousSignIn는 이제 restorePreviousSignInWithCallback:입니다.
+disconnect는 이제 disconnectWithCallback:입니다.
+GIDSignInCallback 및 GIDDisconnectCallback 블록을 위해 GIDSignInDelegate 프로토콜이 삭제되었습니다.
+모든 로그인 흐름 구성 속성이 GIDConfiguration로 이동되었습니다.
+GIDConfiguration 클래스가 사용자의 로그인에 필요한 구성을 나타내기 위해 추가되었습니다.
+GIDAuthentication
+getTokensWithHandler:는 이제 doWithFreshTokens:입니다.
+GIDAuthenticationHandler typedef의 이름이 GIDAuthenticationAction로 변경되었습니다.
+refreshTokensWithHandler:가 삭제되었습니다. 대신 doWithFreshTokens:를 사용하세요.
+GIDSignInButton는 더 이상 내부적으로 GIDSignIn를 호출하지 않으며 signInWithConfiguration:presentingViewController:callback:를 호출하여 로그인 흐름을 시작하려면 IBAction 또는 이와 유사한 항목에 연결해야 합니다.
+5.0.2
+사용자가 로그인 흐름 중에 iOS의 동의 대화상자를 취소할 때 signIn:didSignInForUser:withError:에 잘못된 오류 코드가 전송되는 문제를 수정합니다.
+5.0.1
+iOS 13에서 로그인 흐름을 올바르게 시작할 수 없는 문제를 수정합니다.
+zip 배포에는 Xcode 11 이상이 필요합니다.
+5.0.0
+GIDSignIn 변경사항
+uiDelegate이 presentingViewController으로 대체되었습니다.
+hasAuthInKeychain이 hasPreviousSignIn으로 대체되었습니다.
+signInSilently이 restorePreviousSignIn으로 대체되었습니다.
+지원 중단된 kGIDSignInErrorCodeNoSignInHandlersInstalled 오류 코드가 삭제되었습니다.
+GIDAuthentication 변경사항
+지원 중단된 메서드 getAccessTokenWithHandler: 및 refreshAccessTokenWithHandler:가 삭제되었습니다.
+GIDGoogleUser 변경사항
+지원 중단된 속성 accessibleScopes를 삭제했습니다. 대신 grantedScopes를 사용하세요.
+AppAuth 및 GTMAppAuth에 종속 항목을 추가합니다.
+GoogleToolboxForMac 종속 항목을 삭제합니다.
+iOS 7 지원이 중단됩니다.
+4.4.0
+GTM OAuth 2 종속 항목을 삭제합니다.
+4.3.0
+Google의 엔터프라이즈 모바일 관리를 지원합니다.
+4.2.0
+grantedScopes를 GIDGoogleUser에 추가하여 로그인에 성공한 후 부여된 범위를 확인할 수 있습니다.
+GIDGoogleUser에서 accessibleScopes를 지원 중단하고 대신 grantedScopes를 사용합니다.
+hi (힌디어) 및 fr-CA (프랑스어 (캐나다))의 GIDSignInButton를 현지화합니다.
+시스템 LocalAuthentication 프레임워크에 종속 항목을 추가합니다.
+4.1.2
+GoogleSignIn CocoaPod에 pod try 지원 추가
+4.1.1
+iOS 11에서 GIDSignInUIDelegate의 signInWillDispatch:error:가 호출되지 않는 문제를 수정했습니다. SFAuthenticationSession이 앱의 뷰 컨트롤러에 의해 표시되지 않으므로 iOS 11에서는 signIn:presentViewController:도 signIn:dismissViewController:도 호출되지 않습니다.
+4.1.0
+iOS 11에서 SFAuthenticationSession을 사용합니다.
+4.0.2
+더 이상 GoogleAppUtilities에 종속되지 않습니다.
+4.0.1
+오픈소스 pod 종속 항목으로 전환합니다.
+로그인 버튼의 모양이 더 이상 요청된 범위에 따라 달라지지 않습니다.
+4.0.0
+이제 GoogleSignIn 포드가 정적 프레임워크의 형태를 취합니다. Objective-C에서 #import <GoogleSignIn/GoogleSignIn.h>로 가져옵니다.
+모듈 지원을 추가합니다. 모듈이 사용 설정된 경우 Objective-C에서 @import GoogleSignIn;를 사용할 수 있으며, 브리지 헤더를 사용하지 않고 Swift에서 import GoogleSignIn를 사용할 수 있습니다.
+독립형 zip 배포 사용자의 경우 이제 여러 프레임워크가 제공되며 모두 프로젝트에 추가해야 합니다. 이러한 분해를 통해 중복된 종속 항목이 있는 경우 더 유연하게 처리할 수 있습니다.
+GIDSignIn에서 지원 중단된 메서드 checkGoogleSignInAppInstalled를 삭제합니다.
+GIDSignIn에서 allowsSignInWithBrowser 및 allowsSignInWithWebView 속성을 삭제합니다.
+더 이상 앱에서 지원하는 URL 스키마로 번들 ID를 추가하지 않아도 됩니다.
+3.0.0
+GIDProfileData에서 givenName 및 familyName 속성을 제공합니다.
+로그인 흐름에서 사용자의 ID 또는 이메일 주소를 미리 입력하기 위해 GIDSignIn에서 loginHint 속성을 설정할 수 있습니다.
+GIDSignInButton에서 UIViewController(SignIn) 카테고리와 delegate 속성이 삭제되었습니다.
+uiDelegate가 GIDSignIn에 올바르게 설정되어 있고 SafariServices 프레임워크가 연결되어 있어야 합니다.
+StoreKit 종속 항목을 삭제합니다.
+비트코드 지원을 제공합니다.
+Xcode 6과의 비트코드 비호환성으로 인해 Xcode 7.0 이상이 필요합니다.
+2.4.0
+새 Google 로고로 로그인 버튼을 업데이트합니다.
+로그인 시 도메인 제한을 지원합니다.
+ID 토큰을 새로고침할 수 있습니다.
+2.3.2
+더 이상 Xcode 7이 필요하지 않습니다.
+2.3.1
+GIDProfileData의 imageURLWithDimension:에서 발생하는 비정상 종료 문제를 수정합니다.
+2.3.0
+Xcode 7.0 이상이 필요합니다.
+iOS 9에서 로그인하는 데 SFSafariViewController를 사용합니다. 이 기능을 사용하려면 uiDelegate를 설정해야 합니다.
+사용자 프로필 가져오기를 최적화합니다.
+GIDAuthentication에서 GTMFetcherAuthorizationProtocol을 지원합니다.
+2.2.0
+iOS 9 (베타)와 호환됩니다. 이 버전의 로그인 SDK에는 비트코드가 포함되어 있지 않으므로 Xcode 7을 사용하는 경우 프로젝트에서 ENABLE_BITCODE를 NO로 설정해야 합니다.
+GIDSignInButton의 자동 레이아웃 제약 조건에 설명 식별자를 추가합니다.
+signInSilently에서는 더 이상 uiDelegate을 설정하지 않아도 됩니다.
+2.1.0
+GIDSignInButton의 자동 레이아웃 문제를 수정합니다.
+GIDAuthentication에서 액세스 토큰을 새로고침하는 API 추가
+GIDSignIn에서 할당되지 않은 clientID에 대한 예외 설명 개선
+기타 사소한 버그 수정
+2.0.1
+버그 수정
+2.0.0
+브라우저로 앱을 전환하는 대신 UIWebView를 통한 로그인을 지원하며, 새로운 allowsSignInWithWebView 속성으로 구성할 수 있습니다.
+이제 allowsSignInWithBrowser를 통해 브라우저로의 앱 전환을 사용 중지하고 allowsSignInWithWebView 속성을 통해 인앱 웹 뷰를 사용 중지한 앱은 사용자에게 App Store에서 Google 앱을 다운로드하라는 메시지를 표시할 수 있습니다.
+자동 레이아웃이 사용 설정된 경우 로그인 버튼 크기 조정 문제 수정
+이제 signInSilently은 문서에 명시된 대로 hasAuthInKeychain이 NO인 경우 오류와 함께 대리자를 호출합니다.
+기타 사소한 버그 수정
+1.0.0
+새로고침된 API가 포함된 새로운 로그인 중심 SDK
+문맥 브랜딩이 적용된 동적으로 렌더링된 로그인 버튼
+기본 프로필 지원
+allowsSignInWithBrowser 속성 추가
+의견 보내기

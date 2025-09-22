@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/identity/protocols/oauth2/policies
+[None] Source URL: https://developers.google.com/identity/protocols/oauth2/policies
 
 Authorization [https://developers.google.com/identity/protocols/oauth2]
 OAuth 2.0 Policies

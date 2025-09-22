@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/identity/protocols/oauth2/limited-input-device
+[2025-08-06] Source URL: https://developers.google.com/identity/protocols/oauth2/limited-input-device
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
@@ -21,17 +21,13 @@ OAuth 2.0을 사용하면 사용자가 사용자 이름, 비밀번호, 기타 �
 Google 계정으로 사용자를 로그인하고 JWT [https://jwt.io/] ID 토큰을 사용하여 기본 사용자 프로필 정보를 가져오려는 경우 TV 및 제한된 입력 기기에서의 로그인 [https://developers.google.com/identity/gsi/web/guides/devices?hl=ko]을 참고하세요.
 기본 요건
 프로젝트에 API 사용 설정
-Google API를 호출하는 애플리케이션은 API Console에서 해당 API를 사용 설정해야 합니다.
+Google API를 호출하는 애플리케이션은 에서 해당 API를 사용 설정해야 합니다.
 프로젝트에서 API를 사용 설정하려면 다음 단계를 따르세요.
-Google API Console에서Open the API Library [https://console.developers.google.com/apis/library?hl=ko] 을 사용합니다.
-If prompted, select a project, or create a new one.
-API Library 에는 사용 가능한 모든 API가 제품군과 인기도를 기준으로 분류되어 있습니다. 사용 설정하려는 API가 목록에 없는 경우 검색을 사용하여 찾거나 속한 제품군에서 모두 보기를 클릭합니다.
+에서 을 사용합니다.
+에는 사용 가능한 모든 API가 제품군과 인기도를 기준으로 분류되어 있습니다. 사용 설정하려는 API가 목록에 없는 경우 검색을 사용하여 찾거나 속한 제품군에서 모두 보기를 클릭합니다.
 사용 설정하려는 API를 선택한 다음 사용 설정 버튼을 클릭합니다.
-If prompted, enable billing.
-If prompted, read and accept the API's Terms of Service.
 승인 사용자 인증 정보 만들기
 OAuth 2.0을 사용하여 Google API에 액세스하는 애플리케이션에는 Google의 OAuth 2.0 서버에 애플리케이션을 식별하는 승인 사용자 인증 정보가 있어야 합니다. 다음 단계에서는 프로젝트의 사용자 인증 정보를 만드는 방법을 설명합니다. 그러면 애플리케이션에서 사용자 인증 정보를 사용하여 해당 프로젝트에 사용 설정된 API에 액세스할 수 있습니다.
-Go to the Credentials page [https://console.developers.google.com/apis/credentials?hl=ko].
 클라이언트 만들기를 클릭합니다.
 TV 및 입력 제한 기기 애플리케이션 유형을 선택합니다.
 OAuth 2.0 클라이언트의 이름을 지정하고 만들기를 클릭합니다.
@@ -201,8 +197,8 @@ curl https://www.googleapis.com/drive/v2/files?access_token=access_token
 액세스 토큰은 주기적으로 만료되어 관련 API 요청에 대한 잘못된 사용자 인증 정보가 됩니다. 토큰과 연결된 범위의 오프라인 액세스를 요청한 경우에는 사용자에게 권한을 요청하지 않고 액세스 토큰을 갱신할 수 있습니다 (사용자가 없는 경우 포함).
 액세스 토큰을 새로고침하려면 애플리케이션에서 다음 매개변수가 포함된 HTTPS POST 요청을 Google의 승인 서버 (https://oauth2.googleapis.com/token)로 전송합니다.
 필드
-client_id API Console [https://console.developers.google.com/?hl=ko]에서 가져온 클라이언트 ID입니다.
-client_secret API Console [https://console.developers.google.com/?hl=ko]에서 가져온 클라이언트 보안 비밀번호입니다.
+client_id 에서 가져온 클라이언트 ID입니다.
+client_secret 에서 가져온 클라이언트 보안 비밀번호입니다.
 grant_type OAuth 2.0 사양에 정의된 대로 [https://tools.ietf.org/html/rfc6749#section-6] 이 필드의 값은 refresh_token로 설정해야 합니다.
 refresh_token 승인 코드 교환에서 반환된 갱신 토큰입니다.
 다음 스니펫은 샘플 요청을 보여줍니다.

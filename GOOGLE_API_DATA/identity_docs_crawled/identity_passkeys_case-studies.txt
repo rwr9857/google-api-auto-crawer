@@ -1,0 +1,42 @@
+[2025-07-27] Source URL: https://developers.google.com/identity/passkeys/case-studies
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/siwg?hl=ko]
+Passkeys [https://developers.google.com/identity/passkeys?hl=ko]
+의견 보내기
+우수사례 & 추천 앱
+bookmark_border
+이 페이지의 내용
+우수사례 [https://developers.google.com/identity/passkeys/case-studies?hl=ko#case-studies]
+카약 [https://developers.google.com/identity/passkeys/case-studies?hl=ko#kayak]
+Yahoo! 일본 [https://developers.google.com/identity/passkeys/case-studies?hl=ko#yahoo-japan]
+Dashlane [https://developers.google.com/identity/passkeys/case-studies?hl=ko#dashlane]
+Mercari [https://developers.google.com/identity/passkeys/case-studies?hl=ko#mercari]
+Google [https://developers.google.com/identity/passkeys/case-studies?hl=ko#google]
+Google 보안 블로그 [https://developers.google.com/identity/passkeys/case-studies?hl=ko#google-security-blog]
+패스키는 비밀번호를 대체하는 더 안전하고 간편한 방법입니다. 패스키를 사용하면 생체 인식 센서 (예: 지문 또는 얼굴 인식)나 PIN, 패턴으로 사용자가 앱과 웹사이트에 로그인할 수 있으므로 비밀번호를 기억하고 관리할 필요가 없습니다.
+다음은 패스키 통합을 통해 성공을 거둔 사례입니다.
+우수사례
+카약
+KAYAK이 패스키로 로그인 시간을 50% 줄이고 보안을 개선한 방법
+자세히 알아보기 [https://developers.googleblog.com/en/how-kayak-reduced-sign-in-time-by-50-and-improved-security-with-passkeys/]
+Yahoo! 일본
+Yahoo! 일본에서 패스키 도입률이 11% 로 증가하고 SMS OTP 비용이 절감됨
+자세히 알아보기 [https://web.dev/case-studies/yahoo-japan-passkeys?hl=ko]
+Dashlane
+비밀번호 관리자 Dashlane, 패스키를 사용한 로그인 전환율이 비밀번호 대비 70% 증가
+자세히 알아보기 [https://developers.google.com/identity/passkeys/case-studies/dashlane?hl=ko]
+Mercari
+Mercari의 패스키 인증으로 로그인 속도가 3.9배 빨라짐
+자세히 알아보기 [https://developers.google.com/identity/passkeys/case-studies/mercari?hl=ko]
+Google
+Google 계정에서 패스키의 사용자 환경 설계
+자세히 알아보기 [https://web.dev/articles/passkey-google-ux?hl=ko]
+Google 보안 블로그
+인증을 그 어느 때보다 빠르게 만들기: 패스키와 비밀번호 비교
+자세히 알아보기 [https://security.googleblog.com/2023/05/making-authentication-faster-than-ever.html]
+의견 보내기

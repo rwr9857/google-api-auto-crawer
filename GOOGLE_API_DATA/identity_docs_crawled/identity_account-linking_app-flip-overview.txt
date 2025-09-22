@@ -1,0 +1,67 @@
+[2025-07-25] Source URL: https://developers.google.com/identity/account-linking/app-flip-overview
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+승인 [https://developers.google.com/identity/protocols/oauth2?hl=ko]
+Google Account Linking [https://developers.google.com/identity/account-linking?hl=ko]
+의견 보내기
+OAuth 기반 앱 플립으로 Google 계정 연결
+bookmark_border
+이 페이지의 내용
+요구사항 [https://developers.google.com/identity/account-linking/app-flip-overview?hl=ko#requirements]
+디자인 가이드라인 [https://developers.google.com/identity/account-linking/app-flip-overview?hl=ko#design_guidelines]
+요구사항 [https://developers.google.com/identity/account-linking/app-flip-overview?hl=ko#requirements]
+권장사항 [https://developers.google.com/identity/account-linking/app-flip-overview?hl=ko#recommendations]
+네이티브 앱에서 앱 플립 구현 [https://developers.google.com/identity/account-linking/app-flip-overview?hl=ko#implement_app_flip_in_your_native_apps]
+앱 전환 테스트 [https://developers.google.com/identity/account-linking/app-flip-overview?hl=ko#test_app_flip]
+기본 요건 [https://developers.google.com/identity/account-linking/app-flip-overview?hl=ko#prerequisites]
+테스트 시퀀스 [https://developers.google.com/identity/account-linking/app-flip-overview?hl=ko#test_sequence]
+OAuth 기반 앱 플립 연결 (앱 플립)을 사용하면 사용자가 인증 시스템의 계정을 Google 계정에 쉽고 빠르게 연결할 수 있습니다. 사용자가 계정 연결 프로세스를 시작할 때 사용자의 휴대전화에 앱이 설치되어 있으면 앱으로 원활하게 전환되어 사용자 승인을 받습니다.
+이 접근 방식은 사용자가 인증하기 위해 사용자 이름과 비밀번호를 다시 입력하지 않아도 되므로 더 빠르고 쉽게 연결할 수 있습니다. 대신 앱 플립은 앱에서 사용자 계정의 사용자 인증 정보를 활용합니다. 사용자가 Google 계정을 앱과 연결하면 개발자가 만든 모든 통합을 활용할 수 있습니다.
+iOS 및 Android 앱 모두에 앱 플립을 설정할 수 있습니다.
+그림 1. 앱 플립을 사용하여 사용자 휴대전화에서 계정 연결
+요구사항
+앱 플립을 구현하려면 다음 요구사항을 충족해야 합니다.
+Android 또는 iOS 앱이 있어야 합니다.
+OAuth 2.0 승인 코드 흐름을 지원하는 OAuth 2.0 서버를 소유, 관리, 유지해야 합니다.
+참고: OAuth2 구현 또는 제공업체가 가이드에 설명된 대로 앱 플립 리디렉션 URL 및 client_id와 함께 승인 코드 흐름을 지원하는지 확인하세요.
+디자인 가이드라인
+이 섹션에서는 App Flipping 계정 연결 동의 화면의 디자인 요구사항 및 권장사항을 설명합니다. Google에서 앱을 호출하면 앱이 사용자에게 동의 화면을 표시합니다.
+요구사항
+사용자의 계정이 Google Home 또는 Google 어시스턴트와 같은 특정 Google 제품에 연결되는 것이 아닌 Google에 연결된다고 안내해야 합니다.
+권장사항
+다음을 수행하는 것이 좋습니다.
+Google 개인정보처리방침을 표시합니다. 동의 화면에 Google 개인정보처리방침 [http://policies.google.com/?hl=ko] 링크를 포함합니다.
+공유할 데이터 Google에서 필요로 하는 데이터와 그 이유를 사용자에게 명확하고 간결한 언어로 전달하세요.
+명확한 클릭 유도 문구 '동의 및 연결'과 같은 명확한 클릭 유도 문구를 동의 화면에 표시합니다. 이는 사용자가 계정을 연결하기 위해 Google과 공유해야 하는 데이터를 이해해야 하기 때문입니다.
+취소 기능. 사용자가 연결하지 않기로 선택한 경우 뒤로 돌아가거나 취소할 수 있는 방법을 제공합니다.
+연결 해제 기능 사용자가 연결을 해제할 수 있는 메커니즘(예: 플랫폼의 계정 설정 URL)을 제공합니다. 또는 사용자가 연결된 계정을 관리할 수 있는 Google 계정 [https://myaccount.google.com/?hl=ko] 링크를 포함할 수 있습니다.
+사용자 계정을 변경할 수 있습니다. 사용자에게 계정을 전환하는 방법을 제안합니다. 이는 사용자가 여러 계정을 사용하는 경향이 있는 경우에 특히 유용합니다.
+사용자가 계정을 전환하려면 동의 화면을 닫아야 하는 경우 사용자가 OAuth 연결 및 암시적 흐름으로 원하는 계정에 로그인할 수 있도록 복구 가능한 오류를 Google에 전송합니다.
+로고를 포함하세요. 동의 화면에 회사 로고를 표시합니다. 스타일 가이드라인에 따라 로고를 배치합니다. Google 로고도 표시하려면 로고 및 상표 [https://www.google.com/permissions/logos-trademarks/?hl=ko]를 참고하세요.
+그림 2. 계정 연결 동의 화면 디자인 가이드라인
+네이티브 앱에서 앱 플립 구현
+앱 플립을 구현하려면 Google의 딥 링크를 허용하도록 앱의 사용자 승인 코드를 수정해야 합니다.
+Android 앱에서 앱 플립을 지원하려면 Android 구현 가이드 [https://developers.google.com/identity/account-linking/app-flip-android?hl=ko]의 안내를 따르세요.
+iOS 앱에서 앱 플립을 지원하려면 iOS 구현 가이드 [https://developers.google.com/identity/account-linking/app-flip-ios?hl=ko]의 안내를 따르세요.
+앱 전환 테스트
+확인된 프로덕션 앱과 작동하는 OAuth 2.0 서버를 사용하기 전에 샘플 및 테스트 앱을 사용하여 앱 플립을 시뮬레이션할 수 있습니다.
+앱 플립 중에 Google 앱이 먼저 앱을 연 다음 OAuth 2.0 서버에서 승인 코드 응답을 요청합니다. 마지막 단계에서 응답이 Google 앱에 반환됩니다.
+기본 요건
+Google 앱을 시뮬레이션하고 앱을 실행하는 인텐트를 트리거하려면 Android [https://github.com/googlesamples/identity-appflip-tester-android] 및 iOS [https://github.com/googlesamples/identity-appflip-tester-ios]용 앱 플립 테스트 도구를 다운로드하여 설치합니다.
+앱을 시뮬레이션하고 OAuth 2.0 응답 유형을 선택하려면 Android [https://github.com/googlesamples/identity-appflip-android] 및 iOS [https://github.com/googlesamples/identity-appflip-ios]용 앱 플립 샘플을 다운로드하여 설치합니다.
+테스트 시퀀스
+앱 플립 테스트 도구를 엽니다.
+Try Flip!를 눌러 App Flip 샘플 앱을 실행합니다.
+샘플 앱의 라디오 버튼에서 응답을 선택합니다.
+Send를 눌러 시뮬레이션된 OAuth 2.0 응답을 테스트 도구로 다시 반환합니다.
+테스트 도구 로그 메시지에서 auth_code 또는 오류 세부정보를 확인합니다.
+프로덕션 테스트
+등록 [https://developers.google.com/identity/account-linking/registration?hl=ko] 및 OAuth 2.0 서버 구현을 완료한 후 프로덕션에서 앱 플립을 테스트할 수 있습니다.
+자동 테스트에는 단일 Google 계정과 작업별 이메일 주소 [https://support.google.com/a/users/answer/9308648?hl=ko]를 사용하는 것이 좋습니다.
+Google 계정 소유자로 로그인한 경우 연결된 계정 [https://myaccount.google.com/accountlinking?hl=ko]을 사용하여 계정 연결 상태를 볼 수 있습니다. 여기에서 반복되는 테스트 간에도 계정의 연결이 해제될 수 있습니다.
+원하는 경우 RISC [https://developers.google.com/identity/account-linking/unlinking?hl=ko#cross-account_protection_risc]를 구현하여 프로그래매틱 방식으로 연결을 해제하고 Google에 변경사항을 알릴 수 있습니다.
+의견 보내기

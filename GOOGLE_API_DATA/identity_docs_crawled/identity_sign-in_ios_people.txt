@@ -1,0 +1,57 @@
+[2025-07-25] Source URL: https://developers.google.com/identity/sign-in/ios/people
+
+중요: 2024년 5월 1일 [https://developer.apple.com/news/?id=3d8a9yyh]부터 Apple에서는 GoogleSignIn-iOS와 같이 흔히 사용되는 SDK를 사용하는 iOS 애플리케이션의 개인 정보 보호 매니페스트 및 서명을 요구 [https://developer.apple.com/support/third-party-SDK-requirements/]합니다. 2024년 5월 1일 전에 GoogleSignIn-iOS v7.1.0 이상으로 업그레이드하세요. 업그레이드 가이드 [https://developers.google.com/identity/sign-in/ios/quick-migration-guide?hl=ko]를 따르세요.
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/authentication?hl=ko]
+시작하기 [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko]
+의견 보내기
+프로필 정보 가져오기
+bookmark_border
+이 페이지의 내용
+시작하기 전에
+사용자 정보 검색
+사용자가 Google 계정으로 로그인한 후 사용자의 기본 프로필을 가져올 수 있습니다. 개인 정보: 이름, 프로필 이미지 URL, 이메일 주소
+시작하기 전에
+종속 항목을 다운로드하고 Xcode 프로젝트를 구성합니다 [https://developers.google.com/identity/sign-in/ios/start-integrating?hl=ko].
+앱에 Google 로그인을 통합합니다 [https://developers.google.com/identity/sign-in/ios/sign-in?hl=ko].
+사용자 정보 검색
+요청한 범위에 대해 사용자가 인증하고 액세스를 승인하면 GIDGoogleUser 객체를 통해 사용자 프로필 정보에 액세스할 수 있습니다.
+--- 탭: Swift [https://developers.google.com/identity/sign-in/ios/people?hl=ko#swift] ---
+GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+    guard error == nil else { return }
+    guard let signInResult = signInResult else { return }
+
+    let user = signInResult.user
+
+    let emailAddress = user.profile?.email
+
+    let fullName = user.profile?.name
+    let givenName = user.profile?.givenName
+    let familyName = user.profile?.familyName
+
+    let profilePicUrl = user.profile?.imageURL(withDimension: 320)
+}
+
+--- 탭: Objective-C [https://developers.google.com/identity/sign-in/ios/people?hl=ko#objective-c] ---
+[GIDSignIn.sharedInstance signInWithPresentingViewController:self
+                                                  completion:^(GIDSignInResult * _Nullable signInResult,
+                                                               NSError * _Nullable error) {
+    if (error) { return; }
+    if (signInResult == nil) { return; }
+
+    GIDGoogleUser *user = signInResult.user;
+
+    NSString *emailAddress = user.profile.email;
+
+    NSString *name = user.profile.name;
+    NSString *givenName = user.profile.givenName;
+    NSString *familyName = user.profile.familyName;
+
+    NSURL *profilePic = [user.profile imageURLWithDimension:320];
+}];
+중요: 사용자의 프로필 정보 (이메일 주소 포함)를 주소) 또는 GIDGoogleUser의 userId 필드를 사용하여 로그인된 사용자의 ID를 백엔드 서버로 전송합니다. 대신 ID 토큰을 전송 [https://developers.google.com/identity/sign-in/ios/backend-auth?hl=ko]하며, 이는 안전하게 서버에서 검증됩니다.
+의견 보내기

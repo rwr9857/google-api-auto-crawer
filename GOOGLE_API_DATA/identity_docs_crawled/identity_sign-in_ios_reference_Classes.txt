@@ -1,0 +1,71 @@
+[2025-05-19] Source URL: https://developers.google.com/identity/sign-in/ios/reference/Classes
+
+Important: Starting May 1, 2024 [https://developer.apple.com/news/?id=3d8a9yyh], Apple requires [https://developer.apple.com/support/third-party-SDK-requirements/] Privacy Manifests and signatures for iOS applications that use commonly-used SDKs, including GoogleSignIn-iOS. Upgrade to GoogleSignIn-iOS v7.1.0+ before May 1, 2024. Follow our upgrade guide [https://developers.google.com/identity/sign-in/ios/quick-migration-guide].
+Home [https://developers.google.com/]
+Products [https://developers.google.com/products]
+Google Identity [https://developers.google.com/identity]
+Sign in with Google for iOS [https://developers.google.com/identity/sign-in/ios]
+iOS API 참조 [https://developers.google.com/identity/sign-in/ios/reference/Classes]
+Send feedback
+GoogleSignIn Framework Reference
+bookmark_border
+이 페이지의 내용
+GIDConfiguration [https://developers.google.com/identity/sign-in/ios/reference/Classes#gidconfiguration]
+GIDGoogleUser [https://developers.google.com/identity/sign-in/ios/reference/Classes#gidgoogleuser]
+GIDProfileData [https://developers.google.com/identity/sign-in/ios/reference/Classes#gidprofiledata]
+GIDSignIn [https://developers.google.com/identity/sign-in/ios/reference/Classes#gidsignin]
+GIDSignInButton [https://developers.google.com/identity/sign-in/ios/reference/Classes#gidsigninbutton]
+GIDSignInResult [https://developers.google.com/identity/sign-in/ios/reference/Classes#gidsigninresult]
+GIDToken [https://developers.google.com/identity/sign-in/ios/reference/Classes#gidtoken]
+Classes
+The following classes are available globally.
+GIDConfiguration [https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDConfiguration]
+This class represents the client configuration provided by the developer.
+Declaration
+SWIFT
+class GIDConfiguration : NSObject, NSCopying, NSSecureCoding
+OBJECTIVE-C
+@interface GIDConfiguration : NSObject <NSCopying, NSSecureCoding>
+GIDGoogleUser [https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDGoogleUser]
+This class represents a signed-in user.
+Declaration
+SWIFT
+class GIDGoogleUser : NSObject, NSSecureCoding
+OBJECTIVE-C
+@interface GIDGoogleUser : NSObject <NSSecureCoding>
+GIDProfileData [https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDProfileData]
+This class represents the basic profile information of a GIDGoogleUser [https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDGoogleUser].
+Declaration
+SWIFT
+class GIDProfileData : NSObject, NSCopying, NSSecureCoding
+OBJECTIVE-C
+@interface GIDProfileData : NSObject <NSCopying, NSSecureCoding>
+GIDSignIn [https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDSignIn]
+This class is used to sign in users with their Google account and manage their session.
+For reference, please see “Google Sign-In for iOS and macOS” at https://developers.google.com/identity/sign-in/ios [https://developers.google.com/identity/sign-in/ios]
+Declaration
+SWIFT
+class GIDSignIn : NSObject
+OBJECTIVE-C
+@interface GIDSignIn : NSObject
+GIDSignInButton [https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDSignInButton]
+This class provides the “Sign in with Google” button.
+You can instantiate this class programmatically or from a NIB file. You should connect this control to an IBAction, or something similar, that calls signInWithPresentingViewController:completion: on GIDSignIn [https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDSignIn] and add it to your view hierarchy.
+Declaration
+OBJECTIVE-C
+@interface GIDSignInButton : UIControl
+GIDSignInResult [https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDSignInResult]
+A helper object that contains the result of a successful signIn or addScopes flow.
+Declaration
+SWIFT
+class GIDSignInResult : NSObject
+OBJECTIVE-C
+@interface GIDSignInResult : NSObject
+GIDToken [https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDToken]
+This class represents an OAuth2 or OpenID Connect token.
+Declaration
+SWIFT
+class GIDToken : NSObject, NSSecureCoding
+OBJECTIVE-C
+@interface GIDToken : NSObject <NSSecureCoding>
+Send feedback

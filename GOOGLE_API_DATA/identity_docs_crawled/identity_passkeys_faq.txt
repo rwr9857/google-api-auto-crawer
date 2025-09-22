@@ -1,0 +1,75 @@
+[2023-12-01] Source URL: https://developers.google.com/identity/passkeys/faq
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/authentication?hl=ko]
+패스키 [https://developers.google.com/identity/passkeys?hl=ko]
+의견 보내기
+자주 묻는 질문(FAQ)
+bookmark_border
+이 페이지의 내용
+일반 [https://developers.google.com/identity/passkeys/faq?hl=ko#general]
+누가 패스키를 지원하나요? [https://developers.google.com/identity/passkeys/faq?hl=ko#who_supports_passkeys]
+화면 잠금 방법이 설정되지 않은 기기에서도 패스키가 작동하나요? [https://developers.google.com/identity/passkeys/faq?hl=ko#do_passkeys_work_on_devices_that_dont_have_a_screen_lock_method_set_up]
+한 플랫폼 (예: Android)에 등록된 패스키를 다른 플랫폼 (예: 웹 또는 iOS)에서 로그인하는 데 사용하려면 어떻게 해야 하나요? [https://developers.google.com/identity/passkeys/faq?hl=ko#how_can_passkeys_registered_on_one_platform_such_as_android_be_used_to_sign_in_on_other_platforms_such_as_web_or_ios]
+동기화된 패스키를 한 플랫폼 제공업체에서 다른 제공업체로 이동할 수 있나요? [https://developers.google.com/identity/passkeys/faq?hl=ko#can_i_move_synchronized_passkeys_from_one_platform_provider_to_another]
+사용자가 Google이 아닌 Android 기기에서 패스키를 동기화할 수 있나요? [https://developers.google.com/identity/passkeys/faq?hl=ko#can_a_user_synchronize_their_passkeys_across_non-google_android_devices]
+개발자는 패스키를 지원하지 않는 기기와 플랫폼에 대해 어떻게 해야 하나요? [https://developers.google.com/identity/passkeys/faq?hl=ko#what_should_developers_do_about_devices_and_platforms_that_dont_support_passkeys]
+패스키가 만료될 수 있나요? [https://developers.google.com/identity/passkeys/faq?hl=ko#can_a_passkey_expire]
+일반
+누가 패스키를 지원하나요?
+패스키는 FIDO 표준을 기반으로 하므로 Android 및 Chrome은 물론 Microsoft Windows, Microsoft Edge, macOS, iOS, Safari와 같은 다른 여러 인기 생태계 및 브라우저에서 작동합니다.
+Chrome 및 Android의 지원 상태를 확인하려면 지원되는 환경 [https://developers.google.com/identity/passkeys/supported-environments?hl=ko]을 참조하세요.
+화면 잠금 방법이 설정되지 않은 기기에서도 패스키가 작동하나요?
+사용자 인증 정보 제공업체가 사용자 인증 정보 확인 없이 패스키 생성 및 인증을 허용하는지 여부는 비밀번호 관리자 구현에 따라 다릅니다. 제공업체는 패스키를 만들기 전에 사용자에게 PIN 또는 생체 인식 화면 잠금을 설정하라는 메시지를 표시할 수 있습니다.
+한 플랫폼 (예: Android)에 등록된 패스키를 다른 플랫폼 (예: 웹 또는 iOS)에서 로그인하는 데 사용하려면 어떻게 해야 하나요?
+예를 들어 Android에 등록된 패스키는 Android 휴대전화 [https://developers.google.com/identity/passkeys/use-cases?hl=ko#sign-in-with-a-phone]를 다른 기기와 연결하여 다른 플랫폼에 로그인하는 데 사용할 수 있습니다. 두 기기 간에 연결을 설정하려면 사용자는 패스키가 등록되지 않은 기기에서 로그인하려는 사이트를 열고 QR 코드를 스캔한 다음 패스키를 생성한 기기 (이 경우 Android 기기)에서 로그인을 확인해야 합니다. 패스키는 Android 기기를 벗어나지 않으므로 일반적으로 앱은 다음에 로그인할 수 있도록 다른 기기에 새 패스키를 만들 것을 제안합니다. 이 흐름은 다른 플랫폼에서도 비슷한 방식으로 작동합니다.
+동기화된 패스키를 한 플랫폼 제공업체에서 다른 제공업체로 이동할 수 있나요?
+패스키는 플랫폼에서 정의한 사용자 인증 정보 제공업체에 저장됩니다. Android와 같은 일부 플랫폼에서는 사용자가 Android 14부터 원하는 제공업체 (시스템 또는 서드 파티 비밀번호 관리자)를 선택할 수 있으며, 이 경우 여러 플랫폼에서 패스키를 동기화할 수 있습니다. 한 플랫폼 제공업체에서 다른 제공업체로 직접 패스키를 이동하는 기능은 현재 지원되지 않습니다.
+사용자가 Google이 아닌 Android 기기에서 패스키를 동기화할 수 있나요?
+패스키는 기기 생태계 내에서만 동기화되고 (기본적으로 Google 비밀번호 관리자 [https://passwords.google/?hl=ko]가 있는 Android에서 Android로) 생태계 전체에서는 동기화되지 않습니다.
+Android에서는 사용자가 사용하려는 사용자 인증 정보 제공업체(예: 서드 파티 비밀번호 관리자)를 선택할 수 있도록 Android 14부터 플랫폼을 개방하고 있습니다. 이렇게 하면 다른 플랫폼의 개방 상태에 따라 다양한 생태계 간에 패스키를 동기화하는 등의 사용 사례가 가능합니다.
+개발자는 패스키를 지원하지 않는 기기와 플랫폼에 대해 어떻게 해야 하나요?
+개발자는 패스키를 지원하지 않는 기기 및 표시 경로에서 계속 사용할 수 있도록 당분간 앱에 기존 로그인 옵션을 유지 [https://developers.google.com/identity/passkeys/developer-guide?hl=ko#revisit_your_existing_authentication_mechanism]하는 것이 좋습니다.
+패스키가 만료될 수 있나요?
+아니요. 패스키를 저장하는 제공업체와 RP (신뢰 당사자)에 따라 다르지만 패스키를 만료하는 일반적인 방법은 없습니다.
+RP는 사용자의 로그인에 사용할 계정을 지정할 수 있나요?
+신뢰 당사자 (서드 파티 앱)는 사용자 인증에 사용해야 하는 패스키를 나타내며 앱 백엔드에서 전송된 사용자 인증 정보 ID 목록으로 'allowCredentials [https://developer.mozilla.org/en-US/docs/Web/API/CredentialsContainer/get#publickey_object_structure]'를 채울 수 있습니다.
+Android 및 Chrome의 패스키
+Android 앱은 Chrome에서 생성된 패스키를 인증에 사용할 수 있나요?
+Android의 Chrome에서 생성된 패스키의 경우:
+예. Chrome에서 생성된 패스키는 Google 비밀번호 관리자에 저장되며 사용자가 동일한 Google 계정에 로그인한 경우 Android에서 사용할 수 있으며 그 반대의 경우도 마찬가지입니다.
+참고: Android 앱에 패스키 지원을 사용 설정하는 첫 번째 단계는 앱과 웹사이트를 연결하는 것입니다. 이렇게 하려면 웹사이트에서 디지털 애셋 링크 [https://developers.google.com/digital-asset-links?hl=ko] JSON 파일을 호스팅하고 디지털 애셋 링크 파일의 링크를 앱의 매니페스트에 추가합니다. 이는 웹사이트와 앱을 모두 소유하고 있음을 보여줍니다. 자세한 내용은 디지털 애셋 링크에 관한 문서 [https://developer.android.com/training/sign-in/passkeys?hl=ko#add-support-dal]를 확인하세요.
+다른 플랫폼의 Chrome에서 생성된 패스키:
+패스키가 다른 플랫폼 (Mac, iOS, Windows)의 Chrome에서 생성된 경우에는 생성되지 않습니다. 자세한 내용은 지원되는 환경 [https://developers.google.com/identity/passkeys/supported-environments?hl=ko#chromes_passkey_support_on_different_operating_systems]을 확인하세요. 그동안 사용자는 패스키를 만든 휴대전화를 사용 [https://developers.google.com/identity/passkeys/use-cases?hl=ko#sign-in-with-a-phone]하여 로그인할 수 있습니다.
+패스키가 도입되기 전에 생성된 사용자 인증 정보는 어떻게 되나요? 계속 사용할 수 있나요?
+예, Chrome과 Android 모두에서 동기화를 사용 설정하기 전에 생성된 기기 결합 사용자 인증 정보가 제공되며 인증에 계속 사용할 수 있습니다.
+사용자가 기기를 분실하면 어떻게 되나요?
+Android에서 생성된 패스키는 비밀번호가 비밀번호 관리자에 백업되는 것과 동일한 방식으로 동일한 Google 계정에 로그인된 Android 기기와 백업 및 동기화됩니다.
+즉, 기기를 교체할 때 사용자의 패스키가 함께 제공됩니다. 새 휴대전화의 앱에 로그인하려면 기존 기기의 화면 잠금으로 본인 인증을 하기만 하면 됩니다.
+패스키로 로그인하려면 기기의 생체 인식과 PIN 또는 패턴 화면 잠금 설정이 모두 필요한가요? 아니면 이 중 하나로 충분한가요?
+화면 잠금 방법을 하나만 사용하면 됩니다.
+패스키가 지문, PIN 또는 패턴과 같은 특정 화면 잠금 방식에 연결되어 있나요?
+기기 플랫폼 및 사용자 확인 실행 방법에 따라 다릅니다. Google 비밀번호 관리자 [https://passwords.google/?hl=ko]의 경우 패스키는 특정 인증 방법에 연결되지 않으며, 사용 가능한 모든 화면 잠금 요소 (생체 인식, PIN 또는 패턴)와 함께 사용할 수 있습니다.
+RP는 동기화되지 않는 기기 귀속 사용자 인증 정보를 계속 만들 수 있나요?
+당분간은 Android의 Chrome에서 또는 Play 서비스 API를 사용하는 Android 앱에서 생성된 검색할 수 없는 사용자 인증 정보는 기존 동작을 유지하여 계속해서 기기에 바인딩되도록 해야 합니다.
+패스키를 사용할 때 개발 중인 기기 공개 키 확장 프로그램 [https://w3c.github.io/webauthn/#sctn-device-publickey-extension]은 동기화되지 않으며 위험 분석에 사용할 수 있는 두 번째 기기에 결합된 키입니다. 하지만 이 기능은 아직 사용자 인증 정보 제공업체에서 지원되지 않습니다.
+패스키를 새 기기에 동기화하면 어떻게 되나요? 사용자가 패스키를 생성한 기기에 액세스할 수 있어야 하나요?
+Android의 경우
+패스키가 Google 비밀번호 관리자 [https://passwords.google/?hl=ko]에 저장되었다면 사용자는 동일한 Google 계정으로 새 기기에 로그인하고 이전 기기의 화면 잠금 (PIN, 패턴 또는 비밀번호)으로 본인을 인증하기만 하면 됩니다. 이전 기기가 없어도 사용자가 다른 기기에 로그인할 수 있습니다.
+패스키가 다른 사용자 인증 정보 제공업체에 저장되었다면 해당 사용자 인증 정보 제공업체의 새 기기에서의 로그인 흐름에 따라 달라집니다. 대부분의 사용자 인증 정보 제공업체는 사용자 인증 정보를 클라우드에 동기화하고 사용자가 직접 인증한 후 새 기기에서 이 정보에 액세스할 수 있는 방법을 제공합니다.
+참고: Android에서 패스키를 지원하는 방법에 관한 자세한 내용은 통합을 위한 Jetpack Credential Manager API [https://developer.android.com/training/sign-in/passkeys?hl=ko]를 참고하세요. 다른 질문은 인증 관리자 FAQ [https://developer.android.com/training/sign-in/credential-manager-faq?hl=ko]를 참고하세요.
+개인 정보 보호 및 보안
+사용자의 생체 인식 정보는 안전한가요?
+예. 사용자의 생체 인식 데이터는 기기 외부로 유출되지 않으며 보안 침해 시 도난당할 수 있는 중앙 서버에 저장되지 않습니다.
+사용자가 휴대전화에서 패스키를 사용하여 친구의 기기에 로그인할 수 있나요?
+예. 사용자는 로그인을 위해 자신의 휴대전화와 다른 사람의 기기 간에 '일회성 링크'를 설정 [https://developers.google.com/identity/passkeys/use-cases?hl=ko#sign-in-with-a-phone]할 수 있습니다.
+사용자의 Google 계정이 도용되더라도 Google 비밀번호 관리자에 저장된 패스키는 보호되나요?
+예, 패스키 보안 비밀은 엔드 투 엔드 암호화됩니다. 보안 침해된 Google 계정은 패스키를 노출하지 않습니다. 사용자가 패스키를 복호화하려면 Android 기기 화면도 잠금 해제해야 하기 때문입니다.
+관련 주제
+패스키는 ID 제휴와 어떻게 다른가요?
+ID 제휴 [https://developers.google.com/identity/openid-connect/openid-connect?hl=ko]는 이름, 확인된 이메일 주소와 같은 사용자의 기본 프로필 정보를 반환하여 새 계정을 부트스트랩하는 데 도움이 되므로 서비스에 가입할 때 유용합니다. 패스키는 사용자의 reauthentication [https://developers.google.com/identity/passkeys/use-cases?hl=ko#reauthentication]을 간소화하는 데 유용합니다.
+의견 보내기

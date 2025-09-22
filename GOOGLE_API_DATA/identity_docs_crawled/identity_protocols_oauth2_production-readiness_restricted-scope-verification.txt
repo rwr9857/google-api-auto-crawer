@@ -1,0 +1,110 @@
+[2025-08-31] Source URL: https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+승인 [https://developers.google.com/identity/protocols/oauth2?hl=ko]
+App verification to use Google Authorization APIs [https://developers.google.com/identity/protocols/oauth2/production-readiness?hl=ko]
+Google Authorization API를 사용하기 위한 앱 인증 [https://developers.google.com/identity/protocols/oauth2/production-readiness/policy-compliance?hl=ko]
+의견 보내기
+제한된 범위 확인
+bookmark_border
+이 페이지의 내용
+제한된 범위 이해하기 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#understand-restricted-scopes]
+범위 사용 이해하기 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#understand-scope-use]
+허용되는 애플리케이션 유형 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#permitted-application-types]
+Security assessment [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#security-assessment]
+인증 준비 단계 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#prepare-for-verification]
+애플리케이션 홈페이지 요구사항 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#app-home-page-requirements]
+애플리케이션 개인정보처리방침 링크 요구사항 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#app-privacy-policy-requirements]
+인증을 위해 앱을 제출하는 방법 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#submit-app-for-verification]
+특정 Google API (민감한 [https://support.google.com/cloud/answer/9110914?hl=ko#sensitive-scopes] 또는 제한된 [https://support.google.com/cloud/answer/9110914?hl=ko#restricted-scopes] 범위를 허용하는 API)에는 소비자 데이터에 액세스할 권한을 요청하는 앱에 대한 요구사항이 있습니다. 이러한 제한된 범위에 대한 추가 요구사항 [https://developers.google.com/terms/api-services-user-data-policy?hl=ko#additional_requirements_for_specific_api_scopes]에 따라 앱은 허용된 애플리케이션 유형임을 입증하고 보안 평가가 포함될 수 있는 추가 검토를 받아야 합니다.
+API 내에서 제한된 범위의 적용 가능성은 앱에서 관련 기능을 제공하는 데 필요한 액세스 수준(읽기 전용, 쓰기 전용, 읽기 및 쓰기 등)에 따라 달라집니다.
+OAuth 2.0을 사용하여 Google 계정에서 이 데이터에 액세스할 수 있는 권한을 얻을 때 범위라는 문자열을 사용하여 액세스하려는 데이터 유형과 필요한 액세스 권한의 양을 지정합니다. 앱이 민감한 [https://developers.google.com/identity/protocols/oauth2/production-readiness/sensitive-scope-verification?hl=ko] 또는 제한된 범위를 요청하는 경우 앱의 사용이 [https://support.google.com/cloud/answer/9110914?hl=ko#restricted-scopes]예외 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#exceptions]에 해당하지 않는 한 확인 절차를 완료해야 합니다.
+제한된 범위는 민감한 범위에 비해 수가 적습니다. 인증 OAuth API 인증 FAQ [https://support.google.com/cloud/answer/9110914?hl=ko]에는 현재 민감한 범위 및 제한된 범위 목록이 포함되어 있습니다. 이러한 범위는 Google 사용자 데이터에 대한 광범위한 액세스를 제공하며 Google 계정에서 범위를 요청하기 전에 범위 확인 절차를 거쳐야 합니다. 이 요구사항에 관한 자세한 내용은 Google API 서비스 사용자 데이터 정책 [https://developers.google.com/terms/api-services-user-data-policy?hl=ko], 특정 API 범위의 추가 요구사항 [https://developers.google.com/terms/api-services-user-data-policy?hl=ko#additional-requirements-for-specific-api-scopes] 또는 제품별 Google 개발자 페이지 [https://developers.google.com/?hl=ko]를 참고하세요. 서버에 제한된 범위 데이터를 저장하거나 전송하는 경우 보안 평가 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#security-assessment]를 완료해야 합니다.
+제한된 범위 이해하기
+앱이 제한된 범위를 요청하고 예외 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#exceptions]에 해당하지 않는 경우 Google API 서비스 사용자 데이터 정책의 특정 API 범위의 추가 요구사항 [https://developers.google.com/terms/api-services-user-data-policy?hl=ko#additional_requirements_for_specific_api_scopes] 또는 제품의 Google 개발자 페이지 [https://developers.google.com/?hl=ko]에 명시된 제품별 요구사항을 충족해야 하며, 이 경우 더 광범위한 검토 절차가 필요합니다.
+범위 사용 이해하기
+앱에서 사용하거나 사용하려는 범위를 검토합니다. 기존 범위 사용량을 확인하려면 승인 요청과 함께 전송되는 범위를 앱의 소스 코드에서 검사하세요.
+요청된 각 범위가 앱 기능의 의도된 작업에 필요하고 기능을 제공하는 데 필요한 최소 권한을 사용하는지 확인합니다. Google API에는 일반적으로 엔드포인트를 호출하거나 엔드포인트 내의 특정 속성에 필요한 범위가 포함된 제품의 Google 개발자 페이지 [https://developers.google.com/?hl=ko]에 참조 문서가 있습니다. 앱에서 호출하는 API 엔드포인트의 액세스에 필요한 범위에 관한 자세한 내용은 해당 엔드포인트의 참조 문서를 참고하세요. For example, for an app that only uses Gmail APIs to occasionally send emails on a user's behalf, don't request the scope that provides full access to the user's email data.
+Google API에서 수신한 데이터는 API 정책을 준수하고 앱의 작업 및 개인정보처리방침에서 사용자에게 표시되는 방식으로만 사용해야 합니다.
+API 문서를 참고하여 각 범위와 잠재적 sensitive [https://developers.google.com/identity/protocols/oauth2/production-readiness/sensitive-scope-verification?hl=ko] or restricted 상태를 비롯한 자세한 내용을 알아보세요.
+앱에서 사용하는 모든 범위를 Cloud Console의 Data Access page [https://console.developers.google.com/auth/scopes?hl=ko]에 선언합니다. 지정한 범위는 민감한 범위 또는 제한된 범위 카테고리로 그룹화되어 필요한 추가 인증을 강조 표시합니다.
+통합에서 사용하는 데이터와 일치하는 최적의 범위를 찾고, 사용 방법을 이해하고, 테스트 환경에서 모든 것이 여전히 작동하는지 다시 확인한 다음, 확인을 위해 제출할 준비를 합니다.
+앱 또는 새 범위가 필요한 새 기능의 출시 계획에 인증을 완료하는 데 필요한 시간을 고려해야 합니다. 이러한 추가 요구사항 중 하나는 앱이 서버에서 또는 서버를 통해 Google 사용자 데이터에 액세스하거나 액세스할 수 있는 경우에 발생합니다. 이러한 경우 시스템은 Google의 승인을 받은 독립적인 서드 파티 평가자로부터 연간 보안 평가 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#security-assessment]를 받아야 합니다. 따라서 제한된 범위 인증 절차를 완료하는 데 몇 주가 걸릴 수 있습니다. 마지막으로 승인된 OAuth 동의 화면 인증 이후 브랜드 정보가 변경된 경우 모든 앱은 먼저 브랜드 인증 [https://developers.google.com/identity/protocols/oauth2/production-readiness/brand-verification?hl=ko] 단계를 완료해야 합니다. 이 단계는 일반적으로 영업일 기준 2~3일이 소요됩니다.
+허용되는 애플리케이션 유형
+특정 애플리케이션 유형은 각 제품의 제한된 범위에 액세스할 수 있습니다. 애플리케이션 유형은 제품별 Google 개발자 페이지 [https://developers.google.com/?hl=ko] (예: Gmail API 정책)에서 확인할 수 있습니다.
+앱 유형을 이해하고 결정하는 것은 개발자의 책임입니다. 하지만 앱의 애플리케이션 유형을 잘 모르겠다면 인증을 위해 앱을 제출할 때 어떤 기능을 사용하시겠어요? 질문에 대해 옵션을 선택하지 않아도 됩니다. 그러면 Google API의 인증팀에서 애플리케이션 유형을 결정합니다.
+Security assessment
+Google 사용자 제한된 데이터에 대한 액세스를 요청하고 서드 파티 서버에서 또는 서드 파티 서버를 통해 데이터에 액세스할 수 있는 모든 앱은 Google에서 뽑은 보안 평가자의 보안 평가를 거쳐야 합니다. 이 평가를 통해 Google 사용자 데이터에 액세스하는 모든 앱이 데이터를 안전하게 처리하고 사용자의 요청에 따라 사용자 데이터를 삭제할 수 있는 기능을 갖추고 있는지 확인하여 Google 사용자 데이터를 안전하게 유지할 수 있습니다.
+Google에서는 보안 평가를 표준화하기 위해 App Defense Alliance [https://appdefensealliance.dev/?hl=ko]와 클라우드 애플리케이션 보안 평가 프레임워크 (CASA) [https://appdefensealliance.dev/casa?hl=ko]를 활용합니다.
+앞서 언급한 바와 같이 인증된 제한된 범위에 대한 액세스 권한을 유지하려면 평가자의 평가서 (LOA) 승인일로부터 최소 12개월마다 규정 준수 여부를 다시 인증하고 보안 평가를 완료해야 합니다. 앱에서 새로운 제한된 범위를 추가하는 경우 이전 보안 평가에 포함되지 않았다면 추가 범위를 포함하도록 앱을 재평가해야 할 수 있습니다.
+Google 검토팀에서 앱을 재인증해야 할 때 이메일을 보내드립니다. 팀의 올바른 구성원에게 이 연간 시정 조치가 통지되도록 하려면 Cloud Console 프로젝트에 추가 Google 계정을 소유자 또는 편집자로 연결하세요. 또한 Google Cloud Console OAuth Branding page에 지정된 사용자 지원 및 개발자 연락처 이메일을 최신 상태로 유지하는 데도 도움이 됩니다.
+인증 준비 단계
+Google API를 사용하여 데이터 액세스를 요청하는 모든 앱은 다음 단계에 따라 브랜드 확인을 완료해야 합니다.
+앱이 인증 요구사항 예외 [https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification?hl=ko#exceptions] 섹션의 사용 사례에 해당하지 않는지 확인합니다.
+앱이 연결된 API 또는 제품의 브랜딩 요구사항을 준수하는지 확인합니다. 예를 들어 Google 로그인 범위의 브랜드 가이드라인 [https://developers.google.com/identity/branding-guidelines?hl=ko]을 참고하세요.
+Google Search Console [https://search.google.com/search-console/about?hl=ko]에서 프로젝트의 승인된 도메인 [https://developers.google.com/identity/protocols/oauth2/production-readiness/brand-verification?hl=ko#authorized-domains] 소유권을 확인합니다. API Console 프로젝트와 연결된 Google 계정을 소유자 또는 편집자로 사용합니다.
+OAuth 동의 화면의 모든 브랜딩 정보(예: 앱 이름, 지원 이메일, 홈페이지 URI, 개인정보처리방침 URI 등)가 앱의 ID를 정확하게 나타내야 합니다.
+애플리케이션 홈페이지 요구사항
+홈페이지가 다음 요구사항을 충족하는지 확인하세요.
+홈페이지는 공개적으로 액세스할 수 있어야 하며, 사이트의 로그인한 사용자만 액세스할 수 있는 상태가 아니어야 합니다.
+검토 중인 앱과의 홈페이지 관련성이 명확해야 합니다.
+Google Play 스토어의 앱 등록정보 또는 Facebook 페이지로 연결되는 링크는 유효한 애플리케이션 홈페이지로 간주되지 않습니다.
+애플리케이션 개인정보처리방침 링크 요구사항
+앱의 개인정보처리방침이 다음 요구사항을 충족하는지 확인하세요.
+개인정보처리방침은 사용자에게 표시되어야 하며, 애플리케이션의 홈페이지와 동일한 도메인 내에 호스팅되어야 하고, Google API Console의 OAuth 동의 화면에 링크되어야 합니다. 홈페이지에는 앱 기능에 대한 설명과 개인정보처리방침 및 선택적 서비스 약관 링크가 포함되어야 합니다.
+개인정보처리방침은 애플리케이션이 Google 사용자 데이터에 액세스, 사용, 저장 또는 공유하는 방식을 공개해야 합니다. The privacy policy must comply with the Google API Services User Data Policy [https://developers.google.com/terms/api-services-user-data-policy?hl=ko] and the Limited Use requirements [https://developers.google.com/terms/api-services-user-data-policy?hl=ko#limited-use] for restricted scopes. 게시된 개인정보처리방침에 공개된 관행에 따라서만 Google 사용자 데이터를 사용해야 합니다.
+Review example cases [https://support.google.com/cloud/answer/9110914?hl=ko#inconsistent] of privacy policies that don't meet the Limited Use requirements.
+인증을 위해 앱을 제출하는 방법
+Google Cloud Console 프로젝트 [https://cloud.google.com/storage/docs/projects?hl=ko]는 모든 Cloud Console 리소스를 구성합니다. 프로젝트는 프로젝트 작업을 실행할 권한이 있는 연결된 Google 계정 집합, 사용 설정된 API 집합, 해당 API에 대한 결제, 인증, 모니터링 설정으로 구성됩니다. 예를 들어 프로젝트에는 하나 이상의 OAuth 클라이언트가 포함될 수 있고, 이러한 클라이언트에서 사용할 API를 구성할 수 있으며, 사용자가 앱에 대한 액세스를 승인하기 전에 표시되는 OAuth 동의 화면 [https://developers.google.com/identity/protocols/oauth2/production-readiness/brand-verification?hl=ko#oauth-consent-screen]을 구성할 수 있습니다.
+프로덕션에 사용할 준비가 되지 않은 OAuth 클라이언트가 있는 경우 인증을 요청하는 프로젝트에서 삭제하는 것이 좋습니다. Clients page [https://console.developers.google.com/auth/clients?hl=ko]에서 이 작업을 수행할 수 있습니다.
+인증을 위해 제출하려면 다음 단계를 따르세요.
+앱이 Google API 서비스 약관 [https://developers.google.com/terms?hl=ko] 및 Google API 서비스 사용자 데이터 정책 [https://developers.google.com/terms/api-services-user-data-policy?hl=ko]을 준수하는지 확인합니다.
+Cloud Console에서 프로젝트에 연결된 계정의 소유자 및 편집자 역할과 OAuth 동의 화면의 사용자 지원 이메일 및 개발자 연락처 정보를 최신 상태로 유지하세요. 이렇게 하면 팀의 올바른 구성원에게 새로운 요구사항이 통지됩니다.
+Cloud Console OAuth 인증 센터 [https://console.developers.google.com/auth/verification?hl=ko]로 이동합니다.
+프로젝트 선택기 버튼을 클릭합니다.
+선택 대화상자가 나타나면 프로젝트를 선택합니다. 프로젝트를 찾을 수 없지만 프로젝트 ID를 알고 있는 경우 브라우저에서 다음 형식으로 URL을 구성할 수 있습니다.
+https://console.developers.google.com/auth/branding?project=[PROJECT_ID]
+[PROJECT_ID]를 사용하려는 프로젝트 ID로 바꿉니다.
+앱 수정 버튼을 선택합니다.
+OAuth 동의 화면 페이지에서 필요한 정보를 입력한 다음 저장 후 계속 버튼을 선택합니다.
+범위 추가 또는 삭제 버튼을 사용하여 앱에서 요청한 모든 범위를 선언합니다. Google 로그인에 필요한 초기 범위 집합은 민감하지 않은 범위 섹션에 미리 입력되어 있습니다. 추가된 범위는 민감하지 않은 범위( sensitive [https://developers.google.com/identity/protocols/oauth2/production-readiness/sensitive-scope-verification?hl=ko], or restricted)로 분류됩니다.
+앱의 관련 기능에 대한 관련 문서 링크를 최대 3개까지 제공합니다.
+후속 단계에서 앱에 관해 요청된 추가 정보를 제공합니다.
+Ensure your app complies with the Additional requirements for specific API scopes [https://developers.google.com/terms/api-services-user-data-policy?hl=ko#additional_requirements_for_specific_api_scopes], which includes undergoing an annual security assessment if your app accesses restricted scope Google users' data from or through a third-party server.
+Ensure your app is one of the allowed types specified in the Limited Use section of the Additional requirements for specific API scopes [https://developers.google.com/terms/api-services-user-data-policy?hl=ko#additional_requirements_for_specific_api_scopes] page.
+If your app is a task automation platform, your demonstration video must showcase how multiple API workflows are created and automated, and in which directions user data flows.
+Prepare a video that fully demonstrates how a user initiates and grants access to the requested scopes and shows, in detail, the usage of the granted sensitive and restricted scopes in the app. Upload the video to YouTube Studio and set Visibility as Unlisted. You need to provide a link to the demonstration video in the YouTube link field.
+Show the OAuth grant process that users will experience, in English. This includes the consent flow and, if you use Google Sign-In, the sign-in flow.
+Show that the OAuth consent screen correctly displays the App Name.
+Show that the browser address bar of the OAuth consent screen correctly includes your app's OAuth client ID.
+To show how the data will be used, demonstrate the functionality that's enabled by each sensitive and restricted scope that you request.
+If you use multiple clients, and therefore have multiple OAuth client IDs, show how the data is accessed on each OAuth client.
+Select your permitted application type from the "What features will you use?" list.
+Describe how you will use the restricted scopes in your app and why more limited scopes aren't sufficient.
+제공한 앱 구성에 확인이 필요한 경우 확인을 위해 앱을 제출할 수 있습니다. 필수 입력란을 작성한 다음 제출을 클릭하여 인증 절차를 시작합니다.
+앱을 제출하면 Google 신뢰 및 안전팀에서 필요한 추가 정보나 완료해야 하는 단계를 이메일로 알려드립니다. 개발자 연락처 정보 섹션의 이메일 주소와 OAuth 동의 화면의 지원 이메일에서 추가 정보 요청이 있는지 확인하세요. 프로젝트의 OAuth 동의 화면 페이지에서 Google의 응답 대기 중에 검토 프로세스가 일시중지되었는지 등 프로젝트의 현재 검토 상태를 확인할 수도 있습니다.
+인증 요건 예외
+앱이 다음 섹션에 설명된 시나리오 중 하나에서 사용되는 경우 검토를 위해 제출하지 않아도 됩니다.
+개인 용도
+한 가지 사용 사례는 앱의 사용자가 나 혼자이거나 앱을 사용하는 사용자가 몇 명에 불과하고 그 사용자들을 모두 개인적으로 알고 있는 경우입니다. 소수의 사용자와 함께 확인되지 않은 앱 화면 [https://support.google.com/cloud/answer/7454865?hl=ko#unverified-app-screen]을 진행하고 개인 계정에 앱 액세스 권한을 부여하는 것이 편할 수 있습니다.
+참고: 사용자 한도 [https://support.google.com/cloud/answer/7454865?hl=ko#unverified-app-user-cap]는 인증되지 않은 앱에 대한 액세스 권한을 부여할 수 있는 Google 계정 수를 제한합니다.
+개발, 테스트 또는 스테이징 등급에서 사용되는 프로젝트
+Google OAuth 2.0 정책을 준수 [https://developers.google.com/identity/protocols/oauth2/production-readiness/policy-compliance?hl=ko#separate-projects-testing-production]하려면 테스트 환경과 프로덕션 환경에 서로 다른 프로젝트를 사용하는 것이 좋습니다. Google 계정이 있는 모든 사용자가 앱을 사용할 수 있도록 하려면 앱을 인증용으로만 제출하는 것이 좋습니다. 따라서 앱이 개발, 테스트 또는 스테이징 단계에 있는 경우 인증이 필요하지 않습니다.
+앱이 개발 또는 테스트 단계에 있는 경우 게시 상태 [https://support.google.com/cloud/answer/10311615?hl=ko#publishing-status]를 기본 설정인 테스트 [https://support.google.com/cloud/answer/10311615?hl=ko#publishing-status-testing]로 유지할 수 있습니다. 이 설정은 앱이 아직 개발 중이며 테스트 사용자 목록에 추가된 사용자만 앱을 사용할 수 있음을 의미합니다. 앱 개발 또는 테스트에 참여하는 Google 계정 목록을 관리해야 합니다.
+참고: 그림 1에 표시된 것처럼 앱에 테스터 경고 화면이 표시되고, 사용자 한도가 적용되며, 새로고침 토큰 수명이 제한됩니다.
+그림 1. 테스터 경고 화면
+서비스 소유 데이터만
+앱이 서비스 계정을 사용하여 자체 데이터에만 액세스하고 Google 계정에 연결된 사용자 데이터에는 액세스하지 않는 경우 인증을 위해 제출하지 않아도 됩니다.
+서비스 계정이 무엇인지 알아보려면 Google Cloud 문서의 서비스 계정 [https://cloud.google.com/compute/docs/access/service-accounts?hl=ko]을 참고하세요. 서비스 계정 사용 방법에 관한 안내는 서버 간 애플리케이션에 OAuth 2.0 사용 [https://developers.google.com/identity/protocols/oauth2/service-account?hl=ko]을 참고하세요.
+내부 전용
+즉, 앱은 Google Workspace 또는 Cloud ID 조직 [https://cloud.google.com/resource-manager/docs/creating-managing-organization?hl=ko]의 사용자만 사용합니다. 프로젝트는 조직에서 소유해야 하며, OAuth 동의 화면은 내부 사용자 유형 [https://support.google.com/cloud/answer/10311615?hl=ko#user-type-internal]으로 구성해야 합니다. 이 경우 앱에 조직 관리자의 승인이 필요할 수 있습니다. 자세한 내용은 Google Workspace 추가 고려사항 [https://developers.google.com/identity/protocols/oauth2/production-readiness/google-workspace?hl=ko]을 참고하세요.
+공개 및 내부 애플리케이션 [https://support.google.com/cloud/answer/6158849?hl=ko#public-and-internal]에 대해 자세히 알아보세요.
+FAQ 앱을 내부 전용으로 표시하려면 어떻게 해야 하나요? [https://support.google.com/cloud/answer/9110914?hl=ko#mark-internal]에서 앱을 내부로 표시하는 방법을 알아보세요.
+도메인 전체 설치
+앱이 Google Workspace 또는 Cloud ID 조직의 사용자만 타겟팅하고 항상 도메인 전체 설치 [https://support.google.com/a/answer/162106?hl=ko]를 사용하도록 계획하는 경우 앱 확인이 필요하지 않습니다. 도메인 전체 설치를 사용하면 도메인 관리자가 서드 파티 및 내부 애플리케이션에 사용자 데이터에 대한 액세스 권한을 부여할 수 있기 때문입니다. 조직 관리자만 도메인 내에서 사용할 수 있도록 앱을 허용 목록에 추가할 수 있습니다.
+FAQ 내 애플리케이션에는 다른 Google Workspace 도메인의 엔터프라이즈 계정을 사용하는 사용자가 있습니다 [https://support.google.com/cloud/answer/9110914?hl=ko#enterprise]에서 앱을 도메인 전체 설치로 만드는 방법을 알아보세요.
+의견 보내기

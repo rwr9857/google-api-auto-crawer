@@ -1,0 +1,99 @@
+[2025-07-25] Source URL: https://developers.google.com/identity/sign-in/ios/api-access
+
+중요: 2024년 5월 1일 [https://developer.apple.com/news/?id=3d8a9yyh]부터 Apple에서는 GoogleSignIn-iOS와 같이 흔히 사용되는 SDK를 사용하는 iOS 애플리케이션의 개인 정보 보호 매니페스트 및 서명을 요구 [https://developer.apple.com/support/third-party-SDK-requirements/]합니다. 2024년 5월 1일 전에 GoogleSignIn-iOS v7.1.0 이상으로 업그레이드하세요. 업그레이드 가이드 [https://developers.google.com/identity/sign-in/ios/quick-migration-guide?hl=ko]를 따르세요.
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/authentication?hl=ko]
+iOS용 Google 계정 승인 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko]
+의견 보내기
+iOS 앱에서 Google API에 액세스
+bookmark_border
+이 페이지의 내용
+시작하기 전에 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#before_you_begin]
+1. 부여된 범위 확인 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#1_check_which_scopes_have_been_granted]
+2. 추가 범위 요청 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#2_request_additional_scopes]
+3. 새 토큰으로 API 호출 [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#3_make_an_api_call_with_fresh_tokens]
+Drive, Gmail 등 일부 Google 서비스는 공개 API를 제공합니다. 사용자가 이러한 서비스에서 자신의 데이터로 작업하는 데 도움이 되는 앱을 만드는 데 사용할 수 있는 제공합니다 이러한 서비스에 액세스하려면 앱에서 OAuth 2.0 중 하나를 구현해야 합니다. 사용자의 동의를 얻고 액세스 토큰을 얻는 클라이언트 플로우를 사용하여 액세스할 수 있습니다
+OAuth 2.0 흐름을 구현하는 Google 로그인 라이브러리를 사용할 수 있습니다. 로그인한 사용자의 액세스 토큰을 얻을 수 있습니다.
+시작하기 전에
+기본 Google 로그인 통합 [https://developers.google.com/identity/sign-in/ios/sign-in?hl=ko]을 완료해야 합니다.
+1. 부여된 범위 확인
+Google API를 호출하기 전에 이미 어느 범위가 사용되었는지 확인하세요. GIDGoogleUser의 grantedScopes 속성을 사용하여 앱에 부여됩니다.
+--- 탭: Swift [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#swift] ---
+let driveScope = "https://www.googleapis.com/auth/drive.readonly"
+let grantedScopes = user.grantedScopes
+if grantedScopes == nil || !grantedScopes!.contains(driveScope) {
+  // Request additional Drive scope.
+}
+
+--- 탭: Objective-C [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#objective-c] ---
+NSString *driveScope = @"https://www.googleapis.com/auth/drive.readonly";
+
+// Check if the user has granted the Drive scope
+if (![user.grantedScopes containsObject:driveScope]) {
+  // request additional drive scope
+}
+사용자가 특정 범위를 부여했는지 여부에 따라 특정 IP 주소를 지원하려면 추가 범위를 요청해야 함 상호작용하지 않습니다.
+2. 추가 범위 요청
+추가 범위를 요청해야 하는 경우 addScopes:presentingViewController:completion 또는 addScopes:presentingWindow:completion: 사용자에게 앱 권한 부여를 요청합니다. 추가 액세스를 제공합니다.
+예를 들어 사용자의 Drive 파일에 대한 읽기 전용 액세스 권한을 요청하려면 다음 안내를 따르세요.
+--- 탭: Swift [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#swift] ---
+let additionalScopes = ["https://www.googleapis.com/auth/drive.readonly"]
+guard let currentUser = GIDSignIn.sharedInstance.currentUser else {
+    return ;  /* Not signed in. */
+}
+
+currentUser.addScopes(additionalScopes, presenting: self) { signInResult, error in
+    guard error == nil else { return }
+    guard let signInResult = signInResult else { return }
+
+    // Check if the user granted access to the scopes you requested.
+}
+
+--- 탭: Objective-C [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#objective-c] ---
+NSArray *additionalScopes = @[ @"https://www.googleapis.com/auth/drive.readonly" ];
+GIDGoogleUser *currentUser = GIDSignIn.sharedInstance.currentUser;
+
+[currentUser addScopes:additionalScopes
+           presentingViewController:self
+                         completion:^(GIDSignInResult * _Nullable signInResult,
+                                      NSError * _Nullable error) {
+    if (error) { return; }
+    if (signInResult == nil) { return; }
+
+    // Check if the user granted access to the scopes you requested.
+}];
+3. 새 토큰으로 API 호출
+Google API 호출에 만료되지 않은 액세스 토큰이 항상 포함되도록 하기 위해 refreshTokensIfNeededWithCompletion: 블록에 호출을 래핑합니다.
+--- 탭: Swift [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#swift] ---
+currentUser.refreshTokensIfNeeded { user, error in
+    guard error == nil else { return }
+    guard let user = user else { return }
+
+    // Get the access token to attach it to a REST or gRPC request.
+    let accessToken = user.accessToken.tokenString
+
+    // Or, get an object that conforms to GTMFetcherAuthorizationProtocol for
+    // use with GTMAppAuth and the Google APIs client library.
+    let authorizer = user.fetcherAuthorizer()
+}
+
+--- 탭: Objective-C [https://developers.google.com/identity/sign-in/ios/api-access?hl=ko#objective-c] ---
+[currentUser refreshTokensIfNeededWithCompletion:^(
+                              GIDGoogleUser * _Nullable user,
+                              NSError * _Nullable error) {
+    if (error) { return; }
+    if (user == nil) { return; }
+
+    // Get the access token to attach it to a REST or gRPC request.
+    NSString *accessToken = user.accessToken.tokenString;
+
+    // Or, get an object that conforms to GTMFetcherAuthorizationProtocol for
+    // use with GTMAppAuth and the Google APIs client library.
+    id<GTMFetcherAuthorizationProtocol> authorizer = [user fetcherAuthorizer];
+}];
+다음과 같이 액세스 토큰을 사용하여 API를 호출합니다. REST 또는 gRPC 요청의 헤더 (Authorization: Bearer ACCESS_TOKEN) 또는 geter 승인자를 Google API 클라이언트 라이브러리 [https://github.com/google/google-api-objectivec-client-for-rest/].
+의견 보내기

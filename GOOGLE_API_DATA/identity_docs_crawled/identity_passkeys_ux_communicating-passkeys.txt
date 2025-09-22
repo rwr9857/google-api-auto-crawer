@@ -1,0 +1,59 @@
+[2025-09-16] Source URL: https://developers.google.com/identity/passkeys/ux/communicating-passkeys
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Authentication [https://developers.google.com/identity/siwg?hl=ko]
+Passkeys [https://developers.google.com/identity/passkeys?hl=ko]
+도움이 되었나요?
+의견 보내기
+사용자에게 패스키 전달
+bookmark_border
+이 페이지의 내용
+패스키를 친숙한 개념과 연결 [https://developers.google.com/identity/passkeys/ux/communicating-passkeys?hl=ko#associate_passkeys_with_familiar_concepts]
+사용자층과 관련된 혜택 강조 [https://developers.google.com/identity/passkeys/ux/communicating-passkeys?hl=ko#emphasize_benefits_relevant_to_your_user_base]
+모든 단계에서 패스키에 관한 유용한 정보 표시 [https://developers.google.com/identity/passkeys/ux/communicating-passkeys?hl=ko#show_helpful_information_about_passkeys_at_every_step]
+패스키를 만드는 데 사용할 정보 [https://developers.google.com/identity/passkeys/ux/communicating-passkeys?hl=ko#what_information_to_use_to_create_a_passkey]
+계정 설정에서 패스키를 기본 옵션으로 설정 [https://developers.google.com/identity/passkeys/ux/communicating-passkeys?hl=ko#make_passkeys_a_primary_option_in_account_settings]
+패스키 콘텐츠 원칙 자세히 알아보기 [https://developers.google.com/identity/passkeys/ux/communicating-passkeys?hl=ko#learn_more_about_passkeys_content_principles]
+패스키는 비밀번호를 사용하지 않고 온라인 계정을 만들고 로그인할 수 있는 새로운 기술입니다. 더 편리하고 안전하지만 많은 사용자에게는 익숙하지 않습니다. 이 가이드라인은 사용자 환경을 개선하고 사용자가 패스키를 성공적으로 사용할 수 있도록 지원하는 콘텐츠 디자인을 만들어 이러한 문제를 해결하는 데 도움이 됩니다.
+패스키를 친숙한 개념과 연결
+패스키는 새로운 개념이므로 콘텐츠 디자인에서 가능한 한 생체 인식이나 비밀번호와 같은 친숙한 개념, 시각적 요소, 경험과 연결하세요. 사용자를 교육하고 패스키를 일반적인 용어로 만들기 위한 단계이므로 UI에서 패스키라는 용어를 명시적으로 사용하는 것이 좋습니다.
+Google의 연구에 따르면 많은 사용자가 생체 인식과 보안을 연관 짓습니다. 패스키에는 생체 인식이 필요하지 않지만 (예를 들어 기기 PIN으로 패스키를 사용할 수 있음) 생체 인식과 연결하면 더 익숙해지고 사용자가 보안 이점을 인식하는 데 도움이 될 수 있습니다. 예를 들어 Google 계정에서 패스키는 지문, 얼굴 스캔 또는 기타 기기 화면 잠금과 같이 패스키 사용을 지원하는 친숙한 보안 환경 사이에 일관되게 배치됩니다.
+Google 계정의 패스키는 지문, 얼굴 스캔 또는 기타 기기 화면 잠금과 함께 언급됩니다.
+사용자층과 관련된 혜택 강조
+사용자에게 패스키를 소개할 때는 사용자의 요구사항과 선호도에 직접 부합하는 실질적인 이점을 강조하세요.
+고유한 사용자 이름과 비밀번호를 기억할 필요가 없는 화면 잠금 기능의 속도, 사용 편의성, 친숙함과 같이 사용자층의 공감을 얻을 수 있는 이점을 강조하는 명확하고 간결한 언어를 사용하세요.
+사용자층마다 우선순위가 다를 수 있으므로 메시지를 맞춤설정하여 잠재고객과 가장 관련성이 높은 이점을 강조하세요.
+Google 계정의 패스키 UX는 속도와 편의성을 강조하며 이는 효과적인 것으로 입증되었습니다. 유사한 이점이 사용자에게도 공감을 얻을 수 있습니다.
+예를 들어 플랫폼이 전자상거래 서비스인 경우 편리성과 속도가 가장 매력적인 기능일 수 있습니다.
+민감한 정보를 처리하는 은행이나 서비스도 좋은 예입니다. 패스키가 제공하는 향상된 보안을 강조하면 사용자에게 매력적인 판매 포인트가 될 수 있습니다.
+사용자에게 가장 가치 있는 것을 신중하게 파악하고 이러한 구체적인 이점을 강조하는 메시지를 작성하세요.
+사용자 환경의 간편함을 강조하는 패스키 생성용 Google 계정 페이지
+
+
+패스키로 로그인하는 속도를 강조하는 피트니스 앱의 모형
+
+
+은행 앱의 모형입니다. 다음 이미지에는 사용자가 패스키로 업그레이드하도록 제안하는 팝업 메시지가 표시됩니다.
+모든 단계에서 패스키에 관한 유용한 정보 표시
+패스키 관련 작업의 경우 운영체제 (OS) 대화상자를 트리거하기 전에 앱 UI에 사용자에게 명확한 메시지를 표시합니다. 패스키 OS 대화상자가 완료되거나 닫힌 후 작업의 결과 상태를 표시합니다. 예를 들어 패스키를 생성할 때 OS 대화상자를 트리거하기 전에 명확한 '패스키 생성' 메시지를 사용하고 그 후에 성공 메시지를 사용합니다.
+패스키 생성 후 표시되는 성공 페이지
+이렇게 하면 웹사이트와 OS가 패스키와 함께 작동한다는 것을 알 수 있으며 사용자가 패스키를 만들고 사용하는 프로세스에 더 익숙해질 수 있습니다.
+클릭 뒤에 숨기지 않고 기본적으로 사용자 인터페이스에 패스키에 관한 유용한 정보를 표시합니다. 예를 들어 패스키가 생성된 후에도 패스키가 무엇이고 계정 설정에서 어디에 사용되는지 설명하는 텍스트를 유지합니다.
+Google 계정 내의 패스키 관리 페이지로, 유용한 정보가 강조 표시되어 있습니다.
+패스키를 만드는 데 사용할 정보
+패스키는 사용자 이름과 표시 이름으로 구성됩니다.
+사용자가 계정에 로그인할 때 사용자 이름을 사용하여 사용자를 식별합니다. 사용자가 모든 패스키를 삭제하거나 서비스에 대한 액세스 권한을 잃은 경우 이메일 주소를 계정 복구 방법으로 사용할 수 있도록 이메일 주소를 사용자 이름으로 사용하는 것이 좋습니다. 전화번호 사용과 같은 계정 복구 방법이 사용자에게 더 일반적이라면 계정 또는 패스키 생성 중에 이러한 방법을 옵션으로 포함하면 나중에 문제가 발생하지 않도록 할 수 있습니다.
+displayname은 사용자가 사용자 인증 정보 목록에서 올바른 패스키를 찾을 수 있도록 지원하는 읽기 쉬운 이름입니다. 사용자가 이해하기 쉬운 방식으로 친숙한 이름(예: 닉네임)으로 작동할 수 있습니다.
+이 목록에서 Elisa Beckett은 표시 이름이고, elisabeckett@gmail.com [mailto:elisabeckett@gmail.com]은 사용자 이름이며, 패스키 아이콘이 있습니다.
+엘리사 계정의 패스키
+계정 설정에서 패스키를 기본 옵션으로 설정
+사용자 계정 설정 내에서 사용자 이름, 비밀번호, 2단계 인증과 같은 다른 인증 항목을 표시하는 것과 동일한 방식으로 패스키를 표시합니다. 예를 들어 설정 내 다른 로그인 옵션에 H2 제목 라벨이 지정되어 있다면 '패스키'에도 H2 제목 라벨을 지정합니다.
+Google 계정 설정에는 다른 인증 옵션과 동일한 방식으로 패스키가 표시됩니다.
+패스키 콘텐츠 원칙 자세히 알아보기
+FIDO Alliance 사용자 환경 워킹 그룹은 사용자 연구를 진행하고 콘텐츠 원칙 가이드라인을 만들었습니다. FIDO UX 콘텐츠 원칙 [https://fidoalliance.org/ux-guidelines-for-passkey-creation-and-sign-ins/#content-principles]에서 자세히 알아보세요.
+도움이 되었나요?
+의견 보내기

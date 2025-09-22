@@ -1,0 +1,88 @@
+[2025-08-26] Source URL: https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+Web guides [https://developers.google.com/identity/siwg?hl=ko]
+웹용 Google 계정으로 로그인 [https://developers.google.com/identity/gsi/web/guides/overview?hl=ko]
+도움이 되었나요?
+의견 보내기
+설정
+bookmark_border
+이 페이지의 내용
+Google API 클라이언트 ID 가져오기 [https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl=ko#get_your_google_api_client_id]
+OAuth 동의 화면 구성 [https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl=ko#configure_your_oauth_consent_screen]
+로그인 시 OAuth 설정 표시 [https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl=ko#display_of_oauth_settings_during_sign-in]
+클라이언트 라이브러리 로드 [https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl=ko#load_the_client_library]
+콘텐츠 보안 정책 [https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl=ko#content_security_policy]
+교차 출처 오프너 정책 [https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl=ko#cross_origin_opener_policy]
+웹사이트에 Google 계정으로 로그인 버튼 또는 원탭 및 자동 로그인 메시지를 추가하려면 먼저 다음 단계를 따라야 합니다.
+OAuth 2.0 클라이언트 ID를 가져오고,
+OAuth 브랜딩 및 설정을 구성합니다.
+Google ID 서비스 클라이언트 라이브러리를 로드합니다.
+선택적으로 콘텐츠 보안 정책을 설정하고
+교차 출처 오프너 정책 업데이트
+참고: Google 로그인을 구성하고 백엔드에서 ID 토큰을 확인 [https://developers.google.com/identity/gsi/web/guides/verify-google-id-token?hl=ko]하려면 클라이언트 ID가 있어야 합니다. 클라이언트 ID는 다음 예와 같습니다. 1234567890-abc123def456.apps.googleusercontent.com
+Google API 클라이언트 ID 가져오기
+웹사이트에서 Google Identity Services를 사용 설정하려면 먼저 Google API 클라이언트 ID를 설정해야 합니다. 그러려면 다음 단계를 완료하세요.
+의 을 엽니다.
+프로젝트를 만들거나 선택합니다. Google 계정으로 로그인 버튼 또는 Google 원탭용 프로젝트가 이미 있는 경우 기존 프로젝트와 웹 클라이언트 ID를 사용하세요. 프로덕션 애플리케이션을 만들 때는 여러 프로젝트 [https://developers.google.com/identity/protocols/oauth2/policies?hl=ko#separate-projects]가 필요할 수 있습니다. 관리하는 각 프로젝트에 대해 이 섹션의 나머지 단계를 반복하세요.
+클라이언트 만들기를 클릭하고 애플리케이션 유형에서 웹 애플리케이션을 선택하여 새 클라이언트 ID를 만듭니다. 기존 클라이언트 ID를 사용하려면 웹 애플리케이션 유형 중 하나를 선택합니다.
+웹사이트의 URI를 승인된 JavaScript 원본에 추가합니다. URI에는 스키마와 정규화된 호스트 이름만 포함됩니다. 예를 들면 https://www.example.com입니다.
+핵심 사항: 로컬 테스트 또는 개발의 경우 http://localhost와 http://localhost:<port_number>를 모두 추가하세요.
+핵심 사항: Google 원탭은 HTTPS 도메인에만 표시할 수 있습니다.
+선택적으로 사용자 인증 정보는 JavaScript 콜백을 통하지 않고 호스팅하는 엔드포인트로 리디렉션을 사용하여 반환될 수 있습니다. 이 경우 리디렉션 URI를 승인된 리디렉션 URI에 추가합니다. 리디렉션 URI에는 스키마, 정규화된 호스트 이름, 경로가 포함되며 리디렉션 URI 유효성 검사 규칙 [https://developers.google.com/identity/protocols/oauth2/web-server?hl=ko#uri-validation]을 준수해야 합니다. 예를 들면 https://www.example.com/auth-receiver입니다.
+data-client_id [https://developers.google.com/identity/gsi/web/reference/html-reference?hl=ko#data-client_id] 또는 client_id [https://developers.google.com/identity/gsi/web/reference/js-reference?hl=ko#client_id] 필드를 사용하여 웹 앱에 클라이언트 ID를 포함합니다.
+핵심 사항: http 및 localhost를 사용하여 테스트할 때 웹 앱에서 Referrer-Policy [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy] 헤더를 Referrer-Policy: no-referrer-when-downgrade로 설정하세요.
+OAuth 동의 화면 구성
+Google로 로그인과 원탭 인증에는 사용자에게 데이터 액세스를 요청하는 애플리케이션, 요청되는 데이터의 종류, 적용되는 약관을 알려주는 동의 화면이 포함되어 있습니다.
+의 Google 인증 플랫폼 섹션에서 을 엽니다.
+메시지가 표시되면 방금 만든 프로젝트를 선택합니다.
+에서 양식을 작성하고 '저장' 버튼을 클릭합니다.
+애플리케이션 이름: 동의를 요청하는 애플리케이션의 이름입니다. 이름은 애플리케이션을 정확하게 반영해야 하며 사용자가 다른 곳에서 보는 애플리케이션 이름과 일치해야 합니다.
+애플리케이션 로고: 이 이미지는 사용자가 앱을 인식할 수 있도록 동의 화면에 표시됩니다. 로고는 Google로 로그인 동의 화면과 계정 설정 [https://myaccount.google.com/permissions?hl=ko]에 표시되지만 원탭 대화상자에는 표시되지 않습니다.
+지원 이메일: 사용자 지원을 위한 동의 화면과 사용자의 애플리케이션 액세스를 평가하는 Google Workspace 관리자에게 표시됩니다. 이 이메일 주소는 사용자가 애플리케이션 이름을 클릭할 때 Google로 로그인 동의 화면에 사용자에게 표시됩니다.
+승인된 도메인: 나와 내 사용자를 보호하기 위해 Google에서는 OAuth를 사용하여 인증하는 애플리케이션만 승인된 도메인을 사용할 수 있도록 허용합니다. 애플리케이션의 링크는 승인된 도메인에서 호스팅되어야 합니다. 자세히 알아보기 [https://support.google.com/cloud/answer/6158849?hl=ko#authorized-domains]
+애플리케이션 홈페이지 링크: 'Google 계정으로 로그인' 동의 화면과 '계속' 버튼 아래에 있는 원탭 GDPR 준수 면책 조항 정보에 표시됩니다. 승인된 도메인에서 호스팅해야 합니다.
+애플리케이션 개인정보처리방침 링크: '다음 계정으로 계속' 버튼 아래에 있는 Google로 로그인 동의 화면 및 원탭 GDPR 준수 면책 조항 정보에 표시됩니다. 승인된 도메인에서 호스팅해야 합니다.
+애플리케이션 서비스 약관 링크 (선택사항): 'Google로 로그인' 동의 화면과 '계속' 버튼 아래의 원탭 GDPR 규정 준수 면책 조항 정보에 표시됩니다. 승인된 도메인에서 호스팅해야 합니다.
+로 이동하여 앱의 범위를 구성합니다.
+Google API 범위: 범위를 사용하면 애플리케이션이 사용자의 비공개 데이터에 액세스할 수 있습니다. 인증에는 기본 범위 (이메일, 프로필, openid)가 충분하므로 민감한 범위를 추가하지 않아도 됩니다. 일반적으로 액세스가 필요한 시점에 미리 요청하는 대신 점진적으로 범위를 요청 [https://developers.google.com/identity/protocols/oauth2/web-server?hl=ko#incrementalAuth]하는 것이 좋습니다.
+'인증 상태'를 확인합니다. 애플리케이션에 인증이 필요한 경우 '인증을 위해 제출' 버튼을 클릭하여 인증을 위해 애플리케이션을 제출합니다. 자세한 내용은 OAuth 인증 요구사항 [https://support.google.com/cloud/answer/9110914?hl=ko]을 참고하세요.
+로그인 시 OAuth 설정 표시
+--- 탭: FedCM을 사용하는 원탭 [https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl=ko#fedcm%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9B%90%ED%83%AD] ---
+최상위 승인된 도메인은 Chrome에서 사용자 동의 중에 표시됩니다. 교차 출처이지만 동일한 사이트 [https://web.dev/articles/same-site-same-origin?hl=ko] iframe에서만 원탭을 사용하는 것은 지원되는 [https://developers.google.com/identity/gsi/web/amp/intermediate-iframe?hl=ko#cross-origin-iframe] 방법입니다.
+
+--- 탭: FedCM이 없는 원탭 [https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid?hl=ko#fedcm%EC%9D%B4-%EC%97%86%EB%8A%94-%EC%9B%90%ED%83%AD] ---
+애플리케이션 이름은 사용자 동의 중에 표시됩니다.
+그림 1. Chrome에서 원탭으로 표시되는 OAuth 동의 설정
+클라이언트 라이브러리 로드
+사용자가 로그인할 수 있는 페이지에 Google ID 서비스 클라이언트 라이브러리를 로드해야 합니다. 다음 코드 스니펫을 사용합니다.
+<script src="https://accounts.google.com/gsi/client" async></script>
+async 속성으로 스크립트를 로드하면 페이지 로드 속도를 최적화할 수 있습니다.
+라이브러리에서 지원하는 메서드 및 속성 목록은 HTML [https://developers.google.com/identity/gsi/web/reference/html-reference?hl=ko] 및 JavaScript [https://developers.google.com/identity/gsi/web/reference/js-reference?hl=ko] API 참조를 참고하세요.
+콘텐츠 보안 정책
+선택사항이지만 콘텐츠 보안 정책 [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy]을 사용하여 앱을 보호하고 교차 사이트 스크립팅 (XSS) 공격을 방지하는 것이 좋습니다. 자세한 내용은 CSP 소개 [https://csp.withgoogle.com/docs/index.html] 및 CSP 및 XSS [https://web.dev/csp/?hl=ko]를 참고하세요.
+콘텐츠 보안 정책에는 connect-src, frame-src, script-src, style-src, default-src와 같은 하나 이상의 지시어가 포함될 수 있습니다.
+CSP에 다음이 포함된 경우:
+connect-src 지시문에 https://accounts.google.com/gsi/를 추가하여 페이지가 Google ID 서비스 서버 측 엔드포인트의 상위 URL을 로드하도록 허용합니다.
+frame-src 지시문에 https://accounts.google.com/gsi/를 추가하여 One Tap 및 Google 계정으로 로그인 버튼 iframe의 상위 URL을 허용합니다.
+script-src 지시어를 사용하고 Google ID 서비스 JavaScript 라이브러리의 URL을 허용하려면 https://accounts.google.com/gsi/client를 추가합니다.
+style-src 지시문에 https://accounts.google.com/gsi/style를 추가하여 Google ID 서비스 스타일시트의 URL을 허용합니다.
+default-src 지시어는 사용되는 경우 앞의 지시어 (connect-src, frame-src, script-src 또는 style-src)가 지정되지 않은 경우 대체로 사용되며, https://accounts.google.com/gsi/를 추가하여 페이지가 Google ID 서비스 서버 측 엔드포인트의 상위 URL을 로드하도록 허용합니다.
+connect-src를 사용하는 경우 개별 GIS URL을 나열하지 마세요. 이렇게 하면 GIS가 업데이트될 때 오류를 최소화할 수 있습니다. 예를 들어 https://accounts.google.com/gsi/status를 추가하는 대신 GIS 상위 URL https://accounts.google.com/gsi/를 사용합니다.
+이 예시 응답 헤더를 사용하면 Google Identity Services가 성공적으로 로드되고 실행될 수 있습니다.
+Content-Security-Policy-Report-Only: script-src
+https://accounts.google.com/gsi/client; frame-src
+https://accounts.google.com/gsi/; connect-src https://accounts.google.com/gsi/;
+교차 출처 오프너 정책
+팝업을 성공적으로 만들려면 Google로 로그인 버튼과 Google 원탭에 Cross-Origin-Opener-Policy [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy] (COOP)을 변경해야 할 수 있습니다.
+FedCM이 사용 설정된 경우 [https://developers.google.com/identity/gsi/web/guides/supported-browsers?hl=ko#compatibility] 브라우저에서 팝업을 직접 렌더링하므로 변경이 필요하지 않습니다.
+하지만 FedCM이 사용 중지된 경우 COOP 헤더를 설정합니다.
+same-origin 및
+same-origin-allow-popups를 포함합니다.
+적절한 헤더를 설정하지 않으면 창 간 통신이 중단되어 빈 팝업 창 [https://github.com/google/google-api-javascript-client/issues/796] 또는 유사한 버그가 발생합니다.
+도움이 되었나요?
+의견 보내기

@@ -1,0 +1,42 @@
+[2025-07-25] Source URL: https://developers.google.com/identity/account-linking/error-logs-monitoring
+
+이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
+Switch to English
+홈 [https://developers.google.com/?hl=ko]
+제품 [https://developers.google.com/products?hl=ko]
+Google Identity [https://developers.google.com/identity?hl=ko]
+승인 [https://developers.google.com/identity/protocols/oauth2?hl=ko]
+Authorization Resources [https://developers.google.com/identity/protocols/oauth2/resources/best-practices?hl=ko]
+의견 보내기
+Google Console 프로젝트에서 계정 연결 오류 모니터링
+bookmark_border
+이 페이지의 내용
+계정 연결 오류 필터링 [https://developers.google.com/identity/account-linking/error-logs-monitoring?hl=ko#filtering_for_account_linking_errors]
+오류 데이터의 콘텐츠 [https://developers.google.com/identity/account-linking/error-logs-monitoring?hl=ko#content_of_the_error_data]
+Google은 계정 연결 프로세스 중에 OAuth2 엔드포인트를 호출합니다. 이러한 호출은 여러 가지 이유로 실패할 수 있습니다. 이러한 오류에 관한 자세한 정보가 로깅되며 Cloud 콘솔 프로젝트의 로그 탐색기 페이지 [https://console.cloud.google.com/logs/query?hl=ko]에서 모니터링할 수 있습니다.
+계정 연결 오류 필터링
+로그 탐색기 페이지 [https://console.cloud.google.com/logs/query?hl=ko]에서 쿼리 필터를 다음과 같이 설정하고 쿼리 실행 버튼을 클릭합니다.
+리소스: Actions on Google 콘솔 [https://console.actions.google.com/?hl=ko]을 통해 프로젝트를 만든 경우 Google 어시스턴트 작업 프로젝트를 선택하고, 그렇지 않으면 Google 프로젝트 옵션을 선택하세요.
+로그 이름: Google 계정 연결 오류 옵션을 선택합니다.
+심각도: 오류로 설정합니다. 모든 계정 연결 항목은 오류로 분류됩니다.
+다음 스크린샷과 같이 로그 탐색기 페이지 상단의 기간을 업데이트하여 날짜별로 필터링할 수도 있습니다.
+그림 1. 로그 탐색기 쿼리 필터
+로그 탐색기를 사용하는 방법에 관한 자세한 내용은 로그 탐색기 문서 [https://cloud.google.com/logging/docs/view/logs-viewer-preview?hl=ko]를 참고하세요.
+오류 데이터의 콘텐츠
+계정 연결 오류 데이터는 오류 항목의 jsonPayload 속성에 포함되어 있습니다. 데이터에는 다음 필드가 포함됩니다.
+@type (String): 항상 type.googleapis.com/google.identity.accountlinking.type.AccountLinkingError로 설정합니다.
+step (String): 오류가 발생한 연결 단계입니다. 다음 값 중 하나로 설정합니다.
+ACCOUNT_LINKING_STEP_UNDEFINED: 정의되지 않은 단계입니다.
+AUTH_CODE_EXCHANGE: 인증 코드를 액세스 또는 갱신 토큰으로 교환하는 단계입니다.
+REFRESH_ACCESS_TOKEN: 액세스 토큰을 새로고침하는 단계입니다.
+TOKEN_REVOCATION: 토큰을 취소하는 단계입니다.
+USERINFO: 액세스 토큰으로 사용자 정보를 가져오는 단계입니다.
+ASSERTION: 어설션으로 링크를 만드는 단계입니다.
+response (String, optional): HTTP 응답을 나타냅니다.
+status: HTTP 응답 상태입니다.
+body: 오류 설명 및 오류 문자열입니다.
+request (String, optional): HTTP 요청을 나타내며 메서드, 본문, URI, 헤더와 같은 HTTP 요청 매개변수를 포함합니다.
+request 및 response 필드는 로그 뷰어에서 2개의 서로 다른 항목으로 분리되는 경우가 있으므로 선택사항입니다.
+Google 계정 연결 OAuth 서버 [https://developers.google.com/identity/account-linking/oauth-linking?oauth=code&hl=ko#implement_your_oauth_server] 및 간소화된 Google 계정 연결 OAuth 서버 [https://developers.google.com/identity/account-linking/oauth-with-sign-in-linking?hl=ko#implement_your_oauth_server]를 구현할 때는 다양한 상태에 특정 HTTP 응답 코드를 사용해야 합니다. 반환하는 값은 문서에 나열된 올바른 상태와 일치해야 합니다.
+참고: 가능한 응답 코드 및 정의에 관한 자세한 내용은 HTTP 상태 코드 정의 [https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html]를 참고하세요.
+의견 보내기

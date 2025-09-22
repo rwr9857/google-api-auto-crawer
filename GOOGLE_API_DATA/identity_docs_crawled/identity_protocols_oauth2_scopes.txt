@@ -1,4 +1,4 @@
-Source URL: https://developers.google.com/identity/protocols/oauth2/scopes
+[2025-08-08] Source URL: https://developers.google.com/identity/protocols/oauth2/scopes
 
 이 페이지는 Cloud Translation API [https://cloud.google.com/translate/?hl=ko]를 통해 번역되었습니다.
 Switch to English
