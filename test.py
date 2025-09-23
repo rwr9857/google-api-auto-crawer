@@ -88,13 +88,15 @@ embeddings = HuggingFaceEmbeddings(
     model_kwargs={"device": device},
     encode_kwargs={"normalize_embeddings": True},
 )
-query_vec = embeddings.embed_query("map")
+query_vec = embeddings.embed_query("bigquery insert")
 
 collection_url = f"{BASE_URL}/tenants/{TENANT_NAME}/databases/{DATABASE_NAME}/collections/{collection_id}"
 
 res = requests.post(
     f"{collection_url}/query",
     json={
+        # "where": {"$or": [{"tags": {"$contains": "bigquery"}}]},
+        # "where_document": {"$contains": "bigquery"},
         "query_embeddings": [query_vec],
         "n_results": 1,
         "include": ["documents", "metadatas", "distances"],
@@ -138,8 +140,8 @@ for i, (doc, meta, dist) in enumerate(
 # 텍스트 기반 검색
 # ===============================
 payload = {
-    # "where": "map",
-    # "where_document": '{"$contains": "map"}',
+    "where": {"$or": [{"tags": {"$contains": "bigquery"}}]},
+    "where_document": {"$contains": "bigquery"},
     # "ids": ["string"],
     "include": ["metadatas", "documents", "distances"],
     "limit": 10,
