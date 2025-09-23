@@ -115,7 +115,9 @@ class GoogleAPIDocumentProcessor:
         """임베딩 모델 초기화"""
         if self.embedding_model is None:
             device = self._get_device()
-            print(f"임베딩 모델 초기화 ({self.embedding_model_name}, device={device})...")
+            print(
+                f"임베딩 모델 초기화 ({self.embedding_model_name}, device={device})..."
+            )
             self.embedding_model = HuggingFaceEmbeddings(
                 model_name=self.embedding_model_name,
                 model_kwargs={"device": device},
