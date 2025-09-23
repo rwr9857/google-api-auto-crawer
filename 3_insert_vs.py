@@ -17,7 +17,7 @@ class GoogleAPIDocumentProcessor:
     def __init__(
         self,
         api_data_dir: str = "./GOOGLE_API_DATA",
-        db_dir: str = "./chroma_db",
+        db_dir: str = "./chroma_text_api",
         collection_name: str = "google_api_docs",
         embedding_model_name: str = "BAAI/bge-m3",
     ):

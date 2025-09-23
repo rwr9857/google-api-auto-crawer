@@ -3,7 +3,7 @@ import chromadb
 COLLECTION_NAME = "google_api_docs"
 TAGS = ["google_identity", "youtube", "gmail", "calendar"]
 
-client = chromadb.PersistentClient(path="./chroma_db")
+client = chromadb.PersistentClient(path="./chroma_text_api")
 collection = client.get_or_create_collection(name=COLLECTION_NAME)
 
 # 전체 메타데이터 조회
