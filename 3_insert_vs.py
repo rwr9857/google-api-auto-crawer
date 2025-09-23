@@ -3,7 +3,7 @@ import torch
 from pathlib import Path
 from typing import List, Optional
 from tqdm import tqdm
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.docstore.document import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -152,7 +152,6 @@ class GoogleAPIDocumentProcessor:
         ):
             self.vectorstore.add_documents(batch)
 
-        self.vectorstore.persist()
         print(f"벡터 저장소 생성 완료: {self.db_dir}")
         print(f"저장된 문서 수: {self.vectorstore._collection.count()}")
 
