@@ -92,13 +92,31 @@ query_vec = embeddings.embed_query("bigquery insert")
 
 collection_url = f"{BASE_URL}/tenants/{TENANT_NAME}/databases/{DATABASE_NAME}/collections/{collection_id}"
 
+# where은 메타데이터 필터링 조건
+# 예시) "where": {"tags": "bigquery"}
+# 의미) metadata["tags"] == "bigquery" 인 애들만 검색
+
+# where은 몽고 쿼리 문법을 따름
+# 예시) "where": {"$or": [{"tags": {"$contains": "bigquery"}}]},
+# 의미) metadata["tags"]에 "bigquery"가 포함된 애들만 검색
+
+# where_document는 문서 내용 기반 필터링 조건
+# 예시) "where_document": {"$contains": "bigquery"}
+# 의미) 문서 내용에 "bigquery"가 포함된 애들만 검색
+# (이 조건을 쓰지 않으면 컬렉션 전체에서 임베딩 유사도 검색)
+
+# query_embeddings: 임베딩 벡터 리스트
+# n_results: 각 쿼리 벡터당 검색할 결과 수
+# include: 응답에 포함할 필드 지정 (documents, metadatas, ids, distances)
+
 res = requests.post(
     f"{collection_url}/query",
     json={
         # "where": {"$or": [{"tags": {"$contains": "bigquery"}}]},
+        "where": {"tags": "bigquery"},
         # "where_document": {"$contains": "bigquery"},
         "query_embeddings": [query_vec],
-        "n_results": 1,
+        "n_results": 10,
         "include": ["documents", "metadatas", "distances"],
     },
 )
@@ -132,12 +150,12 @@ for i, (doc, meta, dist) in enumerate(
         f"\n[{i}] 거리: {dist:.4f}, 파일: {meta.get('source_file')}, 청크 ID: {meta.get('chunk_id')}"
     )
     print(f"태그: {meta.get('tags')}, 원본 URL: {meta.get('source')}")
-    print("내용:\n", doc)
+    # print("내용:\n", doc)
     print("-" * 60)
 
 
 # ===============================
-# 텍스트 기반 검색
+# 텍스트 기반 검색 (실패)
 # ===============================
 payload = {
     "where": {"$or": [{"tags": {"$contains": "bigquery"}}]},
