@@ -59,8 +59,6 @@ class GoogleAPIDocumentProcessor:
         """가장 적합한 디바이스 선택"""
         if torch.cuda.is_available():
             return "cuda"
-        if torch.backends.mps.is_available():
-            return "mps"
         return "cpu"
 
     # ============================================================

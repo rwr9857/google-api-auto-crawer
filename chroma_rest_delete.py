@@ -33,14 +33,16 @@ print("삭제 후 남은 문서:", len(res["ids"]))
 """
 
 
-res = collection.get(where={
-    "$or": [
-        {"tags": "google_identity"},
-        {"tags": "youtube"},
-        {"tags": "gmail"},
-        {"tags": "calendar"}
-    ]
-})
+res = collection.get(
+    where={
+        "$or": [
+            {"tags": "google_identity"},
+            {"tags": "youtube"},
+            {"tags": "gmail"},
+            {"tags": "calendar"},
+        ]
+    }
+)
 
 print("삭제 전 문서 개수:", len(res["ids"]))
 
@@ -51,18 +53,20 @@ collection.delete(
             {"tags": "google_identity"},
             {"tags": "youtube"},
             {"tags": "gmail"},
-            {"tags": "calendar"}
+            {"tags": "calendar"},
         ]
     }
 )
 
-res = collection.get(where={
+res = collection.get(
+    where={
         "$or": [
             {"tags": "google_identity"},
             {"tags": "youtube"},
             {"tags": "gmail"},
-            {"tags": "calendar"}
+            {"tags": "calendar"},
         ]
-    })
+    }
+)
 
 print("삭제 후 남은 문서:", len(res["ids"]))
