@@ -78,8 +78,6 @@ print("=" * 50)
 # ===============================
 if torch.cuda.is_available():
     device = "cuda"
-elif torch.backends.mps.is_available():
-    device = "mps"
 else:
     device = "cpu"
 
@@ -152,30 +150,3 @@ for i, (doc, meta, dist) in enumerate(
     print(f"태그: {meta.get('tags')}, 원본 URL: {meta.get('source')}")
     # print("내용:\n", doc)
     print("-" * 60)
-
-
-# ===============================
-# 텍스트 기반 검색 (실패)
-# ===============================
-payload = {
-    "where": {"$or": [{"tags": {"$contains": "bigquery"}}]},
-    "where_document": {"$contains": "bigquery"},
-    # "ids": ["string"],
-    "include": ["metadatas", "documents", "distances"],
-    "limit": 10,
-    "offset": 10,
-}
-
-res = requests.post(f"{collection_url}/get", json=payload)
-res.raise_for_status()
-
-result = res.json()
-print(f"\n\n✅ 텍스트 기반 검색 결과 (총 {result.get('count', 0)}개):")
-
-for i, query in enumerate(result.get("results", []), 1):
-    print(f"=== Query #{i} ===")
-    for j, doc in enumerate(query.get("documents", []), 1):
-        metadata = query.get("metadatas", [])[j - 1] if query.get("metadatas") else {}
-        print(f"[{j}] 파일: {metadata.get('source_file')}")
-        print("내용:\n", doc)
-        print("-" * 60)
