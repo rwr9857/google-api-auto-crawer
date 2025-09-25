@@ -18,21 +18,21 @@ CONFIGS = {
         "PATTERNS": ["developers.google.com/identity"],
         "OUTPUT_DIR": "GOOGLE_API_DATA/google_identity_docs_crawled",
     },
-    "youtube": {
-        "START_URL": "/youtube/v3/getting-started?hl=ko",
-        "PATTERNS": ["developers.google.com/youtube", "/v3/"],
-        "OUTPUT_DIR": "GOOGLE_API_DATA/youtube_docs_crawled",
-    },
-    "gmail": {
-        "START_URL": "/workspace/gmail/api/auth/scopes?hl=ko",
-        "PATTERNS": ["developers.google.com/workspace/gmail"],
-        "OUTPUT_DIR": "GOOGLE_API_DATA/gmail_docs_crawled",
-    },
-    "calendar": {
-        "START_URL": "/workspace/calendar/api/v3/reference?hl=ko",
-        "PATTERNS": ["developers.google.com/workspace/calendar"],
-        "OUTPUT_DIR": "GOOGLE_API_DATA/calendar_docs_crawled",
-    },
+    # "youtube": {
+    #     "START_URL": "/youtube/v3/getting-started?hl=ko",
+    #     "PATTERNS": ["developers.google.com/youtube", "/v3/"],
+    #     "OUTPUT_DIR": "GOOGLE_API_DATA/youtube_docs_crawled",
+    # },
+    # "gmail": {
+    #     "START_URL": "/workspace/gmail/api/auth/scopes?hl=ko",
+    #     "PATTERNS": ["developers.google.com/workspace/gmail"],
+    #     "OUTPUT_DIR": "GOOGLE_API_DATA/gmail_docs_crawled",
+    # },
+    # "calendar": {
+    #     "START_URL": "/workspace/calendar/api/v3/reference?hl=ko",
+    #     "PATTERNS": ["developers.google.com/workspace/calendar"],
+    #     "OUTPUT_DIR": "GOOGLE_API_DATA/calendar_docs_crawled",
+    # },
 }
 
 BASE_URL = "https://developers.google.com"

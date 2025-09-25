@@ -1,7 +1,8 @@
 import chromadb
 
 COLLECTION_NAME = "qna_collection"
-TAGS = ["google_identity", "youtube", "gmail", "calendar"]
+# TAGS = ["google_identity", "youtube", "gmail", "calendar"]
+TAGS = ["google_identity"]
 
 client = chromadb.PersistentClient(path="./chroma_qa_db")
 collection = client.get_or_create_collection(name=COLLECTION_NAME)
